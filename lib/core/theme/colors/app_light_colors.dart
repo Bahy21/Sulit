@@ -6,7 +6,7 @@ class AppLightColors extends AppColors {
 
 
   @override
-  Color get primary => const Color(0xFFF9656B);
+  Color get primary => const Color(0xFFc91d1d);
 
   @override
   Color get secondary => const Color(0xff30e3a0);

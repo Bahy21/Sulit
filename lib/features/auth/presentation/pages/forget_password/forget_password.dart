@@ -1,4 +1,4 @@
-part of'forget_password_imports.dart';
+part of 'forget_password_imports.dart';
 
 class ForgetPassword extends StatefulWidget {
   const ForgetPassword({Key? key}) : super(key: key);
@@ -8,20 +8,26 @@ class ForgetPassword extends StatefulWidget {
 }
 
 class _ForgetPasswordState extends State<ForgetPassword> {
-  final ForgetPasswordController controller = ForgetPasswordController();
+  final ForgetPasswordController forgetPasswordController =
+      ForgetPasswordController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: BuildAuthAppBar(),
-      body: ListView(padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+      appBar: const BuildAuthAppBar(),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 16).r,
+        child: Column(
           children: [
-            BuildHeaderTitle(
-              title: "Reset your password",
-              subTitle: "In order for us to be able to reset your password, please Enter your phone number below",
+           const  BuildHeaderLogo(),
+            const BuildHeaderTitle(
+              title: "Forgot Password ?",
+              subTitle: "Enter your email address to recover your password.",
             ),
-            BuildForgetForm(controller: controller,),
-            BuildForgetPasswordButton(controller: controller,),
+            BuildForgetForm( forgetPasswordController: forgetPasswordController,),
+            BuildForgetPasswordButton(forgetPasswordController: forgetPasswordController),
           ],
+        ),
       ),
     );
   }

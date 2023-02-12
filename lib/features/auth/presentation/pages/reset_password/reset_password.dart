@@ -18,7 +18,6 @@ class _ResetPasswordState extends State<ResetPassword> {
         children: [
           BuildHeaderTitle(
             title: "Set new password",
-            subTitle: "In order for us to be able to reset your password, please Enter your phone number below",
           ),
           ResetPasswordForm(controller: controller),
           ResetPasswordButton(controller: controller,),

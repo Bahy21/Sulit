@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_tdd/core/constants/gaps.dart';
 import 'package:flutter_tdd/core/theme/colors/colors_extension.dart';
 import 'package:flutter_tdd/core/theme/text/app_text_style.dart';
 
@@ -10,7 +12,7 @@ class BuildHeaderTitle extends StatelessWidget {
   const BuildHeaderTitle({
     Key? key,
     required this.title,
-    required this.subTitle,
+     this.subTitle="",
   }) : super(key: key);
 
   @override
@@ -22,13 +24,13 @@ class BuildHeaderTitle extends StatelessWidget {
           title,
           style: AppTextStyle.s20_w500(color: context.colors.black),
         ),
-        Padding(
-          padding: const EdgeInsets.only(top: 15, bottom: 40),
+        subTitle!=""?Padding(
+          padding: const EdgeInsets.only(top: 15, bottom: 30).r,
           child: Text(
             subTitle,
-            style: AppTextStyle.s16_w500(color: context.colors.blackOpacity),
+            style: AppTextStyle.s16_w400(color: context.colors.blackOpacity),
           ),
-        ),
+        ):Gaps.empty,
       ],
     );
   }

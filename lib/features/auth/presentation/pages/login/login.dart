@@ -17,20 +17,23 @@ class _LoginState extends State<Login> {
       appBar: const BuildAuthAppBar(showBack: false),
       body: GestureDetector(
         onTap: FocusScope.of(context).unfocus,
-        child: ListView(
-          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
-          children: [
-            Text(
-               "Welcome back",
-              style: AppTextStyle.s20_w500(color: context.colors.black),
-            ),
-            Gaps.vGap20,
-            BuildLoginForm(controller: controller),
-            BuildLoginButton(controller: controller),
-            const BuildForgetPasswordView(),
-            const Divider(height: 30),
-            BuildLoginSocialMedia(controller: controller),
-          ],
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.symmetric(horizontal: 16 ).r,
+         child: Column(
+           children: [
+             const BuildHeaderLogo(),
+             Gaps.vGap20,
+             const BuildHeaderTitle(title: "Login to your account"),
+             Gaps.vGap20,
+             BuildLoginForm(controller: controller),
+             const BuildForgetPasswordView(),
+             BuildLoginButton(controller: controller),
+             Gaps.vGap10,
+             BuildLoginSocialMedia(controller: controller),
+             Gaps.vGap20,
+             const BuildDoNotHaveAccount()
+           ],
+         ),
         ),
       ),
     );

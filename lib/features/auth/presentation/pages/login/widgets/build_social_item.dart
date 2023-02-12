@@ -23,7 +23,7 @@ class BuildSocialItem extends StatelessWidget {
       ),
       child: Row(
         children: [
-          SvgPicture.asset(icon, width: 20,height: 20,),
+
           Gaps.hGap15,
           Text(title, style: AppTextStyle.s14_w400(color: context.colors.black),)
         ],

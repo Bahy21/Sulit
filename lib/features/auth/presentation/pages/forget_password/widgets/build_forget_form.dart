@@ -1,24 +1,21 @@
 part of'forget_password_widgets_imports.dart';
 
 class BuildForgetForm extends StatelessWidget {
-  final ForgetPasswordController controller;
-  const BuildForgetForm({Key? key,required this.controller}) : super(key: key);
+  final ForgetPasswordController forgetPasswordController;
+  const BuildForgetForm({Key? key,required this.forgetPasswordController}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: controller.formKey,
+      key: forgetPasswordController.formKey,
       child: GenericTextField(
+        contentPadding: const EdgeInsets.symmetric(vertical: 10,horizontal: 16).r,
+        controller: forgetPasswordController.email,
         fieldTypes: FieldTypes.normal,
-        type: TextInputType.phone,
+        type: TextInputType.emailAddress,
         action: TextInputAction.next,
-        validate: (value) => value?.validatePhone(),
-        label: "Phone Number",
-        prefixIcon: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: SvgPicture.asset(Res.mobile),
-        ),
-        onChange: controller.onChangePhone,
+        validate: (value) => value?.validateEmail(),
+        label: tr("mail"),
       ),
     );
   }

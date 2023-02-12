@@ -25,7 +25,6 @@ class _ActiveAccountState extends State<ActiveAccount> {
         children: [
           const BuildHeaderTitle(
             title: "Enter your security code",
-            subTitle: "In order for us to be able to reset your password, please enter your phone number below.",
           ),
           BuildPinField(
             onComplete: controller.onComplete,

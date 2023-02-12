@@ -7,6 +7,8 @@ part of 'router_imports.dart';
     AdaptiveRoute(page: Login),
     AdaptiveRoute(page: ActiveAccount),
     AdaptiveRoute(page: ResetPassword),
+    AdaptiveRoute(page: Register),
+    AdaptiveRoute(page: RegisterShop),
     AdaptiveRoute(page: ForgetPassword),
     AdaptiveRoute(page: Terms),
     AdaptiveRoute(page: LocationAddress),
