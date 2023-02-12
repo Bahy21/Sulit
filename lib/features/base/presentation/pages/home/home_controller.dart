@@ -1,21 +1,23 @@
 part of 'home_imports.dart';
 
 class HomeController {
-
   final GenericBloc<int> homeTabCubit = GenericBloc(0);
   late AnimationController animationController;
   late TabController tabController;
   late Animation<double> animation;
   late CurvedAnimation curve;
 
+
   List<IconData> tabs = [
     Icons.home,
-    Icons.map_outlined,
-    Icons.face,
+    Icons.list,
+    Icons.notifications,
+    Icons.account_circle
   ];
+  List<String> tabsText = ["Home", "Categories", "Notifications", "Account"];
 
   void initBottomNavigation(TickerProvider ticker) {
-    tabController = TabController(length: 3, vsync: ticker);
+    tabController = TabController(length: 4, vsync: ticker);
   }
 
   void animateTabsPages(int index, BuildContext context) {
@@ -24,5 +26,4 @@ class HomeController {
       tabController.animateTo(index);
     }
   }
-
 }

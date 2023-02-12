@@ -1,0 +1,40 @@
+part of 'home_main_imports.dart';
+
+class HomeMain extends StatefulWidget {
+  const HomeMain({Key? key}) : super(key: key);
+
+  @override
+  State<HomeMain> createState() => _HomeMainState();
+}
+
+class _HomeMainState extends State<HomeMain> {
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const BuildHomeMainAppBar(),
+            Flexible(
+              child: ListView(
+                children: [
+                  const BuildHomeSwiper(),
+                  const BuildFlashSaleCounter(),
+                  DefaultButton(
+                    margin:
+                        const EdgeInsets.only(bottom: 10, left: 16, right: 16)
+                            .r,
+                    onTap: () {},
+                    title: "View More",
+                  ),
+                  const BuildHomeListProducts()
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

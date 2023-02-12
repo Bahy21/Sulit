@@ -7,22 +7,36 @@ class Home extends StatefulWidget {
   State<StatefulWidget> createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeState extends State<Home> with TickerProviderStateMixin {
   final HomeController controller = HomeController();
 
   @override
   void initState() {
+    controller.initBottomNavigation(this);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const DefaultAppBar(title: "Home"),
-      body: ListView(
-        children: [
-
-        ],
+    return DefaultTabController(
+      length: 4,
+      child: Scaffold(
+        body: TabBarView(
+          physics: const NeverScrollableScrollPhysics(),
+          children: [
+            const HomeMain(),
+            Container(),
+            Container(),
+            Container(),
+          ],
+        ),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: context.colors.primary,
+          onPressed: () {},
+          child: const Icon(Icons.shopping_cart),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        bottomNavigationBar: BuildBottomNavBar(controller: controller),
       ),
     );
   }

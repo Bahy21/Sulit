@@ -30,4 +30,8 @@ class AppDarkColors extends AppColors {
   @override
   Color get disableGray=> Colors.black38;
 
+  @override
+  // TODO: implement gray
+  Color get gray => Colors.white70;
+
 }
