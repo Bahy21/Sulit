@@ -25,15 +25,10 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: context.colors.background,
-      body: Center(
-        child: TextAnimator(
-          'Base Structure',
-          initialDelay: const Duration(milliseconds: 1000),
-          style: AppTextStyle.s32_w700(color: context.colors.black),
-          incomingEffect: WidgetTransitionEffects.incomingScaleDown(
-            duration: const Duration(milliseconds: 600),
-          ),
+      body: Container(
+        color: context.colors.white,
+        child: Center(
+          child:  Image.asset(Res.suliitLogo, width: 200, height: 200),
         ),
       ),
     );

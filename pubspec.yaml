@@ -132,6 +132,7 @@ flutter:
     - assets/images/password.svg
     - assets/lang/ar.json
     - assets/lang/en.json
+    - assets/images/suliitLogo.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
