@@ -8,31 +8,38 @@ class HomeMain extends StatefulWidget {
 }
 
 class _HomeMainState extends State<HomeMain> {
+  HomeMainController controller = HomeMainController();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const BuildHomeMainAppBar(),
-            Flexible(
-              child: ListView(
-                children: [
-                  const BuildHomeSwiper(),
-                  const BuildFlashSaleCounter(),
-                  DefaultButton(
-                    margin:
-                        const EdgeInsets.only(bottom: 10, left: 16, right: 16)
-                            .r,
-                    onTap: () {},
-                    title: "View More",
-                  ),
-                  const BuildHomeListProducts()
-                ],
+      child: GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        child: Scaffold(
+          body: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              BuildHomeMainAppBar(
+                controller: controller,
               ),
-            ),
-          ],
+              Flexible(
+                child: ListView(
+                  children: [
+                    const BuildHomeSwiper(),
+                    const BuildFlashSaleCounter(),
+                    DefaultButton(
+                      margin:
+                          const EdgeInsets.only(bottom: 10, left: 16, right: 16)
+                              .r,
+                      onTap: () {},
+                      title: "View More",
+                    ),
+                    const BuildHomeListProducts()
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
