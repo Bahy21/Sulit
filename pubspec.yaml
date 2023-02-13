@@ -84,6 +84,7 @@ dependencies:
   animated_bottom_navigation_bar: ^1.1.0
   card_swiper: ^2.0.4
   flutter_rating_bar: ^4.0.1
+  flutter_bounce: ^1.1.0
 
 
 

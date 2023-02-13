@@ -40,13 +40,14 @@ class Gaps {
 
   static Widget vGap(double value) => SizedBox(height: value);
 
-  static const Widget line = Divider();
+  static Widget line(Color color, double height) =>
+      Divider(color: color, height: height);
 
-  static const Widget vLine = SizedBox(
-    width: 0.6,
-    height: 24.0,
-    child: VerticalDivider(),
-  );
+  static Widget vLine(Color color, double height) => SizedBox(
+        width: 0.6,
+        height:height,
+        child: VerticalDivider(color: color),
+      );
 
   static const Widget empty = Offstage(
     offstage: true,
