@@ -26,14 +26,14 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           physics: const NeverScrollableScrollPhysics(),
           children: [
             const HomeMain(),
-            Container(),
+            const Categories(),
             const Notifications(),
             const More(),
           ],
         ),
         floatingActionButton: FloatingActionButton(
           backgroundColor: context.colors.primary,
-          onPressed: () {},
+          onPressed: () =>AutoRouter.of(context).push(const CartRoute()),
           child: const Icon(Icons.shopping_cart),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
