@@ -25,52 +25,48 @@ class _MoreState extends State<More> {
             icon: Icons.home_outlined,
             onTap: () => AutoRouter.of(context).push(const DashBoardRoute()),
           ),
-           BuildMoreItem(
+          BuildMoreItem(
             title: 'Purchased History',
             icon: Icons.file_copy_outlined,
-             onTap: () => AutoRouter.of(context).push(const PurchasedHistoryRoute()),
+            onTap: () =>
+                AutoRouter.of(context).push(const PurchasedHistoryRoute()),
           ),
-           BuildMoreItem(
+          BuildMoreItem(
             title: 'Downloads',
             icon: Icons.download,
-             onTap: () => AutoRouter.of(context).push(const DownloadsRoute()),
-
+            onTap: () => AutoRouter.of(context).push(const DownloadsRoute()),
           ),
-           BuildMoreItem(
+          BuildMoreItem(
             title: 'WishList',
             icon: Icons.favorite_border,
-             onTap: () => AutoRouter.of(context).push(const WishlistRoute()),
-
+            onTap: () => AutoRouter.of(context).push(const WishlistRoute()),
           ),
-           BuildMoreItem(
+          BuildMoreItem(
             title: 'Compare',
             icon: Icons.compare_arrows,
-            onTap: (){},
-
+            onTap: () {},
           ),
-           BuildMoreItem(
+          BuildMoreItem(
             title: 'Conversation',
             icon: Icons.chat,
-             onTap: () => AutoRouter.of(context).push(const ConversationsRoute()),
-
-           ),
-           BuildMoreItem(
+            onTap: () =>
+                AutoRouter.of(context).push(const ConversationsRoute()),
+          ),
+          BuildMoreItem(
             title: 'My Wallet',
             icon: Icons.monetization_on_outlined,
-             onTap: () => AutoRouter.of(context).push(const MyWalletRoute()),
-
+            onTap: () => AutoRouter.of(context).push(const MyWalletRoute()),
           ),
           BuildMoreItem(
             title: 'Support Tickets',
             icon: Icons.airplane_ticket_outlined,
-            onTap: () => AutoRouter.of(context).push(const SupportTicketsRoute()),
-
+            onTap: () =>
+                AutoRouter.of(context).push(const SupportTicketsRoute()),
           ),
-           BuildMoreItem(
+          BuildMoreItem(
             title: 'Manage Profile',
             icon: Icons.person_2_outlined,
-            onTap: (){},
-
+            onTap: () {},
           ),
         ],
       ),
