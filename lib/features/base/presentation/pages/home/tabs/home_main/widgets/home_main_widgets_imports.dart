@@ -21,3 +21,8 @@ part 'build_flash_sale_counter.dart';
 part 'build_home_list_item.dart';
 
 part 'build_home_list_products.dart';
+part 'build_featured_products.dart';
+part 'build_best_selling_products.dart';
+part 'build_todays_item.dart';
+part 'build_today_products.dart';
+part 'build_header_title.dart';

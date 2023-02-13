@@ -46,5 +46,8 @@ abstract class AppColors {
   Color get disableGray;
 
   Color get gray;
+  Color get blue;
+  Color get blueAccent;
+
 
 }

@@ -136,6 +136,8 @@ flutter:
     - assets/lang/ar.json
     - assets/lang/en.json
     - assets/images/suliitLogo.png
+    - assets/images/myProfile.png
+    - assets/images/profile.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

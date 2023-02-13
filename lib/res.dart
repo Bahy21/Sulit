@@ -14,4 +14,6 @@ class Res {
   static const String offline = "assets/images/offline.png";
   static const String appLoaderBg = "assets/images/appLoaderBg.png";
   static const String suliitLogo = "assets/images/suliitLogo.png";
+  static const String myProfile = "assets/images/myProfile.png";
+  static const String profile = "assets/images/profile.png";
 }

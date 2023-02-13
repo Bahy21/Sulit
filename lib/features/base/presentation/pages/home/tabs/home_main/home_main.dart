@@ -34,7 +34,14 @@ class _HomeMainState extends State<HomeMain> {
                       onTap: () {},
                       title: "View More",
                     ),
-                    const BuildHomeListProducts()
+                    Gaps.vGap15,
+                    const BuildTodayProducts(),
+                    Gaps.vGap15,
+                    const BuildHomeListProducts(),
+                    Gaps.vGap15,
+                    const BuildFeaturedProducts(),
+                    Gaps.vGap15,
+                    const BuildBestSellingProducts()
                   ],
                 ),
               ),

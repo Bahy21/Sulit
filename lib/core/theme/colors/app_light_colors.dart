@@ -34,5 +34,11 @@ class AppLightColors extends AppColors {
 
   @override
   Color get gray => Colors.grey;
+  @override
+
+  Color get blue => Colors.blue;
+  @override
+
+  Color get blueAccent => Colors.blueAccent;
 
 }
