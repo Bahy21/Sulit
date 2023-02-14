@@ -10,7 +10,7 @@ class _NotificationsState extends State<Notifications> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const DefaultAppBar(title: "Conversations",showBack: false,),
+      appBar: const DefaultAppBar(title: "Notifications",showBack: false,),
       body: ListView.builder(
           padding: const EdgeInsets.symmetric(vertical: 20,horizontal: 16).r,
           itemCount: 3,

@@ -13,7 +13,7 @@ class BuildCustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       automaticallyImplyLeading: false,
       backgroundColor: context.colors.white,
       leading: IconButton(
-        icon: SvgPicture.asset(Res.arrow, height: 20),
+        icon: Icon(Icons.arrow_back_ios),
         onPressed: () => Navigator.of(context).pop(),
       ),
       title: Image.asset(Res.suliitLogo, scale: 10),

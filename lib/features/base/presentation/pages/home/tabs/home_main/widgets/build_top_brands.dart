@@ -11,7 +11,7 @@ class BuildTopBrands extends StatelessWidget {
         children: [
           const BuildHeaderTitle(title: "Top 10 Brands",btnText: "View All Brands"),
           Gaps.vGap10,
-          ...List.generate(3, (index) => const BuildCategoryItem(title: 'Netflix',image: "https://deadline.com/wp-content/uploads/2022/08/Netflix_Symbol_logo.jpg",))
+          ...List.generate(3, (index) => const BuildCategoriesItem(title: 'Netflix',image: "https://deadline.com/wp-content/uploads/2022/08/Netflix_Symbol_logo.jpg",))
         ],
       ),
     );

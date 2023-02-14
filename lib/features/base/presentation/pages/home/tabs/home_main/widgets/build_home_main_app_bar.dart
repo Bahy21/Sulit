@@ -1,16 +1,15 @@
 part of 'home_main_widgets_imports.dart';
 
 class BuildHomeMainAppBar extends StatelessWidget {
-  final HomeMainController controller;
   final HomeController homeController;
 
-  const BuildHomeMainAppBar({Key? key, required this.controller, required this.homeController})
+  const BuildHomeMainAppBar({Key? key, required this.homeController})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<GenericBloc<bool>, GenericState<bool>>(
-      bloc: controller.visibleSearch,
+      bloc: homeController.visibleSearch,
       builder: (context, state) {
         return Visibility(
           visible: !state.data,
@@ -23,7 +22,7 @@ class BuildHomeMainAppBar extends StatelessWidget {
             margin: const EdgeInsets.all(11).r,
             contentPadding: const EdgeInsets.symmetric(horizontal: 10).r,
             suffixIcon: InkWell(
-              onTap: () => controller.visibleSearch.onUpdateData(false),
+              onTap: () => homeController.visibleSearch.onUpdateData(false),
               child: Icon(
                 Icons.close,
                 color: context.colors.black,
@@ -44,7 +43,7 @@ class BuildHomeMainAppBar extends StatelessWidget {
                 ),),
                 Image.asset(Res.suliitLogo, height: 30, width: 150),
                 InkWell(
-                  onTap: () => controller.visibleSearch.onUpdateData(true),
+                  onTap: () => homeController.visibleSearch.onUpdateData(true),
                   child: Icon(
                     Icons.search,
                     color: context.colors.black,

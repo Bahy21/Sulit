@@ -6,6 +6,8 @@ class HomeController {
   late TabController tabController;
   late Animation<double> animation;
   late CurvedAnimation curve;
+  final GenericBloc<bool> visibleSearch = GenericBloc(false);
+
   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
 

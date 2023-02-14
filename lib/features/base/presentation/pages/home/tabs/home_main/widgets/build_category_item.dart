@@ -1,7 +1,7 @@
 part of'home_main_widgets_imports.dart';
-class BuildCategoryItem extends StatelessWidget {
+class BuildCategoriesItem extends StatelessWidget {
   final String title,image;
-  const BuildCategoryItem({Key? key, required this.title, required this.image}) : super(key: key);
+  const BuildCategoriesItem({Key? key, required this.title, required this.image}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

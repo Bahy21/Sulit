@@ -15,7 +15,7 @@ class BuildTopCategories extends StatelessWidget {
           Gaps.vGap10,
           ...List.generate(
               3,
-              (index) => const BuildCategoryItem(
+              (index) => const BuildCategoriesItem(
                     title: 'Top Seller',
                     image:
                         "https://static.thenounproject.com/png/1041139-200.png",

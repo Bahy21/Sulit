@@ -76,6 +76,69 @@ class BuildHomeListItem extends StatelessWidget {
                       ],
                     ),
                   ),
+                ),
+                PositionedDirectional(
+                  end: 3,
+
+                  child: Column(
+                    children: [
+                      Container(
+
+                        padding:
+                        const EdgeInsets.all(4).r,
+                        margin:
+                        const EdgeInsets.all(7).r,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                            color: context.colors.white,
+                            shape: BoxShape.circle,
+                            boxShadow: [
+                              BoxShadow(
+                                  color: context.colors.greyWhite,
+                                  blurRadius: 1,
+                                  spreadRadius: 1)
+                            ],
+                            ),
+                        child: Icon(Icons.favorite_border,color: context.colors.blackOpacity,size:16.sp ,),
+                      ),
+                      Container(
+                        padding:
+                        const EdgeInsets.all(4).r,
+                        margin:
+                        const EdgeInsets.all(3).r,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: context.colors.white,
+                          shape: BoxShape.circle,
+                          boxShadow: [
+                            BoxShadow(
+                                color: context.colors.greyWhite,
+                                blurRadius: 1,
+                                spreadRadius: 1)
+                          ],
+                        ),
+                        child:  Icon(Icons.compare_arrows,color: context.colors.blackOpacity,size:16.sp ,),
+                      ),
+                      Container(
+                          padding:
+                          const EdgeInsets.all(4).r,
+                          margin:
+                          const EdgeInsets.all(7).r,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: context.colors.white,
+                            shape: BoxShape.circle,
+                            boxShadow: [
+                              BoxShadow(
+                                  color: context.colors.greyWhite,
+                                  blurRadius: 1,
+                                  spreadRadius: 1)
+                            ],
+                          ),
+                        child:  Icon(Icons.shopping_cart,color: context.colors.blackOpacity,size:16.sp ,)
+                      ),
+                    ],
+                  ),
                 )
               ],
             ),

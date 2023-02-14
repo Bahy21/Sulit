@@ -21,7 +21,7 @@ class _HomeMainState extends State<HomeMain> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               BuildHomeMainAppBar(
-                controller: controller, homeController: widget.homeController,
+                homeController: widget.homeController,
               ),
               Flexible(
                 child: ListView(
