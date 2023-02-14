@@ -9,7 +9,6 @@ class BuildPriceItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      // crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           title,
@@ -18,7 +17,7 @@ class BuildPriceItem extends StatelessWidget {
         Gaps.vGap5,
         Text(
           "${price} د.إ",
-          style: AppTextStyle.s16_w800(color: context.colors.black),
+          style: AppTextStyle.s14_w500(color: context.colors.black),
         )
       ],
     );

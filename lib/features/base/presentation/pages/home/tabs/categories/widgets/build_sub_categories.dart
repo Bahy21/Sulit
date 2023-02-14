@@ -12,11 +12,15 @@ class BuildSubCategories extends StatelessWidget {
         runSpacing: Dimens.dp20,
         children: List.generate(
           7,
-          (index) => SizedBox(
-            width: MediaQuery.of(context).size.width * .4,
-            child: Text(
-              "Top Sellers",
-              style: AppTextStyle.s14_w600(color: context.colors.black),
+          (index) => InkWell(
+            onTap: () => AutoRouter.of(context)
+                .push(CategoryDetailsRoute(title: "Top Sellers")),
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width * .4,
+              child: Text(
+                "Top Sellers",
+                style: AppTextStyle.s14_w600(color: context.colors.black),
+              ),
             ),
           ),
         ),

@@ -8,17 +8,25 @@ class Cart extends StatefulWidget {
 }
 
 class _CartState extends State<Cart> {
+  final CartController cartController = CartController();
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: BuildCustomAppBar(),
-      body: GenericListView(
-        type: ListViewType.normal,
-        padding: EdgeInsets.all(Dimens.dp20),
+    return Scaffold(
+      appBar: const BuildCustomAppBar(),
+      bottomNavigationBar: const BuildCartButtons(),
+      body: Column(
         children: [
-          BuildCartItem(),
-          BuildCartItem(),
-          BuildCartItem(),
+          const BuildCartStepper(current: 1),
+          Flexible(
+            child: ListView.builder(
+              padding: const EdgeInsets.symmetric(horizontal: Dimens.dp20),
+              itemCount: 2,
+              itemBuilder: (_, index) => BuildCartItem(
+                cartController: cartController,
+              ),
+            ),
+          ),
         ],
       ),
     );
