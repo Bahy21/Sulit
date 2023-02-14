@@ -1,7 +1,7 @@
 part of'home_main_widgets_imports.dart';
 class BuildHeaderTitle extends StatelessWidget {
-  final String title;
-  const BuildHeaderTitle({Key? key, required this.title}) : super(key: key);
+  final String title,btnText;
+  const BuildHeaderTitle({Key? key, required this.title,  this.btnText="Top 20"}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class BuildHeaderTitle extends StatelessWidget {
                 borderRadius: BorderRadius.circular(5).r
             ),
             child: Text(
-              "Top 20",
+              btnText,
               style: AppTextStyle.s12_w400(
                 color: context.colors.white,
               ),

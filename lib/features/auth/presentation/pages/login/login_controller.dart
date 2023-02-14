@@ -7,7 +7,7 @@ class LoginController {
   TextEditingController password = TextEditingController();
   final GenericBloc<bool> passwordCubit = GenericBloc(false);
   void onSubmit(BuildContext context){
-    AutoRouter.of(context).push(const HomeRoute());
+    AutoRouter.of(context).push( HomeRoute(index: 0));
     getIt.get<LoadingHelper>().showLoadingDialog();
   }
 

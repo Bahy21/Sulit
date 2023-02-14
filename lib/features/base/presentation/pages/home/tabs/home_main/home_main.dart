@@ -1,7 +1,8 @@
 part of 'home_main_imports.dart';
 
 class HomeMain extends StatefulWidget {
-  const HomeMain({Key? key}) : super(key: key);
+  final HomeController homeController;
+  const HomeMain({Key? key, required this.homeController}) : super(key: key);
 
   @override
   State<HomeMain> createState() => _HomeMainState();
@@ -20,7 +21,7 @@ class _HomeMainState extends State<HomeMain> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               BuildHomeMainAppBar(
-                controller: controller,
+                controller: controller, homeController: widget.homeController,
               ),
               Flexible(
                 child: ListView(
@@ -41,7 +42,11 @@ class _HomeMainState extends State<HomeMain> {
                     Gaps.vGap15,
                     const BuildFeaturedProducts(),
                     Gaps.vGap15,
-                    const BuildBestSellingProducts()
+                    const BuildBestSellingProducts(),
+                    Gaps.vGap15,
+                    const BuildTopCategories(),
+                    Gaps.vGap15,
+                    const BuildTopBrands()
                   ],
                 ),
               ),

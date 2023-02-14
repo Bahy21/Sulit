@@ -35,7 +35,9 @@ class AppDarkColors extends AppColors {
   @override
 
   Color get blueAccent => Colors.blueAccent;
+  @override
 
+  Color get shadowColor => Colors.black45;
   @override
   // TODO: implement gray
   Color get gray => Colors.white70;

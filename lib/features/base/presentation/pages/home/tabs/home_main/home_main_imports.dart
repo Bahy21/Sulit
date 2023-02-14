@@ -9,6 +9,8 @@ import 'package:flutter_tdd/core/widgets/CachedImage.dart';
 import 'package:flutter_tdd/core/widgets/DefaultButton.dart';
 import 'package:flutter_tdd/features/base/presentation/pages/home/tabs/home_main/widgets/home_main_widgets_imports.dart';
 
+import '../../home_imports.dart';
+
 part 'home_main.dart';
 
 part 'home_main_controller.dart';

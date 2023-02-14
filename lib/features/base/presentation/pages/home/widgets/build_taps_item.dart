@@ -17,6 +17,7 @@ class BuildTabItem extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
+        Gaps.vGap8,
         Icon(
           controller.tabs[index],
           color: isActive ? context.colors.primary : context.colors.gray,

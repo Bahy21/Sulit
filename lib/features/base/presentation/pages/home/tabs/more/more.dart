@@ -44,7 +44,7 @@ class _MoreState extends State<More> {
           BuildMoreItem(
             title: 'Compare',
             icon: Icons.compare_arrows,
-            onTap: () {},
+            onTap: () =>AutoRouter.of(context).push(const CompareRoute()),
           ),
           BuildMoreItem(
             title: 'Conversation',

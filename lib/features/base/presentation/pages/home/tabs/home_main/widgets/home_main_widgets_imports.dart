@@ -12,6 +12,8 @@ import 'package:flutter_tdd/core/widgets/GenericTextField.dart';
 import 'package:flutter_tdd/features/base/presentation/pages/home/tabs/home_main/home_main_imports.dart';
 import 'package:flutter_tdd/res.dart';
 
+import '../../../home_imports.dart';
+
 part 'build_home_main_app_bar.dart';
 
 part 'build_home_swiper.dart';
@@ -26,3 +28,6 @@ part 'build_best_selling_products.dart';
 part 'build_todays_item.dart';
 part 'build_today_products.dart';
 part 'build_header_title.dart';
+part 'build_top_categories.dart';
+part"build_category_item.dart";
+part 'build_top_brands.dart';

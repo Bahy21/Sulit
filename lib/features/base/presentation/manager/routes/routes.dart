@@ -4,7 +4,11 @@ import 'package:flutter_tdd/features/base/presentation/pages/dashboard/dashboard
 import 'package:flutter_tdd/features/base/presentation/pages/home/home_imports.dart';
 import 'package:flutter_tdd/features/base/presentation/pages/home/tabs/cart/cart_imports.dart';
 
+import '../../pages/brands/brands_imports.dart';
+import '../../pages/compare/compare_imports.dart';
+import '../../pages/deal_of_the_day/deal_of_the_day_imports.dart';
 import '../../pages/downloads/downloads_import.dart';
+import '../../pages/flash_sale/flash_imports.dart';
 import '../../pages/my_wallet/my_wallet_imports.dart';
 import '../../pages/profile/profile_imports.dart';
 import '../../pages/purchased_history/purchased_history_imports.dart';
@@ -21,6 +25,10 @@ const List<AutoRoute> baseRoute = [
   AutoRoute(page: Conversations),
   AutoRoute(page: MyWallet),
   AutoRoute(page: SupportTickets),
+  AutoRoute(page: Compare),
+  AutoRoute(page: FlashSale),
+  AutoRoute(page: DealOfTheDay),
+  AutoRoute(page: Brands),
   CustomRoute(
     page: Cart,
     durationInMilliseconds: 800,

@@ -2,8 +2,9 @@ part of 'home_main_widgets_imports.dart';
 
 class BuildHomeMainAppBar extends StatelessWidget {
   final HomeMainController controller;
+  final HomeController homeController;
 
-  const BuildHomeMainAppBar({Key? key, required this.controller})
+  const BuildHomeMainAppBar({Key? key, required this.controller, required this.homeController})
       : super(key: key);
 
   @override
@@ -35,10 +36,12 @@ class BuildHomeMainAppBar extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Icon(
+                InkWell(
+                  onTap: ()=>homeController.scaffoldKey.currentState!.openDrawer(),
+                  child: Icon(
                   Icons.menu,
                   color: context.colors.black,
-                ),
+                ),),
                 Image.asset(Res.suliitLogo, height: 30, width: 150),
                 InkWell(
                   onTap: () => controller.visibleSearch.onUpdateData(true),

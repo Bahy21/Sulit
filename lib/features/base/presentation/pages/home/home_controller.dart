@@ -6,6 +6,7 @@ class HomeController {
   late TabController tabController;
   late Animation<double> animation;
   late CurvedAnimation curve;
+  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
 
   List<IconData> tabs = [
@@ -16,8 +17,11 @@ class HomeController {
   ];
   List<String> tabsText = ["Home", "Categories", "Notifications", "Account"];
 
-  void initBottomNavigation(TickerProvider ticker) {
-    tabController = TabController(length: 4, vsync: ticker);
+  void initBottomNavigation(TickerProvider ticker,int index) {
+    tabController = TabController(length: 4, vsync: ticker,initialIndex: index);
+    tabController.animateTo(index);
+    homeTabCubit.onUpdateData(index);
+
   }
 
   void animateTabsPages(int index, BuildContext context) {
