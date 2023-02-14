@@ -50,4 +50,6 @@ class Dimens {
 
   static const BorderRadius sheetBorderRadius = BorderRadius.vertical(top: Radius.circular(20));
   static const BorderRadius borderRadius5PX = BorderRadius.all(Radius.circular(5));
+  static const BorderRadius borderRadius10PX = BorderRadius.all(Radius.circular(10));
+
 }

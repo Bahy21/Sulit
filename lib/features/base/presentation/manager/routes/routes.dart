@@ -1,8 +1,11 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter_tdd/features/base/presentation/pages/category_details/category_details_imports.dart';
 import 'package:flutter_tdd/features/base/presentation/pages/conversations/conversations_imports.dart';
 import 'package:flutter_tdd/features/base/presentation/pages/dashboard/dashboard_imports.dart';
+import 'package:flutter_tdd/features/base/presentation/pages/delivery/delivery_imports.dart';
 import 'package:flutter_tdd/features/base/presentation/pages/home/home_imports.dart';
 import 'package:flutter_tdd/features/base/presentation/pages/home/tabs/cart/cart_imports.dart';
+import 'package:flutter_tdd/features/base/presentation/pages/shipping/shipping_imports.dart';
 
 import '../../pages/brands/brands_imports.dart';
 import '../../pages/compare/compare_imports.dart';
@@ -34,4 +37,8 @@ const List<AutoRoute> baseRoute = [
     durationInMilliseconds: 800,
     transitionsBuilder: TransitionsBuilders.zoomIn,
   ),
+  AutoRoute(page: CategoryDetails),
+  AutoRoute(page: Shipping),
+  AutoRoute(page: Delivery),
+
 ];

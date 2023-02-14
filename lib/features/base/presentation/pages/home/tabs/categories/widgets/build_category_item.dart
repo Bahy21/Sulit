@@ -16,13 +16,13 @@ class BuildCategoryItem extends StatelessWidget {
             Card(
               margin: const EdgeInsets.symmetric(vertical: Dimens.dp5),
               elevation: 0,
-              color: context.colors.greyWhite,
+              color: context.colors.greyWhite.withOpacity(.1),
               child: ListTile(
                 onTap: () => categoriesController.showCategoriesCubit
                     .onUpdateData(!state.data),
                 title: Text(
                   "New Arrivals",
-                  style: AppTextStyle.s16_w800(
+                  style: AppTextStyle.s14_w800(
                       color: state.data
                           ? context.colors.primary
                           : context.colors.black),
