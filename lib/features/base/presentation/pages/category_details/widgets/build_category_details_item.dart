@@ -6,7 +6,7 @@ class BuildCategoryDetailsItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => AutoRouter.of(context).push(const ProductDetailsRoute()),
+      // onTap: () => AutoRouter.of(context).push(const ProductDetailsRoute()),
       child: Container(
         decoration: BoxDecoration(
           color: context.colors.white,
