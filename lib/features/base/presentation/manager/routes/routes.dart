@@ -5,7 +5,10 @@ import 'package:flutter_tdd/features/base/presentation/pages/dashboard/dashboard
 import 'package:flutter_tdd/features/base/presentation/pages/delivery/delivery_imports.dart';
 import 'package:flutter_tdd/features/base/presentation/pages/home/home_imports.dart';
 import 'package:flutter_tdd/features/base/presentation/pages/home/tabs/cart/cart_imports.dart';
+import 'package:flutter_tdd/features/base/presentation/pages/payment/payment_imports.dart';
+import 'package:flutter_tdd/features/base/presentation/pages/product_details/product_details_imports.dart';
 import 'package:flutter_tdd/features/base/presentation/pages/shipping/shipping_imports.dart';
+import 'package:flutter_tdd/features/general/presentation/manager/routes/routes.dart';
 
 import '../../pages/brands/brands_imports.dart';
 import '../../pages/compare/compare_imports.dart';
@@ -19,6 +22,7 @@ import '../../pages/support_tickets/support_tickets_imports.dart';
 import '../../pages/wishlist/wishlist_imports.dart';
 
 const List<AutoRoute> baseRoute = [
+  ...generalRoute,
   AutoRoute(page: Home),
   AutoRoute(page: Profile),
   AutoRoute(page: DashBoard),
@@ -40,5 +44,7 @@ const List<AutoRoute> baseRoute = [
   AutoRoute(page: CategoryDetails),
   AutoRoute(page: Shipping),
   AutoRoute(page: Delivery),
+  AutoRoute(page: Payment),
+  AutoRoute(page: ProductDetails),
 
 ];

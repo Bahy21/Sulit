@@ -29,7 +29,7 @@ class BuildCartButtons extends StatelessWidget {
                   borderColor: context.colors.primary,
                   textColor: context.colors.primary,
                   color: context.colors.white,
-                  onTap: () {},
+                  onTap: () =>AutoRouter.of(context).push(HomeRoute(index: 0)),
                 ),
               ),
               Expanded(

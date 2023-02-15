@@ -1,7 +1,6 @@
-part of 'delivery_widgets_imports.dart';
-
-class BuildDeliveryButtons extends StatelessWidget {
-  const BuildDeliveryButtons({Key? key}) : super(key: key);
+part of 'payment_widgets_imports.dart';
+class BuildPaymentButtons extends StatelessWidget {
+  const BuildPaymentButtons({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +29,9 @@ class BuildDeliveryButtons extends StatelessWidget {
           ),
           Expanded(
             child: DefaultButton(
-              title: "Continue to Payment",
+              title: "Complete Order",
               color: context.colors.primary,
-              onTap: () => AutoRouter.of(context).push(const PaymentRoute()),
+              onTap: () {},
             ),
           ),
         ],
