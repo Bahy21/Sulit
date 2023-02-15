@@ -71,65 +71,68 @@ class DropdownTextField<T> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var lang = context.watch<DeviceCubit>().state.model.locale.languageCode;
-    return DropdownSearch<T>(
-      key: dropKey,
-      mode: Mode.BOTTOM_SHEET,
-      isFilteredOnline: false,
-      maxHeight: 350,
-      label: label,
-      items: data,
-      onFind: onFind,
-      validator: validate,
-      onChanged: onChange,
-      showSearchBox: true,
-      showClearButton: showClearButton,
-      popupItemBuilder: itemBuilder,
-      clearButton: Padding(
-        padding: clearBtnPadding ??
-            const EdgeInsets.symmetric(horizontal: 5),
-        child: Icon(Icons.clear,
-            size: 20, color: buttonsColor ?? Colors.black),
-      ),
-      dropDownButton: Padding(
-        padding: arrowBtnPadding ??
-            const EdgeInsets.symmetric(horizontal: 5),
-        child: Icon(Icons.arrow_drop_down,
-            size: 24, color: buttonsColor ?? Colors.black),
-      ),
-      selectedItem: selectedItem,
-      itemAsString: itemAsString,
-      showSelectedItem: showSelectedItem,
-      style: AppTextStyle.s14_w400(color: context.colors.black),
-      itemStyle: AppTextStyle.s14_w400(color: context.colors.black),
-      searchBoxStyle: AppTextStyle.s12_w400(color: context.colors.blackOpacity),
-      searchBoxDecoration: CustomInputDecoration(
-          hint: searchHint ?? "بحث",
-          enableColor: Colors.black,
-          lang: lang,
-          padding:
-          const EdgeInsets.symmetric(horizontal: 10, vertical: 10)),
-      popupTitle: Container(
-        height: 50,
-        decoration: BoxDecoration(
-          color: context.colors.primary,
+    return Container(
+      margin: margin ?? EdgeInsets.zero,
+      child: DropdownSearch<T>(
+        key: dropKey,
+        mode: Mode.BOTTOM_SHEET,
+        isFilteredOnline: false,
+        maxHeight: 350,
+        label: label,
+        items: data,
+        onFind: onFind,
+        validator: validate,
+        onChanged: onChange,
+        showSearchBox: true,
+        showClearButton: showClearButton,
+        popupItemBuilder: itemBuilder,
+        clearButton: Padding(
+          padding: clearBtnPadding ??
+              const EdgeInsets.symmetric(horizontal: 5),
+          child: Icon(Icons.clear,
+              size: 20, color: buttonsColor ?? Colors.black),
         ),
-        child: Center(
-          child: Text(
-            label != null ? label! : hint??"",
-            style: const AppTextStyle.s16_w500(color: Colors.white),
+        dropDownButton: Padding(
+          padding: arrowBtnPadding ??
+              const EdgeInsets.symmetric(horizontal: 5),
+          child: Icon(Icons.arrow_drop_down,
+              size: 24, color: buttonsColor ?? Colors.black),
+        ),
+        selectedItem: selectedItem,
+        itemAsString: itemAsString,
+        showSelectedItem: showSelectedItem,
+        style: AppTextStyle.s14_w400(color: context.colors.black),
+        itemStyle: AppTextStyle.s14_w400(color: context.colors.black),
+        searchBoxStyle: AppTextStyle.s12_w400(color: context.colors.blackOpacity),
+        searchBoxDecoration: CustomInputDecoration(
+            hint: searchHint ?? "بحث",
+            enableColor: Colors.black,
+            lang: lang,
+            padding:
+            const EdgeInsets.symmetric(horizontal: 10, vertical: 10)),
+        popupTitle: Container(
+          height: 50,
+          decoration: BoxDecoration(
+            color: context.colors.primary,
+          ),
+          child: Center(
+            child: Text(
+              label != null ? label! : hint??"",
+              style: const AppTextStyle.s16_w500(color: Colors.white),
+            ),
           ),
         ),
-      ),
-      dropdownSearchDecoration: CustomInputDecoration(
-          hintColor: hintColor,
-          labelTxt: label,
-          hint: hint,
-        customFillColor: fillColor,
-          enableColor: enableColor,
-          borderRadius: radius,
-          lang: lang,
-          prefIcon: prefixIcon,
-          padding: contentPadding ?? const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
+        dropdownSearchDecoration: CustomInputDecoration(
+            hintColor: hintColor,
+            labelTxt: label,
+            hint: hint,
+          customFillColor: fillColor,
+            enableColor: enableColor,
+            borderRadius: radius,
+            lang: lang,
+            prefIcon: prefixIcon,
+            padding: contentPadding ?? const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
+        ),
       ),
     );
   }

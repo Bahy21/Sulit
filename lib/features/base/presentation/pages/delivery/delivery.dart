@@ -8,6 +8,8 @@ class Delivery extends StatefulWidget {
 }
 
 class _DeliveryState extends State<Delivery> {
+  final DeliveryController deliveryController = DeliveryController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,6 +18,15 @@ class _DeliveryState extends State<Delivery> {
       body: Column(
         children: [
           const BuildCartStepper(current: 3),
+          Flexible(
+            child: ListView(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              children: [
+                const BuildDeliveryProducts(),
+                BuildDeliveryType(deliveryController: deliveryController),
+              ],
+            ),
+          ),
         ],
       ),
     );

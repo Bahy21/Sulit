@@ -28,7 +28,8 @@ class BuildCartItem extends StatelessWidget {
                 url:
                     "https://i.ebayimg.com/images/g/2YAAAOSw-jVhULVS/s-l400.jpg",
                 height: 70.h,
-                width: 70.w,
+                width: 80.w,
+                fit: BoxFit.fill,
               ),
               Expanded(
                 child: Text(
