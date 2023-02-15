@@ -47,6 +47,26 @@ class BuildDrawer extends StatelessWidget {
                 title: 'All Categories',
                 icon: Icons.category_outlined,
                 onTap: () =>AutoRouter.of(context).push(HomeRoute(index: 1)),
+              ),
+              BuildDrawerItem(
+                title: 'Terms and Conditions',
+                icon: Icons.list_alt,
+                onTap: () =>AutoRouter.of(context).push(const TermsRoute()),
+              ),
+              BuildDrawerItem(
+                title: 'Privacy Policy',
+                icon: Icons.privacy_tip_outlined,
+                onTap: () =>AutoRouter.of(context).push(const PrivacyRoute()),
+              ),
+              BuildDrawerItem(
+                title: 'Support Policy',
+                icon: Icons.support_agent,
+                onTap: () =>AutoRouter.of(context).push(const SupportPolicyRoute()),
+              ),
+              BuildDrawerItem(
+                title: 'Return Policy',
+                icon: Icons.keyboard_return,
+                onTap: () =>AutoRouter.of(context).push(const ReturnPolicyRoute()),
               )
             ],
           )),

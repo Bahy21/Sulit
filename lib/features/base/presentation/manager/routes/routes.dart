@@ -13,6 +13,7 @@ import '../../pages/deal_of_the_day/deal_of_the_day_imports.dart';
 import '../../pages/downloads/downloads_import.dart';
 import '../../pages/flash_sale/flash_imports.dart';
 import '../../pages/my_wallet/my_wallet_imports.dart';
+import '../../pages/product_details/product_details_imports.dart';
 import '../../pages/profile/profile_imports.dart';
 import '../../pages/purchased_history/purchased_history_imports.dart';
 import '../../pages/support_tickets/support_tickets_imports.dart';
@@ -40,5 +41,6 @@ const List<AutoRoute> baseRoute = [
   AutoRoute(page: CategoryDetails),
   AutoRoute(page: Shipping),
   AutoRoute(page: Delivery),
+  AutoRoute(page: ProductDetails),
 
 ];

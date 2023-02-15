@@ -10,9 +10,8 @@ class BuildMoreHeader extends StatelessWidget {
       children: [
         Container(
           alignment: Alignment.center,
-          margin: const EdgeInsets.only(top: 40),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(10).r,
           ),
           child: Stack(
             alignment: Alignment.bottomCenter,
@@ -23,11 +22,10 @@ class BuildMoreHeader extends StatelessWidget {
                 builder: (context, state) {
                   if (state is GenericUpdateState) {
                     return Container(
-                      height: 100,
-                      width: 100,
+                      height: 100.r,
+                      width: 100.r,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        // border: Border.all(color: verify==false?Colors.red:MyColors.primary,width: 3),
                         image: DecorationImage(
                           image: FileImage(File(state.data!.path)),
                           fit: BoxFit.cover,
@@ -38,10 +36,9 @@ class BuildMoreHeader extends StatelessWidget {
                   return InkWell(
                       onTap: () {},
                       child: Container(
-                        width: 100.r,
-                        height: 100.r,
+                        width: 80.r,
+                        height: 80.r,
                         decoration: BoxDecoration(
-                          // border: Border.all(color: verify==false?Colors.red:MyColors.primary,width: 3),
                             shape: BoxShape.circle,
                             color: context.colors.disableGray),
                         child: CachedImage(
@@ -61,7 +58,7 @@ class BuildMoreHeader extends StatelessWidget {
                   onTap: () =>moreController.getImage(context),
 
                   child: Container(
-                    padding: const EdgeInsets.all(5).r,
+                    padding: const EdgeInsets.all(3).r,
                     decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: context.colors.white,
@@ -69,7 +66,7 @@ class BuildMoreHeader extends StatelessWidget {
                     ),
                     child: Icon(
                       Icons.camera_alt,
-                      size: 17.sp,
+                      size: 12.sp,
                       color: context.colors.primary,
                     ),
                   ),
@@ -81,7 +78,7 @@ class BuildMoreHeader extends StatelessWidget {
         ),
         Gaps.vGap15,
         Text(
-          "USER",
+          "Tarek Fouda",
           style: AppTextStyle.s16_w400(color: context.colors.black),
         ),
         Gaps.vGap10,

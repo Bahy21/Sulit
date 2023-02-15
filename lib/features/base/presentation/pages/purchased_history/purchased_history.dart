@@ -7,16 +7,15 @@ class PurchasedHistory extends StatefulWidget {
 }
 
 class _PurchasedHistoryState extends State<PurchasedHistory> {
+  PurchasedHistoryController purchasedHistoryController= PurchasedHistoryController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: const DefaultAppBar(title: "Purchased History", showBack: true),
-        body: ListView(
-          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16).r,
-          children: [
-
-          ],
-        )
+        body:ListView.builder(
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16).r,
+            itemCount: 1,
+            itemBuilder: (context,index)=>BuildPurchasedHistoryItem(purchasedHistoryController: purchasedHistoryController,))
     );
   }
 }

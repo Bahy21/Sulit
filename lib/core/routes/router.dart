@@ -4,6 +4,7 @@ part of 'router_imports.dart';
   routes: <AutoRoute>[
     ...authRoute,
     ...baseRoute,
+    ...generalRoute,
   ],
 )
 class $AppRouter {}

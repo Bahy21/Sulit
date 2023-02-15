@@ -1,24 +1,11 @@
-part of 'terms_imports.dart';
-
-class Terms extends StatefulWidget {
-  const Terms({Key? key}) : super(key: key);
-
-  @override
-  _TermsState createState() => _TermsState();
-}
-
-class _TermsState extends State<Terms> {
-  final TermsData termsData = TermsData();
-
-  @override
-  void initState() {
-    super.initState();
-  }
+part of'privacy_imports.dart';
+class Privacy extends StatelessWidget {
+  const Privacy({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: DefaultAppBar(title: "Terms and Conditions"),
+      appBar: const DefaultAppBar(title: "Privacy Policy"),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 10),
         child:  Expanded(

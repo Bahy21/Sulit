@@ -42,4 +42,12 @@ class AppDarkColors extends AppColors {
   // TODO: implement gray
   Color get gray => Colors.white70;
 
+  @override
+  // TODO: implement yellow
+  Color get yellow => Colors.amber;
+
+  @override
+  // TODO: implement green
+  Color get green => Colors.green;
+
 }

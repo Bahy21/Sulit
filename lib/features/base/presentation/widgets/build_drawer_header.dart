@@ -18,8 +18,8 @@ class BuildDrawerHeader extends StatelessWidget {
         Center(
           child: Image.asset(
             Res.suliitLogo,
-            width: 170.w,
-            height: 100.h,
+            width: 160.w,
+            height: 80.h,
           ),
         ),
         Padding(

@@ -53,6 +53,8 @@ abstract class AppColors {
   Color get gray;
 
   Color get blue;
+  Color get yellow;
+  Color get green;
 
   Color get blueAccent;
   Color get shadowColor;

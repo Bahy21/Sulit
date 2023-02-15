@@ -10,6 +10,8 @@ import 'package:flutter_tdd/features/base/presentation/pages/home/tabs/more/widg
 
 import '../../../../../../../core/constants/gaps.dart';
 import '../../../../../../../core/routes/router_imports.gr.dart';
+import '../../home_imports.dart';
+import '../home_main/widgets/home_main_widgets_imports.dart';
 
 part 'more.dart';
 part 'more_controller.dart';

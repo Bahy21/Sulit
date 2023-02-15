@@ -45,4 +45,12 @@ class AppLightColors extends AppColors {
 
   Color get blueAccent => Colors.blueAccent;
 
+  @override
+  // TODO: implement yellow
+  Color get yellow => Colors.amber;
+
+  @override
+  // TODO: implement green
+  Color get green => Colors.green;
+
 }
