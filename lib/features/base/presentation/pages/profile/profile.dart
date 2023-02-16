@@ -18,9 +18,12 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: const DefaultAppBar(title: "Manage Profile",),
       body: ListView(
+        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16).r,
         children: [
-
+          BuildProfileFormFields(profileController: controller,),
+          const BuildProfileButton()
         ],
       ),
     );

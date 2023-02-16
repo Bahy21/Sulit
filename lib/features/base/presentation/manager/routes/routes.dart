@@ -9,6 +9,7 @@ import 'package:flutter_tdd/features/base/presentation/pages/payment/payment_imp
 import 'package:flutter_tdd/features/base/presentation/pages/shipping/shipping_imports.dart';
 import 'package:flutter_tdd/features/general/presentation/manager/routes/routes.dart';
 
+import '../../pages/addresses/addresses_imports.dart';
 import '../../pages/brands/brands_imports.dart';
 import '../../pages/compare/compare_imports.dart';
 import '../../pages/deal_of_the_day/deal_of_the_day_imports.dart';
@@ -45,5 +46,6 @@ const List<AutoRoute> baseRoute = [
   AutoRoute(page: Delivery),
   AutoRoute(page: ProductDetails),
   AutoRoute(page: Payment),
+  AutoRoute(page: Addresses),
 
 ];

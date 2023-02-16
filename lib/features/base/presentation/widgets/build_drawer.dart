@@ -49,6 +49,11 @@ class BuildDrawer extends StatelessWidget {
                 onTap: () =>AutoRouter.of(context).push(HomeRoute(index: 1)),
               ),
               BuildDrawerItem(
+                title: 'Contact Us',
+                icon: Icons.contact_support_outlined,
+                onTap: () =>AutoRouter.of(context).push(const ContactUsRoute()),
+              ),
+              BuildDrawerItem(
                 title: 'Terms and Conditions',
                 icon: Icons.list_alt,
                 onTap: () =>AutoRouter.of(context).push(const TermsRoute()),
