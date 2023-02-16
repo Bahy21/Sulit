@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter_tdd/features/base/presentation/pages/add_new_address/add_new_address_imports.dart';
 import 'package:flutter_tdd/features/base/presentation/pages/category_details/category_details_imports.dart';
 import 'package:flutter_tdd/features/base/presentation/pages/conversations/conversations_imports.dart';
 import 'package:flutter_tdd/features/base/presentation/pages/dashboard/dashboard_imports.dart';
@@ -6,6 +7,7 @@ import 'package:flutter_tdd/features/base/presentation/pages/delivery/delivery_i
 import 'package:flutter_tdd/features/base/presentation/pages/home/home_imports.dart';
 import 'package:flutter_tdd/features/base/presentation/pages/home/tabs/cart/cart_imports.dart';
 import 'package:flutter_tdd/features/base/presentation/pages/payment/payment_imports.dart';
+import 'package:flutter_tdd/features/base/presentation/pages/search/search_imports.dart';
 import 'package:flutter_tdd/features/base/presentation/pages/shipping/shipping_imports.dart';
 import 'package:flutter_tdd/features/general/presentation/manager/routes/routes.dart';
 
@@ -47,5 +49,7 @@ const List<AutoRoute> baseRoute = [
   AutoRoute(page: ProductDetails),
   AutoRoute(page: Payment),
   AutoRoute(page: Addresses),
+  AutoRoute(page: AddNewAddress),
+  AutoRoute(page: Search),
 
 ];

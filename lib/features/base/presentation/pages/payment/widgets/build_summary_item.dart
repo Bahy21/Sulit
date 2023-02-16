@@ -15,11 +15,11 @@ class BuildSummaryItem extends StatelessWidget {
       minLeadingWidth: 10,
       title: Text(
         title,
-        style: AppTextStyle.s15_w700(color: context.colors.black),
+        style: AppTextStyle.s15_w500(color: context.colors.black),
       ),
       trailing: Text(
         "$details د.إ ",
-        style: AppTextStyle.s15_w700(color: context.colors.black),
+        style: AppTextStyle.s15_w500(color: context.colors.black),
       ),
     );
   }

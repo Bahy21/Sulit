@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_tdd/features/base/presentation/pages/home/tabs/notifications/widgets/notifications_widgets_imports.dart';
+import 'package:flutter_tdd/features/base/presentation/widgets/build_search_app_bar.dart';
 
 import '../../../../../../../core/widgets/default_app_bar.dart';
 import '../../home_imports.dart';

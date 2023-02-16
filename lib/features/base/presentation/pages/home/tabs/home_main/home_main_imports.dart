@@ -8,6 +8,7 @@ import 'package:flutter_tdd/core/theme/text/app_text_style.dart';
 import 'package:flutter_tdd/core/widgets/CachedImage.dart';
 import 'package:flutter_tdd/core/widgets/DefaultButton.dart';
 import 'package:flutter_tdd/features/base/presentation/pages/home/tabs/home_main/widgets/home_main_widgets_imports.dart';
+import 'package:flutter_tdd/features/base/presentation/widgets/build_search_app_bar.dart';
 
 import '../../home_imports.dart';
 

@@ -7,6 +7,7 @@ import 'package:flutter_tdd/core/bloc/generic_cubit/generic_cubit.dart';
 import 'package:flutter_tdd/core/helpers/di.dart';
 import 'package:flutter_tdd/core/helpers/utilities.dart';
 import 'package:flutter_tdd/features/base/presentation/pages/home/tabs/more/widgets/more_widgets_imports.dart';
+import 'package:flutter_tdd/features/base/presentation/widgets/build_search_app_bar.dart';
 
 import '../../../../../../../core/constants/gaps.dart';
 import '../../../../../../../core/routes/router_imports.gr.dart';
