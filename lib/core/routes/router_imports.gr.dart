@@ -27,6 +27,8 @@ import 'package:flutter_tdd/features/auth/presentation/pages/reset_password/rese
     as _i4;
 import 'package:flutter_tdd/features/auth/presentation/pages/splash/splash_imports.dart'
     as _i1;
+import 'package:flutter_tdd/features/base/presentation/pages/add_new_address/add_new_address_imports.dart'
+    as _i28;
 import 'package:flutter_tdd/features/base/presentation/pages/addresses/addresses_imports.dart'
     as _i27;
 import 'package:flutter_tdd/features/base/presentation/pages/brands/brands_imports.dart'
@@ -53,8 +55,6 @@ import 'package:flutter_tdd/features/base/presentation/pages/home/tabs/cart/cart
     as _i21;
 import 'package:flutter_tdd/features/base/presentation/pages/my_wallet/my_wallet_imports.dart'
     as _i15;
-import 'package:flutter_tdd/features/base/presentation/pages/order_summary/order_summary_imports.dart'
-    as _i29;
 import 'package:flutter_tdd/features/base/presentation/pages/payment/payment_imports.dart'
     as _i26;
 import 'package:flutter_tdd/features/base/presentation/pages/product_details/product_details_imports.dart'
@@ -63,12 +63,12 @@ import 'package:flutter_tdd/features/base/presentation/pages/profile/profile_imp
     as _i9;
 import 'package:flutter_tdd/features/base/presentation/pages/purchased_history/purchased_history_imports.dart'
     as _i12;
+import 'package:flutter_tdd/features/base/presentation/pages/search/search_imports.dart'
+    as _i29;
 import 'package:flutter_tdd/features/base/presentation/pages/shipping/shipping_imports.dart'
     as _i23;
 import 'package:flutter_tdd/features/base/presentation/pages/support_tickets/support_tickets_imports.dart'
     as _i16;
-import 'package:flutter_tdd/features/base/presentation/pages/tickets_details/tickets_details_imports.dart'
-    as _i28;
 import 'package:flutter_tdd/features/base/presentation/pages/wishlist/wishlist_imports.dart'
     as _i13;
 import 'package:flutter_tdd/features/general/presentation/pages/contact_us/contact_us_imports.dart'
@@ -269,21 +269,16 @@ class AppRouter extends _i35.RootStackRouter {
         child: const _i27.Addresses(),
       );
     },
-    TicketsDetailsRoute.name: (routeData) {
+    AddNewAddressRoute.name: (routeData) {
       return _i35.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i28.TicketsDetails(),
+        child: const _i28.AddNewAddress(),
       );
     },
-    OrderSummaryRoute.name: (routeData) {
-      final args = routeData.argsAs<OrderSummaryRouteArgs>(
-          orElse: () => const OrderSummaryRouteArgs());
+    SearchRoute.name: (routeData) {
       return _i35.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: _i29.OrderSummary(
-          key: args.key,
-          isTrackOrder: args.isTrackOrder,
-        ),
+        child: const _i29.Search(),
       );
     },
     TermsRoute.name: (routeData) {
@@ -429,12 +424,12 @@ class AppRouter extends _i35.RootStackRouter {
           path: '/Addresses',
         ),
         _i35.RouteConfig(
-          TicketsDetailsRoute.name,
-          path: '/tickets-details',
+          AddNewAddressRoute.name,
+          path: '/add-new-address',
         ),
         _i35.RouteConfig(
-          OrderSummaryRoute.name,
-          path: '/order-summary',
+          SearchRoute.name,
+          path: '/Search',
         ),
         _i35.RouteConfig(
           TermsRoute.name,
@@ -829,49 +824,27 @@ class AddressesRoute extends _i35.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i28.TicketsDetails]
-class TicketsDetailsRoute extends _i35.PageRouteInfo<void> {
-  const TicketsDetailsRoute()
+/// [_i28.AddNewAddress]
+class AddNewAddressRoute extends _i35.PageRouteInfo<void> {
+  const AddNewAddressRoute()
       : super(
-          TicketsDetailsRoute.name,
-          path: '/tickets-details',
+          AddNewAddressRoute.name,
+          path: '/add-new-address',
         );
 
-  static const String name = 'TicketsDetailsRoute';
+  static const String name = 'AddNewAddressRoute';
 }
 
 /// generated route for
-/// [_i29.OrderSummary]
-class OrderSummaryRoute extends _i35.PageRouteInfo<OrderSummaryRouteArgs> {
-  OrderSummaryRoute({
-    _i36.Key? key,
-    bool isTrackOrder = false,
-  }) : super(
-          OrderSummaryRoute.name,
-          path: '/order-summary',
-          args: OrderSummaryRouteArgs(
-            key: key,
-            isTrackOrder: isTrackOrder,
-          ),
+/// [_i29.Search]
+class SearchRoute extends _i35.PageRouteInfo<void> {
+  const SearchRoute()
+      : super(
+          SearchRoute.name,
+          path: '/Search',
         );
 
-  static const String name = 'OrderSummaryRoute';
-}
-
-class OrderSummaryRouteArgs {
-  const OrderSummaryRouteArgs({
-    this.key,
-    this.isTrackOrder = false,
-  });
-
-  final _i36.Key? key;
-
-  final bool isTrackOrder;
-
-  @override
-  String toString() {
-    return 'OrderSummaryRouteArgs{key: $key, isTrackOrder: $isTrackOrder}';
-  }
+  static const String name = 'SearchRoute';
 }
 
 /// generated route for

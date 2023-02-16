@@ -2,8 +2,9 @@ part of 'category_details_widgets_imports.dart';
 
 class BuildIconItem extends StatelessWidget {
   final IconData iconData;
-final Function()onTap;
-  const BuildIconItem({super.key, required this.iconData,required this.onTap});
+  final Function() onTap;
+
+  const BuildIconItem({super.key, required this.iconData, required this.onTap});
 
   @override
   Widget build(BuildContext context) {

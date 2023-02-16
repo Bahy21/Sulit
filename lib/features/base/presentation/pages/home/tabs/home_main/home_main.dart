@@ -2,6 +2,7 @@ part of 'home_main_imports.dart';
 
 class HomeMain extends StatefulWidget {
   final HomeController homeController;
+
   const HomeMain({Key? key, required this.homeController}) : super(key: key);
 
   @override
@@ -17,39 +18,29 @@ class _HomeMainState extends State<HomeMain> {
       child: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
         child: Scaffold(
-          body: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          appBar: BuildSearchAppBar(homeController: widget.homeController),
+          body: ListView(
             children: [
-              BuildHomeMainAppBar(
-                homeController: widget.homeController,
+              const BuildHomeSwiper(),
+              const BuildFlashSaleCounter(),
+              DefaultButton(
+                margin:
+                    const EdgeInsets.only(bottom: 10, left: 16, right: 16).r,
+                onTap: () {},
+                title: "View More",
               ),
-              Flexible(
-                child: ListView(
-                  children: [
-                    const BuildHomeSwiper(),
-                    const BuildFlashSaleCounter(),
-                    DefaultButton(
-                      margin:
-                          const EdgeInsets.only(bottom: 10, left: 16, right: 16)
-                              .r,
-                      onTap: () {},
-                      title: "View More",
-                    ),
-                    Gaps.vGap15,
-                    const BuildTodayProducts(),
-                    Gaps.vGap15,
-                    const BuildHomeListProducts(),
-                    Gaps.vGap15,
-                    const BuildFeaturedProducts(),
-                    Gaps.vGap15,
-                    const BuildBestSellingProducts(),
-                    Gaps.vGap15,
-                    const BuildTopCategories(),
-                    Gaps.vGap15,
-                    const BuildTopBrands()
-                  ],
-                ),
-              ),
+              Gaps.vGap15,
+              const BuildTodayProducts(),
+              Gaps.vGap15,
+              const BuildHomeListProducts(),
+              Gaps.vGap15,
+              const BuildFeaturedProducts(),
+              Gaps.vGap15,
+              const BuildBestSellingProducts(),
+              Gaps.vGap15,
+              const BuildTopCategories(),
+              Gaps.vGap15,
+              const BuildTopBrands()
             ],
           ),
         ),

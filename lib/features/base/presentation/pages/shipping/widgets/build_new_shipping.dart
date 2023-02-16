@@ -5,23 +5,26 @@ class BuildNewShipping extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(Dimens.dp10),
-      padding: const EdgeInsets.all(Dimens.dp15),
-      decoration: BoxDecoration(
-        borderRadius: Dimens.borderRadius10PX,
-        color: context.colors.greyWhite,
-        border: Border.all(color: context.colors.greyWhite),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            "Add New Address",
-            style: AppTextStyle.s15_w700(color: context.colors.primary),
-          ),
-          Icon(Icons.add_circle, color: context.colors.primary),
-        ],
+    return GestureDetector(
+      onTap:()=> AutoRouter.of(context).push(const AddNewAddressRoute()),
+      child: Container(
+        margin: const EdgeInsets.all(Dimens.dp10),
+        padding: const EdgeInsets.all(Dimens.dp15),
+        decoration: BoxDecoration(
+          borderRadius: Dimens.borderRadius10PX,
+          color: context.colors.greyWhite,
+          border: Border.all(color: context.colors.greyWhite),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "Add New Address",
+              style: AppTextStyle.s15_w700(color: context.colors.primary),
+            ),
+            Icon(Icons.add_circle, color: context.colors.primary),
+          ],
+        ),
       ),
     );
   }

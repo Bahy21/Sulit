@@ -38,7 +38,7 @@ class BuildDeliveryItem extends StatelessWidget {
               Flexible(
                 child: Text(
                   title,
-                  style: AppTextStyle.s14_w600(color: context.colors.black),
+                  style: AppTextStyle.s14_w400(color: context.colors.black),
                 ),
               ),
             ],

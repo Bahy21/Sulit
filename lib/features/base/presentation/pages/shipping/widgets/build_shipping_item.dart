@@ -43,6 +43,41 @@ class BuildShippingItem extends StatelessWidget {
               ],
             ),
           ),
+          PopupMenuButton(
+            color: context.colors.white,
+            elevation: 20,
+            icon: Container(
+              padding: const EdgeInsets.all(Dimens.dp5),
+              margin: const EdgeInsets.all(Dimens.dp5),
+              decoration: BoxDecoration(
+                color: context.colors.white,
+                shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(
+                    color: context.colors.gray.withOpacity(.5),
+                    blurRadius: 1,
+                    spreadRadius: 1,
+                  )
+                ],
+              ),
+              child: Icon(
+                CupertinoIcons.ellipsis_vertical,
+                color: context.colors.blackOpacity,
+                size: 12.sp,
+              ),
+            ),
+            enabled: true,
+            onSelected: (int value) {},
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                value: 0,
+                child: Text(
+                  "Edit",
+                  style: AppTextStyle.s15_w500(color: context.colors.black),
+                ),
+              ),
+            ],
+          )
         ],
       ),
     );
