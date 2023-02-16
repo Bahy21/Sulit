@@ -16,10 +16,12 @@ import '../../pages/deal_of_the_day/deal_of_the_day_imports.dart';
 import '../../pages/downloads/downloads_import.dart';
 import '../../pages/flash_sale/flash_imports.dart';
 import '../../pages/my_wallet/my_wallet_imports.dart';
+import '../../pages/order_summary/order_summary_imports.dart';
 import '../../pages/product_details/product_details_imports.dart';
 import '../../pages/profile/profile_imports.dart';
 import '../../pages/purchased_history/purchased_history_imports.dart';
 import '../../pages/support_tickets/support_tickets_imports.dart';
+import '../../pages/tickets_details/tickets_details_imports.dart';
 import '../../pages/wishlist/wishlist_imports.dart';
 
 const List<AutoRoute> baseRoute = [
@@ -47,5 +49,7 @@ const List<AutoRoute> baseRoute = [
   AutoRoute(page: ProductDetails),
   AutoRoute(page: Payment),
   AutoRoute(page: Addresses),
+  AutoRoute(page: TicketsDetails),
+  AutoRoute(page: OrderSummary),
 
 ];

@@ -25,7 +25,7 @@ class BuildHomeListItem extends StatelessWidget {
               child: Stack(
                 children: [
                   CachedImage(
-                      fit: BoxFit.fill,
+                      fit: BoxFit.contain,
                       haveRadius: true,
                       borderRadius: BorderRadius.only(
                           topRight: const Radius.circular(7).r,

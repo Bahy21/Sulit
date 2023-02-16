@@ -67,7 +67,7 @@ class BuildPurchasedHistoryItem extends StatelessWidget {
                         itemColor: context.colors.greyWhite,
                       ),
                       BuildOptionItem(
-                        onTap: () {},
+                        onTap: () =>AutoRouter.of(context).push( OrderSummaryRoute()),
                         iconData: Icons.remove_red_eye_outlined,
                         iconColor: context.colors.blueAccent,
                         itemColor: context.colors.greyWhite,

@@ -1,7 +1,8 @@
 part of'home_main_widgets_imports.dart';
 class BuildHeaderTitle extends StatelessWidget {
   final String title,btnText;
-  const BuildHeaderTitle({Key? key, required this.title,  this.btnText="Top 20"}) : super(key: key);
+  final Function()?onTap;
+  const BuildHeaderTitle({Key? key, required this.title,  this.btnText="Top 20", this.onTap}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,9 @@ class BuildHeaderTitle extends StatelessWidget {
               color: context.colors.black,
             ),
           ),
-          Container(
+          InkWell(
+            onTap: onTap??(){},
+            child: Container(
             padding: const EdgeInsets.symmetric(vertical: 5,horizontal: 6).r,
             decoration: BoxDecoration(
                 color: context.colors.primary,
@@ -28,7 +31,7 @@ class BuildHeaderTitle extends StatelessWidget {
                 color: context.colors.white,
               ),
             ),
-          )
+          ),)
         ],
       ),
     );

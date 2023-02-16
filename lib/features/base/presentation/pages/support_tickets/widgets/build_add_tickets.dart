@@ -1,12 +1,14 @@
 part of'support_tickets_widgets_imports.dart';
 class BuildAddTicket extends StatelessWidget {
-  const BuildAddTicket({Key? key}) : super(key: key);
+  final SupportTicketsController supportTicketsController;
+
+  const BuildAddTicket({Key? key, required this.supportTicketsController}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-
+showDialog(context: context, builder: (context)=>BuildTicketDialog(supportTicketsController: supportTicketsController,));
       },
       child: Column(
         children: [

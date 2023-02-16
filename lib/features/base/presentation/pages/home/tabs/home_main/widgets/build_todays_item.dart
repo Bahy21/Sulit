@@ -16,7 +16,9 @@ class BuildTodayItem extends StatelessWidget {
                 color: context.colors.greyWhite, blurRadius: 1, spreadRadius: 1)
           ]
       ),
-      child: Column(
+      child:InkWell(
+        onTap: ()=>AutoRouter.of(context).push(const ProductDetailsRoute()),
+        child:  Column(
         children: [
           Expanded(
             child: Stack(
@@ -33,18 +35,18 @@ class BuildTodayItem extends StatelessWidget {
                   top: 10.r,
                   start: 5.r,
                   child: Container(
-                  padding: const EdgeInsets.symmetric(vertical: 3,horizontal: 6).r,
-                  decoration: BoxDecoration(
-                      color: context.colors.primary,
-                      borderRadius: BorderRadius.circular(5).r
-                  ),
-                  child: Text(
-                    "Hot",
-                    style: AppTextStyle.s12_w400(
-                      color: context.colors.white,
+                    padding: const EdgeInsets.symmetric(vertical: 3,horizontal: 6).r,
+                    decoration: BoxDecoration(
+                        color: context.colors.primary,
+                        borderRadius: BorderRadius.circular(5).r
                     ),
-                  ),
-                ),),
+                    child: Text(
+                      "Hot",
+                      style: AppTextStyle.s12_w400(
+                        color: context.colors.white,
+                      ),
+                    ),
+                  ),),
                 PositionedDirectional(
                   end: 3,
 
@@ -116,12 +118,12 @@ class BuildTodayItem extends StatelessWidget {
             child: Text(
               "AED 8.21",
               style: AppTextStyle.s16_w500(
-                  color: context.colors.primary,),
+                color: context.colors.primary,),
               textAlign: TextAlign.center,
             ),
           ),
         ],
-      ),
+      ),)
     );
   }
 }

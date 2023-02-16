@@ -16,7 +16,7 @@ class _ProductDetailsState extends State<ProductDetails> {
         appBar: const BuildCustomAppBar(),
         body: ListView(
           children: [
-            BuildProductDetailsSwiper(),
+            const BuildProductDetailsSwiper(),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16).r,
               child: Column(

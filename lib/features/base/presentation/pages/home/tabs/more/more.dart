@@ -45,6 +45,11 @@ class _MoreState extends State<More> {
                   onTap: () => AutoRouter.of(context).push(const DownloadsRoute()),
                 ),
                 BuildMoreItem(
+                  title: 'Track Order',
+                  icon: Icons.summarize_outlined,
+                  onTap: () => AutoRouter.of(context).push(  OrderSummaryRoute(isTrackOrder: true)),
+                ),
+                BuildMoreItem(
                   title: 'WishList',
                   icon: Icons.favorite_border,
                   onTap: () => AutoRouter.of(context).push(const WishlistRoute()),

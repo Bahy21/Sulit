@@ -18,7 +18,7 @@ class _SupportTicketsState extends State<SupportTickets> {
         body: ListView(
           padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16).r,
           children: [
-            BuildAddTicket(),
+            BuildAddTicket(supportTicketsController: supportTicketsController,),
             Gaps.vGap32,
             BuildTicketsList(
               supportTicketsController: supportTicketsController,

@@ -81,12 +81,14 @@ class BuildMoreHeader extends StatelessWidget {
           "Tarek Fouda",
           style: AppTextStyle.s16_w400(color: context.colors.black),
         ),
-        Gaps.vGap10,
-
-        Text(
-          "+945837465222",
-          style: AppTextStyle.s16_w400(color: context.colors.black),
-        ),
+        DefaultButton(
+            title: "Be A Seller",
+            borderRadius: BorderRadius.circular(5).r,
+            width: 80.w,
+            height: 20.h,
+            fontSize: 10,
+            margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10).r,
+            onTap: () {}),
       ],
     );
   }

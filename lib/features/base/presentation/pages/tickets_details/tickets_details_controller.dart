@@ -1,6 +1,5 @@
-part of'support_tickets_imports.dart';
-class SupportTicketsController{
-  GenericBloc<bool> isVisibleCubit = GenericBloc(false);
+part of'tickets_details_imports.dart';
+class TicketsDetailsController{
   final GenericBloc<File?> imageCubit = GenericBloc(null);
 
   Future<void> getImage(BuildContext context) async {

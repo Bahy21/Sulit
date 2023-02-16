@@ -94,9 +94,12 @@ class BuildTicketsList extends StatelessWidget {
                           "Options",
                           style: AppTextStyle.s14_w500(color: context.colors.black),
                         ),
-                        Text(
-                          "View Details >",
-                          style: AppTextStyle.s14_w400(color: context.colors.primary),
+                        InkWell(
+                          onTap: ()=>AutoRouter.of(context).push(const TicketsDetailsRoute()),
+                          child: Text(
+                            "View Details >",
+                            style: AppTextStyle.s14_w400(color: context.colors.primary),
+                          ),
                         ),
                       ],
                     )
