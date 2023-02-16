@@ -46,6 +46,8 @@ abstract class AppColors {
 
   Color get black;
 
+  Color get darkPurple;
+
   Color get background;
 
   Color get disableGray;
@@ -53,9 +55,12 @@ abstract class AppColors {
   Color get gray;
 
   Color get blue;
+
   Color get yellow;
+
   Color get green;
 
   Color get blueAccent;
+
   Color get shadowColor;
 }

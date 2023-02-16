@@ -12,11 +12,11 @@ class BuildTotalCost extends StatelessWidget {
         children: [
           Text(
             "Subtotal",
-            style: AppTextStyle.s17_w800(color: context.colors.black),
+            style: AppTextStyle.s16_w800(color: context.colors.black),
           ),
           Text(
             "${150} د.إ",
-            style: AppTextStyle.s17_w800(color: context.colors.black),
+            style: AppTextStyle.s16_w800(color: context.colors.black),
           )
         ],
       ),

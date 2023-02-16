@@ -26,46 +26,49 @@ class BuildDeliveryType extends StatelessWidget {
         BlocBuilder<GenericBloc<int>, GenericState<int>>(
           bloc: deliveryController.deliveryTypeCubit,
           builder: (_, state) {
-            return Column(
-              children: [
-                Row(
-                  children: [
-                    BuildDeliveryItem(
-                      title: "Home Delivery",
-                      value: 0,
-                      groupValue: state.data,
-                      onChanged: (val) => deliveryController.deliveryTypeCubit
-                          .onUpdateData(val!),
-                    ),
-                    Gaps.hGap10,
-                    BuildDeliveryItem(
-                      title: "Local Pickup",
-                      value: 1,
-                      groupValue: state.data,
-                      onChanged: (val) => deliveryController.deliveryTypeCubit
-                          .onUpdateData(val!),
-                    ),
-                  ],
-                ),
-                Visibility(
-                  visible: state.data == 1,
-                  child: DropdownTextField<DropDownModel>(
-                    title: "Select nearest pickup point",
-                    hint: "Select nearest pickup point",
-                    fillColor: context.colors.white,
-                    itemAsString: (u) => u.name,
-                    margin: const EdgeInsets.symmetric(vertical: Dimens.dp15),
-                    validate: (value) => validateDropDown(context),
-                    data: const [
-                      DropDownModel(id: 1, name: "test"),
-                      DropDownModel(id: 2, name: "test2"),
-                      DropDownModel(id: 3, name: "test3")
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: Dimens.dp20),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      BuildDeliveryItem(
+                        title: "Home Delivery",
+                        value: 0,
+                        groupValue: state.data,
+                        onChanged: (val) => deliveryController.deliveryTypeCubit
+                            .onUpdateData(val!),
+                      ),
+                      Gaps.hGap10,
+                      BuildDeliveryItem(
+                        title: "Local Pickup",
+                        value: 1,
+                        groupValue: state.data,
+                        onChanged: (val) => deliveryController.deliveryTypeCubit
+                            .onUpdateData(val!),
+                      ),
                     ],
-                    onChange: (model) =>
-                        deliveryController.onSelectPoint(model),
                   ),
-                ),
-              ],
+                  Visibility(
+                    visible: state.data == 1,
+                    child: DropdownTextField<DropDownModel>(
+                      title: "Select nearest pickup point",
+                      hint: "Select nearest pickup point",
+                      fillColor: context.colors.white,
+                      itemAsString: (u) => u.name,
+                      margin: const EdgeInsets.symmetric(vertical: Dimens.dp15),
+                      validate: (value) => validateDropDown(context),
+                      data: const [
+                        DropDownModel(id: 1, name: "test"),
+                        DropDownModel(id: 2, name: "test2"),
+                        DropDownModel(id: 3, name: "test3")
+                      ],
+                      onChange: (model) =>
+                          deliveryController.onSelectPoint(model),
+                    ),
+                  ),
+                ],
+              ),
             );
           },
         ),

@@ -15,7 +15,7 @@ class BuildWalletBalance extends StatelessWidget {
               padding: const EdgeInsets.all(Dimens.dp15),
               child: Text(
                 "OR",
-                style: AppTextStyle.s18_w700(color: context.colors.primary),
+                style: AppTextStyle.s17_w800(color: context.colors.primary),
               ),
             ),
             Expanded(child: Gaps.line(context.colors.gray, 10))
@@ -26,11 +26,11 @@ class BuildWalletBalance extends StatelessWidget {
           children: [
             Text(
               "Your wallet balance : ",
-              style: AppTextStyle.s17_w800(color: context.colors.black),
+              style: AppTextStyle.s16_w800(color: context.colors.black),
             ),
             Text(
               "100 د.إ",
-              style: AppTextStyle.s17_w800(color: context.colors.primary),
+              style: AppTextStyle.s16_w800(color: context.colors.primary),
             ),
           ],
         ),

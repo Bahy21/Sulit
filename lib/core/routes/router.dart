@@ -5,6 +5,7 @@ part of 'router_imports.dart';
     ...authRoute,
     ...baseRoute,
     ...generalRoute,
+    ...sellerRoute
   ],
 )
 class $AppRouter {}

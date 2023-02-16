@@ -22,7 +22,6 @@ class BuildDeliveryItem extends StatelessWidget {
         onTap: () => onChanged(value),
         child: Container(
           padding: const EdgeInsets.all(Dimens.dp5),
-          // margin: const .all(5),
           decoration: BoxDecoration(
             border: Border.all(color: borderColor, width: 2),
             borderRadius: Dimens.borderRadius5PX,

@@ -1,10 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_tdd/core/theme/colors/app_colors.dart';
 
 class AppLightColors extends AppColors {
-
-
   @override
   Color get primary => const Color(0xFFc91d1d);
 
@@ -30,19 +27,18 @@ class AppLightColors extends AppColors {
   Color get greyWhite => Colors.grey.withOpacity(.2);
 
   @override
-  Color get disableGray=> const Color(0xFFCBCBCB);
+  Color get disableGray => const Color(0xFFCBCBCB);
 
   @override
   Color get gray => Colors.grey;
-  @override
 
+  @override
   Color get blue => Colors.blue;
-  @override
 
+  @override
   Color get shadowColor => Colors.black45;
 
   @override
-
   Color get blueAccent => Colors.blueAccent;
 
   @override
@@ -52,5 +48,10 @@ class AppLightColors extends AppColors {
   @override
   // TODO: implement green
   Color get green => Colors.green;
+
+  @override
+  // TODO: implement green
+  Color get darkPurple => const Color(0xFF2E294E);
+
 
 }

@@ -1,8 +1,10 @@
+part of 'more_widgets_imports.dart';
 
-part of'more_widgets_imports.dart';
 class BuildMoreHeader extends StatelessWidget {
   final MoreController moreController;
-  const BuildMoreHeader({Key? key, required this.moreController}) : super(key: key);
+
+  const BuildMoreHeader({Key? key, required this.moreController})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +47,11 @@ class BuildMoreHeader extends StatelessWidget {
                           fit: BoxFit.cover,
                           haveRadius: false,
                           boxShape: BoxShape.circle,
-                          placeHolder: Image.asset(Res.profile,height:120.r ,width: 120.r,),
+                          placeHolder: Image.asset(
+                            Res.profile,
+                            height: 120.r,
+                            width: 120.r,
+                          ),
                           url: "",
                         ),
                       ));
@@ -55,15 +61,15 @@ class BuildMoreHeader extends StatelessWidget {
                 top: 4,
                 right: 0,
                 child: InkWell(
-                  onTap: () =>moreController.getImage(context),
-
+                  onTap: () => moreController.getImage(context),
                   child: Container(
                     padding: const EdgeInsets.all(3).r,
                     decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: context.colors.white,
-                        border: Border.all(color: context.colors.disableGray,)
-                    ),
+                        border: Border.all(
+                          color: context.colors.disableGray,
+                        )),
                     child: Icon(
                       Icons.camera_alt,
                       size: 12.sp,
@@ -72,7 +78,6 @@ class BuildMoreHeader extends StatelessWidget {
                   ),
                 ),
               ),
-
             ],
           ),
         ),
@@ -82,13 +87,15 @@ class BuildMoreHeader extends StatelessWidget {
           style: AppTextStyle.s16_w400(color: context.colors.black),
         ),
         DefaultButton(
-            title: "Be A Seller",
-            borderRadius: BorderRadius.circular(5).r,
-            width: 80.w,
-            height: 20.h,
-            fontSize: 10,
-            margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10).r,
-            onTap: () {}),
+          title: "Be A Seller",
+          borderRadius: BorderRadius.circular(5).r,
+          width: 80.w,
+          height: 20.h,
+          fontSize: 10,
+          margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10).r,
+          onTap: () =>
+              AutoRouter.of(context).push(const SellerDashboardRoute()),
+        ),
       ],
     );
   }

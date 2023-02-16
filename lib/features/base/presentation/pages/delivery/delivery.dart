@@ -20,7 +20,6 @@ class _DeliveryState extends State<Delivery> {
           const BuildCartStepper(current: 3),
           Flexible(
             child: ListView(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
               children: [
                 const BuildDeliveryProducts(),
                 BuildDeliveryType(deliveryController: deliveryController),
