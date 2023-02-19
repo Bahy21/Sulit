@@ -20,57 +20,57 @@ class BuildSellerDrawer extends StatelessWidget {
           const BuildSellerDrawerHeader(),
           Flexible(
               child: ListView(
-                padding: const EdgeInsets.only(right: 16,left: 16,top: 30).r,
-                children: [
-                  BuildDrawerItem(
-                    title: 'DashBoard',
-                    icon: Icons.home_outlined,
-                    onTap: ()=>AutoRouter.of(context).push(const SellerDashboardRoute()),
-                  ),
-                  BuildDrawerItem(
-                    title: 'Products',
-                    icon: Icons.shopping_bag_outlined,
-                    onTap: () {},
-                  ),
-                  BuildDrawerItem(
-                    title: 'Reselling',
-                    icon: Icons.present_to_all,
-                    onTap: () {},
-                  ),
-                  BuildDrawerItem(
-                    title: 'Uploaded Files',
-                    icon: Icons.upload_file,
-                    onTap: () {},
-                  ),
-                  BuildDrawerItem(
-                    title: 'Orders',
-                    icon: Icons.production_quantity_limits,
-                    onTap: () {},
-                  ),
-                  BuildDrawerItem(
-                    title: 'Shop Setting',
-                    icon: Icons.settings,
-                    onTap: () {},
-                  ),
-                  BuildDrawerItem(
-                    title: 'Payment History',
-                    icon: Icons.history,
-                    onTap: () =>AutoRouter.of(context).push(const PaymentHistoryRoute()),
-                  ),
-                  BuildDrawerItem(
-                    title: 'Money Withdraw',
-                    icon: Icons.money,
-                    onTap: () {},
-                  ),
-                  BuildDrawerItem(
-                    title: 'Commission History',
-                    icon: Icons.file_copy_outlined,
-                    onTap: () {},
-                  ),
-
-                ],
-              )),
-
+            padding: const EdgeInsets.only(right: 16, left: 16, top: 30).r,
+            children: [
+              BuildDrawerItem(
+                title: 'DashBoard',
+                icon: Icons.home_outlined,
+                onTap: () =>
+                    AutoRouter.of(context).push(const SellerDashboardRoute()),
+              ),
+              BuildDrawerItem(
+                title: 'Products',
+                icon: Icons.shopping_bag_outlined,
+                onTap: () {},
+              ),
+              BuildDrawerItem(
+                title: 'Reselling',
+                icon: Icons.present_to_all,
+                onTap: () {},
+              ),
+              BuildDrawerItem(
+                title: 'Uploaded Files',
+                icon: Icons.upload_file,
+                onTap: () {},
+              ),
+              BuildDrawerItem(
+                title: 'Orders',
+                icon: Icons.production_quantity_limits,
+                onTap: () {},
+              ),
+              BuildDrawerItem(
+                title: 'Shop Setting',
+                icon: Icons.settings,
+                onTap: () {},
+              ),
+              BuildDrawerItem(
+                title: 'Payment History',
+                icon: Icons.history,
+                onTap: () =>
+                    AutoRouter.of(context).push(const PaymentHistoryRoute()),
+              ),
+              BuildDrawerItem(
+                title: 'Money Withdraw',
+                icon: Icons.money,
+                onTap: () {},
+              ),
+              BuildDrawerItem(
+                title: 'Commission History',
+                icon: Icons.file_copy_outlined,
+                onTap: () {},
+              ),
+            ],
+          )),
         ],
       ),
     );
