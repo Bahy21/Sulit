@@ -59,7 +59,6 @@ class AppLightColors extends AppColors {
   @override
   // TODO: implement drawerColor
   Color get drawerColor => const Color(0xFFe9e9f0);
-  Color get transparent => Colors.transparent;
 
   @override
   // TODO: implement darkGradiantColor

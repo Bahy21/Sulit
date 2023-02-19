@@ -55,7 +55,7 @@ class BuildSellerDrawer extends StatelessWidget {
                   BuildDrawerItem(
                     title: 'Payment History',
                     icon: Icons.history,
-                    onTap: () =>AutoRouter.of(context).push(PurchasedHistoryRoute()),
+                    onTap: () =>AutoRouter.of(context).push(const PaymentHistoryRoute()),
                   ),
                   BuildDrawerItem(
                     title: 'Money Withdraw',

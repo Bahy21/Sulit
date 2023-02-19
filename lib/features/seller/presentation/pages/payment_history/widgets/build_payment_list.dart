@@ -5,109 +5,69 @@ class BuildPaymentList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<GenericBloc<bool>, GenericState<bool>>(
-      bloc: paymentHistoryController.isVisibleCubit,
-      builder: (context, state) {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Tickets",
-              style: AppTextStyle.s16_w500(color: context.colors.black),
-            ),
-            Gaps.vGap20,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
 
-            ...List.generate(1, (index) =>Column(
-              children: [
-                Container(
-                    margin: const EdgeInsets.symmetric(vertical: 5,).r,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5).r,
-                        color: context.colors.white,
-                        boxShadow: [
-                          BoxShadow(
-                              color: context.colors.greyWhite, blurRadius: 1, spreadRadius: 1)
-                        ]),
-                    child: ListTile(
-                      onTap: ()=>paymentHistoryController.isVisibleCubit.onUpdateData(!state.data),
-                      title: Text(
-                        "test ticket",
-                        style: AppTextStyle.s14_w500(color: context.colors.black),
-                      ),
 
-                      trailing: Text(
-                        "Pending",
-                        style: AppTextStyle.s12_w400(color: context.colors.primary),
-                      ),
-                      leading: Icon(state.data==false?Icons.add_box:Icons.indeterminate_check_box,color: context.colors.primary,size: 20.sp,),
-                      minLeadingWidth: 10.w,
-                    )
-                ),
-                Visibility(
-                  visible: state.data,
-                  child: Container(
+        ...List.generate(5, (index) =>Container(
 
-                      margin: const EdgeInsets.symmetric(vertical: 5,).r,
-                      padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 12).r,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5).r,
-                          color: context.colors.white,
-                          boxShadow: [
-                            BoxShadow(
-                                color: context.colors.greyWhite, blurRadius: 1, spreadRadius: 1)
-                          ]),
-                      child: Column(children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "TicketId",
-                              style: AppTextStyle.s14_w500(color: context.colors.black),
-                            ),
-                            Text(
-                              "#765392505",
-                              style: AppTextStyle.s14_w400(color: context.colors.black),
-                            ),
-                          ],
-                        ),
-                        Divider(color: context.colors.blackOpacity,height: 20.h,),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-                          children: [
-                            Text(
-                              "Sending date",
-                              style: AppTextStyle.s14_w500(color: context.colors.black),
-                            ),
-                            Text(
-                              "12/2/2023 3:00 pm",
-                              style: AppTextStyle.s14_w400(color: context.colors.black),
-                            ),
-                          ],
-                        ),
-                        Divider(color: context.colors.blackOpacity,height: 20.h,),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-                          children: [
-                            Text(
-                              "Options",
-                              style: AppTextStyle.s14_w500(color: context.colors.black),
-                            ),
-                            Text(
-                              "View Details >",
-                              style: AppTextStyle.s14_w400(color: context.colors.primary),
-                            ),
-                          ],
-                        )
-                      ],)
+            margin: const EdgeInsets.symmetric(vertical: 5,).r,
+            padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 12).r,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5).r,
+                color: context.colors.white,
+                boxShadow: [
+                  BoxShadow(
+                      color: context.colors.greyWhite, blurRadius: 1, spreadRadius: 1)
+                ]),
+            child: Column(children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Date",
+                    style: AppTextStyle.s14_w500(color: context.colors.black),
                   ),
-                ),
-              ],
-            ))
-          ],
-        );
-      },
+                  Text(
+                    "12/2/2023",
+                    style: AppTextStyle.s14_w400(color: context.colors.black),
+                  ),
+                ],
+              ),
+              Divider(color: context.colors.greyWhite,height: 20.h,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                children: [
+                  Text(
+                    "Amount",
+                    style: AppTextStyle.s14_w500(color: context.colors.black),
+                  ),
+                  Text(
+                    "200 AED",
+                    style: AppTextStyle.s14_w400(color: context.colors.black),
+                  ),
+                ],
+              ),
+              Divider(color: context.colors.greyWhite,height: 20.h,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                children: [
+                  Text(
+                    "Payment Method",
+                    style: AppTextStyle.s14_w500(color: context.colors.black),
+                  ),
+                  Text(
+                    "Cash",
+                    style: AppTextStyle.s14_w400(color: context.colors.primary),
+                  ),
+                ],
+              )
+            ],)
+        ),)
+      ],
     );
   }
 }
