@@ -93,8 +93,7 @@ class BuildMoreHeader extends StatelessWidget {
           height: 20.h,
           fontSize: 10,
           margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10).r,
-          onTap: () =>
-              AutoRouter.of(context).push(const SellerDashboardRoute()),
+          onTap: () => AutoRouter.of(context).push(const SellerDashboardRoute()),
         ),
       ],
     );

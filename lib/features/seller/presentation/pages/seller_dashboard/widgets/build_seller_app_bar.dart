@@ -22,22 +22,54 @@ class BuildSellerAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       title: Image.asset(Res.suliitLogo, height: 30, width: 150),
       actions: [
-        IconButton(
-          onPressed: () {},
-          icon: Icon(
+        OpenContainer(
+          closedElevation: 0,
+          openElevation: 0,
+          closedColor: context.colors.transparent,
+          openColor: context.colors.transparent,
+          transitionType: ContainerTransitionType.fadeThrough,
+          transitionDuration: const Duration(milliseconds: 800),
+          closedBuilder: (_, action) => Icon(
             Icons.notifications_none_outlined,
             color: context.colors.black,
             size: 25,
           ),
+          openBuilder: (_, action) => const SellerNotifications(),
         ),
-        IconButton(
-          onPressed: () {},
+        PopupMenuButton(
+          color: context.colors.white,
+          elevation: 20,
           icon: Icon(
             Icons.translate,
             color: context.colors.primary,
             size: 25,
           ),
-        ),
+          enabled: true,
+          onSelected: (int value) {},
+          itemBuilder: (context) => [
+            PopupMenuItem(
+              value: 0,
+              child: Text(
+                "English",
+                style: AppTextStyle.s15_w500(color: context.colors.black),
+              ),
+            ),
+            PopupMenuItem(
+              value: 1,
+              child: Text(
+                "Arabic",
+                style: AppTextStyle.s15_w500(color: context.colors.black),
+              ),
+            ),
+            PopupMenuItem(
+              value: 2,
+              child: Text(
+                "Bangla",
+                style: AppTextStyle.s15_w500(color: context.colors.black),
+              ),
+            ),
+          ],
+        )
       ],
     );
   }

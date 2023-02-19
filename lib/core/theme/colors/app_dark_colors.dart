@@ -54,4 +54,9 @@ class AppDarkColors extends AppColors {
   // TODO: implement darkPurple
   Color get darkPurple => const Color(0xFF2E294E);
 
+  @override
+  // TODO: implement darkPurple
+  Color get transparent =>  Colors.transparent;
+
+
 }

@@ -14,10 +14,8 @@ class BuildSettingItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: Dimens.dp20),
-      margin: const EdgeInsets.symmetric(vertical: Dimens.dp5),
       height: 70.h,
-      width: MediaQuery.of(context).size.width/2.5,
+      width: MediaQuery.of(context).size.width*.4,
       alignment: Alignment.center,
       decoration: BoxDecoration(
         color: context.colors.darkPurple.withOpacity(.1),
@@ -29,13 +27,13 @@ class BuildSettingItem extends StatelessWidget {
         children: [
           Text(
             title,
-            style: AppTextStyle.s17_w800(color: context.colors.darkPurple),
+            style: AppTextStyle.s15_w500(color: context.colors.darkPurple),
           ),
           Gaps.vGap10,
           Icon(
             iconData,
             color: context.colors.darkPurple,
-            size: 40.sp,
+            size: 30.sp,
           ),
         ],
       ),

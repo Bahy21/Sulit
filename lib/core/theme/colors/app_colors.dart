@@ -63,4 +63,7 @@ abstract class AppColors {
   Color get blueAccent;
 
   Color get shadowColor;
+
+  Color get transparent;
+
 }
