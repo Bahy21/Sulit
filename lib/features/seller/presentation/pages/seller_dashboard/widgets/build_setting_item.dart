@@ -13,29 +13,32 @@ class BuildSettingItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 70.h,
-      width: MediaQuery.of(context).size.width*.4,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        color: context.colors.darkPurple.withOpacity(.1),
-        borderRadius: Dimens.borderRadius5PX,
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text(
-            title,
-            style: AppTextStyle.s15_w500(color: context.colors.darkPurple),
-          ),
-          Gaps.vGap10,
-          Icon(
-            iconData,
-            color: context.colors.darkPurple,
-            size: 30.sp,
-          ),
-        ],
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        height: 70.h,
+        width: MediaQuery.of(context).size.width*.4,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          color: context.colors.darkPurple.withOpacity(.1),
+          borderRadius: Dimens.borderRadius5PX,
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              title,
+              style: AppTextStyle.s15_w500(color: context.colors.darkPurple),
+            ),
+            Gaps.vGap10,
+            Icon(
+              iconData,
+              color: context.colors.darkPurple,
+              size: 30.sp,
+            ),
+          ],
+        ),
       ),
     );
   }
