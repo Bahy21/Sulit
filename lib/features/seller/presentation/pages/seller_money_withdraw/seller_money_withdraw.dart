@@ -8,8 +8,23 @@ class SellerMoneyWithDraw extends StatefulWidget {
 }
 
 class _SellerMoneyWithDrawState extends State<SellerMoneyWithDraw> {
+  final SellerMoneyWithdrawController sellerMoneyWithdrawController =
+      SellerMoneyWithdrawController();
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: const BuildCustomSellerAppBar(),
+      body: ListView(
+        padding: const EdgeInsets.all(20),
+        children: [
+          const BuildMoneyBalance(),
+          BuildPendingBalance(),
+          BuildRequestHistory(
+            sellerMoneyWithdrawController: sellerMoneyWithdrawController,
+          ),
+        ],
+      ),
+    );
   }
 }

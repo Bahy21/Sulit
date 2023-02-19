@@ -66,5 +66,7 @@ abstract class AppColors {
 
   Color get transparent;
   Color get drawerColor;
+  Color get gradiantColor;
+  Color get darkGradiantColor;
 
 }

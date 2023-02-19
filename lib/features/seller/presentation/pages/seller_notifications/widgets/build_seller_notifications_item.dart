@@ -6,11 +6,9 @@ class BuildSellerNotificationsItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(
-        vertical: 5,
-      ).r,
+      margin: const EdgeInsets.symmetric(vertical: Dimens.dp8),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(5).r,
+        borderRadius: Dimens.borderRadius10PX,
         color: context.colors.white,
         boxShadow: [
           BoxShadow(
@@ -22,19 +20,18 @@ class BuildSellerNotificationsItem extends StatelessWidget {
       ),
       child: ListTile(
         title: Text(
-          "Your payment process done successfully",
+          "Empty String Empty String Empty String Empty String ",
           style: AppTextStyle.s12_w400(color: context.colors.black),
         ),
         leading: Image.asset(
           Res.suliitLogo,
-          height: 40.r,
-          width: 40.h,
+          height: 50.h,
+          width: 50.w,
         ),
         trailing: Text(
           "12/3/2023",
           style: AppTextStyle.s12_w400(color: context.colors.blackOpacity),
         ),
-        minLeadingWidth: 10.w,
       ),
     );
   }

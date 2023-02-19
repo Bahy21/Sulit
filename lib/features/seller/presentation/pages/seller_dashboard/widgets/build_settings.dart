@@ -1,4 +1,5 @@
 part of 'seller_dashboard_widgets_imports.dart';
+
 class BuildSettings extends StatelessWidget {
   const BuildSettings({Key? key}) : super(key: key);
 
@@ -14,12 +15,14 @@ class BuildSettings extends StatelessWidget {
           BuildSettingItem(
             title: "Money Withdraw ",
             iconData: CupertinoIcons.creditcard,
-            onTap: () {},
+            onTap: () =>
+                AutoRouter.of(context).push(const SellerMoneyWithDrawRoute()),
           ),
           BuildSettingItem(
             title: "Add New Product",
             iconData: CupertinoIcons.add,
-            onTap: () {},
+            onTap: () =>
+                AutoRouter.of(context).push(const SellerAddProductRoute()),
           ),
           BuildSettingItem(
             title: "Shop Settings",
