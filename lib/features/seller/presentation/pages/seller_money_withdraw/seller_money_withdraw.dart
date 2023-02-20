@@ -18,8 +18,11 @@ class _SellerMoneyWithDrawState extends State<SellerMoneyWithDraw> {
       body: ListView(
         padding: const EdgeInsets.all(20),
         children: [
-          const BuildMoneyBalance(),
-          BuildPendingBalance(),
+          BuildMoneyBalance(
+            sellerMoneyWithdrawController: sellerMoneyWithdrawController,
+          ),
+          const BuildProductBalance(),
+          const BuildPendingBalance(),
           BuildRequestHistory(
             sellerMoneyWithdrawController: sellerMoneyWithdrawController,
           ),

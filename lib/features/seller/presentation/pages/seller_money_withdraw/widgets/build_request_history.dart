@@ -26,10 +26,50 @@ class BuildRequestHistory extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const BuildRequestHeader(),
-          ...List.generate(
-            6,
-            (index) => BuildRequestItem(sellerMoneyWithdrawController: sellerMoneyWithdrawController),
+          BuildRequestHeader(
+            sellerMoneyWithdrawController: sellerMoneyWithdrawController,
+          ),
+          Table(
+            children: [
+              TableRow(
+                decoration: BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(
+                      color: context.colors.greyWhite,
+                      width: 1,
+                    ),
+                  ),
+                ),
+                children: const [
+                  BuildTableHeader(title: "Status"),
+                  BuildTableHeader(title: "Date"),
+                  BuildTableHeader(title: "Amount"),
+                  BuildTableHeader(title: "Transfer to"),
+                  BuildTableHeader(title: "Message"),
+                ],
+              ),
+              ...List.generate(
+                3,
+                (index) => TableRow(
+                  children: [
+                    Container(
+                      height: 20,
+                      margin: const EdgeInsets.only(
+                          top: Dimens.dp15, right: Dimens.dp20),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: context.colors.green,
+                        borderRadius: Dimens.borderRadius5PX,
+                      ),
+                    ),
+                    const BuildTableItem(title: "20/2/2022 02:20 AM"),
+                    const BuildTableItem(title: "444 د.إ"),
+                    const BuildTableItem(title: "(xxxxQrs)"),
+                    const BuildTableItem(title: "empty message "),
+                  ],
+                ),
+              )
+            ],
           ),
         ],
       ),
