@@ -10,7 +10,17 @@ class BuildDrawerItem extends StatelessWidget {
   final String title;
   final IconData icon;
   final Function() onTap;
-  const BuildDrawerItem({Key? key, required this.title, required this.icon, required this.onTap}) : super(key: key);
+  final bool? haveDrawer;
+  final bool? haveIcon;
+  final IconData? dropIcon;
+
+  const BuildDrawerItem(
+      {Key? key,
+      required this.title,
+      required this.icon,
+      required this.onTap,
+      this.haveDrawer = true, this.haveIcon= false,this.dropIcon})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,16 +32,24 @@ class BuildDrawerItem extends StatelessWidget {
             margin: const EdgeInsets.symmetric(vertical: 7).r,
             child: Row(
               children: [
-                Icon(icon,color: context.colors.blackOpacity,size: 20.sp,),
+                Icon(
+                  icon,
+                  color: context.colors.blackOpacity,
+                  size: 20.sp,
+                ),
                 Gaps.hGap10,
                 Text(
                   title,
                   style: AppTextStyle.s14_w400(color: context.colors.black),
                 ),
+                Spacer(),
+                if(haveIcon!) Icon(dropIcon,color: context.colors.blackOpacity,)
               ],
             ),
           ),
-          Divider(color: context.colors.greyWhite,)
+          if(haveDrawer!)Divider(
+            color: context.colors.greyWhite,
+          )
         ],
       ),
     );
