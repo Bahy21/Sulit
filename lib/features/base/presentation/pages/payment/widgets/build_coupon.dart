@@ -18,7 +18,7 @@ class BuildCoupon extends StatelessWidget {
           horizontal: Dimens.dp10, vertical: Dimens.dp15),
       suffixIcon: GestureDetector(
         child: Container(
-          width: 70,
+          width: 70.w,
           alignment: Alignment.center,
           decoration: BoxDecoration(
             color: context.colors.primary,

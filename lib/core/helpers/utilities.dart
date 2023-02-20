@@ -12,13 +12,11 @@ import 'custom_toast.dart';
 
 @lazySingleton
 class Utilities {
-
- void copyToClipBoard(String text) {
+  void copyToClipBoard(String text) {
     Clipboard.setData(ClipboardData(text: text)).then((value) {
       CustomToast.showSnakeBar("Copied successfully", type: ToastType.success);
     });
   }
-
 
   Future<PermissionStatus> getContactsPermission() async {
     await Permission.contacts.request();
@@ -33,17 +31,15 @@ class Utilities {
     }
   }
 
-
   String customizePhoneNumber(String phone, String? code) {
     String phoneNumber = "";
     if (phone.startsWith("0")) {
       phoneNumber = phone.replaceFirst("0", code ?? "+20");
     } else {
-      phoneNumber = "${(code ?? "+20") }$phone";
+      phoneNumber = "${(code ?? "+20")}$phone";
     }
     return phoneNumber;
   }
-
 
   Future<File?> getImageFile(BuildContext context) async {
     FocusScope.of(context).requestFocus(FocusNode());
@@ -58,8 +54,21 @@ class Utilities {
     return null;
   }
 
+  Future<List<File>> getImagesFiles(BuildContext context) async {
+    FocusScope.of(context).requestFocus(FocusNode());
+    FilePickerResult? result = await FilePicker.platform.pickFiles(
+      type: FileType.image,
+      allowMultiple: true,
+    );
+    if (result != null) {
+      List<File> imagesFiles = result.paths.map((e) => File("$e")).toList();
+      return imagesFiles;
+    }
+    return [];
+  }
+
   Future<File?> getAttachmentFile(FileType fileType) async {
-    if(fileType == FileType.any){
+    if (fileType == FileType.any) {
       return await getAPdfFile();
     }
     FilePickerResult? result = await FilePicker.platform.pickFiles(
@@ -75,10 +84,9 @@ class Utilities {
 
   Future<File?> getAPdfFile() async {
     FilePickerResult? result = await FilePicker.platform.pickFiles(
-      type: FileType.custom,
-      allowMultiple: false,
-      allowedExtensions: ['pdf']
-    );
+        type: FileType.custom,
+        allowMultiple: false,
+        allowedExtensions: ['pdf']);
     if (result != null) {
       File imageFile = File(result.files.single.path!);
       return imageFile;
@@ -102,8 +110,10 @@ class Utilities {
   Future<String> getAddress(LatLng latLng, BuildContext context) async {
     GeoCode geoCode = GeoCode();
     try {
-      var address = await geoCode.reverseGeocoding(latitude: latLng.latitude, longitude: latLng.longitude);
-      var data = "${address.countryName??""}  ${address.city??""}  ${address.region??""}  ${address.streetAddress??""}";
+      var address = await geoCode.reverseGeocoding(
+          latitude: latLng.latitude, longitude: latLng.longitude);
+      var data =
+          "${address.countryName ?? ""}  ${address.city ?? ""}  ${address.region ?? ""}  ${address.streetAddress ?? ""}";
       return data;
     } catch (e) {
       return "";
