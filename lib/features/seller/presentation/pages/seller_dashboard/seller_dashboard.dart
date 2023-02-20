@@ -14,6 +14,8 @@ class _SellerDashboardState extends State<SellerDashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: sellerDashboardController.scaffoldKey,
+      drawer: const BuildSellerDrawer(),
       appBar: BuildSellerAppBar(
           sellerDashboardController: sellerDashboardController),
       body: ListView(
