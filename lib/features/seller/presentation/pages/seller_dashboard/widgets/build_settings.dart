@@ -31,7 +31,7 @@ class BuildSettings extends StatelessWidget {
         BuildSettingItem(
           title: "Shop Settings",
           iconData: Icons.storefront_outlined,
-          onTap: () {},
+          onTap: () =>AutoRouter.of(context).push(const SellerShopSettingRoute()),
         ),
         BuildSettingItem(
           title: "Payment Settings",
