@@ -26,14 +26,36 @@ class BuildDigitalProducts extends StatelessWidget {
               // margin: const EdgeInsets.only(top: 20,right: 20,left: 20).r,
             ),
           ),
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 10).r,
-            padding: EdgeInsets.all(5).r,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: context.colors.darkPurple,
+          PopupMenuButton(
+            color: context.colors.white,
+            elevation: 20,
+            enabled: true,
+            onSelected: (int value) {},
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                value: 0,
+                child: Text(
+                  "Top Orders",
+                  style: AppTextStyle.s12_w400(color: context.colors.black),
+                ),
+              ),
+              PopupMenuItem(
+                value: 1,
+                child: Text(
+                  "Top Sale",
+                  style: AppTextStyle.s12_w400(color: context.colors.black),
+                ),
+              ),
+            ],
+            child: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 10).r,
+              padding: const EdgeInsets.all(5).r,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: context.colors.darkPurple,
+              ),
+              child: const Icon(Icons.filter_alt_outlined, size: 20),
             ),
-            child: const Icon(Icons.filter_alt_outlined, size: 20),
           ),
         ],
       ),
@@ -76,7 +98,7 @@ class BuildDigitalProducts extends StatelessWidget {
                                       style: AppTextStyle.s12_w400(
                                           color: context.colors.blackOpacity),
                                     ),
-                                    Spacer(),
+                                    const Spacer(),
                                     Icon(
                                       !state.data
                                           ? Icons.add_box

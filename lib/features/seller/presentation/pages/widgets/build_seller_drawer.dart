@@ -38,6 +38,12 @@ class _BuildSellerDrawerState extends State<BuildSellerDrawer> {
                 onTap: () =>
                     AutoRouter.of(context).push(const SellerDashboardRoute()),
               ),
+              BuildDrawerItem(
+                title: 'Manage Profile',
+                icon: Icons.person_2_outlined,
+                onTap: () =>
+                    AutoRouter.of(context).push(const SellerProfileRoute()),
+              ),
               BlocBuilder<GenericBloc<bool>, GenericState<bool>>(
                 bloc: isVisible,
                 builder: (context, state) {
@@ -96,7 +102,7 @@ class _BuildSellerDrawerState extends State<BuildSellerDrawer> {
               BuildDrawerItem(
                 title: 'Uploaded Files',
                 icon: Icons.upload_file,
-                onTap: () {},
+                onTap: ()=>AutoRouter.of(context).push(const SellerUploadedFileRoute()),
               ),
               BuildDrawerItem(
                 title: 'Orders',
@@ -106,7 +112,7 @@ class _BuildSellerDrawerState extends State<BuildSellerDrawer> {
               BuildDrawerItem(
                 title: 'Shop Setting',
                 icon: Icons.settings,
-                onTap: () {},
+                onTap: () =>AutoRouter.of(context).push(const SellerShopSettingRoute()),
               ),
               BuildDrawerItem(
                 title: 'Payment History',
@@ -117,12 +123,12 @@ class _BuildSellerDrawerState extends State<BuildSellerDrawer> {
               BuildDrawerItem(
                 title: 'Money Withdraw',
                 icon: Icons.money,
-                onTap: () {},
+                onTap: () =>AutoRouter.of(context).push(const SellerMoneyWithDrawRoute()),
               ),
               BuildDrawerItem(
                 title: 'Commission History',
                 icon: Icons.file_copy_outlined,
-                onTap: () {},
+                onTap: () =>AutoRouter.of(context).push(const SellerCommissionHistoryRoute()),
               ),
             ],
           )),

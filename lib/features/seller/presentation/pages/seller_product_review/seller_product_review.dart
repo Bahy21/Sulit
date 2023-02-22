@@ -9,6 +9,12 @@ class SellerProductReview extends StatefulWidget {
 class _SellerProductReviewState extends State<SellerProductReview> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+        appBar: const DefaultAppBar(title: "Product Review", showBack: true),
+        body: ListView.builder(
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16).r,
+          itemBuilder: (context,index)=>const BuildReviewItem(),
+          itemCount: 4,
+        ));
   }
 }

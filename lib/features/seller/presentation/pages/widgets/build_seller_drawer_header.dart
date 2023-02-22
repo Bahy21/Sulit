@@ -6,6 +6,7 @@ import 'package:flutter_tdd/core/widgets/CachedImage.dart';
 
 import '../../../../../core/constants/gaps.dart';
 import '../../../../../core/theme/text/app_text_style.dart';
+import '../../../../../core/widgets/DefaultButton.dart';
 import '../../../../../core/widgets/GenericTextField.dart';
 import '../../../../../res.dart';
 
@@ -43,7 +44,7 @@ class BuildSellerDrawerHeader extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  "Tarek Fouda",
+                  "Tarek Seller",
                   style: AppTextStyle.s16_w500(
                     color: context.colors.black,
                   ),
@@ -58,6 +59,16 @@ class BuildSellerDrawerHeader extends StatelessWidget {
               ],
             ),
           ),
+          DefaultButton(
+            title: "Verify Account",
+            borderRadius: BorderRadius.circular(5).r,
+            width: 100.w,
+            height: 25.h,
+            fontSize: 10,
+            color: context.colors.darkPurple,
+            margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10).r,
+            onTap: () {},
+          ),
         GenericTextField(
           radius: BorderRadius.circular(5).r,
           fillColor: context.colors.greyWhite,
@@ -68,7 +79,7 @@ class BuildSellerDrawerHeader extends StatelessWidget {
           validate: (value) => value?.noValidate(),
           hint: "Search in menu",
           hintColor: context.colors.disableGray,
-          margin: const EdgeInsets.only(top: 20,right: 20,left: 20).r,
+          margin: const EdgeInsets.only(top: 10,right: 20,left: 20).r,
         )
         ],
       ),

@@ -4,10 +4,14 @@ import 'package:flutter_tdd/features/seller/presentation/pages/seller_dashboard/
 import 'package:flutter_tdd/features/seller/presentation/pages/seller_money_withdraw/seller_money_withdraw_imports.dart';
 
 import '../../pages/payment_history/payment_history_imports.dart';
+import '../../pages/seller_commission_history/seller_commission_history_imports.dart';
 import '../../pages/seller_digetal_products/seller_digetal_products_imports.dart';
 import '../../pages/seller_product_bulk/seller_product_bulk_imports.dart';
 import '../../pages/seller_product_review/seller_product_review_imports.dart';
 import '../../pages/seller_products/seller_products_imports.dart';
+import '../../pages/seller_profile/seller_profile_imports.dart';
+import '../../pages/seller_shop_setting/seller_shop_setting_imports.dart';
+import '../../pages/seller_uploaded_file/seller_uploaded_file_imports.dart';
 
 const List<AutoRoute> sellerRoute = [
   AdaptiveRoute(page: SellerDashboard),
@@ -18,5 +22,9 @@ const List<AutoRoute> sellerRoute = [
   AdaptiveRoute(page: SellerProducts),
   AdaptiveRoute(page: SellerProductReview),
   AdaptiveRoute(page: SellerProductBulk),
+  AdaptiveRoute(page: SellerUploadedFile),
+  AdaptiveRoute(page: SellerShopSetting),
+  AdaptiveRoute(page: SellerCommissionHistory),
+  AdaptiveRoute(page: SellerProfile),
 
 ];

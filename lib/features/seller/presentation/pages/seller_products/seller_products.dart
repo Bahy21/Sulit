@@ -15,7 +15,7 @@ class _SellerProductsState extends State<SellerProducts> {
         body: ListView(
           padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16).r,
           children: [
-            BuildSellerAddNewProduct(),
+            const BuildSellerAddNewProduct(),
             BuildSellerProducts(sellerProductsController: sellerProductsController,)
           ],
         ));

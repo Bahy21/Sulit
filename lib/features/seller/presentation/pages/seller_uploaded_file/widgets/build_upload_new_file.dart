@@ -1,13 +1,11 @@
-part of'seller_digetal_products_widgets_imports.dart';
-class BuildAddDigitalProducts extends StatelessWidget {
-  const BuildAddDigitalProducts({Key? key}) : super(key: key);
+part of'seller_uploaded_file_widgets_imports.dart';
+class BuildUploadNewFile extends StatelessWidget {
+  const BuildUploadNewFile({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        AutoRouter.of(context).push(const SellerAddProductRoute());
-
       },
       child: Column(
         children: [
@@ -23,7 +21,7 @@ class BuildAddDigitalProducts extends StatelessWidget {
           Gaps.vGap20,
 
           Text(
-            "Add New Digital Products",
+            "Upload New File",
             style: AppTextStyle.s16_w400(color: context.colors.black),
           ),
           Divider(color: context.colors.greyWhite,height: 20.h,)
