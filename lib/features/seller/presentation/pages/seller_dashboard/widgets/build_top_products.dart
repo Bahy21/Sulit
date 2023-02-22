@@ -1,16 +1,12 @@
-part of 'seller_add_product_widgets_imports.dart';
+part of 'seller_dashboard_widgets_imports.dart';
 
-class BuildCustomContainer extends StatelessWidget {
-  final String title;
-  final Widget child;
-
-  const BuildCustomContainer(
-      {super.key, required this.title, required this.child});
+class BuildTopProducts extends StatelessWidget {
+  const BuildTopProducts({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width,
+      height: 220.spMin,
       padding: const EdgeInsets.all(Dimens.dp20),
       margin: const EdgeInsets.symmetric(vertical: Dimens.dp10),
       decoration: BoxDecoration(
@@ -28,13 +24,24 @@ class BuildCustomContainer extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            title,
+            "Top Products",
             style: AppTextStyle.s16_w700(
               color: context.colors.black,
             ),
           ),
-          Gaps.line(context.colors.gray, 35),
-          child,
+          Gaps.vGap15,
+          Flexible(
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: List.generate(
+                  8,
+                  (index) => const BuildTopProductItem(),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );

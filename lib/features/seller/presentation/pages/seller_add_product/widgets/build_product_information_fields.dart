@@ -36,8 +36,8 @@ class BuildProductInformationFields extends StatelessWidget {
             action: TextInputAction.next,
             controller: sellerAddProductController.productNameController,
             margin: const EdgeInsets.symmetric(vertical: Dimens.dp10),
-            contentPadding:
-                const EdgeInsets.symmetric(horizontal: Dimens.dp10, vertical: Dimens.dp15),
+            contentPadding: const EdgeInsets.symmetric(
+                horizontal: Dimens.dp10, vertical: Dimens.dp15),
             validate: (value) => value!.validateEmpty(),
           ),
           Row(
@@ -94,7 +94,6 @@ class BuildProductInformationFields extends StatelessWidget {
             onChange: (model) =>
                 sellerAddProductController.onChangeBrand(model),
           ),
-
           Row(
             children: [
               Text(
@@ -118,11 +117,10 @@ class BuildProductInformationFields extends StatelessWidget {
             action: TextInputAction.next,
             controller: sellerAddProductController.unitController,
             margin: const EdgeInsets.symmetric(vertical: Dimens.dp10),
-            contentPadding:
-            const EdgeInsets.symmetric(horizontal: Dimens.dp10, vertical: Dimens.dp15),
+            contentPadding: const EdgeInsets.symmetric(
+                horizontal: Dimens.dp10, vertical: Dimens.dp15),
             validate: (value) => value!.validateEmpty(),
           ),
-
           Row(
             children: [
               Text(
@@ -146,8 +144,8 @@ class BuildProductInformationFields extends StatelessWidget {
             action: TextInputAction.next,
             controller: sellerAddProductController.weightController,
             margin: const EdgeInsets.symmetric(vertical: Dimens.dp10),
-            contentPadding:
-            const EdgeInsets.symmetric(horizontal: Dimens.dp10, vertical: Dimens.dp15),
+            contentPadding: const EdgeInsets.symmetric(
+                horizontal: Dimens.dp10, vertical: Dimens.dp15),
             validate: (value) => value!.validateEmpty(),
           ),
           Row(
@@ -171,13 +169,12 @@ class BuildProductInformationFields extends StatelessWidget {
             fieldTypes: FieldTypes.normal,
             type: TextInputType.text,
             action: TextInputAction.next,
-            controller: sellerAddProductController.qtyController,
+            controller: sellerAddProductController.minQtyController,
             margin: const EdgeInsets.symmetric(vertical: Dimens.dp10),
-            contentPadding:
-            const EdgeInsets.symmetric(horizontal: Dimens.dp10, vertical: Dimens.dp15),
+            contentPadding: const EdgeInsets.symmetric(
+                horizontal: Dimens.dp10, vertical: Dimens.dp15),
             validate: (value) => value!.validateEmpty(),
           ),
-
           Text(
             "Tags ",
             style: AppTextStyle.s14_w400(
@@ -191,11 +188,10 @@ class BuildProductInformationFields extends StatelessWidget {
             action: TextInputAction.next,
             controller: sellerAddProductController.tagsController,
             margin: const EdgeInsets.symmetric(vertical: Dimens.dp10),
-            contentPadding:
-            const EdgeInsets.symmetric(horizontal: Dimens.dp10, vertical: Dimens.dp15),
+            contentPadding: const EdgeInsets.symmetric(
+                horizontal: Dimens.dp10, vertical: Dimens.dp15),
             validate: (value) => value!.validateEmpty(),
           ),
-
         ],
       ),
     );

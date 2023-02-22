@@ -1,10 +1,11 @@
-part of 'seller_add_product_widgets_imports.dart';
+part of 'seller_add_product_specifications_widgets_imports.dart';
 
 class BuildShippingDaysFields extends StatelessWidget {
-  final SellerAddProductController sellerAddProductController;
+  final SellerAddProductSpecificationsController
+      sellerAddProductSpecificationsController;
 
   const BuildShippingDaysFields(
-      {super.key, required this.sellerAddProductController});
+      {super.key, required this.sellerAddProductSpecificationsController});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,8 @@ class BuildShippingDaysFields extends StatelessWidget {
             fieldTypes: FieldTypes.normal,
             type: TextInputType.text,
             action: TextInputAction.next,
-            controller: sellerAddProductController.shippingDaysController,
+            controller:
+                sellerAddProductSpecificationsController.shippingDaysController,
             margin: const EdgeInsets.symmetric(vertical: Dimens.dp10),
             contentPadding: const EdgeInsets.symmetric(
                 horizontal: Dimens.dp10, vertical: Dimens.dp15),

@@ -16,8 +16,6 @@ class BuildSettingItem extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 70.h,
-        width: MediaQuery.of(context).size.width*.4,
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: context.colors.darkPurple.withOpacity(.1),

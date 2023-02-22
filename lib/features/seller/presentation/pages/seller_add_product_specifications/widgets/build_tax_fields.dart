@@ -1,9 +1,11 @@
-part of 'seller_add_product_widgets_imports.dart';
+part of 'seller_add_product_specifications_widgets_imports.dart';
 
 class BuildTaxFields extends StatelessWidget {
-  final SellerAddProductController sellerAddProductController;
+  final SellerAddProductSpecificationsController
+      sellerAddProductSpecificationsController;
 
-  const BuildTaxFields({super.key, required this.sellerAddProductController});
+  const BuildTaxFields(
+      {super.key, required this.sellerAddProductSpecificationsController});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,8 @@ class BuildTaxFields extends StatelessWidget {
                   fieldTypes: FieldTypes.normal,
                   type: TextInputType.text,
                   action: TextInputAction.next,
-                  controller: sellerAddProductController.taxController,
+                  controller:
+                      sellerAddProductSpecificationsController.taxController,
                   margin: const EdgeInsets.symmetric(vertical: Dimens.dp10),
                   contentPadding: const EdgeInsets.symmetric(
                       horizontal: Dimens.dp10, vertical: Dimens.dp15),
@@ -40,14 +43,15 @@ class BuildTaxFields extends StatelessWidget {
                   hint: "Type",
                   itemAsString: (u) => u.name,
                   validate: (value) => validateDropDown(context),
-                  selectedItem: sellerAddProductController.taxModel,
+                  selectedItem:
+                      sellerAddProductSpecificationsController.taxModel,
                   margin: const EdgeInsets.symmetric(vertical: Dimens.dp10),
                   data: const [
                     DropDownModel(id: 1, name: "Flat"),
                     DropDownModel(id: 2, name: "Percent"),
                   ],
-                  onChange: (model) =>
-                      sellerAddProductController.onChangeTax(model),
+                  onChange: (model) => sellerAddProductSpecificationsController
+                      .onChangeTax(model),
                 ),
               ),
             ],

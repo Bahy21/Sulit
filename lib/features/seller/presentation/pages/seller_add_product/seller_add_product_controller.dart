@@ -5,24 +5,17 @@ class SellerAddProductController {
   final TextEditingController productNameController = TextEditingController();
   final TextEditingController unitController = TextEditingController();
   final TextEditingController weightController = TextEditingController();
-  final TextEditingController qtyController = TextEditingController();
+  final TextEditingController minQtyController = TextEditingController();
   final TextEditingController tagsController = TextEditingController();
   final TextEditingController videoLinkController = TextEditingController();
   final TextEditingController descriptionController = TextEditingController();
-  final TextEditingController metaTitleController = TextEditingController();
-  final TextEditingController metaDescController = TextEditingController();
-  final TextEditingController shippingDaysController = TextEditingController();
-  final TextEditingController taxController = TextEditingController();
 
   final GenericBloc<List<File>> galleryImagesCubit = GenericBloc([]);
   final GenericBloc<File?> thumbnailImageCubit = GenericBloc(null);
-  final GenericBloc<File?> pdfCubit = GenericBloc(null);
-  final GenericBloc<File?> metaImgCubit = GenericBloc(null);
 
   DropDownModel? categoryModel;
   DropDownModel? brandModel;
   DropDownModel? videoModel;
-  DropDownModel? taxModel;
 
   void onChangeCategory(DropDownModel? model) {
     if (model != null) {
@@ -39,12 +32,6 @@ class SellerAddProductController {
   void onChangeVideo(DropDownModel? model) {
     if (model != null) {
       videoModel = model;
-    }
-  }
-
-  void onChangeTax(DropDownModel? model) {
-    if (model != null) {
-      taxModel = model;
     }
   }
 
@@ -72,23 +59,5 @@ class SellerAddProductController {
 
   void removeThumbnailImage() {
     thumbnailImageCubit.onUpdateData(null);
-  }
-
-  void onAddPdf(BuildContext context) async {
-    var pdf = await getIt<Utilities>().getAPdfFile();
-    pdfCubit.onUpdateData(pdf);
-  }
-
-  void removePdf() {
-    pdfCubit.onUpdateData(null);
-  }
-
-  void onAddMetaImage(BuildContext context) async {
-    var image = await getIt<Utilities>().getImageFile(context);
-    metaImgCubit.onUpdateData(image);
-  }
-
-  void removeMetaImage() {
-    metaImgCubit.onUpdateData(null);
   }
 }

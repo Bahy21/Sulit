@@ -3,12 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_tdd/core/bloc/generic_cubit/generic_cubit.dart';
+import 'package:flutter_tdd/core/routes/router_imports.gr.dart';
 import 'package:flutter_tdd/core/theme/colors/colors_extension.dart';
-
-import '../../../../../core/routes/router_imports.gr.dart';
-import '../../../../base/presentation/widgets/build_drawer_item.dart';
-import 'build_seller_drawer_header.dart';
-import 'build_sub_product_item.dart';
+import 'package:flutter_tdd/features/base/presentation/widgets/build_drawer_item.dart';
+import 'package:flutter_tdd/features/seller/presentation/widgets/build_seller_drawer_header.dart';
+import 'package:flutter_tdd/features/seller/presentation/widgets/build_sub_product_item.dart';
 
 class BuildSellerDrawer extends StatefulWidget {
   const BuildSellerDrawer({Key? key}) : super(key: key);
@@ -101,7 +100,8 @@ class _BuildSellerDrawerState extends State<BuildSellerDrawer> {
               BuildDrawerItem(
                 title: 'Orders',
                 icon: Icons.production_quantity_limits,
-                onTap: () {},
+                onTap: () =>
+                    AutoRouter.of(context).push(const SellerOrdersRoute()),
               ),
               BuildDrawerItem(
                 title: 'Shop Setting',

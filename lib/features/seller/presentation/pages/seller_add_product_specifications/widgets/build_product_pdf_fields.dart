@@ -1,10 +1,11 @@
-part of 'seller_add_product_widgets_imports.dart';
+part of 'seller_add_product_specifications_widgets_imports.dart';
 
 class BuildProductPdfFields extends StatelessWidget {
-  final SellerAddProductController sellerAddProductController;
+  final SellerAddProductSpecificationsController
+      sellerAddProductSpecificationsController;
 
   const BuildProductPdfFields(
-      {super.key, required this.sellerAddProductController});
+      {super.key, required this.sellerAddProductSpecificationsController});
 
   @override
   Widget build(BuildContext context) {
@@ -38,14 +39,15 @@ class BuildProductPdfFields extends StatelessWidget {
                 style: AppTextStyle.s14_w600(color: context.colors.white),
               ),
             ),
-            onTab: () => sellerAddProductController.onAddPdf(context),
+            onTab: () =>
+                sellerAddProductSpecificationsController.onAddPdf(context),
             margin: const EdgeInsets.symmetric(vertical: Dimens.dp10),
             validate: (value) => value!.noValidate(),
             contentPadding: const EdgeInsets.symmetric(
                 horizontal: Dimens.dp10, vertical: Dimens.dp15),
           ),
           BlocBuilder<GenericBloc<File?>, GenericState<File?>>(
-            bloc: sellerAddProductController.pdfCubit,
+            bloc: sellerAddProductSpecificationsController.pdfCubit,
             builder: (context, state) {
               if (state is GenericUpdateState && state.data != null) {
                 return Container(
@@ -61,7 +63,7 @@ class BuildProductPdfFields extends StatelessWidget {
                     ),
                   ),
                   child: InkWell(
-                    onTap: sellerAddProductController.removePdf,
+                    onTap: sellerAddProductSpecificationsController.removePdf,
                     child: Icon(
                       Icons.cancel,
                       size: 30,

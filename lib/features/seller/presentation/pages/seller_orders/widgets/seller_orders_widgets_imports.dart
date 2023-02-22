@@ -1,5 +1,5 @@
-import 'dart:io';
-
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -7,21 +7,16 @@ import 'package:flutter_tdd/core/bloc/generic_cubit/generic_cubit.dart';
 import 'package:flutter_tdd/core/constants/dimens.dart';
 import 'package:flutter_tdd/core/constants/gaps.dart';
 import 'package:flutter_tdd/core/helpers/validator.dart';
+import 'package:flutter_tdd/core/routes/router_imports.gr.dart';
 import 'package:flutter_tdd/core/theme/colors/colors_extension.dart';
 import 'package:flutter_tdd/core/theme/text/app_text_style.dart';
 import 'package:flutter_tdd/core/widgets/DropdownTextField.dart';
 import 'package:flutter_tdd/core/widgets/GenericTextField.dart';
 import 'package:flutter_tdd/features/base/data/models/drop_down_model/drop_down_model.dart';
-import 'package:flutter_tdd/features/seller/presentation/pages/seller_add_product/seller_add_product_imports.dart';
-import 'package:flutter_tdd/features/seller/presentation/widgets/build_custom_container.dart';
-import 'package:flutter_tdd/res.dart';
-
-part 'build_product_information_fields.dart';
-
-part 'build_product_images_fields.dart';
-
-part 'build_product_video_fields.dart';
-
-part 'build_product_description_fields.dart';
-
-part 'build_product_form.dart';
+import 'package:flutter_tdd/features/seller/presentation/pages/seller_orders/seller_orders_imports.dart';
+part 'build_order_filter.dart';
+part 'build_order_item.dart';
+part 'build_order_list.dart';
+part 'build_option_item.dart';
+part 'build_order_info.dart';
+part 'build_info_item.dart';
