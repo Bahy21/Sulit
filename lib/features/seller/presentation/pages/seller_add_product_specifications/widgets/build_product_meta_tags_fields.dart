@@ -1,10 +1,11 @@
-part of 'seller_add_product_widgets_imports.dart';
+part of 'seller_add_product_specifications_widgets_imports.dart';
 
 class BuildProductMetaTagsFields extends StatelessWidget {
-  final SellerAddProductController sellerAddProductController;
+  final SellerAddProductSpecificationsController
+      sellerAddProductSpecificationsController;
 
   const BuildProductMetaTagsFields(
-      {super.key, required this.sellerAddProductController});
+      {super.key, required this.sellerAddProductSpecificationsController});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,8 @@ class BuildProductMetaTagsFields extends StatelessWidget {
             fieldTypes: FieldTypes.normal,
             type: TextInputType.text,
             action: TextInputAction.next,
-            controller: sellerAddProductController.metaTitleController,
+            controller:
+                sellerAddProductSpecificationsController.metaTitleController,
             margin: const EdgeInsets.symmetric(vertical: Dimens.dp10),
             contentPadding: const EdgeInsets.symmetric(
                 horizontal: Dimens.dp10, vertical: Dimens.dp15),
@@ -42,7 +44,8 @@ class BuildProductMetaTagsFields extends StatelessWidget {
             type: TextInputType.multiline,
             max: 6,
             action: TextInputAction.newline,
-            controller: sellerAddProductController.metaDescController,
+            controller:
+                sellerAddProductSpecificationsController.metaDescController,
             margin: const EdgeInsets.symmetric(vertical: Dimens.dp10),
             contentPadding: const EdgeInsets.symmetric(
                 horizontal: Dimens.dp10, vertical: Dimens.dp15),
@@ -73,15 +76,15 @@ class BuildProductMetaTagsFields extends StatelessWidget {
                 style: AppTextStyle.s14_w600(color: context.colors.white),
               ),
             ),
-            onTab: () =>
-                sellerAddProductController.onAddMetaImage(context),
+            onTab: () => sellerAddProductSpecificationsController
+                .onAddMetaImage(context),
             margin: const EdgeInsets.symmetric(vertical: Dimens.dp10),
             validate: (value) => value!.noValidate(),
             contentPadding: const EdgeInsets.symmetric(
                 horizontal: Dimens.dp10, vertical: Dimens.dp15),
           ),
           BlocBuilder<GenericBloc<File?>, GenericState<File?>>(
-            bloc: sellerAddProductController.metaImgCubit,
+            bloc: sellerAddProductSpecificationsController.metaImgCubit,
             builder: (context, state) {
               if (state is GenericUpdateState && state.data != null) {
                 return Container(
@@ -99,7 +102,8 @@ class BuildProductMetaTagsFields extends StatelessWidget {
                     ),
                   ),
                   child: InkWell(
-                    onTap: sellerAddProductController.removeMetaImage,
+                    onTap: sellerAddProductSpecificationsController
+                        .removeMetaImage,
                     child: Icon(
                       Icons.cancel,
                       size: 30,

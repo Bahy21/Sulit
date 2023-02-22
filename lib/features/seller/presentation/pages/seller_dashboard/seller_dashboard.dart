@@ -4,7 +4,7 @@ class SellerDashboard extends StatefulWidget {
   const SellerDashboard({Key? key}) : super(key: key);
 
   @override
-  _SellerDashboardState createState() => _SellerDashboardState();
+  State<SellerDashboard> createState() => _SellerDashboardState();
 }
 
 class _SellerDashboardState extends State<SellerDashboard> {
@@ -21,27 +21,9 @@ class _SellerDashboardState extends State<SellerDashboard> {
       body: ListView(
         padding: const EdgeInsets.all(Dimens.dp20),
         children: const [
-          BuildDashboardItem(
-            iconData: CupertinoIcons.cube_box,
-            title: "Products",
-            details: "24",
-          ),
-          BuildDashboardItem(
-            iconData: CupertinoIcons.star,
-            title: "Ratings",
-            details: "0",
-          ),
-          BuildDashboardItem(
-            iconData: CupertinoIcons.square_list,
-            title: "Total Order",
-            details: "0",
-          ),
-          BuildDashboardItem(
-            iconData: Icons.insert_chart_outlined,
-            title: "Total Sales",
-            details: "${12} د.إ ",
-          ),
+          BuildDashboardNews(),
           BuildSettings(),
+          BuildTopProducts(),
         ],
       ),
     );

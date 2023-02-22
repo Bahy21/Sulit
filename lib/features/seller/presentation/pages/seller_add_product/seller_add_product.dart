@@ -17,29 +17,17 @@ class _SellerAddProductState extends State<SellerAddProduct> {
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         appBar: const BuildCustomSellerAppBar(),
-        body: ListView(
-          padding: const EdgeInsets.all(Dimens.dp20),
+        body: Column(
           children: [
-            BuildProductInformationFields(
+            BuildProductForm(
                 sellerAddProductController: sellerAddProductController),
-            BuildProductImagesFields(
-                sellerAddProductController: sellerAddProductController),
-            BuildProductVideoFields(
-                sellerAddProductController: sellerAddProductController),
-            // BuildProductSpecificationFields(
-            //     sellerAddProductController: sellerAddProductController),
-            // BuildProductStockFields(
-            //     sellerAddProductController: sellerAddProductController),
-            BuildProductDescriptionFields(
-                sellerAddProductController: sellerAddProductController),
-            BuildProductPdfFields(
-                sellerAddProductController: sellerAddProductController),
-            BuildProductMetaTagsFields(
-                sellerAddProductController: sellerAddProductController),
-            BuildShippingDaysFields(
-                sellerAddProductController: sellerAddProductController),
-            BuildTaxFields(
-                sellerAddProductController: sellerAddProductController)
+            DefaultButton(
+              title: "Continue",
+              onTap: () => AutoRouter.of(context)
+                  .push(const SellerAddProductSpecificationsRoute()),
+              color: context.colors.darkPurple,
+              margin: const EdgeInsets.all(Dimens.dp20),
+            ),
           ],
         ),
       ),
