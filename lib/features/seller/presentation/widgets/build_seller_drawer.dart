@@ -9,6 +9,8 @@ import 'package:flutter_tdd/features/base/presentation/widgets/build_drawer_item
 import 'package:flutter_tdd/features/seller/presentation/widgets/build_seller_drawer_header.dart';
 import 'package:flutter_tdd/features/seller/presentation/widgets/build_sub_product_item.dart';
 
+import '../../../../core/widgets/DefaultButton.dart';
+
 class BuildSellerDrawer extends StatefulWidget {
   const BuildSellerDrawer({Key? key}) : super(key: key);
 
@@ -29,7 +31,7 @@ class _BuildSellerDrawerState extends State<BuildSellerDrawer> {
           const BuildSellerDrawerHeader(),
           Flexible(
               child: ListView(
-            padding: const EdgeInsets.only(right: 16, left: 16, top: 30).r,
+            padding: const EdgeInsets.only(right: 16, left: 16, top: 20).r,
             children: [
               BuildDrawerItem(
                 title: 'DashBoard',
@@ -130,8 +132,19 @@ class _BuildSellerDrawerState extends State<BuildSellerDrawer> {
                 icon: Icons.file_copy_outlined,
                 onTap: () =>AutoRouter.of(context).push(const SellerCommissionHistoryRoute()),
               ),
+              DefaultButton(
+                title: "Logout",
+                borderRadius: BorderRadius.circular(5).r,
+                width: 120.w,
+                height: 30.h,
+                fontSize: 12,
+                color: context.colors.darkPurple,
+                margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10).r,
+                onTap: () {},
+              ),
             ],
           )),
+
         ],
       ),
     );

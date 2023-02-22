@@ -69,18 +69,18 @@ class BuildSellerDrawerHeader extends StatelessWidget {
             margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10).r,
             onTap: () {},
           ),
-        GenericTextField(
-          radius: BorderRadius.circular(5).r,
-          fillColor: context.colors.greyWhite,
-          contentPadding: const EdgeInsets.symmetric(vertical: 1,horizontal: 16).r,
-          fieldTypes: FieldTypes.normal,
-          type: TextInputType.text,
-          action: TextInputAction.search,
-          validate: (value) => value?.noValidate(),
-          hint: "Search in menu",
-          hintColor: context.colors.disableGray,
-          margin: const EdgeInsets.only(top: 10,right: 20,left: 20).r,
-        )
+        // GenericTextField(
+        //   radius: BorderRadius.circular(5).r,
+        //   fillColor: context.colors.greyWhite,
+        //   contentPadding: const EdgeInsets.symmetric(vertical: 1,horizontal: 16).r,
+        //   fieldTypes: FieldTypes.normal,
+        //   type: TextInputType.text,
+        //   action: TextInputAction.search,
+        //   validate: (value) => value?.noValidate(),
+        //   hint: "Search in menu",
+        //   hintColor: context.colors.disableGray,
+        //   margin: const EdgeInsets.only(top: 10,right: 20,left: 20).r,
+        // )
         ],
       ),
     );
