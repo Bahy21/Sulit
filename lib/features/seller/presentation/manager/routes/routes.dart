@@ -14,6 +14,7 @@ import '../../pages/seller_product_bulk/seller_product_bulk_imports.dart';
 import '../../pages/seller_product_review/seller_product_review_imports.dart';
 import '../../pages/seller_products/seller_products_imports.dart';
 import '../../pages/seller_profile/seller_profile_imports.dart';
+import '../../pages/seller_reselling/seller_reselling_imports.dart';
 import '../../pages/seller_shop_setting/seller_shop_setting_imports.dart';
 import '../../pages/seller_uploaded_file/seller_uploaded_file_imports.dart';
 
@@ -35,5 +36,6 @@ const List<AutoRoute> sellerRoute = [
   AdaptiveRoute(page: SellerShopSetting),
   AdaptiveRoute(page: SellerCommissionHistory),
   AdaptiveRoute(page: SellerProfile),
+  AdaptiveRoute(page: SellerReselling),
 
 ];
