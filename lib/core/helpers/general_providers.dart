@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tdd/core/bloc/device_cubit/device_cubit.dart';
-import 'package:flutter_tdd/features/auth/presentation/manager/auth_cubit/auth_cubit.dart';
-import 'package:flutter_tdd/features/auth/presentation/manager/user_cubit/user_cubit.dart';
-
-import '../../features/general/presentation/pages/location_address/location_cubit/location_cubit.dart';
+import 'package:flutter_tdd/general/auth/presentation/manager/auth_cubit/auth_cubit.dart';
+import 'package:flutter_tdd/general/auth/presentation/manager/user_cubit/user_cubit.dart';
+import 'package:flutter_tdd/general/common/presentation/pages/location_address/location_cubit/location_cubit.dart';
 
 class GeneralProviders{
 
