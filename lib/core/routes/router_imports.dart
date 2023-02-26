@@ -20,8 +20,10 @@ import 'package:flutter_tdd/user/products/presentation/manager/routes/routes.dar
 import 'package:flutter_tdd/user/profile/presentation/manager/routes/routes.dart';
 import 'package:flutter_tdd/user/purchasing/presentation/manager/routes/routes.dart';
 import 'package:flutter_tdd/user/sale/presentation/manager/routes/routes.dart';
+import 'package:flutter_tdd/user/search/presentation/manager/routes/routes.dart';
 import 'package:flutter_tdd/user/tickets/presentation/manager/routes/routes.dart';
 import 'package:flutter_tdd/user/wallet/presentation/manager/routes/routes.dart';
+import 'package:flutter_tdd/user/wishlist/presentation/manager/routes/routes.dart';
 
 
 part 'router.dart';

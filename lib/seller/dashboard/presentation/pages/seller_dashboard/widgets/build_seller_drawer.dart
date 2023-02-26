@@ -1,14 +1,4 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_tdd/core/bloc/generic_cubit/generic_cubit.dart';
-import 'package:flutter_tdd/core/routes/router_imports.gr.dart';
-import 'package:flutter_tdd/core/theme/colors/colors_extension.dart';
-import 'package:flutter_tdd/core/widgets/DefaultButton.dart';
-import 'package:flutter_tdd/seller/dashboard/presentation/widgets/build_seller_drawer_header.dart';
-import 'package:flutter_tdd/seller/products/presentation/widgets/build_sub_product_item.dart';
-import 'package:flutter_tdd/user/base/presentation/widgets/build_drawer_item.dart';
+part of 'seller_dashboard_widgets_imports.dart';
 
 class BuildSellerDrawer extends StatefulWidget {
   const BuildSellerDrawer({Key? key}) : super(key: key);

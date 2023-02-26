@@ -1,15 +1,13 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_tdd/core/theme/colors/colors_extension.dart';
-
-import '../../../../core/constants/gaps.dart';
-import '../../../../core/theme/text/app_text_style.dart';
+part of 'seller_dashboard_widgets_imports.dart';
 
 class BuildSellerDrawerItem extends StatelessWidget {
   final String title;
   final IconData icon;
   final Function() onTap;
-  const BuildSellerDrawerItem({Key? key, required this.title, required this.icon, required this.onTap}) : super(key: key);
+
+  const BuildSellerDrawerItem(
+      {Key? key, required this.title, required this.icon, required this.onTap})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +19,11 @@ class BuildSellerDrawerItem extends StatelessWidget {
             margin: const EdgeInsets.symmetric(vertical: 7).r,
             child: Row(
               children: [
-                Icon(icon,color: context.colors.blackOpacity,size: 20.sp,),
+                Icon(
+                  icon,
+                  color: context.colors.blackOpacity,
+                  size: 20.sp,
+                ),
                 Gaps.hGap10,
                 Text(
                   title,
@@ -30,7 +32,9 @@ class BuildSellerDrawerItem extends StatelessWidget {
               ],
             ),
           ),
-          Divider(color: context.colors.greyWhite,)
+          Divider(
+            color: context.colors.greyWhite,
+          )
         ],
       ),
     );

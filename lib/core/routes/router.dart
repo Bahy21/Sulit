@@ -23,6 +23,8 @@ part of 'router_imports.dart';
     ...dashboardRoute,
     ...notifyRoute,
     ...productsRoute,
+    ...searchRoute,
+    ...wishListRoute,
     ...profileRoute,
     ...purchasingRoute,
     ...saleRoute,
