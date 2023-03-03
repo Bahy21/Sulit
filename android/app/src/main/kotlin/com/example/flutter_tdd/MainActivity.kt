@@ -1,4 +1,4 @@
-package du.base.clean
+package ua.suliit.com
 
 import io.flutter.embedding.android.FlutterActivity
 

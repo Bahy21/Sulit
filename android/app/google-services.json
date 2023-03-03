@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "495712092902",
-    "project_id": "flutter-tdd-9df41",
-    "storage_bucket": "flutter-tdd-9df41.appspot.com"
+    "project_number": "644512695362",
+    "project_id": "suliit-c5356",
+    "storage_bucket": "suliit-c5356.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:495712092902:android:f417ce3883d640db807127",
+        "mobilesdk_app_id": "1:644512695362:android:4063be41bed9a7900a99db",
         "android_client_info": {
-          "package_name": "du.base.clean"
+          "package_name": "ua.suliit.com"
         }
       },
       "oauth_client": [
         {
-          "client_id": "495712092902-aos2iuum2uhcvph1ldth08tdhaqufcdq.apps.googleusercontent.com",
+          "client_id": "644512695362-1u4f4oakmncf6nrimq6li7o2hfkbbv2i.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDpvwqWUFKhyXyDOPHWbxhIS-WtCipbsmg"
+          "current_key": "AIzaSyAEMQQwHKc-RMVsUFHMZmzSGPAhdmyzl-g"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "495712092902-aos2iuum2uhcvph1ldth08tdhaqufcdq.apps.googleusercontent.com",
+              "client_id": "644512695362-1u4f4oakmncf6nrimq6li7o2hfkbbv2i.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
