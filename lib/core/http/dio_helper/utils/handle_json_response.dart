@@ -1,5 +1,3 @@
-
-
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
@@ -9,15 +7,18 @@ import '../../models/http_request_model.dart';
 
 @lazySingleton
 class HandleJsonResponse<BaseModel> {
-
-  Future<Either<ServerFailure, BaseModel>> call(
-      Either<ServerFailure, Response> response,
+  Future<Either<Failure, BaseModel>> call(
+      Either<Failure, Response> response,
       ResType responseType,
       _ToJsonFunc toJsonFunc,
       _ResponseKeyFunc? dataKeyFun,
       ) async {
     if (response.isLeft()) return Left(ServerFailure());
     var responseData = response.fold((l) => null, (r) => r.data);
+
+    if (responseData == null || responseData == "") {
+      return Left(NullValue());
+    }
     switch (responseType) {
       case ResType.type:
         var data = dataKeyFun == null
@@ -40,7 +41,6 @@ class HandleJsonResponse<BaseModel> {
         return Right(data);
     }
   }
-
 }
 
 typedef _ToJsonFunc = Function(dynamic data);

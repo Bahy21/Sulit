@@ -11,6 +11,12 @@ class ServerFailure extends Failure {
     return "Server error";
   }
 }
+class NullValue extends Failure {
+  @override
+  String toString() {
+    return "";
+  }
+}
 
 class NetWorkFailure extends Failure {
   @override

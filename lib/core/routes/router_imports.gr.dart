@@ -159,9 +159,13 @@ class AppRouter extends _i59.RootStackRouter {
       );
     },
     ResetPasswordRoute.name: (routeData) {
+      final args = routeData.argsAs<ResetPasswordRouteArgs>();
       return _i59.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i4.ResetPassword(),
+        child: _i4.ResetPassword(
+          key: args.key,
+          email: args.email,
+        ),
         opaque: true,
       );
     },
@@ -843,14 +847,36 @@ class ActiveAccountRoute extends _i59.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i4.ResetPassword]
-class ResetPasswordRoute extends _i59.PageRouteInfo<void> {
-  const ResetPasswordRoute()
-      : super(
+class ResetPasswordRoute extends _i59.PageRouteInfo<ResetPasswordRouteArgs> {
+  ResetPasswordRoute({
+    _i61.Key? key,
+    required String email,
+  }) : super(
           ResetPasswordRoute.name,
           path: '/reset-password',
+          args: ResetPasswordRouteArgs(
+            key: key,
+            email: email,
+          ),
         );
 
   static const String name = 'ResetPasswordRoute';
+}
+
+class ResetPasswordRouteArgs {
+  const ResetPasswordRouteArgs({
+    this.key,
+    required this.email,
+  });
+
+  final _i61.Key? key;
+
+  final String email;
+
+  @override
+  String toString() {
+    return 'ResetPasswordRouteArgs{key: $key, email: $email}';
+  }
 }
 
 /// generated route for

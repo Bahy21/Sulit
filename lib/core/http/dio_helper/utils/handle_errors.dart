@@ -45,14 +45,8 @@ class HandleErrors {
             break;
           case 422:
           case 400:
-            if (data["errors"] != null) {
-              List<dynamic> errors = data["errors"];
-              log("response errors $errors");
-              List<String> lst =
-                  List<String>.from(data["errors"].map((e) => e["msg"]));
-              for (var e in lst) {
-                CustomToast.showSnakeBar(e);
-              }
+            if (data["msg"] != null) {
+              CustomToast.showSnakeBar(data["msg"]);
             } else {
               CustomToast.showSnakeBar(message);
             }

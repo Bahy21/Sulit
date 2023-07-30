@@ -6,6 +6,7 @@ import 'package:flutter_tdd/core/http/models/http_request_model.dart';
 import 'package:flutter_tdd/features/general/auth/data/data_source/auth_data_source.dart';
 import 'package:flutter_tdd/features/general/auth/data/models/user_model/user_model.dart';
 import 'package:flutter_tdd/features/general/auth/domain/entities/login_entity.dart';
+import 'package:flutter_tdd/features/general/auth/domain/entities/reset_password_entity.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: AuthDataSource)
@@ -22,5 +23,44 @@ class ImplAuthDataSource extends AuthDataSource {
       toJsonFunc: (json) => UserModel.fromJson(json),
     );
     return await GenericHttpImpl<UserModel>()(model);
+  }
+
+  @override
+  Future<Either<Failure, String>> forgetPassword(String param) async {
+    HttpRequestModel model = HttpRequestModel(
+      url: ApiNames.forgetPassword,
+      requestMethod: RequestMethod.post,
+      responseType: ResType.type,
+      requestBody: {"email": param},
+      responseKey: (data) => data["msg"],
+      showLoader: false,
+    );
+    return await GenericHttpImpl<String>()(model);
+  }
+
+  @override
+  Future<Either<Failure, String>> resendPasswordCode(String param) async {
+    HttpRequestModel model = HttpRequestModel(
+      url: ApiNames.resendPasswordCode,
+      requestMethod: RequestMethod.post,
+      responseType: ResType.type,
+      requestBody: {"email": param},
+      responseKey: (data) => data["msg"],
+      showLoader: false,
+    );
+    return await GenericHttpImpl<String>()(model);
+  }
+
+  @override
+  Future<Either<Failure, String>> resetPassword(ResetPasswordEntity param) async {
+    HttpRequestModel model = HttpRequestModel(
+      url: ApiNames.resetPassword,
+      requestMethod: RequestMethod.post,
+      responseType: ResType.type,
+      requestBody: param.toJson(),
+      responseKey: (data) => data["msg"],
+      showLoader: false,
+    );
+    return await GenericHttpImpl<String>()(model);
   }
 }

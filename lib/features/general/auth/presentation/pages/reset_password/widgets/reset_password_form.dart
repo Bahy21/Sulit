@@ -1,40 +1,85 @@
-part of'reset_password_widgets_imports.dart';
+part of 'reset_password_widgets_imports.dart';
 
 class ResetPasswordForm extends StatelessWidget {
-  final ResetPasswordController controller;
-  const ResetPasswordForm({Key? key,required this.controller}) : super(key: key);
+  final ResetPasswordController resetPasswordController;
+
+  const ResetPasswordForm({Key? key, required this.resetPasswordController})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        GenericTextField(
-          fieldTypes: FieldTypes.password,
-          type: TextInputType.text,
-          action: TextInputAction.next,
-          controller: controller.password,
-          validate: (value) => value?.validatePassword(),
-          label: "New password",
-          prefixIcon: Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: SvgPicture.asset(Res.password),
+    return Form(
+      key: resetPasswordController.formKey,
+      child: Column(
+        children: [
+          GenericTextField(
+            controller: resetPasswordController.email,
+            fieldTypes: FieldTypes.readonly,
+            type: TextInputType.text,
+            action: TextInputAction.next,
+            validate: (value) => value?.noValidate(),
+            label: "Email",
           ),
-        ),
-        GenericTextField(
-          fieldTypes: FieldTypes.password,
-          type: TextInputType.text,
-          action: TextInputAction.done,
-          validate: (value) => value?.validatePasswordConfirm(pass: controller.password.text),
-          label: "Repeat new password",
-          margin: const EdgeInsets.only(top: 20),
-          controller: controller.confirmPassword,
-          prefixIcon: Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: SvgPicture.asset(Res.password),
+          GenericTextField(
+            controller: resetPasswordController.code,
+            fieldTypes: FieldTypes.normal,
+            type: TextInputType.emailAddress,
+            action: TextInputAction.next,
+            margin: Dimens.inputFieldMargin,
+            validate: (value) => value?.validateEmpty(),
+            label: "Code",
           ),
-        ),
-
-      ],
+          BlocBuilder<GenericBloc<bool>, GenericState<bool>>(
+            bloc: resetPasswordController.passwordCubit,
+            builder: (context, state) {
+              return GenericTextField(
+                controller: resetPasswordController.password,
+                fieldTypes: !state.data ? FieldTypes.password : FieldTypes.normal,
+                type: TextInputType.text,
+                action: TextInputAction.done,
+                validate: (value) => value?.validatePassword(),
+                label: "Password",
+                suffixIcon: IconButton(
+                  onPressed: () => resetPasswordController.passwordCubit
+                      .onUpdateData(!state.data),
+                  icon: Icon(
+                    !state.data
+                        ? Icons.visibility_outlined
+                        : Icons.visibility_off_outlined,
+                    size: 17.sp,
+                    color: context.colors.primary,
+                  ),
+                ),
+              );
+            },
+          ),
+          BlocBuilder<GenericBloc<bool>, GenericState<bool>>(
+            bloc: resetPasswordController.confirmPasswordCubit,
+            builder: (context, state) {
+              return GenericTextField(
+                controller: resetPasswordController.confirmPassword,
+                fieldTypes: !state.data ? FieldTypes.password : FieldTypes.normal,
+                type: TextInputType.text,
+                action: TextInputAction.done,
+                validate: (value) => value?.validatePassword(),
+                label: "Confirm Password",
+                margin: Dimens.inputFieldMargin,
+                suffixIcon: IconButton(
+                  onPressed: () => resetPasswordController.confirmPasswordCubit
+                      .onUpdateData(!state.data),
+                  icon: Icon(
+                    !state.data
+                        ? Icons.visibility_outlined
+                        : Icons.visibility_off_outlined,
+                    size: 17.sp,
+                    color: context.colors.primary,
+                  ),
+                ),
+              );
+            },
+          ),
+        ],
+      ),
     );
   }
 }

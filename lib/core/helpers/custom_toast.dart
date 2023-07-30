@@ -5,7 +5,6 @@ import 'package:fluttertoast/fluttertoast.dart';
 enum ToastType { success, error, info }
 
 class CustomToast {
-
   static Map<ToastType, Color> toastBgColors = {
     ToastType.success: AppColors.snackBarGreenSuccess,
     ToastType.error: AppColors.snackBarRedError,
@@ -20,7 +19,7 @@ class CustomToast {
     Fluttertoast.showToast(
         msg: msg,
         toastLength: Toast.LENGTH_LONG,
-        gravity: toastGravity ?? ToastGravity.CENTER,
+        gravity: toastGravity ?? ToastGravity.BOTTOM,
         backgroundColor: color ?? toastBgColors[type],
         textColor: textColor ?? Colors.white,
         fontSize: 16.0);
@@ -30,11 +29,12 @@ class CustomToast {
       {required String msg,
       Color? color,
       Color? textColor,
-        ToastType type = ToastType.error}) {
+      ToastGravity? toastGravity,
+      ToastType type = ToastType.error}) {
     Fluttertoast.showToast(
         msg: msg,
         toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.CENTER,
+        gravity: toastGravity ?? ToastGravity.BOTTOM,
         backgroundColor: color ?? toastBgColors[type],
         textColor: textColor ?? Colors.white,
         fontSize: 16.0);

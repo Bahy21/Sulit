@@ -14,9 +14,7 @@ class LoginController {
           LoginEntity(email: email.text, password: password.text);
       var result = await SetLogin().call(params);
       if (result != null) {
-        print("@@@@");
-      } else {
-        AutoRouter.of(context).push(ActiveAccountRoute());
+        AutoRouter.of(context).push(HomeRoute(index:0));
       }
       btnKey.currentState?.animateReverse();
     }
