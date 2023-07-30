@@ -9,7 +9,6 @@ class BuildForgetForm extends StatelessWidget {
     return Form(
       key: forgetPasswordController.formKey,
       child: GenericTextField(
-        contentPadding: const EdgeInsets.symmetric(vertical: 10,horizontal: 16).r,
         controller: forgetPasswordController.email,
         fieldTypes: FieldTypes.normal,
         type: TextInputType.emailAddress,

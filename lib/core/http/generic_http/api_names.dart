@@ -1,9 +1,4 @@
 class ApiNames{
-
-
-  //production
-  // static const String baseUrl = "https://n10.chain.futiracoin.com/";
-  //development
   static const String baseUrl = "https://suliit.com/api/v3/";
 
   // auth routes
@@ -30,14 +25,11 @@ class ApiNames{
   static const String CATEGORIES_HOME = CATEGORIES+"/GetAllRoot";
   static const String CATEGORIES_ITEMS_HOME = CATEGORIES+"/GetHomeScreenCategoryItems";
 
+  static const String resendPasswordCode = "password/forgot-resend-code";
 
   //items routes
   static const String ITEMS = "Items";
-  static const String FEATURED_ITEMS = ITEMS+"/Featured";
-
+  static const String FEATURED_ITEMS = ITEMS + "/Featured";
 
   static const String REFRESH_TOKEN = "RefreshToken";
-
-
-
 }

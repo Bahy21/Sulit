@@ -1,5 +1,3 @@
-// ignore_for_file: use_build_context_synchronously
-
 part of 'login_imports.dart';
 
 class LoginController {
@@ -12,12 +10,11 @@ class LoginController {
   void onSubmit(BuildContext context) async {
     if (formKey.currentState!.validate()) {
       btnKey.currentState?.animateForward();
-      LoginEntity params = LoginEntity(email: email.text, password: password.text);
+      LoginEntity params =
+          LoginEntity(email: email.text, password: password.text);
       var result = await SetLogin().call(params);
       if (result != null) {
-
-      } else {
-        AutoRouter.of(context).push(ActiveAccountRoute());
+        AutoRouter.of(context).push(HomeRoute(index:0));
       }
       btnKey.currentState?.animateReverse();
     }
