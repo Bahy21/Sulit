@@ -40,6 +40,7 @@ class Dimens {
   static const double dp30 = 30;
   static const double dp32 = 32;
   static const double dp50 = 50;
+  static const double dp55 = 55;
   static const double dp64 = 64;
   static const double dp96 = 96;
   static const double dp128 = 128;
@@ -48,8 +49,25 @@ class Dimens {
   static const double appBarHeight = 62;
   static const double searchBarHeight = 56;
 
-  static const BorderRadius sheetBorderRadius = BorderRadius.vertical(top: Radius.circular(20));
-  static const BorderRadius borderRadius5PX = BorderRadius.all(Radius.circular(5));
-  static const BorderRadius borderRadius10PX = BorderRadius.all(Radius.circular(10));
+  static const BorderRadius sheetBorderRadius =
+      BorderRadius.vertical(top: Radius.circular(20));
+  static const BorderRadius borderRadius5PX =
+      BorderRadius.all(Radius.circular(5));
+  static const BorderRadius borderRadius10PX =
+      BorderRadius.all(Radius.circular(10));
+
+  static EdgeInsets authLogoPadding = const   EdgeInsets.only(top: 50,bottom: 20).r;
+  static EdgeInsets inputFieldMargin =
+      const EdgeInsets.symmetric(vertical: 15).r;
+
+  static EdgeInsets headerTitlePadding =    const EdgeInsets.only(top: 15, bottom: 30).r;
+  static EdgeInsets paddingVertical15PX =   const EdgeInsets.symmetric(vertical: 15).r;
+  static EdgeInsets paddingVertical10PX =   const EdgeInsets.symmetric(vertical: 10).r;
+  static EdgeInsets paddingVertical20PX =   const EdgeInsets.symmetric(vertical: 20).r;
+  static EdgeInsets paddingVertical30PX =   const EdgeInsets.symmetric(vertical: 30).r;
+
+  static EdgeInsets paddingHorizontal20PX =   const EdgeInsets.symmetric(horizontal: 20).r;
+
+  static EdgeInsets paddingAll20PX = const EdgeInsets.all(20).r;
 
 }

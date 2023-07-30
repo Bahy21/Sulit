@@ -15,25 +15,20 @@ class _RegisterState extends State<Register> {
     return Scaffold(
       appBar: const BuildAuthAppBar(),
       body: GestureDetector(
-        onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
+        onTap: FocusScope.of(context).unfocus,
         child: ListView(
-          padding: const EdgeInsets.symmetric(horizontal: 16).r,
+          padding: Dimens.paddingHorizontal20PX,
           children: [
-            Column(
-              children: [
-                const BuildHeaderLogo(),
-                const BuildHeaderTitle(title: "Create an account"),
-                Gaps.vGap20,
-                BuildRegisterFormFields(registerController: registerController),
-                BuildTermsAndConditions(registerController: registerController),
-                Gaps.vGap20,
-                BuildRegisterButton(registerController: registerController),
-                Gaps.vGap32,
-                BuildSellerButton(registerController: registerController),
-                const BuildRegisterSocial(),
-                const BuildHaveAccount()
-              ],
-            ),
+            const BuildHeaderLogo(),
+            const BuildHeaderTitle(title: "Create an account"),
+            Gaps.vGap15,
+            BuildRegisterFormFields(registerController: registerController),
+            Gaps.vGap10,
+            BuildTermsAndConditions(registerController: registerController),
+            BuildRegisterButton(registerController: registerController),
+            BuildSellerButton(registerController: registerController),
+            const BuildRegisterSocial(),
+            const BuildHaveAccount(),
           ],
         ),
       ),

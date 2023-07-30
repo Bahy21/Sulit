@@ -11,5 +11,8 @@ class LoginController {
     getIt.get<LoadingHelper>().showLoadingDialog();
   }
 
-
+  Future<bool> onBackPressed() async {
+    SystemNavigator.pop();
+    return true;
+  }
 }

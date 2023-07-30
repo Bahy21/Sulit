@@ -8,29 +8,27 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  final LoginController controller = LoginController();
+  final LoginController loginController = LoginController();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: context.colors.background,
-      appBar: const BuildAuthAppBar(showBack: false),
-      body: GestureDetector(
-        onTap: FocusScope.of(context).unfocus,
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 16).r,
-          child: Column(
+    return WillPopScope(
+      onWillPop: loginController.onBackPressed,
+      child: Scaffold(
+        appBar: const BuildAuthAppBar(showBack: false),
+        backgroundColor: context.colors.background,
+        body: GestureDetector(
+          onTap: FocusScope.of(context).unfocus,
+          child: ListView(
+            padding: Dimens.paddingHorizontal20PX,
             children: [
               const BuildHeaderLogo(),
-              Gaps.vGap20,
               const BuildHeaderTitle(title: "Login to your account"),
-              Gaps.vGap20,
-              BuildLoginForm(controller: controller),
+              Gaps.vGap15,
+              BuildLoginForm(controller: loginController),
               const BuildForgetPasswordView(),
-              BuildLoginButton(controller: controller),
-              Gaps.vGap10,
-              BuildLoginSocialMedia(controller: controller),
-              Gaps.vGap20,
+              BuildLoginButton(controller: loginController),
+              BuildLoginSocialMedia(controller: loginController),
               const BuildDoNotHaveAccount()
             ],
           ),

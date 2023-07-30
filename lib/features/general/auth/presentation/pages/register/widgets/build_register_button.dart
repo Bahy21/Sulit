@@ -11,7 +11,7 @@ class BuildRegisterButton extends StatelessWidget {
       color: context.colors.primary,
       textColor: context.colors.white,
       btnKey: registerController.createBtnKey,
-      margin: const EdgeInsets.only(top: 10).r,
+      margin:Dimens.paddingVertical20PX,
       fontSize: 10,
       height: 40.h,
 
