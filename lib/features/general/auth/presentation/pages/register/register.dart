@@ -8,8 +8,13 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-  RegisterController registerController = RegisterController();
+  late RegisterController controller ;
 
+  @override
+  void initState() {
+    controller = RegisterController();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,11 +27,11 @@ class _RegisterState extends State<Register> {
             const BuildHeaderLogo(),
             const BuildHeaderTitle(title: "Create an account"),
             Gaps.vGap15,
-            BuildRegisterFormFields(registerController: registerController),
+            BuildRegisterFormFields(registerController: controller),
             Gaps.vGap10,
-            BuildTermsAndConditions(registerController: registerController),
-            BuildRegisterButton(registerController: registerController),
-            BuildSellerButton(registerController: registerController),
+            BuildTermsAndConditions(registerController: controller),
+            BuildRegisterButton(controller: controller),
+            BuildSellerButton(registerController: controller),
             const BuildRegisterSocial(),
             const BuildHaveAccount(),
           ],

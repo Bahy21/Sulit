@@ -1,23 +1,47 @@
 import 'package:flutter_tdd/core/models/domain_model/base_domain_model.dart';
 
 class UserDomainModel extends BaseDomainModel {
-  final String id;
-  final String name;
-  final String avatar;
-  final String avatarOriginal;
-  final String email;
-  final String phone;
-  final String token;
-  final String tokenType;
+  int? id;
+  String? name;
+  String? avatar;
+  String? avatarOriginal;
+  String? email;
+  String? phone;
+  String? token;
+  String? tokenType;
 
   UserDomainModel({
-    required this.id,
-    required this.name,
-    required this.avatar,
-    required this.avatarOriginal,
-    required this.email,
-    required this.phone,
-    required this.token,
-    required this.tokenType,
+    this.id,
+    this.name,
+    this.avatar,
+    this.avatarOriginal,
+    this.email,
+    this.phone,
+    this.token,
+    this.tokenType,
   });
+
+  UserDomainModel.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
+    email = json['email'];
+    avatar = json['avatar'];
+    avatarOriginal = json['avatar_original'];
+    phone = json['phone'];
+    token = json['token'];
+    tokenType = json['token_type'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['name'] = name;
+    data['email'] = email;
+    data['avatar'] = avatar;
+    data['avatar_original'] = avatarOriginal;
+    data['phone'] = phone;
+    data['token'] = token;
+    data['token_type'] = tokenType;
+    return data;
+  }
 }

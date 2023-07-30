@@ -42,7 +42,7 @@ class _BuildSellerDrawerState extends State<BuildSellerDrawer> {
                       BuildDrawerItem(
                         haveIcon: true,
                         dropIcon: state.data
-                            ? Icons.arrow_drop_down
+                            ? Icons.arrow_drop_up
                             : Icons.arrow_right,
                         title: 'Products',
                         icon: Icons.shopping_bag_outlined,
@@ -55,18 +55,21 @@ class _BuildSellerDrawerState extends State<BuildSellerDrawer> {
                           children: [
                             BuildSubProductItem(
                               text: 'Products',
-                              onTap: () => AutoRouter.of(context)
-                                  .push(const SellerProductsRoute()),
+                              onTap: () => AutoRouter.of(context).push(
+                                const SellerProductsRoute(),
+                              ),
                             ),
                             BuildSubProductItem(
                               text: 'Product Bulk Upload',
-                              onTap: () => AutoRouter.of(context)
-                                  .push(const SellerProductBulkRoute()),
+                              onTap: () => AutoRouter.of(context).push(
+                                const SellerProductBulkRoute(),
+                              ),
                             ),
                             BuildSubProductItem(
                               text: 'Digital Products',
-                              onTap: () => AutoRouter.of(context)
-                                  .push(const SellerDigitalProductsRoute()),
+                              onTap: () => AutoRouter.of(context).push(
+                                const SellerDigitalProductsRoute(),
+                              ),
                             ),
                             BuildSubProductItem(
                               text: 'Product Review',
@@ -87,8 +90,9 @@ class _BuildSellerDrawerState extends State<BuildSellerDrawer> {
               BuildDrawerItem(
                 title: 'Reselling',
                 icon: Icons.present_to_all,
-                onTap: () =>
-                    AutoRouter.of(context).push(const SellerResellingRoute()),
+                onTap: () => AutoRouter.of(context).push(
+                  const SellerResellingRoute(),
+                ),
               ),
               BuildDrawerItem(
                 title: 'Uploaded Files',

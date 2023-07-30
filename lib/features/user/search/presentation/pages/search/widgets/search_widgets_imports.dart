@@ -11,6 +11,7 @@ import 'package:flutter_tdd/core/widgets/GenericTextField.dart';
 import 'package:flutter_tdd/core/helpers/validator.dart';
 import 'package:flutter_tdd/features/user/search/presentation/pages/search/search_imports.dart';
 
+
 part 'build_custom_suggest_item.dart';
 part 'build_search_field.dart';
 part 'build_suggest_item.dart';

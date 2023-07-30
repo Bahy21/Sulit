@@ -1,16 +1,16 @@
 part of'build_register_widgets_imports.dart';
 class BuildRegisterButton extends StatelessWidget {
-  final RegisterController registerController;
-  const BuildRegisterButton({Key? key, required this.registerController}) : super(key: key);
+  final RegisterController controller;
+  const BuildRegisterButton({Key? key, required this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return LoadingButton(
       title: "Create Account",
-      onTap: () {},
+      onTap: () => controller.setUserRegister(context),
       color: context.colors.primary,
       textColor: context.colors.white,
-      btnKey: registerController.createBtnKey,
+      btnKey: controller.createBtnKey,
       margin:Dimens.paddingVertical20PX,
       fontSize: 10,
       height: 40.h,

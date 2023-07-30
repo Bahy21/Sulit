@@ -56,18 +56,17 @@ class BuildRegisterFormFields extends StatelessWidget {
             },
           ),
           BlocBuilder<GenericBloc<bool>, GenericState<bool>>(
-            bloc: registerController.confirmpasswordCubit,
+            bloc: registerController.confirmPasswordCubit,
             builder: (context, state) {
               return GenericTextField(
                 controller: registerController.confirmPasswordController,
-                fieldTypes:
-                    !state.data ? FieldTypes.password : FieldTypes.normal,
+                fieldTypes: !state.data ? FieldTypes.password : FieldTypes.normal,
                 type: TextInputType.text,
                 action: TextInputAction.done,
-                validate: (value) => value?.validatePassword(),
+                validate: (value) => value!.validatePasswordConfirm(pass: registerController.passwordController.text),
                 label: "Confirm Password",
                 suffixIcon: IconButton(
-                  onPressed: () => registerController.confirmpasswordCubit
+                  onPressed: () => registerController.confirmPasswordCubit
                       .onUpdateData(!state.data),
                   icon: Icon(
                     !state.data
