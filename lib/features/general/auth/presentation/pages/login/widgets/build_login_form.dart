@@ -29,7 +29,7 @@ class BuildLoginForm extends StatelessWidget {
                     !state.data ? FieldTypes.password : FieldTypes.normal,
                 type: TextInputType.visiblePassword,
                 action: TextInputAction.done,
-                validate: (value) => value?.validatePassword(),
+                validate: (value) => value?.validateEmpty(),
                 label: "Password",
                 suffixIcon: IconButton(
                   onPressed: () =>

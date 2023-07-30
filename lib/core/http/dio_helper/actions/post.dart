@@ -19,7 +19,7 @@ class Post extends DioHelper{
   @override
   Future<Either<ServerFailure,Response>> call(RequestBodyModel params) async {
     if (params.showLoader) getIt<LoadingHelper>().showLoadingDialog();
-    FormData? formData = getIt<HandleRequestBody>()(params.body);
+    FormData? formData = getIt<HandleRequestBody>()(params.body,params.haveFile);
     try {
       var response = await dio.post(params.url, data: formData ??  json.encode(params.body),);
       if (params.showLoader) getIt<LoadingHelper>().dismissDialog();
