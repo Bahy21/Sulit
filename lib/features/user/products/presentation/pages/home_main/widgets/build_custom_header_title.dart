@@ -20,21 +20,21 @@ class BuildCustomHeaderTitle extends StatelessWidget {
               color: context.colors.black,
             ),
           ),
-          // InkWell(
-          //   onTap: onTap??(){},
-          //   child: Container(
-          //   padding: const EdgeInsets.symmetric(vertical: 5,horizontal: 6).r,
-          //   decoration: BoxDecoration(
-          //       color: context.colors.primary,
-          //       borderRadius: BorderRadius.circular(5).r
-          //   ),
-          //   child: Text(
-          //     btnText,
-          //     style: AppTextStyle.s12_w400(
-          //       color: context.colors.white,
-          //     ),
-          //   ),
-          // ),)
+          InkWell(
+            onTap: onTap??(){},
+            child: Container(
+            padding: const EdgeInsets.symmetric(vertical: 5,horizontal: 6).r,
+            decoration: BoxDecoration(
+                color: context.colors.primary,
+                borderRadius: BorderRadius.circular(5).r
+            ),
+            child: Text(
+              btnText,
+              style: AppTextStyle.s12_w400(
+                color: context.colors.white,
+              ),
+            ),
+          ),)
         ],
       ),
     );

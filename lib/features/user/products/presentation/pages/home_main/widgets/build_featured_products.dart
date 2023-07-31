@@ -21,7 +21,7 @@ class BuildFeaturedProducts extends StatelessWidget {
                 ...List.generate(
                   4,
                       (index) {
-                    return const BuildHomeListItem();
+                    return const BuildDiscountProductItem();
                   },
                 )
               ]),

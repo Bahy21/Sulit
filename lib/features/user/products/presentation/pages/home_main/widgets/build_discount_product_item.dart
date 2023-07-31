@@ -1,7 +1,7 @@
 part of 'home_main_widgets_imports.dart';
 
-class BuildHomeListItem extends StatelessWidget {
-  const BuildHomeListItem({Key? key}) : super(key: key);
+class BuildDiscountProductItem extends StatelessWidget {
+  const BuildDiscountProductItem({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,12 +31,12 @@ class BuildHomeListItem extends StatelessWidget {
                           topRight: const Radius.circular(7).r,
                           topLeft: const Radius.circular(7).r),
                       url:
-                          "https://i.ebayimg.com/images/g/2YAAAOSw-jVhULVS/s-l400.jpg"),
+                      "https://i.ebayimg.com/images/g/2YAAAOSw-jVhULVS/s-l400.jpg"),
                   PositionedDirectional(
                     top: 20.r,
                     child: Container(
                       padding:
-                          const EdgeInsetsDirectional.only(start: 5,top: 2,bottom: 2),
+                      const EdgeInsetsDirectional.only(start: 5,top: 2,bottom: 2),
                       decoration: BoxDecoration(
                           color: context.colors.white,
                           boxShadow: [
@@ -92,15 +92,15 @@ class BuildHomeListItem extends StatelessWidget {
                           const EdgeInsets.all(7).r,
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
-                              color: context.colors.white,
-                              shape: BoxShape.circle,
-                              boxShadow: [
-                                BoxShadow(
-                                    color: context.colors.greyWhite,
-                                    blurRadius: 1,
-                                    spreadRadius: 1)
-                              ],
-                              ),
+                            color: context.colors.white,
+                            shape: BoxShape.circle,
+                            boxShadow: [
+                              BoxShadow(
+                                  color: context.colors.greyWhite,
+                                  blurRadius: 1,
+                                  spreadRadius: 1)
+                            ],
+                          ),
                           child: Icon(Icons.favorite_border,color: context.colors.blackOpacity,size:16.sp ,),
                         ),
                         Container(
@@ -137,7 +137,7 @@ class BuildHomeListItem extends StatelessWidget {
                                     spreadRadius: 1)
                               ],
                             ),
-                          child:  Icon(Icons.shopping_cart,color: context.colors.blackOpacity,size:16.sp ,)
+                            child:  Icon(Icons.shopping_cart,color: context.colors.blackOpacity,size:16.sp ,)
                         ),
                       ],
                     ),
@@ -155,7 +155,7 @@ class BuildHomeListItem extends StatelessWidget {
                       Text(
                         "AED -8.21",
                         style:
-                            AppTextStyle.s10_bold(color: context.colors.primary),
+                        AppTextStyle.s10_bold(color: context.colors.primary),
                       ),
                       Gaps.hGap5,
                       Text(

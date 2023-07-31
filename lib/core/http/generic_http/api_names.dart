@@ -11,21 +11,15 @@ class ApiNames{
   static const String switchNotify = "SwitchNotify";
   static const String forgetPassword = "cabaf46ee69d7b8445a5d791";
   static const String resetPassword = "A2q4mG84Z9rE2B38In4HALSWTwt9eQ5Slzq56Cod";
-
-  //Ads routes
-  static const String ADS = "Advertisements";
-
-
-  //Agents routes
-  static const String AGENTS = "Agents";
-  static const String AGENTS_FEATURED = AGENTS+"/Featured";
-
-  //Categories routes
-  static const String CATEGORIES = "Category";
-  static const String CATEGORIES_HOME = CATEGORIES+"/GetAllRoot";
-  static const String CATEGORIES_ITEMS_HOME = CATEGORIES+"/GetHomeScreenCategoryItems";
-
   static const String resendPasswordCode = "password/forgot-resend-code";
+
+  //products urls
+  static const String getHome = "home";
+
+
+
+
+
 
   //items routes
   static const String ITEMS = "Items";

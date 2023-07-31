@@ -20,6 +20,8 @@ class AppDarkColors extends AppColors {
 
   @override
   Color get background => Colors.black;
+  @override
+  Color get grey => Colors.grey;
 
   @override
   Color get blackOpacity => Colors.white70;

@@ -11,13 +11,13 @@ import 'package:flutter_tdd/core/helpers/global_context.dart' as _i13;
 import 'package:flutter_tdd/core/helpers/global_notification.dart' as _i14;
 import 'package:flutter_tdd/core/helpers/loading_helper.dart' as _i18;
 import 'package:flutter_tdd/core/helpers/new_version_helper.dart' as _i20;
-import 'package:flutter_tdd/core/helpers/rate_app_helper.dart' as _i24;
-import 'package:flutter_tdd/core/helpers/utilities.dart' as _i25;
+import 'package:flutter_tdd/core/helpers/rate_app_helper.dart' as _i28;
+import 'package:flutter_tdd/core/helpers/utilities.dart' as _i29;
 import 'package:flutter_tdd/core/http/dio_helper/actions/delete.dart' as _i7;
 import 'package:flutter_tdd/core/http/dio_helper/actions/get.dart' as _i12;
 import 'package:flutter_tdd/core/http/dio_helper/actions/patch.dart' as _i21;
 import 'package:flutter_tdd/core/http/dio_helper/actions/post.dart' as _i22;
-import 'package:flutter_tdd/core/http/dio_helper/actions/put.dart' as _i23;
+import 'package:flutter_tdd/core/http/dio_helper/actions/put.dart' as _i27;
 import 'package:flutter_tdd/core/http/dio_helper/utils/dio_header.dart' as _i8;
 import 'package:flutter_tdd/core/http/dio_helper/utils/dio_options.dart' as _i9;
 import 'package:flutter_tdd/core/http/dio_helper/utils/handle_errors.dart'
@@ -36,6 +36,14 @@ import 'package:flutter_tdd/features/general/auth/data/repository/impl_auth_repo
     as _i6;
 import 'package:flutter_tdd/features/general/auth/domain/repository/auth_repository.dart'
     as _i5;
+import 'package:flutter_tdd/features/user/products/data/data_source/impl_products_data_source.dart'
+    as _i24;
+import 'package:flutter_tdd/features/user/products/data/data_source/products_data_source.dart'
+    as _i23;
+import 'package:flutter_tdd/features/user/products/data/repository/impl_products_repository.dart'
+    as _i26;
+import 'package:flutter_tdd/features/user/products/domain/repository/products_repository.dart'
+    as _i25;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
@@ -73,9 +81,11 @@ extension GetItInjectableX on _i1.GetIt {
     gh.lazySingleton<_i20.NewVersionHelper>(() => _i20.NewVersionHelper());
     gh.lazySingleton<_i21.Patch>(() => _i21.Patch());
     gh.lazySingleton<_i22.Post>(() => _i22.Post());
-    gh.lazySingleton<_i23.Put>(() => _i23.Put());
-    gh.lazySingleton<_i24.RateAppHelper>(() => _i24.RateAppHelper());
-    gh.lazySingleton<_i25.Utilities>(() => _i25.Utilities());
+    gh.factory<_i23.ProductsDataSource>(() => _i24.ImplProductsDataSource());
+    gh.factory<_i25.ProductsRepository>(() => _i26.ImplProductsRepository());
+    gh.lazySingleton<_i27.Put>(() => _i27.Put());
+    gh.lazySingleton<_i28.RateAppHelper>(() => _i28.RateAppHelper());
+    gh.lazySingleton<_i29.Utilities>(() => _i29.Utilities());
     return this;
   }
 }

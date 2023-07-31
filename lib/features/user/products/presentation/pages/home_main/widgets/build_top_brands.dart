@@ -1,7 +1,9 @@
 part of 'home_main_widgets_imports.dart';
 
 class BuildTopBrands extends StatelessWidget {
-  const BuildTopBrands({Key? key}) : super(key: key);
+  final List<BrandModel> brandList;
+
+  BuildTopBrands({required this.brandList});
 
   @override
   Widget build(BuildContext context) {
@@ -17,12 +19,11 @@ class BuildTopBrands extends StatelessWidget {
           ),
           Gaps.vGap10,
           ...List.generate(
-              3,
-              (index) => const BuildCategoriesItem(
-                    title: 'Netflix',
-                    image:
-                        "https://deadline.com/wp-content/uploads/2022/08/Netflix_Symbol_logo.jpg",
-                  ))
+            brandList.length,
+            (index) => BuildBrandItem(
+              brandModel: brandList[index],
+            ),
+          )
         ],
       ),
     );

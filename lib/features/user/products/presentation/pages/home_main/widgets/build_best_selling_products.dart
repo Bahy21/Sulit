@@ -5,6 +5,32 @@ class BuildBestSellingProducts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return SizedBox(
+      height: 250.spMin,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const BuildHeaderTitle(title: "Just for you"),
+          Gaps.vGap10,
+          Flexible(
+            child: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  Gaps.hGap16,
+                  ...List.generate(
+                    4,
+                    (index) {
+                      return const BuildProductItem();
+                    },
+                  )
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

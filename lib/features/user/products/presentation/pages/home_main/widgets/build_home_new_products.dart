@@ -22,7 +22,7 @@ class BuildHomeNewProducts extends StatelessWidget {
                 ...List.generate(
                   4,
                       (index) {
-                    return const BuildHomeListItem();
+                    return const BuildProductItem();
                   },
                 )
               ]),

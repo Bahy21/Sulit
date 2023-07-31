@@ -35,6 +35,7 @@ abstract class AppColors {
   Color get primary;
 
   Color get secondary;
+  Color get grey;
 
   Color get greyWhite;
 

@@ -13,6 +13,12 @@ class _HomeMainState extends State<HomeMain> {
   final HomeMainController controller = HomeMainController();
 
   @override
+  void initState() {
+    controller.getHome(context);
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: GestureDetector(
@@ -22,23 +28,24 @@ class _HomeMainState extends State<HomeMain> {
           body: ListView(
             children: [
               const BuildHomeSwiper(),
-              BuildBanners(),
+              const BuildBanners(),
               // const BuildFlashSaleCounter(),
 
               // BuildHomeCategories(),
-
+              Gaps.vGap10,
               const BuildPopularProducts(),
-
-              BuildBanners(),
-
-              BuildBestSellingProducts(),
-
+              Gaps.vGap10,
+              const BuildBanners(),
+              Gaps.vGap10,
+              const BuildBestSellingProducts(),
+              Gaps.vGap15,
               const BuildHomeNewProducts(),
+              Gaps.vGap15,
               const BuildFeaturedProducts(),
               Gaps.vGap15,
               const BuildTopCategories(),
               Gaps.vGap15,
-              const BuildTopBrands()
+               BuildTopBrands()
             ],
           ),
         ),
