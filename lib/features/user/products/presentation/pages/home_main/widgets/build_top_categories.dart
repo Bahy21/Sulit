@@ -10,7 +10,7 @@ class BuildTopCategories extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          BuildHeaderTitle(
+          BuildCustomHeaderTitle(
             title: "Top 10 Categories",
             btnText: "View All Categories",
             onTap: () => AutoRouter.of(context).push(HomeRoute(index: 1)),

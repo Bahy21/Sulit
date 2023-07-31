@@ -19,6 +19,7 @@ class CachedImage extends StatelessWidget{
   final Color? bgColor;
   final BoxShape? boxShape;
   final bool haveRadius;
+  final EdgeInsets?imgMargin;
   const CachedImage({super.key,
     required this.url,
     this.fit,
@@ -33,7 +34,8 @@ class CachedImage extends StatelessWidget{
     this.borderColor,
     this.borderWidth,
     this.bgColor,
-    this.haveRadius=true
+    this.haveRadius=true,
+  this.imgMargin,
   });
 
   @override
@@ -46,6 +48,7 @@ class CachedImage extends StatelessWidget{
       imageBuilder: (context, imageProvider) => Container(
         width: width,
         height: height,
+        margin: imgMargin,
         decoration: BoxDecoration(
           image: DecorationImage(
               image: imageProvider,

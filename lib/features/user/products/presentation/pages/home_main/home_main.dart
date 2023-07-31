@@ -22,21 +22,19 @@ class _HomeMainState extends State<HomeMain> {
           body: ListView(
             children: [
               const BuildHomeSwiper(),
-              const BuildFlashSaleCounter(),
-              DefaultButton(
-                margin:
-                    const EdgeInsets.only(bottom: 10, left: 16, right: 16).r,
-                onTap: () {},
-                title: "View More",
-              ),
-              Gaps.vGap15,
-              const BuildTodayProducts(),
-              Gaps.vGap15,
-              const BuildHomeListProducts(),
-              Gaps.vGap15,
+              BuildBanners(),
+              // const BuildFlashSaleCounter(),
+
+              // BuildHomeCategories(),
+
+              const BuildPopularProducts(),
+
+              BuildBanners(),
+
+              BuildBestSellingProducts(),
+
+              const BuildHomeNewProducts(),
               const BuildFeaturedProducts(),
-              Gaps.vGap15,
-              const BuildBestSellingProducts(),
               Gaps.vGap15,
               const BuildTopCategories(),
               Gaps.vGap15,

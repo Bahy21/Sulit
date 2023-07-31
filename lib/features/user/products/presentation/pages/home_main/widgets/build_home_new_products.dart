@@ -1,7 +1,7 @@
 part of'home_main_widgets_imports.dart';
 
-class BuildHomeListProducts extends StatelessWidget {
-  const BuildHomeListProducts({Key? key}) : super(key: key);
+class BuildHomeNewProducts extends StatelessWidget {
+  const BuildHomeNewProducts({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

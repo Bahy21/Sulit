@@ -16,6 +16,7 @@ class BuildTabItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Gaps.vGap8,
         Icon(

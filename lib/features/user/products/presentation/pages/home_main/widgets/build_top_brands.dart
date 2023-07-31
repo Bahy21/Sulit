@@ -10,7 +10,7 @@ class BuildTopBrands extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          BuildHeaderTitle(
+          BuildCustomHeaderTitle(
             title: "Top 10 Brands",
             btnText: "View All Brands",
             onTap: () => AutoRouter.of(context).push(const BrandsRoute()),

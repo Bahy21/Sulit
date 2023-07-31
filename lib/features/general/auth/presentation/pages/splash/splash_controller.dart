@@ -5,7 +5,7 @@ class SplashController {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     var userStr = preferences.getString("user");
     await Future.delayed( const Duration(seconds: 1),() {
-      AutoRouter.of(context).push( LoginRoute());
+      AutoRouter.of(context).push( HomeRoute(index: 0));
     },);
   }
 }
