@@ -35,7 +35,7 @@ mixin _$ProductModel {
   @JsonKey(name: 'main_price')
   String get mainPrice => throw _privateConstructorUsedError;
   @JsonKey(name: 'rating')
-  int get rating => throw _privateConstructorUsedError;
+  num get rating => throw _privateConstructorUsedError;
   @JsonKey(name: 'sales')
   int get sales => throw _privateConstructorUsedError;
   @JsonKey(name: 'seller_id')
@@ -65,7 +65,7 @@ abstract class $ProductModelCopyWith<$Res> {
       @JsonKey(name: 'discount') String discount,
       @JsonKey(name: 'stroked_price') String strokedPrice,
       @JsonKey(name: 'main_price') String mainPrice,
-      @JsonKey(name: 'rating') int rating,
+      @JsonKey(name: 'rating') num rating,
       @JsonKey(name: 'sales') int sales,
       @JsonKey(name: 'seller_id') int sellerId,
       @JsonKey(name: 'is_resale') bool isResale,
@@ -130,7 +130,7 @@ class _$ProductModelCopyWithImpl<$Res, $Val extends ProductModel>
       rating: null == rating
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
-              as int,
+              as num,
       sales: null == sales
           ? _value.sales
           : sales // ignore: cast_nullable_to_non_nullable
@@ -167,7 +167,7 @@ abstract class _$$_ProductModelCopyWith<$Res>
       @JsonKey(name: 'discount') String discount,
       @JsonKey(name: 'stroked_price') String strokedPrice,
       @JsonKey(name: 'main_price') String mainPrice,
-      @JsonKey(name: 'rating') int rating,
+      @JsonKey(name: 'rating') num rating,
       @JsonKey(name: 'sales') int sales,
       @JsonKey(name: 'seller_id') int sellerId,
       @JsonKey(name: 'is_resale') bool isResale,
@@ -230,7 +230,7 @@ class __$$_ProductModelCopyWithImpl<$Res>
       rating: null == rating
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
-              as int,
+              as num,
       sales: null == sales
           ? _value.sales
           : sales // ignore: cast_nullable_to_non_nullable
@@ -296,7 +296,7 @@ class _$_ProductModel extends _ProductModel {
   final String mainPrice;
   @override
   @JsonKey(name: 'rating')
-  final int rating;
+  final num rating;
   @override
   @JsonKey(name: 'sales')
   final int sales;
@@ -382,7 +382,7 @@ abstract class _ProductModel extends ProductModel {
       @JsonKey(name: 'discount') required final String discount,
       @JsonKey(name: 'stroked_price') required final String strokedPrice,
       @JsonKey(name: 'main_price') required final String mainPrice,
-      @JsonKey(name: 'rating') required final int rating,
+      @JsonKey(name: 'rating') required final num rating,
       @JsonKey(name: 'sales') required final int sales,
       @JsonKey(name: 'seller_id') required final int sellerId,
       @JsonKey(name: 'is_resale') required final bool isResale,
@@ -416,7 +416,7 @@ abstract class _ProductModel extends ProductModel {
   String get mainPrice;
   @override
   @JsonKey(name: 'rating')
-  int get rating;
+  num get rating;
   @override
   @JsonKey(name: 'sales')
   int get sales;

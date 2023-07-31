@@ -11,8 +11,8 @@ class BuildIconItem extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.all(Dimens.dp5),
-        margin: const EdgeInsets.all(Dimens.dp5),
+        padding:Dimens.paddingAll3PX,
+        margin: Dimens.paddingAll5PX,
         decoration: BoxDecoration(
           color: context.colors.white,
           shape: BoxShape.circle,

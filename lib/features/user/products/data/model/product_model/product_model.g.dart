@@ -15,7 +15,7 @@ _$_ProductModel _$$_ProductModelFromJson(Map<String, dynamic> json) =>
       discount: json['discount'] as String,
       strokedPrice: json['stroked_price'] as String,
       mainPrice: json['main_price'] as String,
-      rating: json['rating'] as int,
+      rating: json['rating'] as num,
       sales: json['sales'] as int,
       sellerId: json['seller_id'] as int,
       isResale: json['is_resale'] as bool,

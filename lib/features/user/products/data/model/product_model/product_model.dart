@@ -21,7 +21,7 @@ class ProductModel extends BaseApiModel<ProductDomainModel>
     @JsonKey(name: 'discount') required String discount,
     @JsonKey(name: 'stroked_price') required String strokedPrice,
     @JsonKey(name: 'main_price') required String mainPrice,
-    @JsonKey(name: 'rating') required int rating,
+    @JsonKey(name: 'rating') required num rating,
     @JsonKey(name: 'sales') required int sales,
     @JsonKey(name: 'seller_id') required int sellerId,
     @JsonKey(name: 'is_resale') required bool isResale,

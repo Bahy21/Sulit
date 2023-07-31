@@ -27,7 +27,7 @@ class BuildBottomNavBar extends StatelessWidget {
           splashSpeedInMilliseconds: 200,
           leftCornerRadius: 5.r,
           rightCornerRadius: 5.r,
-          height: 40.h,
+          height: Platform.isIOS ? 45.h : 55.h,
           onTap: (index) => controller.animateTabsPages(index, context),
         );
       },

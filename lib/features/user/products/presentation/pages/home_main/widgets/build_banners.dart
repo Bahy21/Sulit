@@ -1,20 +1,24 @@
 part of 'home_main_widgets_imports.dart';
 
 class BuildBanners extends StatelessWidget {
-  const BuildBanners({Key? key}) : super(key: key);
+  final List<BannerModel> banners;
+
+  const BuildBanners({super.key, required this.banners});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(
-        top: Dimens.dp10,
-        right: Dimens.dp10,
-        left: Dimens.dp10,
-      ),
+      padding: Dimens.paddingAll10PX,
       child: Row(
         children: List.generate(
-          2,
-          (index) => const BuildBannersItem(),
+          banners.length,
+          (index) => Expanded(
+            child: CachedImage(
+              url: banners[index].photo,
+              height: 90.spMin,
+              imgMargin: Dimens.paddingHorizontal5PX,
+            ),
+          ),
         ),
       ),
     );

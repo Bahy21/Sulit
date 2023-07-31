@@ -1,4 +1,5 @@
 part of 'home_main_widgets_imports.dart';
+
 class BuildCustomHeaderTitle extends StatelessWidget {
   final String title, btnText;
   final Function()? onTap;
@@ -10,31 +11,31 @@ class BuildCustomHeaderTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 12, left: 12).r,
+      padding: Dimens.paddingHorizontal15PX,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             title,
-            style: AppTextStyle.s17_w800(
+            style: AppTextStyle.s15_w700(
               color: context.colors.black,
             ),
           ),
           InkWell(
-            onTap: onTap??(){},
+            onTap: onTap ?? () {},
             child: Container(
-            padding: const EdgeInsets.symmetric(vertical: 5,horizontal: 6).r,
-            decoration: BoxDecoration(
-                color: context.colors.primary,
-                borderRadius: BorderRadius.circular(5).r
-            ),
-            child: Text(
-              btnText,
-              style: AppTextStyle.s12_w400(
-                color: context.colors.white,
+              padding: Dimens.paddingAll8PX,
+              decoration: BoxDecoration(
+                  color: context.colors.primary,
+                  borderRadius: Dimens.borderRadius5PX),
+              child: Text(
+                btnText,
+                style: AppTextStyle.s12_w400(
+                  color: context.colors.white,
+                ),
               ),
             ),
-          ),)
+          )
         ],
       ),
     );

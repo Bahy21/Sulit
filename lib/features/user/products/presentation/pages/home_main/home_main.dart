@@ -25,28 +25,16 @@ class _HomeMainState extends State<HomeMain> {
         onTap: () => FocusScope.of(context).unfocus(),
         child: Scaffold(
           appBar: BuildSearchAppBar(homeController: widget.homeController),
-          body: ListView(
-            children: [
-              const BuildHomeSwiper(),
-              const BuildBanners(),
-              // const BuildFlashSaleCounter(),
-
-              // BuildHomeCategories(),
-              Gaps.vGap10,
-              const BuildPopularProducts(),
-              Gaps.vGap10,
-              const BuildBanners(),
-              Gaps.vGap10,
-              const BuildBestSellingProducts(),
-              Gaps.vGap15,
-              const BuildHomeNewProducts(),
-              Gaps.vGap15,
-              const BuildFeaturedProducts(),
-              Gaps.vGap15,
-              const BuildTopCategories(),
-              Gaps.vGap15,
-               BuildTopBrands(brandList: [],)
-            ],
+          body: BlocBuilder<GenericBloc<HomeDomainModel?>,
+              GenericState<HomeDomainModel?>>(
+            bloc: controller.homeCubit,
+            builder: (context, state) {
+              if (state is GenericUpdateState) {
+                return BuildHomeView(homeDomainModel: state.data!);
+              } else {
+                return const BuildLoadingHomeView();
+              }
+            },
           ),
         ),
       ),

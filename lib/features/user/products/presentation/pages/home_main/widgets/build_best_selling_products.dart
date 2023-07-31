@@ -1,7 +1,10 @@
 part of 'home_main_widgets_imports.dart';
 
 class BuildBestSellingProducts extends StatelessWidget {
-  const BuildBestSellingProducts({Key? key}) : super(key: key);
+  final List<ProductModel> bestSellingProducts;
+
+  const BuildBestSellingProducts(
+      {super.key, required this.bestSellingProducts});
 
   @override
   Widget build(BuildContext context) {
@@ -10,19 +13,22 @@ class BuildBestSellingProducts extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const BuildHeaderTitle(title: "Just for you"),
           Gaps.vGap10,
+          const BuildHeaderTitle(title: "Just for you"),
           Flexible(
             child: SingleChildScrollView(
+              padding: Dimens.paddingVertical10PX,
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
                   Gaps.hGap16,
                   ...List.generate(
-                    4,
+                    bestSellingProducts.length,
                     (index) {
-                      return const BuildProductItem();
+                      return BuildProductItem(
+                        productModel: bestSellingProducts[index],
+                      );
                     },
                   )
                 ],

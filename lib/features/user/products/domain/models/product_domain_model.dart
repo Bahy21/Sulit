@@ -8,7 +8,7 @@ class ProductDomainModel  extends BaseDomainModel{
   final String discount;
   final String strokedPrice;
   final String mainPrice;
-  final int rating;
+  final num rating;
   final int sales;
   final int sellerId;
   final bool isResale;
