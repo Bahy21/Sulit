@@ -4,5 +4,4 @@ import 'package:flutter_tdd/features/user/products/data/model/home_model/home_mo
 
 abstract class ProductsDataSource{
   Future<Either<Failure, HomeModel>> getHome(bool param);
-
 }

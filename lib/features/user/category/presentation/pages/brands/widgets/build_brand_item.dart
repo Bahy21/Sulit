@@ -1,24 +1,35 @@
 part of 'brands_widgets_imports.dart';
 
 class BuildBrandItem extends StatelessWidget {
-  const BuildBrandItem({Key? key}) : super(key: key);
+  final BrandDomainModel brand;
+
+  const BuildBrandItem({Key? key, required this.brand}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
+    return InkWell(
+      onTap: () => AutoRouter.of(context).push(
+        const BrandDetailsRoute(),
+      ),
+      child: Container(
+        decoration: BoxDecoration(
           color: context.colors.white,
           borderRadius: BorderRadius.circular(5),
           boxShadow: [
             BoxShadow(
-                color: context.colors.greyWhite, blurRadius: 1, spreadRadius: 1)
-          ]),
-      child: CachedImage(
+              color: context.colors.greyWhite,
+              blurRadius: 1,
+              spreadRadius: 1,
+            )
+          ],
+        ),
+        child: CachedImage(
           fit: BoxFit.cover,
           haveRadius: true,
           borderRadius: BorderRadius.circular(5).r,
-          url:
-              "https://deadline.com/wp-content/uploads/2022/08/Netflix_Symbol_logo.jpg"),
+          url: brand.logo,
+        ),
+      ),
     );
   }
 }

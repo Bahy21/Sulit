@@ -1,5 +1,5 @@
 import 'package:flutter_tdd/core/models/api_model/base_api_model.dart';
-import 'package:flutter_tdd/features/user/products/domain/models/brand_domain_model.dart';
+import 'package:flutter_tdd/core/models/domain_models/brand_domain_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'brand_model.freezed.dart';

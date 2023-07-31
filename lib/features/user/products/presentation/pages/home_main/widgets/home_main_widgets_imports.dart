@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_tdd/core/bloc/generic_cubit/generic_cubit.dart';
 import 'package:flutter_tdd/core/constants/dimens.dart';
 import 'package:flutter_tdd/core/constants/gaps.dart';
+import 'package:flutter_tdd/core/models/api_models/brand_model/brand_model.dart';
 import 'package:flutter_tdd/core/routes/router_imports.gr.dart';
 import 'package:flutter_tdd/core/theme/colors/colors_extension.dart';
 import 'package:flutter_tdd/core/theme/text/app_text_style.dart';
@@ -24,7 +25,6 @@ import 'package:flutter_tdd/features/user/products/domain/models/home_domain_mod
 import 'package:flutter_tdd/res.dart';
 import 'package:flutter_tdd/features/user/base/presentation/pages/home/home_imports.dart';
 
-import '../../../../data/model/brand_model/brand_model.dart';
 
 
 part 'build_home_main_app_bar.dart';

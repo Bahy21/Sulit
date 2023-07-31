@@ -5,12 +5,12 @@ class BuildTabItem extends StatelessWidget {
   final int index;
   final bool isActive;
 
-  const BuildTabItem(
-      {Key? key,
-      required this.controller,
-      required this.index,
-      required this.isActive})
-      : super(key: key);
+  const BuildTabItem({
+    Key? key,
+    required this.controller,
+    required this.index,
+    required this.isActive,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,12 +18,12 @@ class BuildTabItem extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Gaps.vGap8,
+        Gaps.vGap4,
         Icon(
           controller.tabs[index],
           color: isActive ? context.colors.primary : context.colors.gray,
         ),
-        Gaps.vGap5,
+        Gaps.vGap4,
         Text(
           controller.tabsText[index],
           style: AppTextStyle.s10_bold(

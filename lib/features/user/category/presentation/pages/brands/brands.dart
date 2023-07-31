@@ -8,21 +8,45 @@ class Brands extends StatefulWidget {
 }
 
 class _BrandsState extends State<Brands> {
-  final BrandsController controller = BrandsController();
+  late BrandsController controller;
+
+  @override
+  void initState() {
+    controller = BrandsController();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const DefaultAppBar(title: "All Brands", showBack: true),
-      body: GridView(
+      body: PagedGridView<int, BrandDomainModel>(
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16).r,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 20.r,
-            mainAxisSpacing: 20.r,
-            childAspectRatio: 9 / 8),
-        children: List.generate(
-          11,
-          (index) => const BuildBrandItem(),
+          crossAxisCount: 2,
+          crossAxisSpacing: 20.r,
+          mainAxisSpacing: 20.r,
+          childAspectRatio: 9 / 8,
+        ),
+        showNewPageProgressIndicatorAsGridChild: false,
+        pagingController: controller.pagingController,
+        builderDelegate: PagedChildBuilderDelegate<BrandDomainModel>(
+          firstPageProgressIndicatorBuilder: (context) {
+            return const BuildBrandShimmer();
+          },
+          itemBuilder: (context, item, index) {
+            return BuildBrandItem(brand: item);
+          },
+          noItemsFoundIndicatorBuilder: (cxt) {
+            return Center(
+              child: Text(
+                "No Brands Here",
+                style: AppTextStyle.s12_w400(
+                  color: context.colors.black,
+                ),
+              ),
+            );
+          },
         ),
       ),
     );

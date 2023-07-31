@@ -20,6 +20,10 @@ class ApiNames{
   static const String getCategories = "categories";
 
 
+  // categories urls
+  static const String getBrands = "brands";
+
+
 
 
 

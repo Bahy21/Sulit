@@ -11,9 +11,17 @@ import 'package:injectable/injectable.dart';
 @Injectable(as: CategoryRepository)
 class ImplCategoryRepository extends CategoryRepository with ModelToDomain {
   @override
+  Future<Either<Failure, List<BrandDomainModel>>> getBrands(BrandsParams params) async {
+    var result = await  dataSources.getBrands(params);
+    return toDomainResultList<BrandDomainModel, BrandModel>(result);
+  }
+  @override
   Future<Either<Failure, List<CategoryDomainModel>>> getAllCategories(
       bool param) async {
     var countries = await getIt<CategoryDataSources>().getAllCategories(param);
     return toDomainResultList(countries);
   }
+
+
 }
+

@@ -22,12 +22,12 @@ class _CategoriesState extends State<Categories> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: BuildSearchAppBar(homeController: widget.homeController),
+        appBar:  BuildSearchAppBar(homeController: widget.homeController),
         body: ListView.builder(
           padding: const EdgeInsets.all(Dimens.dp20),
           itemCount: 4,
-          itemBuilder: (_, index) =>
-              BuildCategoryItem(categoriesController: categoriesController),
+          itemBuilder: (_, index) => BuildCategoryItem(
+              categoriesController: controller),
         ),
       ),
     );

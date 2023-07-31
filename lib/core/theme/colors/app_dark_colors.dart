@@ -64,6 +64,11 @@ class AppDarkColors extends AppColors {
   // TODO: implement drawerColor
   Color get drawerColor => const Color(0xFFe9e9f0);
 
+  @override
+
+  @override
+  Color get offWhite => const Color(0xffF2F2F2);
+
 
 
 

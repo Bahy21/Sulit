@@ -1,6 +1,6 @@
+import 'package:flutter_tdd/core/models/api_models/brand_model/brand_model.dart';
 import 'package:flutter_tdd/core/models/domain_model/base_domain_model.dart';
 import 'package:flutter_tdd/features/user/products/data/model/banner_model/banner_model.dart';
-import 'package:flutter_tdd/features/user/products/data/model/brand_model/brand_model.dart';
 import 'package:flutter_tdd/features/user/products/data/model/category_model/category_model.dart';
 import 'package:flutter_tdd/features/user/products/data/model/popular_product_model/popular_product_model.dart';
 import 'package:flutter_tdd/features/user/products/data/model/product_model/product_model.dart';
