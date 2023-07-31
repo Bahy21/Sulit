@@ -10,12 +10,8 @@ class Addresses extends StatefulWidget {
 }
 
 class _AddressesState extends State<Addresses> {
-  AddressesController addressesData = AddressesController();
+  AddressesController controller = AddressesController();
 
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {

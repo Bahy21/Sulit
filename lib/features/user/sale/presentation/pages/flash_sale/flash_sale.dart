@@ -1,4 +1,4 @@
-part of 'flash_imports.dart';
+part of 'flash_sale_imports.dart';
 
 class FlashSale extends StatefulWidget {
   const FlashSale({Key? key}) : super(key: key);
@@ -8,22 +8,30 @@ class FlashSale extends StatefulWidget {
 }
 
 class _FlashSaleState extends State<FlashSale> {
+  final FlashSaleController controller = FlashSaleController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: const DefaultAppBar(title: "Flash Sale", showBack: true),
-        body:
-        GridView(
-          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16).r,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 7.r,
-              mainAxisSpacing: 7.r,
-              childAspectRatio: 9 / 7),
-          children: List.generate(11, (index) =>  Image.network(
-              "https://globalnews.ca/wp-content/uploads/2018/01/sale-canada.jpg?quality=85&strip=all"),),
-        )
-
-       );
+      appBar: const DefaultAppBar(title: "Flash Sale", showBack: true),
+      body: GridView(
+        padding: const EdgeInsets.symmetric(
+          vertical: 20,
+          horizontal: 16,
+        ).r,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 7.r,
+          mainAxisSpacing: 7.r,
+          childAspectRatio: 9 / 7,
+        ),
+        children: List.generate(
+          11,
+          (index) => Image.network(
+            "https://globalnews.ca/wp-content/uploads/2018/01/sale-canada.jpg?quality=85&strip=all",
+          ),
+        ),
+      ),
+    );
   }
 }

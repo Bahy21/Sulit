@@ -8,6 +8,7 @@ class Brands extends StatefulWidget {
 }
 
 class _BrandsState extends State<Brands> {
+  final BrandsController controller = BrandsController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -10,7 +10,7 @@ class More extends StatefulWidget {
 }
 
 class _MoreState extends State<More> {
-  MoreController moreController = MoreController();
+  MoreController controller = MoreController();
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class _MoreState extends State<More> {
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16).r,
         children: [
           BuildMoreHeader(
-            moreController: moreController,
+            moreController: controller,
           ),
           Gaps.vGap32,
           BuildMoreItem(

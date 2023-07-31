@@ -11,6 +11,7 @@ class Notifications extends StatefulWidget {
 }
 
 class _NotificationsState extends State<Notifications> {
+  final NotificationsController controller = NotificationsController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -9,6 +9,7 @@ class OrderSummary extends StatefulWidget {
 }
 
 class _OrderSummaryState extends State<OrderSummary> {
+  final OrderSummaryController controller = OrderSummaryController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

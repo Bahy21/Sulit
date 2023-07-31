@@ -10,32 +10,32 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> with TickerProviderStateMixin {
-  final HomeController homeController = HomeController();
+  final HomeController controller = HomeController();
 
   @override
   void initState() {
-    homeController.initBottomNavigation(this, widget.index);
+    controller.initBottomNavigation(this, widget.index);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: homeController.onBackPressed,
+      onWillPop: controller.onBackPressed,
       child: DefaultTabController(
         initialIndex: widget.index,
         length: 4,
         child: Scaffold(
-          key: homeController.scaffoldKey,
+          key: controller.scaffoldKey,
           drawer: const BuildDrawer(),
           body: TabBarView(
-            controller: homeController.tabController,
+            controller: controller.tabController,
             physics: const NeverScrollableScrollPhysics(),
             children: [
-              HomeMain(homeController: homeController),
-              Categories(homeController: homeController),
-              Notifications(homeController: homeController),
-              More(homeController: homeController),
+              HomeMain(homeController: controller),
+              Categories(homeController: controller),
+              Notifications(homeController: controller),
+              More(homeController: controller),
             ],
           ),
           floatingActionButton: FloatingActionButton(
@@ -45,7 +45,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           ),
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerDocked,
-          bottomNavigationBar: BuildBottomNavBar(controller: homeController),
+          bottomNavigationBar: BuildBottomNavBar(controller: controller),
         ),
       ),
     );

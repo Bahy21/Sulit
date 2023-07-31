@@ -28,7 +28,6 @@ class ImplAuthDataSource extends AuthDataSource {
     return await GenericHttpImpl<UserModel>()(model);
   }
 
-
   @override
   Future<Either<Failure, String>> forgetPassword(String param) async {
     HttpRequestModel model = HttpRequestModel(

@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 part of 'add_new_address_imports.dart';
 
 class AddNewAddress extends StatefulWidget {
@@ -8,8 +10,7 @@ class AddNewAddress extends StatefulWidget {
 }
 
 class _AddNewAddressState extends State<AddNewAddress> {
-  final AddNewAddressController addNewAddressController =
-      AddNewAddressController();
+  final AddNewAddressController controller = AddNewAddressController();
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class _AddNewAddressState extends State<AddNewAddress> {
         body: Column(
           children: [
             BuildAddAddressForm(
-                addNewAddressController: addNewAddressController),
+                addNewAddressController: controller),
             DefaultButton(
               title: "Save",
               onTap: () {},

@@ -8,6 +8,7 @@ class MyWallet extends StatefulWidget {
 }
 
 class _MyWalletState extends State<MyWallet> {
+  final MyWalletController controller = MyWalletController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

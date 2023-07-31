@@ -8,8 +8,7 @@ class ProductDetails extends StatefulWidget {
 }
 
 class _ProductDetailsState extends State<ProductDetails> {
-  ProductDetailsController productDetailsController =
-      ProductDetailsController();
+  ProductDetailsController controller = ProductDetailsController();
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +26,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                 children: [
                   const BuildSellerInfo(),
                   BuildProductInfo(
-                    productDetailsController: productDetailsController,
+                    productDetailsController: controller,
                   ),
                   const BuildProductButtons(),
                   const BuildProductDescription(),
@@ -35,7 +34,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                   const BuildRelatedProducts(),
                   const BuildProductQueries(),
                   BuildRelatedQuestions(
-                    productDetailsController: productDetailsController,
+                    productDetailsController: controller,
                   )
                 ],
               ),

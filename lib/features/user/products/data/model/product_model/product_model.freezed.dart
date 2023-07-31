@@ -375,30 +375,19 @@ class _$_ProductModel extends _ProductModel {
 
 abstract class _ProductModel extends ProductModel {
   const factory _ProductModel(
-      {@JsonKey(name: 'id')
-          required final int id,
-      @JsonKey(name: 'name')
-          required final String name,
-      @JsonKey(name: 'thumbnail_image')
-          required final String thumbnailImage,
-      @JsonKey(name: 'has_discount')
-          required final bool hasDiscount,
-      @JsonKey(name: 'discount')
-          required final String discount,
-      @JsonKey(name: 'stroked_price')
-          required final String strokedPrice,
-      @JsonKey(name: 'main_price')
-          required final String mainPrice,
-      @JsonKey(name: 'rating')
-          required final int rating,
-      @JsonKey(name: 'sales')
-          required final int sales,
-      @JsonKey(name: 'seller_id')
-          required final int sellerId,
-      @JsonKey(name: 'is_resale')
-          required final bool isResale,
+      {@JsonKey(name: 'id') required final int id,
+      @JsonKey(name: 'name') required final String name,
+      @JsonKey(name: 'thumbnail_image') required final String thumbnailImage,
+      @JsonKey(name: 'has_discount') required final bool hasDiscount,
+      @JsonKey(name: 'discount') required final String discount,
+      @JsonKey(name: 'stroked_price') required final String strokedPrice,
+      @JsonKey(name: 'main_price') required final String mainPrice,
+      @JsonKey(name: 'rating') required final int rating,
+      @JsonKey(name: 'sales') required final int sales,
+      @JsonKey(name: 'seller_id') required final int sellerId,
+      @JsonKey(name: 'is_resale') required final bool isResale,
       @JsonKey(name: 'reseller_id')
-          required final int resellerId}) = _$_ProductModel;
+      required final int resellerId}) = _$_ProductModel;
   const _ProductModel._() : super._();
 
   factory _ProductModel.fromJson(Map<String, dynamic> json) =

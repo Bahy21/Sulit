@@ -55,26 +55,17 @@ abstract class $HomeModelCopyWith<$Res> {
       _$HomeModelCopyWithImpl<$Res, HomeModel>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'sliders')
-          List<SliderModel> sliders,
-      @JsonKey(name: 'banners_one')
-          List<BannerModel> bannersOne,
-      @JsonKey(name: 'banners_two')
-          List<BannerModel> bannersTwo,
-      @JsonKey(name: 'categories')
-          List<CategoryModel> categories,
-      @JsonKey(name: 'most_populars')
-          List<PopularProductModel> mostPopular,
+      {@JsonKey(name: 'sliders') List<SliderModel> sliders,
+      @JsonKey(name: 'banners_one') List<BannerModel> bannersOne,
+      @JsonKey(name: 'banners_two') List<BannerModel> bannersTwo,
+      @JsonKey(name: 'categories') List<CategoryModel> categories,
+      @JsonKey(name: 'most_populars') List<PopularProductModel> mostPopular,
       @JsonKey(name: 'best_selling_products')
-          List<ProductModel> bestSellingProducts,
-      @JsonKey(name: 'newest_products')
-          List<ProductModel> newestProducts,
-      @JsonKey(name: 'featured_products')
-          List<ProductModel> featuredProducts,
-      @JsonKey(name: 'top_categories')
-          List<CategoryModel> topCategories,
-      @JsonKey(name: 'top_brands')
-          List<BrandModel> topBrands});
+      List<ProductModel> bestSellingProducts,
+      @JsonKey(name: 'newest_products') List<ProductModel> newestProducts,
+      @JsonKey(name: 'featured_products') List<ProductModel> featuredProducts,
+      @JsonKey(name: 'top_categories') List<CategoryModel> topCategories,
+      @JsonKey(name: 'top_brands') List<BrandModel> topBrands});
 }
 
 /// @nodoc
@@ -154,26 +145,17 @@ abstract class _$$_HomeModelCopyWith<$Res> implements $HomeModelCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'sliders')
-          List<SliderModel> sliders,
-      @JsonKey(name: 'banners_one')
-          List<BannerModel> bannersOne,
-      @JsonKey(name: 'banners_two')
-          List<BannerModel> bannersTwo,
-      @JsonKey(name: 'categories')
-          List<CategoryModel> categories,
-      @JsonKey(name: 'most_populars')
-          List<PopularProductModel> mostPopular,
+      {@JsonKey(name: 'sliders') List<SliderModel> sliders,
+      @JsonKey(name: 'banners_one') List<BannerModel> bannersOne,
+      @JsonKey(name: 'banners_two') List<BannerModel> bannersTwo,
+      @JsonKey(name: 'categories') List<CategoryModel> categories,
+      @JsonKey(name: 'most_populars') List<PopularProductModel> mostPopular,
       @JsonKey(name: 'best_selling_products')
-          List<ProductModel> bestSellingProducts,
-      @JsonKey(name: 'newest_products')
-          List<ProductModel> newestProducts,
-      @JsonKey(name: 'featured_products')
-          List<ProductModel> featuredProducts,
-      @JsonKey(name: 'top_categories')
-          List<CategoryModel> topCategories,
-      @JsonKey(name: 'top_brands')
-          List<BrandModel> topBrands});
+      List<ProductModel> bestSellingProducts,
+      @JsonKey(name: 'newest_products') List<ProductModel> newestProducts,
+      @JsonKey(name: 'featured_products') List<ProductModel> featuredProducts,
+      @JsonKey(name: 'top_categories') List<CategoryModel> topCategories,
+      @JsonKey(name: 'top_brands') List<BrandModel> topBrands});
 }
 
 /// @nodoc
@@ -248,26 +230,22 @@ class __$$_HomeModelCopyWithImpl<$Res>
 @JsonSerializable(explicitToJson: true)
 class _$_HomeModel extends _HomeModel {
   const _$_HomeModel(
-      {@JsonKey(name: 'sliders')
-          required final List<SliderModel> sliders,
-      @JsonKey(name: 'banners_one')
-          required final List<BannerModel> bannersOne,
-      @JsonKey(name: 'banners_two')
-          required final List<BannerModel> bannersTwo,
+      {@JsonKey(name: 'sliders') required final List<SliderModel> sliders,
+      @JsonKey(name: 'banners_one') required final List<BannerModel> bannersOne,
+      @JsonKey(name: 'banners_two') required final List<BannerModel> bannersTwo,
       @JsonKey(name: 'categories')
-          required final List<CategoryModel> categories,
+      required final List<CategoryModel> categories,
       @JsonKey(name: 'most_populars')
-          required final List<PopularProductModel> mostPopular,
+      required final List<PopularProductModel> mostPopular,
       @JsonKey(name: 'best_selling_products')
-          required final List<ProductModel> bestSellingProducts,
+      required final List<ProductModel> bestSellingProducts,
       @JsonKey(name: 'newest_products')
-          required final List<ProductModel> newestProducts,
+      required final List<ProductModel> newestProducts,
       @JsonKey(name: 'featured_products')
-          required final List<ProductModel> featuredProducts,
+      required final List<ProductModel> featuredProducts,
       @JsonKey(name: 'top_categories')
-          required final List<CategoryModel> topCategories,
-      @JsonKey(name: 'top_brands')
-          required final List<BrandModel> topBrands})
+      required final List<CategoryModel> topCategories,
+      @JsonKey(name: 'top_brands') required final List<BrandModel> topBrands})
       : _sliders = sliders,
         _bannersOne = bannersOne,
         _bannersTwo = bannersTwo,
@@ -437,26 +415,23 @@ class _$_HomeModel extends _HomeModel {
 
 abstract class _HomeModel extends HomeModel {
   const factory _HomeModel(
-      {@JsonKey(name: 'sliders')
-          required final List<SliderModel> sliders,
-      @JsonKey(name: 'banners_one')
-          required final List<BannerModel> bannersOne,
-      @JsonKey(name: 'banners_two')
-          required final List<BannerModel> bannersTwo,
+      {@JsonKey(name: 'sliders') required final List<SliderModel> sliders,
+      @JsonKey(name: 'banners_one') required final List<BannerModel> bannersOne,
+      @JsonKey(name: 'banners_two') required final List<BannerModel> bannersTwo,
       @JsonKey(name: 'categories')
-          required final List<CategoryModel> categories,
+      required final List<CategoryModel> categories,
       @JsonKey(name: 'most_populars')
-          required final List<PopularProductModel> mostPopular,
+      required final List<PopularProductModel> mostPopular,
       @JsonKey(name: 'best_selling_products')
-          required final List<ProductModel> bestSellingProducts,
+      required final List<ProductModel> bestSellingProducts,
       @JsonKey(name: 'newest_products')
-          required final List<ProductModel> newestProducts,
+      required final List<ProductModel> newestProducts,
       @JsonKey(name: 'featured_products')
-          required final List<ProductModel> featuredProducts,
+      required final List<ProductModel> featuredProducts,
       @JsonKey(name: 'top_categories')
-          required final List<CategoryModel> topCategories,
+      required final List<CategoryModel> topCategories,
       @JsonKey(name: 'top_brands')
-          required final List<BrandModel> topBrands}) = _$_HomeModel;
+      required final List<BrandModel> topBrands}) = _$_HomeModel;
   const _HomeModel._() : super._();
 
   factory _HomeModel.fromJson(Map<String, dynamic> json) =

@@ -8,8 +8,7 @@ class PurchasedHistory extends StatefulWidget {
 }
 
 class _PurchasedHistoryState extends State<PurchasedHistory> {
-  PurchasedHistoryController purchasedHistoryController =
-      PurchasedHistoryController();
+  PurchasedHistoryController controller = PurchasedHistoryController();
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +18,7 @@ class _PurchasedHistoryState extends State<PurchasedHistory> {
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16).r,
         itemCount: 1,
         itemBuilder: (context, index) => BuildPurchasedHistoryItem(
-          purchasedHistoryController: purchasedHistoryController,
+          purchasedHistoryController: controller,
         ),
       ),
     );

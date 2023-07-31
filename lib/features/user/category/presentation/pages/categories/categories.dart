@@ -10,7 +10,7 @@ class Categories extends StatefulWidget {
 }
 
 class _CategoriesState extends State<Categories> {
-  final CategoriesController categoriesController = CategoriesController();
+  final CategoriesController controller = CategoriesController();
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class _CategoriesState extends State<Categories> {
           padding: const EdgeInsets.all(Dimens.dp20),
           itemCount: 4,
           itemBuilder: (_, index) => BuildCategoryItem(
-              categoriesController: categoriesController),
+              categoriesController: controller),
         ),
       ),
     );

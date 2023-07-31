@@ -9,6 +9,7 @@ class BuildFeaturedProducts extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Gaps.vGap10,
           const BuildHeaderTitle(title: "Featured Products",),
           Gaps.vGap10,
           Flexible(

@@ -7,11 +7,11 @@ class TicketsDetails extends StatefulWidget {
 }
 
 class _TicketsDetailsState extends State<TicketsDetails> {
-  TicketsDetailsController ticketsDetailsController = TicketsDetailsController();
+  TicketsDetailsController controller = TicketsDetailsController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: BuildAddReplayButton(ticketsDetailsController: ticketsDetailsController,),
+      floatingActionButton: BuildAddReplayButton(ticketsDetailsController: controller,),
         appBar: const DefaultAppBar(title: "Ticket Details", showBack: true),
         body: Column(
           children: [

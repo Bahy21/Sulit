@@ -6,5 +6,5 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter_tdd/core/widgets/default_app_bar.dart';
 
 
-part 'flash_controller.dart';
+part 'flash_sale_controller.dart';
 part 'flash_sale.dart';

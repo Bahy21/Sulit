@@ -10,12 +10,12 @@ class CategoryDetails extends StatefulWidget {
 }
 
 class _CategoryDetailsState extends State<CategoryDetails> {
-  final CategoryDetailsController categoryDetailsController =
+  final CategoryDetailsController controller =
       CategoryDetailsController();
 
   @override
   void initState() {
-    categoryDetailsController.initData();
+    controller.initData();
     super.initState();
   }
 
@@ -23,17 +23,17 @@ class _CategoryDetailsState extends State<CategoryDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      key: categoryDetailsController.scaffold,
+      key: controller.scaffold,
       appBar: const BuildCustomAppBar(),
       drawer: BuildFilterDrawer(
-          categoryDetailsController: categoryDetailsController),
+          categoryDetailsController: controller),
       body: Column(
         children: [
           BuildFilterBar(
             categoryName: widget.title,
-            categoryDetailsController: categoryDetailsController,
+            categoryDetailsController: controller,
           ),
-          BuildSortBar(categoryDetailsController: categoryDetailsController),
+          BuildSortBar(categoryDetailsController: controller),
           const BuildProducts(),
         ],
       ),

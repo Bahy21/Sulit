@@ -8,6 +8,7 @@ class Wishlist extends StatefulWidget {
 }
 
 class _WishlistState extends State<Wishlist> {
+  final WishlistController controller = WishlistController ();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -9,7 +9,7 @@ class BuildBrandItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () =>
-          AutoRouter.of(context).push(CategoryDetailsRoute(title: title)),
+          AutoRouter.of(context).push(CategoryDetailsRoute(title: brandModel.name)),
       child: Container(
         height: 60.h,
         width: MediaQuery.of(context).size.width,
@@ -34,12 +34,12 @@ class BuildBrandItem extends StatelessWidget {
               width: 50.r,
               fit: BoxFit.cover,
               haveRadius: false,
-              url: image,
+              url: brandModel.logo,
             ),
             Gaps.hGap10,
             Expanded(
               child: Text(
-                title,
+                brandModel.name,
                 style: AppTextStyle.s14_w500(color: context.colors.black),
               ),
             ),

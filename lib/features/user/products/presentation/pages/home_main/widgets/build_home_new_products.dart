@@ -10,11 +10,12 @@ class BuildHomeNewProducts extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Gaps.vGap10,
           const BuildHeaderTitle(title: "New Products",),
           Gaps.vGap10,
           Flexible(
             child: SingleChildScrollView(
-              physics: BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
 
               scrollDirection: Axis.horizontal,
               child: Row(children: [

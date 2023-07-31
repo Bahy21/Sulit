@@ -10,6 +10,8 @@ class BuildPopularProducts extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Gaps.vGap10,
+
           const BuildHeaderTitle(title: "Most Popular"),
           Gaps.vGap10,
           Flexible(
@@ -29,6 +31,8 @@ class BuildPopularProducts extends StatelessWidget {
               ),
             ),
           ),
+          // Gaps.vGap10,
+
         ],
       ),
     );

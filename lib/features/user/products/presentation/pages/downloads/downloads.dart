@@ -8,6 +8,7 @@ class Downloads extends StatefulWidget {
 }
 
 class _DownloadsState extends State<Downloads> {
+  final DownloadsController controller = DownloadsController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

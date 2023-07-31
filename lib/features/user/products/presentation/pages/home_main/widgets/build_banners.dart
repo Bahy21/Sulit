@@ -6,9 +6,16 @@ class BuildBanners extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: Dimens.paddingAll10PX,
+      padding: const EdgeInsets.only(
+        top: Dimens.dp10,
+        right: Dimens.dp10,
+        left: Dimens.dp10,
+      ),
       child: Row(
-        children: List.generate(2, (index) => BuildBannersItem(),)
+        children: List.generate(
+          2,
+          (index) => const BuildBannersItem(),
+        ),
       ),
     );
   }

@@ -118,7 +118,7 @@ import 'package:flutter_tdd/features/user/purchasing/presentation/pages/purchase
     as _i53;
 import 'package:flutter_tdd/features/user/sale/presentation/pages/deal_of_the_day/deal_of_the_day_imports.dart'
     as _i54;
-import 'package:flutter_tdd/features/user/sale/presentation/pages/flash_sale/flash_imports.dart'
+import 'package:flutter_tdd/features/user/sale/presentation/pages/flash_sale/flash_sale_imports.dart'
     as _i55;
 import 'package:flutter_tdd/features/user/search/presentation/pages/search/search_imports.dart'
     as _i49;

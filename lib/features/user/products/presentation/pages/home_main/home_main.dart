@@ -45,7 +45,7 @@ class _HomeMainState extends State<HomeMain> {
               Gaps.vGap15,
               const BuildTopCategories(),
               Gaps.vGap15,
-               BuildTopBrands()
+               BuildTopBrands(brandList: [],)
             ],
           ),
         ),

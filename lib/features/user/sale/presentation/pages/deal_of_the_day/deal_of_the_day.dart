@@ -8,6 +8,7 @@ class DealOfTheDay extends StatefulWidget {
 }
 
 class _DealOfTheDayState extends State<DealOfTheDay> {
+  final DealOfTheDayController controller = DealOfTheDayController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -8,6 +8,7 @@ class DashBoard extends StatefulWidget {
 }
 
 class _DashBoardState extends State<DashBoard> {
+  final DashBoardController controller = DashBoardController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
