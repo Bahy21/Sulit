@@ -16,9 +16,9 @@ class BuildLoadingHomeView extends StatelessWidget {
             padding: Dimens.paddingVertical10PX,
             child: Row(
               children: [
-                Expanded(child: BuildShimmerItem(height: 80.h)),
+                Expanded(child: BuildShimmerItem(height:90.spMin)),
                 Gaps.hGap10,
-                Expanded(child: BuildShimmerItem(height: 80.h))
+                Expanded(child: BuildShimmerItem(height: 90.spMin))
               ],
             ),
           ),
@@ -59,7 +59,7 @@ class BuildLoadingHomeView extends StatelessWidget {
               3,
               (index) => Expanded(
                 child: BuildShimmerItem(
-                  height: 100.spMin,
+                  height: 120.spMin,
                   margin: Dimens.paddingHorizontal5PX,
                 ),
               ),

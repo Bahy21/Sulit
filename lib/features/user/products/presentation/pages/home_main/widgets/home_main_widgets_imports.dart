@@ -31,7 +31,7 @@ part 'build_home_main_app_bar.dart';
 
 part 'build_home_swiper.dart';
 
-part 'build_flash_sale_counter.dart';
+part 'build_deals_item.dart';
 
 
 part 'build_home_new_products.dart';
@@ -39,7 +39,7 @@ part 'build_featured_products.dart';
 part 'build_popular_products.dart';
 part 'build_header_title.dart';
 part 'build_top_categories.dart';
-part'build_category_item.dart';
+part 'build_top_category_item.dart';
 part 'build_top_brands.dart';
 part 'build_home_categories.dart';
 part 'build_banners.dart';
@@ -50,3 +50,5 @@ part 'build_product_item.dart';
 part 'build_brand_item.dart';
 part 'build_loading_home_view.dart';
 part 'build_home_view.dart';
+part 'build_deals.dart';
+part 'build_home_category_item.dart';

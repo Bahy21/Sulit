@@ -1,9 +1,9 @@
 part of 'home_main_widgets_imports.dart';
 
 class BuildTopCategories extends StatelessWidget {
-  final List<CategoryModel> categories;
+  final List<CategoryModel> topCategories;
 
-  const BuildTopCategories({super.key, required this.categories});
+  const BuildTopCategories({super.key, required this.topCategories});
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +18,8 @@ class BuildTopCategories extends StatelessWidget {
         ),
         Gaps.vGap5,
         ...List.generate(
-         categories.length,
-          (index) => BuildCategoriesItem(categoryModel: categories[index]),
+          topCategories.length,
+          (index) => BuildTopCategoriesItem(categoryModel: topCategories[index]),
         )
       ],
     );

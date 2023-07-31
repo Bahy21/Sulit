@@ -8,13 +8,12 @@ class BuildHomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
+      padding: Dimens.paddingVertical10PX,
       children: [
         BuildHomeSwiper(slider: homeDomainModel.sliders),
         BuildBanners(banners: homeDomainModel.bannersOne),
-        // const BuildFlashSaleCounter(),
-
-        // BuildHomeCategories(),
-        Gaps.vGap5,
+        const BuildDeals(),
+        BuildHomeCategories(categories: homeDomainModel.categories),
         BuildPopularProducts(mostPopularProducts: homeDomainModel.mostPopular),
         BuildBanners(banners: homeDomainModel.bannersTwo),
         BuildBestSellingProducts(
@@ -22,8 +21,7 @@ class BuildHomeView extends StatelessWidget {
         BuildHomeNewProducts(newestProducts: homeDomainModel.newestProducts),
         BuildFeaturedProducts(
             featuredProducts: homeDomainModel.featuredProducts),
-
-         BuildTopCategories(categories: homeDomainModel.categories),
+        BuildTopCategories(topCategories: homeDomainModel.topCategories),
         BuildTopBrands(
           brandList: homeDomainModel.topBrands,
         )

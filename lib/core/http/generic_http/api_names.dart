@@ -16,6 +16,8 @@ class ApiNames{
   //products urls
   static const String getHome = "home";
 
+//category urls
+  static const String getCategories = "categories";
 
 
 

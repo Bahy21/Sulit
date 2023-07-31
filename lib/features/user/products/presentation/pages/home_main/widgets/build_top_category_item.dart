@@ -1,9 +1,9 @@
 part of 'home_main_widgets_imports.dart';
 
-class BuildCategoriesItem extends StatelessWidget {
+class BuildTopCategoriesItem extends StatelessWidget {
   final CategoryModel categoryModel;
 
-  const BuildCategoriesItem({super.key, required this.categoryModel});
+  const BuildTopCategoriesItem({super.key, required this.categoryModel});
 
   @override
   Widget build(BuildContext context) {

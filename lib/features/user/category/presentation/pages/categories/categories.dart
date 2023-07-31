@@ -10,18 +10,24 @@ class Categories extends StatefulWidget {
 }
 
 class _CategoriesState extends State<Categories> {
-  final CategoriesController controller = CategoriesController();
+  final CategoriesController categoriesController = CategoriesController();
+
+  @override
+  void initState() {
+    categoriesController.getCategories(context);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar:  BuildSearchAppBar(homeController: widget.homeController),
+        appBar: BuildSearchAppBar(homeController: widget.homeController),
         body: ListView.builder(
           padding: const EdgeInsets.all(Dimens.dp20),
           itemCount: 4,
-          itemBuilder: (_, index) => BuildCategoryItem(
-              categoriesController: controller),
+          itemBuilder: (_, index) =>
+              BuildCategoryItem(categoriesController: categoriesController),
         ),
       ),
     );
