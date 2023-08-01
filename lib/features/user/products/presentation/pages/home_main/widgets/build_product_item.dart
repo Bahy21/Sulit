@@ -1,9 +1,9 @@
 part of 'home_main_widgets_imports.dart';
 
 class BuildProductItem extends StatelessWidget {
-  final ProductModel productModel;
+  final ProductModel? productModel;
 
-  const BuildProductItem({super.key, required this.productModel});
+  const BuildProductItem({super.key,  this.productModel});
 
   @override
   Widget build(BuildContext context) {
@@ -34,10 +34,10 @@ class BuildProductItem extends StatelessWidget {
                     fit: BoxFit.contain,
                     haveRadius: true,
                     borderRadius: Dimens.borderRadius5PX,
-                    url: productModel.thumbnailImage,
+                    url: productModel?.thumbnailImage??"",
                   ),
                   Visibility(
-                    visible: productModel.hasDiscount,
+                    visible: productModel?.hasDiscount??false,
                     child: PositionedDirectional(
                       top: 20.r,
                       child: Container(
@@ -71,7 +71,7 @@ class BuildProductItem extends StatelessWidget {
                                 color: context.colors.primary,
                               ),
                               child: Text(
-                                productModel.discount,
+                                productModel?.discount??"",
                                 style: AppTextStyle.s10_w400(
                                   color: context.colors.white,
                                 ),
@@ -106,15 +106,15 @@ class BuildProductItem extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        productModel.mainPrice,
+                        productModel?.mainPrice??"",
                         style: AppTextStyle.s11_bold(
                             color: context.colors.primary),
                       ),
                       Gaps.hGap5,
                       Visibility(
-                        visible: productModel.hasDiscount,
+                        visible: productModel!.hasDiscount,
                         child: Text(
-                          productModel.strokedPrice,
+                          productModel!.strokedPrice,
                           style: AppTextStyle.s11_bold(
                             color: context.colors.black,
                           ).copyWith(decoration: TextDecoration.lineThrough),
@@ -123,7 +123,7 @@ class BuildProductItem extends StatelessWidget {
                     ],
                   ),
                   RatingBar.builder(
-                    initialRating: productModel.rating.toDouble(),
+                    initialRating: productModel!.rating.toDouble(),
                     ignoreGestures: true,
                     minRating: 1,
                     direction: Axis.horizontal,
@@ -139,7 +139,7 @@ class BuildProductItem extends StatelessWidget {
                     onRatingUpdate: (rating) {},
                   ),
                   Text(
-                    productModel.name,
+                    productModel!.name,
                     style: AppTextStyle.s13_w500(
                       color: context.colors.black,
                     ),

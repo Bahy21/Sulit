@@ -10,11 +10,11 @@ class Categories extends StatefulWidget {
 }
 
 class _CategoriesState extends State<Categories> {
-  final CategoriesController categoriesController = CategoriesController();
+  final CategoriesController controller = CategoriesController();
 
   @override
   void initState() {
-    categoriesController.getCategories(context);
+    controller.getCategories(context);
     super.initState();
   }
 
@@ -27,7 +27,8 @@ class _CategoriesState extends State<Categories> {
           padding: const EdgeInsets.all(Dimens.dp20),
           itemCount: 4,
           itemBuilder: (_, index) => BuildCategoryItem(
-              categoriesController: controller),
+            categoriesController: controller,
+          ),
         ),
       ),
     );

@@ -21,7 +21,7 @@ class _BrandDetailsState extends State<BrandDetails> {
           mainAxisSpacing: 20.r,
         ),
         itemCount: 5,
-        itemBuilder: (context, index) => const BuildDiscountProductItem(),
+        itemBuilder: (context, index) =>  const BuildProductItem(),
       ),
     );
   }
