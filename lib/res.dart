@@ -21,5 +21,5 @@ class Res {
   static const String profile = "assets/images/profile.png";
   static const String suliitLogo = "assets/images/suliitLogo.png";
   static const String emptyState = "assets/anims/animation_lkb5jn5s.json";
-  static const String emptyCart = "assets/images/empty-cart.png";
+  static const String emptyCart = "assets/images/emptyCart.png";
 }

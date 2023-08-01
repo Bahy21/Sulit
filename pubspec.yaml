@@ -147,7 +147,7 @@ flutter:
     - assets/images/suliitLogo.png
     - assets/lang/ar.json
     - assets/lang/en.json
-    - assets/images/empty-cart.png
+    - assets/images/emptyCart.png
     - assets/anims/animation_lkb5jn5s.json
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
