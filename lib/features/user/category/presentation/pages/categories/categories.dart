@@ -10,26 +10,33 @@ class Categories extends StatefulWidget {
 }
 
 class _CategoriesState extends State<Categories> {
-  final CategoriesController controller = CategoriesController();
+  final CategoriesController categoriesController = CategoriesController();
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: BuildSearchAppBar(homeController: widget.homeController),
-        body: GenericListView(
-          type: ListViewType.gridApi,
-          onRefresh: controller.getCategories,
-          params: [context],
-          cubit: controller.categoriesCubit,
-          runSpacing: 15,
-          spacing: 15,
-          gridCrossCount: 2,
-          gridItemHeight: 150.spMin,
-          padding: Dimens.paddingAll15PX,
-          itemBuilder: (_, index, item) =>
-              BuildCategoryItem(categoryModel: item),
-          loadingWidget: const BuildLoadingCategoriesView(),
+        body: Column(
+          children: [
+            BuildCategorySearchView(categoriesController: categoriesController),
+            Flexible(
+              child: GenericListView(
+                type: ListViewType.gridApi,
+                onRefresh: categoriesController.getCategories,
+                params: [context],
+                cubit: categoriesController.categoriesCubit,
+                runSpacing: 15.r,
+                spacing: 15.r,
+                gridCrossCount: 2,
+                gridItemHeight: 150.spMin,
+                padding: Dimens.paddingAll15PX,
+                itemBuilder: (_, index, item) =>
+                    BuildCategoryItem(categoryModel: item),
+                loadingWidget: const BuildLoadingCategoriesView(),
+              ),
+            ),
+          ],
         ),
       ),
     );

@@ -40,5 +40,5 @@ class BuildSearchAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   // TODO: implement preferredSize
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight+20);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight+10);
 }

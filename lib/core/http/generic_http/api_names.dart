@@ -15,11 +15,16 @@ class ApiNames{
   static const String resetPassword = "A2q4mG84Z9rE2B38In4HALSWTwt9eQ5Slzq56Cod";
   static const String resendPasswordCode = "password/forgot-resend-code";
   //products urls
+
   static const String getHome = "home";
+  static const String getPopularProducts = "mostpopulars";
+
   // categories urls
+
   static const String getCategories = "categories";
   static const String getBrands = "brands";
   static const String brandDetails = "brands/";
+
   // sale urls
   static const String getAllFlashSale = "flash-deals";
 

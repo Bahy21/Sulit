@@ -12,7 +12,7 @@ class BuildDealsItem extends StatelessWidget {
       onTap: onTap,
       child: Container(
         margin: Dimens.paddingAll3PX,
-        padding: Dimens.paddingVertical10PX,
+        padding: Dimens.paddingVertical8PX,
         decoration: BoxDecoration(
           color: context.colors.white,
           borderRadius: Dimens.borderRadius20PX,
@@ -37,7 +37,7 @@ class BuildDealsItem extends StatelessWidget {
             Gaps.hGap5,
             Text(
               title,
-              style: AppTextStyle.s14_w600(
+              style: AppTextStyle.s13_w500(
                 color: context.colors.primary,
               ),
             ),

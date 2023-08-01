@@ -7,24 +7,25 @@ class BuildPopularItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsetsDirectional.only(end: Dimens.dp10),
-      padding: Dimens.paddingAll10PX,
-      width: 180.w,
-      decoration: BoxDecoration(
-        color: context.colors.white,
-        borderRadius: Dimens.borderRadius5PX,
-        border: Border.all(color: context.colors.greyWhite),
-        boxShadow: [
-          BoxShadow(
-            color: context.colors.greyWhite,
-            blurRadius: 1,
-            spreadRadius: 1,
-          )
-        ],
-      ),
-      child: InkWell(
-        onTap: () => AutoRouter.of(context).push(const ProductDetailsRoute()),
+    return InkWell(
+      onTap: () => AutoRouter.of(context)
+          .push(PopularProductsRoute(popularProductsModel: popularProductModel)),
+      child: Container(
+        margin: const EdgeInsetsDirectional.only(end: Dimens.dp10),
+        padding: Dimens.paddingAll10PX,
+        width: 180.w,
+        decoration: BoxDecoration(
+          color: context.colors.white,
+          borderRadius: Dimens.borderRadius5PX,
+          border: Border.all(color: context.colors.greyWhite),
+          boxShadow: [
+            BoxShadow(
+              color: context.colors.greyWhite,
+              blurRadius: 1,
+              spreadRadius: 1,
+            )
+          ],
+        ),
         child: Row(
           children: [
             CachedImage(
