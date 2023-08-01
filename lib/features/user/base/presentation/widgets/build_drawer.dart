@@ -31,12 +31,12 @@ class BuildDrawer extends StatelessWidget {
               BuildDrawerItem(
                 title: 'Flash Sale',
                 icon: Icons.sell_outlined,
-                onTap: () =>AutoRouter.of(context).push(const FlashSaleRoute()),
+                onTap: () =>AutoRouter.of(context).push(const SaleDetailsRoute()),
               ),
               BuildDrawerItem(
                 title: 'Deal of the day',
                 icon: Icons.coffee_rounded,
-                onTap: ()=>AutoRouter.of(context).push(const DealOfTheDayRoute()),
+                onTap: () =>AutoRouter.of(context).push(const SaleDetailsRoute()),
               ),
               BuildDrawerItem(
                 title: 'All Brands',

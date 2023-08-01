@@ -9,15 +9,21 @@ class BuildDeals extends StatelessWidget {
       children: [
         Expanded(
           flex: 2,
-          child: BuildDealsItem(title: "Flash Sale", onTap: () {}),
+          child: BuildDealsItem(title: "Flash Sale", onTap: () {
+            AutoRouter.of(context).push(const SaleDetailsRoute());
+          }),
         ),
         Expanded(
           flex: 3,
-          child: BuildDealsItem(title: "Deal of the day", onTap: () {}),
+          child: BuildDealsItem(title: "Deal of the day", onTap: () {
+            AutoRouter.of(context).push(const SaleDetailsRoute());
+          }),
         ),
         Expanded(
           flex: 2,
-          child: BuildDealsItem(title: "Coupons", onTap: () {}),
+          child: BuildDealsItem(title: "Coupons", onTap: () {
+            // AutoRouter.of(context).push(const SaleDetailsRoute());
+          }),
         ),
       ],
     );

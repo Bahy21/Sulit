@@ -1,7 +1,15 @@
 class BrandsParams {
- int currentPage ;
- bool refresh = true ;
- BrandsParams({required this.currentPage,required this.refresh});
+  int paginate;
 
- String toQuery ()=> "?paginate=$currentPage" ;
+  int page;
+
+  bool refresh = true;
+
+  BrandsParams({
+    required this.paginate,
+    required this.refresh,
+    required this.page,
+  });
+
+  String toQuery() => "?paginate=$paginate&page=$page";
 }

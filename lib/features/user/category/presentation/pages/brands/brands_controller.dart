@@ -6,30 +6,31 @@ class BrandsController {
   BrandsController() {
     pagingController.addPageRequestListener(
       (pageKey) {
-        getBrands(pageSize);
+        getBrands(pageKey);
       },
     );
   }
 
-  Future<void> getBrands(int currentPage, {bool refresh = true}) async {
-    var params = _brandsParams(currentPage, refresh);
+  Future<void> getBrands(int page ,{bool refresh = true}) async {
+    var params = _brandsParams(pageSize,refresh,page );
     var data = await GetBrands().call(params);
     final isLastPage = data.length < pageSize;
-    if (currentPage == 1) {
+    if (page == 1) {
       pagingController.itemList = [];
     }
     if (isLastPage) {
       pagingController.appendLastPage(data);
     } else {
-      final nextPageKey = currentPage + 1;
+      final nextPageKey = page + 1;
       pagingController.appendPage(data, nextPageKey);
     }
   }
 
-  BrandsParams _brandsParams(int page, bool refresh) {
+  BrandsParams _brandsParams(int paginate, bool refresh, int page ) {
     return BrandsParams(
-      currentPage: page,
+      paginate: paginate,
       refresh: refresh,
+      page: page,
     );
   }
 }

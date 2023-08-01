@@ -1,7 +1,9 @@
 part of 'sale_details_w_imports.dart';
 
 class BuildTimer extends StatefulWidget {
-  const BuildTimer({Key? key}) : super(key: key);
+  final DateTime time;
+
+  const BuildTimer({Key? key, required this.time}) : super(key: key);
 
   @override
   State<BuildTimer> createState() => _BuildTimerState();
@@ -13,6 +15,11 @@ class _BuildTimerState extends State<BuildTimer> {
 
   @override
   void initState() {
+    DateTime time = widget.time;
+    DateTime timeNow = DateTime.now();
+    Duration diff = time.difference(timeNow);
+    myDuration = diff ;
+    startTimer();
     super.initState();
   }
 
