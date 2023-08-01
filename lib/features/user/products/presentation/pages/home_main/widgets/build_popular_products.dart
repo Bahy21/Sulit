@@ -8,10 +8,11 @@ class BuildPopularProducts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 110.spMin,
+      height: 120.spMin,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Gaps.vGap10,
           const BuildHeaderTitle(title: "Most Popular"),
           Gaps.vGap10,
           Flexible(

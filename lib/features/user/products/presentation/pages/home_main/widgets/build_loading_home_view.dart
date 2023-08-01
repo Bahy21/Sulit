@@ -13,12 +13,12 @@ class BuildLoadingHomeView extends StatelessWidget {
           BuildShimmerItem(
               height: 160.spMin, margin: Dimens.paddingVertical5PX),
           Padding(
-            padding: Dimens.paddingVertical10PX,
+            padding: Dimens.paddingVertical5PX,
             child: Row(
               children: [
-                Expanded(child: BuildShimmerItem(height:90.spMin)),
+                Expanded(child: BuildShimmerItem(height: 85.spMin)),
                 Gaps.hGap10,
-                Expanded(child: BuildShimmerItem(height: 90.spMin))
+                Expanded(child: BuildShimmerItem(height: 85.spMin))
               ],
             ),
           ),
@@ -48,42 +48,36 @@ class BuildLoadingHomeView extends StatelessWidget {
               ],
             ),
           ),
-          Gaps.vGap10,
           BuildShimmerItem(
-            height: 25.h,
+            height: 20.h,
             width: 150.w,
             margin: Dimens.paddingVertical10PX,
           ),
           Row(
             children: List.generate(
-              3,
+              2,
               (index) => Expanded(
                 child: BuildShimmerItem(
-                  height: 120.spMin,
+                  height: 80.spMin,
                   margin: Dimens.paddingHorizontal5PX,
                 ),
               ),
             ),
           ),
-          Gaps.vGap10,
-          BuildShimmerItem(
-            height: 25.h,
-            width: 150.w,
-            margin: Dimens.paddingVertical10PX,
-          ),
-          Row(
-            children: List.generate(
-              3,
-              (index) => Expanded(
-                child: BuildShimmerItem(
-                  height: 100.spMin,
-                  margin: Dimens.paddingHorizontal5PX,
-                ),
-              ),
+          Padding(
+            padding: Dimens.paddingVertical10PX,
+            child: Row(
+              children: [
+                Expanded(child: BuildShimmerItem(height: 90.spMin)),
+                Gaps.hGap10,
+                Expanded(child: BuildShimmerItem(height: 90.spMin)),
+                Gaps.hGap10,
+                Expanded(child: BuildShimmerItem(height: 90.spMin))
+              ],
             ),
           ),
           BuildShimmerItem(
-            height: 25.h,
+            height: 20.h,
             width: 150.w,
             margin: Dimens.paddingVertical10PX,
           ),

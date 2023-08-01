@@ -29,12 +29,12 @@ class BuildSearchAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       title: Image.asset(Res.suliitLogo, height: 30, width: 150),
-      actions: [
-        IconButton(
-          onPressed: () => AutoRouter.of(context).push(const SearchRoute()),
-          icon: Icon(Icons.search, color: context.colors.black, size: 25),
-        ),
-      ],
+      // actions: [
+      //   IconButton(
+      //     onPressed: () => AutoRouter.of(context).push(const SearchRoute()),
+      //     icon: Icon(Icons.search, color: context.colors.black, size: 25),
+      //   ),
+      // ],
     );
   }
 

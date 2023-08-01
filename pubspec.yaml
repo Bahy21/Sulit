@@ -129,10 +129,12 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/anims/animation_lkb5jn5s.json
     - assets/fonts/NotoSans.ttf
     - assets/images/apple.svg
     - assets/images/appLoaderBg.png
     - assets/images/arrow.svg
+    - assets/images/emptyCart.png
     - assets/images/facebook.svg
     - assets/images/icon.png
     - assets/images/logo.png
@@ -147,8 +149,6 @@ flutter:
     - assets/images/suliitLogo.png
     - assets/lang/ar.json
     - assets/lang/en.json
-    - assets/images/emptyCart.png
-    - assets/anims/animation_lkb5jn5s.json
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

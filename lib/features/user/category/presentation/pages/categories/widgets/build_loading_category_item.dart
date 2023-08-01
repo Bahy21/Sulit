@@ -1,8 +1,7 @@
 part of 'categories_widgets_imports.dart';
 
-class BuildCategoryItem extends StatelessWidget {
-final CategoryDomainModel categoryModel;
-  const BuildCategoryItem({super.key, required this.categoryModel});
+class BuildLoadingCategoryItem extends StatelessWidget {
+  const BuildLoadingCategoryItem({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,21 +20,14 @@ final CategoryDomainModel categoryModel;
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          CachedImage(
+          BuildShimmerItem(
             height: 60.r,
             width: 60.r,
-            fit: BoxFit.cover,
-            boxShape: BoxShape.circle,
-            haveRadius: false,
-            url: categoryModel.banner ?? "",
+            borderRadius: Dimens.borderRadius40PX,
           ),
-          Gaps.vGap10,
-          Flexible(
-            child: Text(
-              categoryModel.name,
-              textAlign: TextAlign.center,
-              style: AppTextStyle.s13_w500(color: context.colors.black),
-            ),
+          BuildShimmerItem(
+            height: 20.r,
+            margin: Dimens.paddingAll10PX,
           ),
         ],
       ),

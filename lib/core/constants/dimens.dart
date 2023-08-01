@@ -54,6 +54,7 @@ class Dimens {
   static  BorderRadius borderRadius5PX = const BorderRadius.all(Radius.circular(5)).r;
   static  BorderRadius borderRadius10PX = const BorderRadius.all(Radius.circular(10)).r;
   static  BorderRadius borderRadius20PX = const BorderRadius.all(Radius.circular(20)).r;
+  static  BorderRadius borderRadius40PX = const BorderRadius.all(Radius.circular(40)).r;
 
   static EdgeInsets authLogoPadding = const   EdgeInsets.only(top: 50,bottom: 20).r;
   static EdgeInsets inputFieldMargin = const EdgeInsets.symmetric(vertical: 15).r;

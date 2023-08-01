@@ -24,7 +24,7 @@ class BuildBrandItem extends StatelessWidget {
           ],
         ),
         child: CachedImage(
-          fit: BoxFit.cover,
+          fit: BoxFit.contain,
           haveRadius: true,
           borderRadius: BorderRadius.circular(5).r,
           url: brand.logo,

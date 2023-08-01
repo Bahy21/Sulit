@@ -13,7 +13,6 @@ class BuildHomeView extends StatelessWidget {
         BuildHomeSwiper(slider: homeDomainModel.sliders),
         BuildBanners(banners: homeDomainModel.bannersOne),
         const BuildDeals(),
-        BuildHomeCategories(categories: homeDomainModel.categories),
         BuildPopularProducts(mostPopularProducts: homeDomainModel.mostPopular),
         BuildBanners(banners: homeDomainModel.bannersTwo),
         BuildBestSellingProducts(

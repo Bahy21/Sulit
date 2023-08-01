@@ -10,7 +10,6 @@ import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 
 import 'GridFixedHeightDelegate.dart';
 
-
 enum ListViewType { normal, api, separated, grid, gridApi }
 
 typedef GenericBuilder = Widget Function(
@@ -27,28 +26,31 @@ class GenericListView<T> extends StatelessWidget {
   final String? emptyStr;
   final Color? refreshBg;
   final Color? loadingColor;
+  final Widget? loadingWidget;
   final EdgeInsets padding;
   final double spacing;
   final double runSpacing;
   final double gridItemHeight;
   final int gridCrossCount;
 
-  const GenericListView({super.key,
-    this.onRefresh,
-    this.type = ListViewType.normal,
-    this.cubit,
-    this.itemBuilder,
-    this.params,
-    this.children = const [],
-    this.dividerColor,
-    this.emptyStr,
-    this.refreshBg,
-    this.padding = EdgeInsets.zero,
-    this.loadingColor,
-    this.spacing = 10,
-    this.runSpacing = 10,
-    this.gridItemHeight = 100,
-    this.gridCrossCount = 2,
+  const GenericListView({
+  super.key,
+  this.onRefresh,
+  this.type = ListViewType.normal,
+  this.cubit,
+  this.itemBuilder,
+  this.params,
+  this.children = const [],
+  this.dividerColor,
+  this.emptyStr,
+  this.refreshBg,
+  this.padding = EdgeInsets.zero,
+  this.loadingColor,
+  this.loadingWidget,
+  this.spacing = 10,
+  this.runSpacing = 10,
+  this.gridItemHeight = 100,
+  this.gridCrossCount = 2,
   });
 
   @override
@@ -75,6 +77,7 @@ class GenericListView<T> extends StatelessWidget {
           emptyStr: emptyStr,
           refreshBg: refreshBg,
           padding: padding,
+          loadingWidget: loadingWidget,
         );
       case ListViewType.api:
         return _ApiListView(
@@ -85,6 +88,7 @@ class GenericListView<T> extends StatelessWidget {
           emptyStr: emptyStr,
           refreshBg: refreshBg,
           padding: padding,
+          loadingWidget: loadingWidget,
         );
       case ListViewType.gridApi:
         return _GridViewApi(
@@ -96,6 +100,7 @@ class GenericListView<T> extends StatelessWidget {
           refreshBg: refreshBg,
           padding: padding,
           spacing: spacing,
+          loadingWidget: loadingWidget,
           runSpacing: runSpacing,
           gridCrossCount: gridCrossCount,
           gridItemHeight: gridItemHeight,
@@ -131,18 +136,20 @@ class _SeparatedListView<T> extends StatefulWidget {
   final String? emptyStr;
   final Color? refreshBg;
   final Color? loadingColor;
+  final Widget? loadingWidget;
   final EdgeInsets padding;
 
   const _SeparatedListView(
       {required this.onRefresh,
-      this.params,
-      required this.cubit,
-      required this.itemBuilder,
-      this.dividerColor,
-      this.emptyStr,
-      this.refreshBg,
-      required this.padding,
-      this.loadingColor});
+        this.params,
+        required this.cubit,
+        required this.itemBuilder,
+        this.dividerColor,
+        this.emptyStr,
+        this.refreshBg,
+        required this.padding,
+        this.loadingColor,
+        this.loadingWidget});
 
   @override
   _SeparatedListViewState createState() => _SeparatedListViewState<T>();
@@ -166,8 +173,7 @@ class _SeparatedListViewState<T> extends State<_SeparatedListView> {
             return LiquidPullToRefresh(
               onRefresh: () => Function.apply(widget.onRefresh, widget.params),
               backgroundColor: Colors.white,
-              color:
-                  widget.refreshBg ?? context.colors.primary.withOpacity(.5),
+              color: widget.refreshBg ?? context.colors.primary.withOpacity(.5),
               showChildOpacityTransition: false,
               springAnimationDurationInMilliseconds: 500,
               child: CupertinoScrollbar(
@@ -203,17 +209,19 @@ class _ApiListView<T> extends StatefulWidget {
   final String? emptyStr;
   final Color? refreshBg;
   final Color? loadingColor;
+  final Widget? loadingWidget;
   final EdgeInsets padding;
 
   const _ApiListView(
       {required this.onRefresh,
-      this.params,
-      required this.cubit,
-      required this.itemBuilder,
-      this.emptyStr,
-      this.refreshBg,
-      required this.padding,
-      this.loadingColor});
+        this.params,
+        required this.cubit,
+        required this.itemBuilder,
+        this.emptyStr,
+        this.refreshBg,
+        required this.padding,
+        this.loadingColor,
+        this.loadingWidget});
 
   @override
   _ApiListViewState createState() => _ApiListViewState<T>();
@@ -237,8 +245,7 @@ class _ApiListViewState<T> extends State<_ApiListView> {
             return LiquidPullToRefresh(
               onRefresh: () => Function.apply(widget.onRefresh, widget.params),
               backgroundColor: Colors.white,
-              color:
-                  widget.refreshBg ?? context.colors.primary.withOpacity(.5),
+              color: widget.refreshBg ?? context.colors.primary.withOpacity(.5),
               showChildOpacityTransition: false,
               springAnimationDurationInMilliseconds: 500,
               child: CupertinoScrollbar(
@@ -255,7 +262,8 @@ class _ApiListViewState<T> extends State<_ApiListView> {
           }
           return _genericListViewEmptyList(widget.emptyStr);
         }
-        return _genericListViewLoadingView(widget.loadingColor);
+        return widget.loadingWidget ??
+            _genericListViewLoadingView(widget.loadingColor);
       },
     );
   }
@@ -269,6 +277,7 @@ class _GridViewApi<T> extends StatefulWidget {
   final String? emptyStr;
   final Color? refreshBg;
   final Color? loadingColor;
+  final Widget? loadingWidget;
   final EdgeInsets padding;
   final double spacing;
   final double runSpacing;
@@ -277,17 +286,18 @@ class _GridViewApi<T> extends StatefulWidget {
 
   const _GridViewApi(
       {required this.onRefresh,
-      this.params,
-      required this.cubit,
-      required this.itemBuilder,
-      this.emptyStr,
-      this.refreshBg,
-      required this.spacing,
-      required this.runSpacing,
-      required this.padding,
-      required this.gridCrossCount,
-      required this.gridItemHeight,
-      this.loadingColor});
+        this.params,
+        required this.cubit,
+        required this.itemBuilder,
+        this.emptyStr,
+        this.refreshBg,
+        required this.spacing,
+        required this.runSpacing,
+        required this.padding,
+        required this.gridCrossCount,
+        required this.gridItemHeight,
+        this.loadingColor,
+        this.loadingWidget});
 
   @override
   _GridViewApiState createState() => _GridViewApiState<T>();
@@ -311,8 +321,7 @@ class _GridViewApiState<T> extends State<_GridViewApi> {
             return LiquidPullToRefresh(
               onRefresh: () => Function.apply(widget.onRefresh, widget.params),
               backgroundColor: Colors.white,
-              color:
-                  widget.refreshBg ?? context.colors.primary.withOpacity(.5),
+              color: widget.refreshBg ?? context.colors.primary.withOpacity(.5),
               showChildOpacityTransition: false,
               springAnimationDurationInMilliseconds: 500,
               child: CupertinoScrollbar(
@@ -320,10 +329,10 @@ class _GridViewApiState<T> extends State<_GridViewApi> {
                   itemCount: state.data.length,
                   padding: widget.padding,
                   gridDelegate: GridFixedHeightDelegate(
-                      crossAxisCount: widget.gridCrossCount,
-                      mainAxisSpacing: widget.runSpacing,
-                      crossAxisSpacing: widget.spacing,
-                      height: widget.gridItemHeight,
+                    crossAxisCount: widget.gridCrossCount,
+                    mainAxisSpacing: widget.runSpacing,
+                    crossAxisSpacing: widget.spacing,
+                    height: widget.gridItemHeight,
                   ),
                   itemBuilder: (_, index) {
                     T item = state.data[index];
@@ -335,7 +344,8 @@ class _GridViewApiState<T> extends State<_GridViewApi> {
           }
           return _genericListViewEmptyList(widget.emptyStr);
         }
-        return _genericListViewLoadingView(widget.loadingColor);
+        return widget.loadingWidget ??
+            _genericListViewLoadingView(widget.loadingColor);
       },
     );
   }
@@ -351,11 +361,11 @@ class _GridView extends StatelessWidget {
 
   const _GridView(
       {required this.children,
-      required this.padding,
-      required this.spacing,
-      required this.runSpacing,
-      required this.gridItemHeight,
-      required this.gridCrossCount});
+        required this.padding,
+        required this.spacing,
+        required this.runSpacing,
+        required this.gridItemHeight,
+        required this.gridCrossCount});
 
   @override
   Widget build(BuildContext context) {
@@ -373,16 +383,15 @@ class _GridView extends StatelessWidget {
   }
 }
 
-
-Widget _genericListViewEmptyList(String? emptyStr){
+Widget _genericListViewEmptyList(String? emptyStr) {
   return Center(
     child: Text(
-      emptyStr ?? "لايوجد بيانات",
-      style: const AppTextStyle.s12_w500(color: Colors.black),
+      emptyStr ?? "No Data",
+      style: const AppTextStyle.s14_w500(color: Colors.black),
     ),
   );
 }
 
-Widget _genericListViewLoadingView(Color? loadingColor){
+Widget _genericListViewLoadingView(Color? loadingColor) {
   return getIt.get<LoadingHelper>().showLoadingView(color: loadingColor);
 }

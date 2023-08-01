@@ -9,14 +9,16 @@ class BuildShimmerItem extends StatelessWidget {
   final BoxShape? boxShape;
   final BorderRadius? borderRadius;
   final EdgeInsetsGeometry? margin;
+  final Widget? child;
 
   const BuildShimmerItem(
       {Key? key,
-        this.width,
-        this.boxShape,
-        this.margin,
-        this.borderRadius,
-        required this.height})
+      this.width,
+      this.boxShape,
+      this.margin,
+      this.borderRadius,
+      required this.height,
+      this.child})
       : super(key: key);
 
   @override
@@ -24,16 +26,17 @@ class BuildShimmerItem extends StatelessWidget {
     return Shimmer.fromColors(
       baseColor: context.colors.grey,
       highlightColor: context.colors.greyWhite,
-      child: Container(
-        margin: margin,
-        width: width ?? MediaQuery.of(context).size.width,
-        height: height,
-        decoration: BoxDecoration(
-          borderRadius: borderRadius ?? Dimens.borderRadius5PX,
-          color: context.colors.greyWhite,
-          shape: boxShape ?? BoxShape.rectangle,
-        ),
-      ),
+      child: child ??
+          Container(
+            margin: margin,
+            width: width ?? MediaQuery.of(context).size.width,
+            height: height,
+            decoration: BoxDecoration(
+              borderRadius: borderRadius ?? Dimens.borderRadius5PX,
+              color: context.colors.greyWhite,
+              shape: boxShape ?? BoxShape.rectangle,
+            ),
+          ),
     );
   }
 }

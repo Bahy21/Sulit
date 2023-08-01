@@ -1,4 +1,3 @@
-
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -13,9 +12,9 @@ import 'package:flutter_tdd/features/user/category/presentation/pages/category_d
 import 'package:flutter_tdd/features/user/products/domain/models/product_domain_model.dart';
 
 class BuildProductItem extends StatelessWidget {
-  final ProductDomainModel? productModel;
+  final ProductDomainModel productModel;
 
-  const BuildProductItem({super.key,  this.productModel});
+  const BuildProductItem({super.key, required this.productModel});
 
   @override
   Widget build(BuildContext context) {
@@ -46,10 +45,10 @@ class BuildProductItem extends StatelessWidget {
                     fit: BoxFit.contain,
                     haveRadius: true,
                     borderRadius: Dimens.borderRadius5PX,
-                    url: productModel?.thumbnailImage??"",
+                    url: productModel.thumbnailImage,
                   ),
                   Visibility(
-                    visible: productModel?.hasDiscount??false,
+                    visible: productModel.hasDiscount,
                     child: PositionedDirectional(
                       top: 20.r,
                       child: Container(
@@ -83,7 +82,7 @@ class BuildProductItem extends StatelessWidget {
                                 color: context.colors.primary,
                               ),
                               child: Text(
-                                productModel?.discount??"",
+                                productModel.discount,
                                 style: AppTextStyle.s10_w400(
                                   color: context.colors.white,
                                 ),
@@ -118,15 +117,15 @@ class BuildProductItem extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        productModel?.mainPrice??"",
+                        productModel.mainPrice,
                         style: AppTextStyle.s11_bold(
                             color: context.colors.primary),
                       ),
                       Gaps.hGap5,
                       Visibility(
-                        visible: productModel!.hasDiscount,
+                        visible: productModel.hasDiscount,
                         child: Text(
-                          productModel!.strokedPrice,
+                          productModel.strokedPrice,
                           style: AppTextStyle.s11_bold(
                             color: context.colors.black,
                           ).copyWith(decoration: TextDecoration.lineThrough),
@@ -135,7 +134,7 @@ class BuildProductItem extends StatelessWidget {
                     ],
                   ),
                   RatingBar.builder(
-                    initialRating: productModel!.rating.toDouble(),
+                    initialRating: productModel.rating.toDouble(),
                     ignoreGestures: true,
                     minRating: 1,
                     direction: Axis.horizontal,
@@ -151,10 +150,10 @@ class BuildProductItem extends StatelessWidget {
                     onRatingUpdate: (rating) {},
                   ),
                   Text(
-                    productModel!.name,
+                    productModel.name,
                     style: AppTextStyle.s13_w500(
                       color: context.colors.black,
-                    ),
+                    ).copyWith(overflow: TextOverflow.ellipsis),
                   ),
                 ],
               ),

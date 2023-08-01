@@ -13,22 +13,23 @@ class _CategoriesState extends State<Categories> {
   final CategoriesController controller = CategoriesController();
 
   @override
-  void initState() {
-    controller.getCategories(context);
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar:  BuildSearchAppBar(homeController: widget.homeController),
-        body: ListView.builder(
-          padding: const EdgeInsets.all(Dimens.dp20),
-          itemCount: 4,
-          itemBuilder: (_, index) => BuildCategoryItem(
-            categoriesController: controller,
-          ),
+        appBar: BuildSearchAppBar(homeController: widget.homeController),
+        body: GenericListView(
+          type: ListViewType.gridApi,
+          onRefresh: controller.getCategories,
+          params: [context],
+          cubit: controller.categoriesCubit,
+          runSpacing: 15,
+          spacing: 15,
+          gridCrossCount: 2,
+          gridItemHeight: 150.spMin,
+          padding: Dimens.paddingAll15PX,
+          itemBuilder: (_, index, item) =>
+              BuildCategoryItem(categoryModel: item),
+          loadingWidget: const BuildLoadingCategoriesView(),
         ),
       ),
     );
