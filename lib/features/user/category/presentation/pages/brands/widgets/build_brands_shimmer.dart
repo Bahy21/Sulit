@@ -4,27 +4,37 @@ class BuildBrandShimmer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16).r,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        crossAxisSpacing: 20.r,
-        mainAxisSpacing: 20.r,
-        childAspectRatio: 9 / 8,
-      ),
-      itemBuilder:(context, index) => Container(
-        decoration: BoxDecoration(
-            color: context.colors.white,
-            borderRadius: BorderRadius.circular(5),
-            boxShadow: [
-              BoxShadow(
-                  color: context.colors.greyWhite, blurRadius: 1, spreadRadius: 1)
-            ]),
-        child: CachedImage(
-          fit: BoxFit.cover,
-          haveRadius: true,
-          borderRadius: BorderRadius.circular(5).r,
-          url: "",
+    return SizedBox(
+      height: MediaQuery.of(context).size.height,
+      child: GridView.builder(
+        physics: const NeverScrollableScrollPhysics(),
+        itemCount: 10,
+        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16).r,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 20.r,
+          mainAxisSpacing: 20.r,
+          childAspectRatio: 9 / 8,
+        ),
+        itemBuilder: (context, index) => BuildShimmerView(
+          child: Container(
+            decoration: BoxDecoration(
+              color: context.colors.white,
+              borderRadius: BorderRadius.circular(5),
+              boxShadow: [
+                BoxShadow(
+                    color: context.colors.greyWhite,
+                    blurRadius: 1,
+                    spreadRadius: 1)
+              ],
+            ),
+            child: CachedImage(
+              fit: BoxFit.cover,
+              haveRadius: true,
+              borderRadius: BorderRadius.circular(5).r,
+              url: "",
+            ),
+          ),
         ),
       ),
     );

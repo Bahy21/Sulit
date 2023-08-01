@@ -29,6 +29,7 @@ class _BrandsState extends State<Brands> {
           childAspectRatio: 9 / 8,
         ),
         showNewPageProgressIndicatorAsGridChild: false,
+        showNewPageErrorIndicatorAsGridChild: true,
         pagingController: controller.pagingController,
         builderDelegate: PagedChildBuilderDelegate<BrandDomainModel>(
           firstPageProgressIndicatorBuilder: (context) {
