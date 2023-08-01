@@ -1,2 +1,5 @@
 part of'flash_sale_imports.dart';
-class FlashSaleController {}
+class FlashSaleController {
+  final GenericBloc<List<FlashSale>> flashSalesBloc = GenericBloc([]);
+
+}
