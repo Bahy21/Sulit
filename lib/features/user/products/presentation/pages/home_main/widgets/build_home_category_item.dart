@@ -1,7 +1,7 @@
 part of 'home_main_widgets_imports.dart';
 
 class BuildHomeCategoryItem extends StatelessWidget {
-  final CategoryModel categoryModel;
+  final CategoryDomainModel categoryModel;
 
   const BuildHomeCategoryItem({super.key, required this.categoryModel});
 

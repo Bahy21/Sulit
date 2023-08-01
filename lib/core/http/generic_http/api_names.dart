@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 class ApiNames{
   static const String baseUrl = "https://suliit.com/api/v3/";
 
@@ -12,20 +14,14 @@ class ApiNames{
   static const String forgetPassword = "cabaf46ee69d7b8445a5d791";
   static const String resetPassword = "A2q4mG84Z9rE2B38In4HALSWTwt9eQ5Slzq56Cod";
   static const String resendPasswordCode = "password/forgot-resend-code";
-
   //products urls
   static const String getHome = "home";
-
-//category urls
-  static const String getCategories = "categories";
-
-
   // categories urls
+  static const String getCategories = "categories";
   static const String getBrands = "brands";
-
-
-
-
+  static const String brandDetails = "brands/";
+  // sale urls
+  static const String getAllFlashSale = "flash-deals";
 
   //items routes
   static const String ITEMS = "Items";

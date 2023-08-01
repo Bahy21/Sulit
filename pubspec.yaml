@@ -90,6 +90,7 @@ dependencies:
   syncfusion_flutter_datepicker: ^20.4.49
   flutter_rounded_date_picker: ^3.0.2
   infinite_scroll_pagination: ^3.2.0
+  lottie: ^2.3.2
 
 
 
@@ -146,6 +147,8 @@ flutter:
     - assets/images/suliitLogo.png
     - assets/lang/ar.json
     - assets/lang/en.json
+    - assets/images/empty-cart.png
+    - assets/anims/animation_lkb5jn5s.json
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

@@ -1,7 +1,7 @@
 part of 'home_main_widgets_imports.dart';
 
 class BuildHomeSwiper extends StatelessWidget {
-  final List<SliderModel> slider;
+  final List<SliderDomainModel> slider;
 
   const BuildHomeSwiper({super.key, required this.slider});
 

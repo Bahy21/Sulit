@@ -1,7 +1,7 @@
 part of 'home_main_widgets_imports.dart';
 
 class BuildTopCategories extends StatelessWidget {
-  final List<CategoryModel> topCategories;
+  final List<CategoryDomainModel> topCategories;
 
   const BuildTopCategories({super.key, required this.topCategories});
 

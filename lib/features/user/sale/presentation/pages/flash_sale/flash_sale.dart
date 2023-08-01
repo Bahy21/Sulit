@@ -27,8 +27,13 @@ class _FlashSaleState extends State<FlashSale> {
         ),
         children: List.generate(
           11,
-          (index) => Image.network(
-            "https://globalnews.ca/wp-content/uploads/2018/01/sale-canada.jpg?quality=85&strip=all",
+          (index) => InkWell(
+            onTap: () => AutoRouter.of(context).push(
+              const SaleDetailsRoute(),
+            ),
+            child: Image.network(
+              "https://globalnews.ca/wp-content/uploads/2018/01/sale-canada.jpg?quality=85&strip=all",
+            ),
           ),
         ),
       ),

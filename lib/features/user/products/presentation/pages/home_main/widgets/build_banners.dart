@@ -1,7 +1,7 @@
 part of 'home_main_widgets_imports.dart';
 
 class BuildBanners extends StatelessWidget {
-  final List<BannerModel> banners;
+  final List<BannerDomainModel> banners;
 
   const BuildBanners({super.key, required this.banners});
 

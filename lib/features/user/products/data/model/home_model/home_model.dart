@@ -1,9 +1,9 @@
 import 'package:flutter_tdd/core/models/api_model/base_api_model.dart';
 import 'package:flutter_tdd/core/models/api_models/brand_model/brand_model.dart';
+import 'package:flutter_tdd/core/models/api_models/product_model/product_model.dart';
 import 'package:flutter_tdd/features/user/products/data/model/banner_model/banner_model.dart';
 import 'package:flutter_tdd/features/user/products/data/model/category_model/category_model.dart';
 import 'package:flutter_tdd/features/user/products/data/model/popular_product_model/popular_product_model.dart';
-import 'package:flutter_tdd/features/user/products/data/model/product_model/product_model.dart';
 import 'package:flutter_tdd/features/user/products/data/model/slider_model/slider_model.dart';
 import 'package:flutter_tdd/features/user/products/domain/models/home_domain_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -41,16 +41,16 @@ class HomeModel extends BaseApiModel<HomeDomainModel> with _$HomeModel {
   @override
   HomeDomainModel toDomainModel() {
     return HomeDomainModel(
-      sliders: sliders,
-      bannersOne: bannersOne,
-      bannersTwo: bannersTwo,
-      bestSellingProducts: bestSellingProducts,
-      categories: categories,
-      featuredProducts: featuredProducts,
-      mostPopular: mostPopular,
-      newestProducts: newestProducts,
-      topBrands: topBrands,
-      topCategories: topCategories,
+      sliders: sliders.map((e) => e.toDomainModel()).toList(),
+      bannersOne: bannersOne.map((e) => e.toDomainModel()).toList(),
+      bannersTwo: bannersTwo.map((e) => e.toDomainModel()).toList(),
+      bestSellingProducts: bestSellingProducts.map((e) => e.toDomainModel()).toList(),
+      categories: categories.map((e) => e.toDomainModel()).toList(),
+      featuredProducts: featuredProducts.map((e) => e.toDomainModel()).toList(),
+      mostPopular: mostPopular.map((e) =>e.toDomainModel()).toList(),
+      newestProducts: newestProducts.map((e) => e.toDomainModel()).toList(),
+      topBrands: topBrands.map((e) => e.toDomainModel()).toList(),
+      topCategories: topCategories.map((e) => e.toDomainModel()).toList(),
     );
   }
 }

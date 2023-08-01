@@ -1,7 +1,7 @@
 part of 'home_main_widgets_imports.dart';
 
 class BuildPopularProducts extends StatelessWidget {
-  final List<PopularProductModel> mostPopularProducts;
+  final List<PopularProductsDomainModel> mostPopularProducts;
 
   const BuildPopularProducts({super.key, required this.mostPopularProducts});
 

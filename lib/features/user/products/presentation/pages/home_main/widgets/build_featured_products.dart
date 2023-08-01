@@ -1,7 +1,7 @@
 part of 'home_main_widgets_imports.dart';
 
 class BuildFeaturedProducts extends StatelessWidget {
-  final List<ProductModel> featuredProducts;
+  final List<ProductDomainModel> featuredProducts;
 
   const BuildFeaturedProducts({super.key, required this.featuredProducts});
 

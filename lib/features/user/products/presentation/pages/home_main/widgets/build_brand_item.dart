@@ -1,7 +1,7 @@
 part of 'home_main_widgets_imports.dart';
 
 class BuildBrandItem extends StatelessWidget {
-  final BrandModel brandModel;
+  final BrandDomainModel brandModel;
 
   const BuildBrandItem({super.key, required this.brandModel});
 

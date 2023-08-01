@@ -1,7 +1,7 @@
 part of 'home_main_widgets_imports.dart';
 
 class BuildTopBrands extends StatelessWidget {
-  final List<BrandModel> brandList;
+  final List<BrandDomainModel> brandList;
 
   const BuildTopBrands({super.key, required this.brandList});
 

@@ -1,7 +1,7 @@
 part of 'home_main_widgets_imports.dart';
 
 class BuildHomeNewProducts extends StatelessWidget {
-  final List<ProductModel> newestProducts;
+  final List<ProductDomainModel> newestProducts;
 
   const BuildHomeNewProducts({super.key, required this.newestProducts});
 

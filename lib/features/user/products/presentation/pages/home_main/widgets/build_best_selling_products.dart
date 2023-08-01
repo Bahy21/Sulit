@@ -1,7 +1,7 @@
 part of 'home_main_widgets_imports.dart';
 
 class BuildBestSellingProducts extends StatelessWidget {
-  final List<ProductModel> bestSellingProducts;
+  final List<ProductDomainModel> bestSellingProducts;
 
   const BuildBestSellingProducts(
       {super.key, required this.bestSellingProducts});
