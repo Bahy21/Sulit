@@ -2,7 +2,6 @@
 
 class ApiNames{
   static const String baseUrl = "https://staging.suliit.com/api/v3/";
-
   // auth routes
   static const String login = "login";
   static const String savePublicKey = "users/";
@@ -15,7 +14,6 @@ class ApiNames{
   static const String resetPassword = "A2q4mG84Z9rE2B38In4HALSWTwt9eQ5Slzq56Cod";
   static const String resendPasswordCode = "password/forgot-resend-code";
   //products urls
-
   static const String getHome = "home";
   static const String getPopularProducts = "mostpopulars";
 
@@ -29,9 +27,8 @@ class ApiNames{
   static const String getAllFlashSale = "flash-deals";
   static const String getSaleDetails = "flash-deal-products/";
 
-  //items routes
+  // items routes
   static const String ITEMS = "Items";
-  static const String FEATURED_ITEMS = ITEMS + "/Featured";
-
+  static const String FEATURED_ITEMS = "$ITEMS + /Featured";
   static const String REFRESH_TOKEN = "RefreshToken";
 }

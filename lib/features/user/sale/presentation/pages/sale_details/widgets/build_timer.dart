@@ -10,62 +10,40 @@ class BuildTimer extends StatefulWidget {
 }
 
 class _BuildTimerState extends State<BuildTimer> {
-  Timer? countdownTimer;
-  Duration myDuration = const Duration(days: 5);
+  final GenericBloc<TimerEntity> timerCubit = GenericBloc(TimerEntity());
 
   @override
   void initState() {
-    DateTime time = widget.time;
-    DateTime timeNow = DateTime.now();
-    Duration diff = time.difference(timeNow);
-    myDuration = diff ;
-    startTimer();
-    super.initState();
-  }
-
-  void startTimer() {
-    countdownTimer =
-        Timer.periodic(const Duration(seconds: 1), (_) => setCountDown());
-  }
-
-  void stopTimer() {
-    setState(() => countdownTimer!.cancel());
-  }
-
-  void resetTimer() {
-    stopTimer();
-    setState(() => myDuration = const Duration(days: 5));
-  }
-
-  void setCountDown() {
-    const reduceSecondsBy = 1;
-    setState(
-      () {
-        final seconds = myDuration.inSeconds - reduceSecondsBy;
-        if (seconds < 0) {
-          countdownTimer!.cancel();
-        } else {
-          myDuration = Duration(seconds: seconds);
-        }
-      },
+    timerCubit.state.data.initDuration(widget.time);
+    timerCubit.state.data.startTimer(
+      callback: () => timerCubit.onUpdateData(timerCubit.state.data),
     );
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    String strDigits(int n) => n.toString().padLeft(2, '0');
-    final days = strDigits(myDuration.inDays);
-    final hours = strDigits(myDuration.inHours.remainder(24));
-    final minutes = strDigits(myDuration.inMinutes.remainder(60));
-    final seconds = strDigits(myDuration.inSeconds.remainder(60));
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        BuildTimeItem(time: days,),
-        BuildTimeItem(time: hours,),
-        BuildTimeItem(time: minutes,),
-        BuildTimeItem(time: seconds,),
-      ],
+    return BlocBuilder<GenericBloc<TimerEntity>, GenericState<TimerEntity>>(
+      bloc: timerCubit,
+      builder: (context, state) {
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            BuildTimeItem(
+              time: state.data.days(),
+            ),
+            BuildTimeItem(
+              time: state.data.hours(),
+            ),
+            BuildTimeItem(
+              time: state.data.minutes(),
+            ),
+            BuildTimeItem(
+              time: state.data.seconds(),
+            ),
+          ],
+        );
+      },
     );
   }
 }
