@@ -23,19 +23,19 @@ mixin _$UserModel {
   @JsonKey(name: "id")
   int get id => throw _privateConstructorUsedError;
   @JsonKey(name: "name")
-  String? get name => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
   @JsonKey(name: "avatar")
   String? get avatar => throw _privateConstructorUsedError;
   @JsonKey(name: "avatar_original")
-  String? get avatarOriginal => throw _privateConstructorUsedError;
+  String get avatarOriginal => throw _privateConstructorUsedError;
   @JsonKey(name: "email")
   String get email => throw _privateConstructorUsedError;
   @JsonKey(name: "phone")
-  String? get phone => throw _privateConstructorUsedError;
+  String get phone => throw _privateConstructorUsedError;
   @JsonKey(name: "token")
-  String? get token => throw _privateConstructorUsedError;
+  String get token => throw _privateConstructorUsedError;
   @JsonKey(name: "token_type")
-  String? get tokenType => throw _privateConstructorUsedError;
+  String get tokenType => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -50,13 +50,13 @@ abstract class $UserModelCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: "id") int id,
-      @JsonKey(name: "name") String? name,
+      @JsonKey(name: "name") String name,
       @JsonKey(name: "avatar") String? avatar,
-      @JsonKey(name: "avatar_original") String? avatarOriginal,
+      @JsonKey(name: "avatar_original") String avatarOriginal,
       @JsonKey(name: "email") String email,
-      @JsonKey(name: "phone") String? phone,
-      @JsonKey(name: "token") String? token,
-      @JsonKey(name: "token_type") String? tokenType});
+      @JsonKey(name: "phone") String phone,
+      @JsonKey(name: "token") String token,
+      @JsonKey(name: "token_type") String tokenType});
 }
 
 /// @nodoc
@@ -73,47 +73,47 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
   @override
   $Res call({
     Object? id = null,
-    Object? name = freezed,
+    Object? name = null,
     Object? avatar = freezed,
-    Object? avatarOriginal = freezed,
+    Object? avatarOriginal = null,
     Object? email = null,
-    Object? phone = freezed,
-    Object? token = freezed,
-    Object? tokenType = freezed,
+    Object? phone = null,
+    Object? token = null,
+    Object? tokenType = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      name: freezed == name
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
-      avatarOriginal: freezed == avatarOriginal
+      avatarOriginal: null == avatarOriginal
           ? _value.avatarOriginal
           : avatarOriginal // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      phone: freezed == phone
+      phone: null == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String?,
-      token: freezed == token
+              as String,
+      token: null == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
-              as String?,
-      tokenType: freezed == tokenType
+              as String,
+      tokenType: null == tokenType
           ? _value.tokenType
           : tokenType // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ) as $Val);
   }
 }
@@ -127,13 +127,13 @@ abstract class _$$_UserModelCopyWith<$Res> implements $UserModelCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: "id") int id,
-      @JsonKey(name: "name") String? name,
+      @JsonKey(name: "name") String name,
       @JsonKey(name: "avatar") String? avatar,
-      @JsonKey(name: "avatar_original") String? avatarOriginal,
+      @JsonKey(name: "avatar_original") String avatarOriginal,
       @JsonKey(name: "email") String email,
-      @JsonKey(name: "phone") String? phone,
-      @JsonKey(name: "token") String? token,
-      @JsonKey(name: "token_type") String? tokenType});
+      @JsonKey(name: "phone") String phone,
+      @JsonKey(name: "token") String token,
+      @JsonKey(name: "token_type") String tokenType});
 }
 
 /// @nodoc
@@ -148,47 +148,47 @@ class __$$_UserModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? name = freezed,
+    Object? name = null,
     Object? avatar = freezed,
-    Object? avatarOriginal = freezed,
+    Object? avatarOriginal = null,
     Object? email = null,
-    Object? phone = freezed,
-    Object? token = freezed,
-    Object? tokenType = freezed,
+    Object? phone = null,
+    Object? token = null,
+    Object? tokenType = null,
   }) {
     return _then(_$_UserModel(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      name: freezed == name
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
-      avatarOriginal: freezed == avatarOriginal
+      avatarOriginal: null == avatarOriginal
           ? _value.avatarOriginal
           : avatarOriginal // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      phone: freezed == phone
+      phone: null == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String?,
-      token: freezed == token
+              as String,
+      token: null == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
-              as String?,
-      tokenType: freezed == tokenType
+              as String,
+      tokenType: null == tokenType
           ? _value.tokenType
           : tokenType // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -199,13 +199,13 @@ class __$$_UserModelCopyWithImpl<$Res>
 class _$_UserModel extends _UserModel {
   const _$_UserModel(
       {@JsonKey(name: "id") required this.id,
-      @JsonKey(name: "name") this.name,
+      @JsonKey(name: "name") required this.name,
       @JsonKey(name: "avatar") this.avatar,
-      @JsonKey(name: "avatar_original") this.avatarOriginal,
+      @JsonKey(name: "avatar_original") required this.avatarOriginal,
       @JsonKey(name: "email") required this.email,
-      @JsonKey(name: "phone") this.phone,
-      @JsonKey(name: "token") this.token,
-      @JsonKey(name: "token_type") this.tokenType})
+      @JsonKey(name: "phone") required this.phone,
+      @JsonKey(name: "token") required this.token,
+      @JsonKey(name: "token_type") required this.tokenType})
       : super._();
 
   factory _$_UserModel.fromJson(Map<String, dynamic> json) =>
@@ -216,25 +216,25 @@ class _$_UserModel extends _UserModel {
   final int id;
   @override
   @JsonKey(name: "name")
-  final String? name;
+  final String name;
   @override
   @JsonKey(name: "avatar")
   final String? avatar;
   @override
   @JsonKey(name: "avatar_original")
-  final String? avatarOriginal;
+  final String avatarOriginal;
   @override
   @JsonKey(name: "email")
   final String email;
   @override
   @JsonKey(name: "phone")
-  final String? phone;
+  final String phone;
   @override
   @JsonKey(name: "token")
-  final String? token;
+  final String token;
   @override
   @JsonKey(name: "token_type")
-  final String? tokenType;
+  final String tokenType;
 
   @override
   String toString() {
@@ -280,13 +280,14 @@ class _$_UserModel extends _UserModel {
 abstract class _UserModel extends UserModel {
   const factory _UserModel(
       {@JsonKey(name: "id") required final int id,
-      @JsonKey(name: "name") final String? name,
+      @JsonKey(name: "name") required final String name,
       @JsonKey(name: "avatar") final String? avatar,
-      @JsonKey(name: "avatar_original") final String? avatarOriginal,
+      @JsonKey(name: "avatar_original") required final String avatarOriginal,
       @JsonKey(name: "email") required final String email,
-      @JsonKey(name: "phone") final String? phone,
-      @JsonKey(name: "token") final String? token,
-      @JsonKey(name: "token_type") final String? tokenType}) = _$_UserModel;
+      @JsonKey(name: "phone") required final String phone,
+      @JsonKey(name: "token") required final String token,
+      @JsonKey(name: "token_type")
+      required final String tokenType}) = _$_UserModel;
   const _UserModel._() : super._();
 
   factory _UserModel.fromJson(Map<String, dynamic> json) =
@@ -297,25 +298,25 @@ abstract class _UserModel extends UserModel {
   int get id;
   @override
   @JsonKey(name: "name")
-  String? get name;
+  String get name;
   @override
   @JsonKey(name: "avatar")
   String? get avatar;
   @override
   @JsonKey(name: "avatar_original")
-  String? get avatarOriginal;
+  String get avatarOriginal;
   @override
   @JsonKey(name: "email")
   String get email;
   @override
   @JsonKey(name: "phone")
-  String? get phone;
+  String get phone;
   @override
   @JsonKey(name: "token")
-  String? get token;
+  String get token;
   @override
   @JsonKey(name: "token_type")
-  String? get tokenType;
+  String get tokenType;
   @override
   @JsonKey(ignore: true)
   _$$_UserModelCopyWith<_$_UserModel> get copyWith =>

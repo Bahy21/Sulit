@@ -29,10 +29,10 @@ class RegisterController{
 
   void _cashAndRoute(BuildContext context, UserDomainModel data ) async {
     context.read<DeviceCubit>().updateUserAuth(true);
-    // GlobalState.instance.set("token", data.token);
-    // SharedPreferences preferences = await SharedPreferences.getInstance();
-    // preferences.setString("user", json.encode(data.toJson()));
-    // context.read<UserCubit>().onUpdateUserData(data);
+    GlobalState.instance.set("token", data.token);
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    preferences.setString("user", json.encode(data.toJson()));
+    context.read<UserCubit>().onUpdateUserData(data);
     AutoRouter.of(context).push(HomeRoute(index: 0));
     CustomToast.showSimpleToast(
       msg: "Register Done Successfully. Please verify and log in to your account",

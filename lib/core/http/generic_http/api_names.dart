@@ -13,6 +13,7 @@ class ApiNames{
   static const String forgetPassword = "cabaf46ee69d7b8445a5d791";
   static const String resetPassword = "A2q4mG84Z9rE2B38In4HALSWTwt9eQ5Slzq56Cod";
   static const String resendPasswordCode = "password/forgot-resend-code";
+  static const String logout = "logout";
   //products urls
   static const String getHome = "home";
   static const String getPopularProducts = "mostpopulars";
