@@ -1,15 +1,15 @@
 part of 'home_main_widgets_imports.dart';
 
-class BuildBrandItem extends StatelessWidget {
+class BuildTopBrandItem extends StatelessWidget {
   final BrandDomainModel brandModel;
 
-  const BuildBrandItem({super.key, required this.brandModel});
+  const BuildTopBrandItem({super.key, required this.brandModel});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () =>
-          AutoRouter.of(context).push(CategoryDetailsRoute(title: brandModel.name)),
+          AutoRouter.of(context).push(BrandDetailsRoute(brandId: brandModel.id)),
       child: Container(
         height: 60.h,
         width: MediaQuery.of(context).size.width,

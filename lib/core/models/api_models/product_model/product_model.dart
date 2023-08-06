@@ -1,5 +1,5 @@
 import 'package:flutter_tdd/core/models/api_model/base_api_model.dart';
-import 'package:flutter_tdd/features/user/products/domain/models/product_domain_model.dart';
+import 'package:flutter_tdd/features/user/products/domain/models/product.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'product_model.freezed.dart';
@@ -8,7 +8,7 @@ part 'product_model.g.dart';
 
 @freezed
 @immutable
-class ProductModel extends BaseApiModel<ProductDomainModel>
+class ProductModel extends BaseApiModel<Product>
     with _$ProductModel {
   const ProductModel._();
 
@@ -32,8 +32,8 @@ class ProductModel extends BaseApiModel<ProductDomainModel>
       _$ProductModelFromJson(json);
 
   @override
-  ProductDomainModel toDomainModel() {
-    return ProductDomainModel(
+  Product toDomainModel() {
+    return Product(
       name: name,
       id: id,
       discount: discount,

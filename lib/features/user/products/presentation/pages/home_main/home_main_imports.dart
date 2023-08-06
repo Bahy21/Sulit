@@ -11,6 +11,7 @@ import 'package:flutter_tdd/features/user/products/data/model/home_model/home_mo
 import 'package:flutter_tdd/features/user/products/domain/models/home_domain_model.dart';
 import 'package:flutter_tdd/features/user/products/domain/use_cases/get_home.dart';
 import 'package:flutter_tdd/features/user/products/presentation/pages/home_main/widgets/home_main_widgets_imports.dart';
+import 'package:flutter_tdd/features/user/sale/domain/models/flash_sale.dart';
 
 
 part 'home_main.dart';

@@ -23,7 +23,7 @@ class BuildLoadingHomeView extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: Dimens.paddingHorizontal10PX,
+            padding: Dimens.paddingAll8PX,
             child: Row(
               children: [
                 Expanded(
@@ -39,12 +39,19 @@ class BuildLoadingHomeView extends StatelessWidget {
                     margin: Dimens.paddingHorizontal5PX,
                   ),
                 ),
-                Expanded(
-                  child: BuildShimmerItem(
-                    height: 35.h,
-                    borderRadius: Dimens.borderRadius20PX,
-                  ),
-                ),
+
+              ],
+            ),
+          ),
+          Padding(
+            padding: Dimens.paddingVertical5PX,
+            child: Row(
+              children: [
+                Expanded(child: BuildShimmerItem(height: 90.spMin)),
+                Gaps.hGap10,
+                Expanded(child: BuildShimmerItem(height: 90.spMin)),
+                Gaps.hGap10,
+                Expanded(child: BuildShimmerItem(height: 90.spMin))
               ],
             ),
           ),
@@ -62,18 +69,6 @@ class BuildLoadingHomeView extends StatelessWidget {
                   margin: Dimens.paddingHorizontal5PX,
                 ),
               ),
-            ),
-          ),
-          Padding(
-            padding: Dimens.paddingVertical10PX,
-            child: Row(
-              children: [
-                Expanded(child: BuildShimmerItem(height: 90.spMin)),
-                Gaps.hGap10,
-                Expanded(child: BuildShimmerItem(height: 90.spMin)),
-                Gaps.hGap10,
-                Expanded(child: BuildShimmerItem(height: 90.spMin))
-              ],
             ),
           ),
           BuildShimmerItem(

@@ -65,6 +65,7 @@ class CachedImage extends StatelessWidget{
       placeholder: (context, url) => Container(
         width: width,height: height,
         alignment: Alignment.center,
+          margin:imgMargin,
         decoration: BoxDecoration(
             borderRadius: haveRadius? borderRadius??BorderRadius.circular(0):null,
             border: Border.all(color: borderColor??Colors.transparent,width: 1),
@@ -79,6 +80,7 @@ class CachedImage extends StatelessWidget{
       errorWidget: (context, url, error) => Container(
         width: width,height: height,
         alignment: Alignment.center,
+        margin:imgMargin,
         decoration: BoxDecoration(
             color: bgColor?? context.colors.primary.withOpacity(.5),
             borderRadius: haveRadius? borderRadius??BorderRadius.circular(0):null,

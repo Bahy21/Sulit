@@ -6,8 +6,8 @@ class BuildLoadingCategoriesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GenericListView(
-      runSpacing: 15,
-      spacing: 15,
+      runSpacing: 15.r,
+      spacing: 15.r,
       gridCrossCount: 2,
       type: ListViewType.grid,
       gridItemHeight: 150.spMin,

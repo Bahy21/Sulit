@@ -101,8 +101,8 @@ class DropdownTextField<T> extends StatelessWidget {
         selectedItem: selectedItem,
         itemAsString: itemAsString,
         showSelectedItem: showSelectedItem,
-        style: AppTextStyle.s14_w400(color: context.colors.black),
-        itemStyle: AppTextStyle.s14_w400(color: context.colors.black),
+        style: AppTextStyle.s13_w400(color: context.colors.black),
+        itemStyle: AppTextStyle.s13_w400(color: context.colors.black),
         searchBoxStyle: AppTextStyle.s12_w400(color: context.colors.blackOpacity),
         searchBoxDecoration: CustomInputDecoration(
             hint: searchHint ?? "بحث",

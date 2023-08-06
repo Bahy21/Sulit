@@ -15,12 +15,13 @@ class UserModel extends BaseApiModel<UserDomainModel> with _$UserModel {
   const factory UserModel({
     @JsonKey(name: "id") required int id,
     @JsonKey(name: "name") required String name,
-    @JsonKey(name: "avatar")  String? avatar,
+    @JsonKey(name: "avatar") String? avatar,
     @JsonKey(name: "avatar_original") required String avatarOriginal,
     @JsonKey(name: "email") required String email,
     @JsonKey(name: "phone") required String phone,
     @JsonKey(name: "token") required String token,
     @JsonKey(name: "token_type") required String tokenType,
+    @JsonKey(name: "phone_is_active") required bool isPhoneActive,
   }) = _UserModel;
 
   factory UserModel.fromJson(Map<String, dynamic> json) =>
@@ -37,6 +38,7 @@ class UserModel extends BaseApiModel<UserDomainModel> with _$UserModel {
       token: token,
       avatarOriginal: avatarOriginal,
       tokenType: tokenType,
+      isPhoneActive: isPhoneActive,
     );
   }
 }

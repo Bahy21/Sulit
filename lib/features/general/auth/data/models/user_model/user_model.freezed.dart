@@ -36,6 +36,8 @@ mixin _$UserModel {
   String get token => throw _privateConstructorUsedError;
   @JsonKey(name: "token_type")
   String get tokenType => throw _privateConstructorUsedError;
+  @JsonKey(name: "phone_is_active")
+  bool get isPhoneActive => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -56,7 +58,8 @@ abstract class $UserModelCopyWith<$Res> {
       @JsonKey(name: "email") String email,
       @JsonKey(name: "phone") String phone,
       @JsonKey(name: "token") String token,
-      @JsonKey(name: "token_type") String tokenType});
+      @JsonKey(name: "token_type") String tokenType,
+      @JsonKey(name: "phone_is_active") bool isPhoneActive});
 }
 
 /// @nodoc
@@ -80,6 +83,7 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
     Object? phone = null,
     Object? token = null,
     Object? tokenType = null,
+    Object? isPhoneActive = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -114,6 +118,10 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
           ? _value.tokenType
           : tokenType // ignore: cast_nullable_to_non_nullable
               as String,
+      isPhoneActive: null == isPhoneActive
+          ? _value.isPhoneActive
+          : isPhoneActive // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -133,7 +141,8 @@ abstract class _$$_UserModelCopyWith<$Res> implements $UserModelCopyWith<$Res> {
       @JsonKey(name: "email") String email,
       @JsonKey(name: "phone") String phone,
       @JsonKey(name: "token") String token,
-      @JsonKey(name: "token_type") String tokenType});
+      @JsonKey(name: "token_type") String tokenType,
+      @JsonKey(name: "phone_is_active") bool isPhoneActive});
 }
 
 /// @nodoc
@@ -155,6 +164,7 @@ class __$$_UserModelCopyWithImpl<$Res>
     Object? phone = null,
     Object? token = null,
     Object? tokenType = null,
+    Object? isPhoneActive = null,
   }) {
     return _then(_$_UserModel(
       id: null == id
@@ -189,6 +199,10 @@ class __$$_UserModelCopyWithImpl<$Res>
           ? _value.tokenType
           : tokenType // ignore: cast_nullable_to_non_nullable
               as String,
+      isPhoneActive: null == isPhoneActive
+          ? _value.isPhoneActive
+          : isPhoneActive // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -205,7 +219,8 @@ class _$_UserModel extends _UserModel {
       @JsonKey(name: "email") required this.email,
       @JsonKey(name: "phone") required this.phone,
       @JsonKey(name: "token") required this.token,
-      @JsonKey(name: "token_type") required this.tokenType})
+      @JsonKey(name: "token_type") required this.tokenType,
+      @JsonKey(name: "phone_is_active") required this.isPhoneActive})
       : super._();
 
   factory _$_UserModel.fromJson(Map<String, dynamic> json) =>
@@ -235,10 +250,13 @@ class _$_UserModel extends _UserModel {
   @override
   @JsonKey(name: "token_type")
   final String tokenType;
+  @override
+  @JsonKey(name: "phone_is_active")
+  final bool isPhoneActive;
 
   @override
   String toString() {
-    return 'UserModel(id: $id, name: $name, avatar: $avatar, avatarOriginal: $avatarOriginal, email: $email, phone: $phone, token: $token, tokenType: $tokenType)';
+    return 'UserModel(id: $id, name: $name, avatar: $avatar, avatarOriginal: $avatarOriginal, email: $email, phone: $phone, token: $token, tokenType: $tokenType, isPhoneActive: $isPhoneActive)';
   }
 
   @override
@@ -255,13 +273,15 @@ class _$_UserModel extends _UserModel {
             (identical(other.phone, phone) || other.phone == phone) &&
             (identical(other.token, token) || other.token == token) &&
             (identical(other.tokenType, tokenType) ||
-                other.tokenType == tokenType));
+                other.tokenType == tokenType) &&
+            (identical(other.isPhoneActive, isPhoneActive) ||
+                other.isPhoneActive == isPhoneActive));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, name, avatar, avatarOriginal,
-      email, phone, token, tokenType);
+      email, phone, token, tokenType, isPhoneActive);
 
   @JsonKey(ignore: true)
   @override
@@ -286,8 +306,9 @@ abstract class _UserModel extends UserModel {
       @JsonKey(name: "email") required final String email,
       @JsonKey(name: "phone") required final String phone,
       @JsonKey(name: "token") required final String token,
-      @JsonKey(name: "token_type")
-      required final String tokenType}) = _$_UserModel;
+      @JsonKey(name: "token_type") required final String tokenType,
+      @JsonKey(name: "phone_is_active")
+      required final bool isPhoneActive}) = _$_UserModel;
   const _UserModel._() : super._();
 
   factory _UserModel.fromJson(Map<String, dynamic> json) =
@@ -317,6 +338,9 @@ abstract class _UserModel extends UserModel {
   @override
   @JsonKey(name: "token_type")
   String get tokenType;
+  @override
+  @JsonKey(name: "phone_is_active")
+  bool get isPhoneActive;
   @override
   @JsonKey(ignore: true)
   _$$_UserModelCopyWith<_$_UserModel> get copyWith =>

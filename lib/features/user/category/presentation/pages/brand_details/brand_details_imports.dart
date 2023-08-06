@@ -10,7 +10,7 @@ import 'package:flutter_tdd/features/user/base/presentation/widgets/build_search
 import 'package:flutter_tdd/features/user/category/domain/entities/brand_details_params.dart';
 import 'package:flutter_tdd/features/user/category/domain/use_cases/get_brand_products.dart';
 import 'package:flutter_tdd/features/user/category/presentation/pages/brand_details/widgets/brand_details_w_imports.dart';
-import 'package:flutter_tdd/features/user/products/domain/models/product_domain_model.dart';
+import 'package:flutter_tdd/features/user/products/domain/models/product.dart';
 import 'package:flutter_tdd/features/user/products/presentation/pages/home_main/widgets/home_main_widgets_imports.dart';
 import 'package:flutter_tdd/features/user/products/presentation/widgets/build_product_item.dart';
 import 'package:flutter_tdd/res.dart';

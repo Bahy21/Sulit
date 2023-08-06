@@ -14,12 +14,12 @@ class BuildPriceRange extends StatelessWidget {
           margin: const EdgeInsets.symmetric(vertical: 10),
           child: Text(
             "Price Range",
-            style: AppTextStyle.s17_w800(color: context.colors.black),
+            style: AppTextStyle.s14_w800(color: context.colors.black),
           ),
         ),
         Gaps.line(context.colors.gray, 15),
-        BlocBuilder<GenericBloc<PriceRangeEntity?>,
-            GenericState<PriceRangeEntity?>>(
+        BlocBuilder<GenericBloc<PriceRangeParams?>,
+            GenericState<PriceRangeParams?>>(
           bloc: categoryDetailsController.rangeCubit,
           builder: (_, state) {
             if (state.data == null) {

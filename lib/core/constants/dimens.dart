@@ -59,6 +59,8 @@ class Dimens {
   static EdgeInsets authLogoPadding = const   EdgeInsets.only(top: 50,bottom: 20).r;
   static EdgeInsets inputFieldMargin = const EdgeInsets.symmetric(vertical: 15).r;
   static EdgeInsets headerTitlePadding = const EdgeInsets.only(top: 10, bottom: 30).r;
+  static EdgeInsets standardPadding = const EdgeInsets.symmetric(
+      horizontal: Dimens.dp15, vertical: Dimens.dp10).r;
 
   static EdgeInsets paddingVertical5PX = const EdgeInsets.symmetric(vertical: 5).r;
   static EdgeInsets paddingVertical8PX = const EdgeInsets.symmetric(vertical: 8).r;

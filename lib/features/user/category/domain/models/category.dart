@@ -1,6 +1,6 @@
 import 'package:flutter_tdd/core/models/domain_model/base_domain_model.dart';
 
-class CategoryDomainModel extends BaseDomainModel {
+class Category extends BaseDomainModel {
   final int id;
   final String name;
   final String? banner;
@@ -8,8 +8,10 @@ class CategoryDomainModel extends BaseDomainModel {
   final int orderLevel;
   final int digital;
   final String slug;
+  int? parentId;
 
-  CategoryDomainModel({
+
+  Category({
     required this.id,
     required this.name,
     this.banner,
@@ -17,5 +19,6 @@ class CategoryDomainModel extends BaseDomainModel {
     required this.orderLevel,
     required this.digital,
     required this.slug,
+    this.parentId,
   });
 }

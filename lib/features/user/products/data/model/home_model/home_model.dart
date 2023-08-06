@@ -1,11 +1,12 @@
 import 'package:flutter_tdd/core/models/api_model/base_api_model.dart';
 import 'package:flutter_tdd/core/models/api_models/brand_model/brand_model.dart';
 import 'package:flutter_tdd/core/models/api_models/product_model/product_model.dart';
+import 'package:flutter_tdd/features/user/category/data/models/category_model/category_model.dart';
 import 'package:flutter_tdd/features/user/products/data/model/banner_model/banner_model.dart';
-import 'package:flutter_tdd/features/user/products/data/model/category_model/category_model.dart';
 import 'package:flutter_tdd/features/user/products/data/model/popular_product_model/popular_product_model.dart';
 import 'package:flutter_tdd/features/user/products/data/model/slider_model/slider_model.dart';
 import 'package:flutter_tdd/features/user/products/domain/models/home_domain_model.dart';
+import 'package:flutter_tdd/features/user/sale/data/models/flash_sale_model/flash_sale_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'home_model.freezed.dart';
@@ -23,6 +24,8 @@ class HomeModel extends BaseApiModel<HomeDomainModel> with _$HomeModel {
     @JsonKey(name: 'banners_one') required List<BannerModel> bannersOne,
     @JsonKey(name: 'banners_two') required List<BannerModel> bannersTwo,
     @JsonKey(name: 'categories') required List<CategoryModel> categories,
+    @JsonKey(name: 'flash_deals') required List<FlashSaleModel> flashSales,
+
     @JsonKey(name: 'most_populars')
         required List<PopularProductModel> mostPopular,
     @JsonKey(name: 'best_selling_products')
@@ -46,6 +49,7 @@ class HomeModel extends BaseApiModel<HomeDomainModel> with _$HomeModel {
       bannersTwo: bannersTwo.map((e) => e.toDomainModel()).toList(),
       bestSellingProducts: bestSellingProducts.map((e) => e.toDomainModel()).toList(),
       categories: categories.map((e) => e.toDomainModel()).toList(),
+      flashSales: flashSales.map((e) => e.toDomainModel()).toList(),
       featuredProducts: featuredProducts.map((e) => e.toDomainModel()).toList(),
       mostPopular: mostPopular.map((e) =>e.toDomainModel()).toList(),
       newestProducts: newestProducts.map((e) => e.toDomainModel()).toList(),

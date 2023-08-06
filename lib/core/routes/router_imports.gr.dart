@@ -92,6 +92,8 @@ import 'package:flutter_tdd/features/user/cart/presentation/pages/payment/paymen
     as _i38;
 import 'package:flutter_tdd/features/user/cart/presentation/pages/shipping/shipping_imports.dart'
     as _i39;
+import 'package:flutter_tdd/features/user/category/domain/models/category.dart'
+    as _i65;
 import 'package:flutter_tdd/features/user/category/presentation/pages/brand_details/brand_details_imports.dart'
     as _i43;
 import 'package:flutter_tdd/features/user/category/presentation/pages/brands/brands_imports.dart'
@@ -105,7 +107,7 @@ import 'package:flutter_tdd/features/user/dashboard/presentation/pages/dashboard
 import 'package:flutter_tdd/features/user/notifications/presentation/pages/notifications/notifications_imports.dart'
     as _i45;
 import 'package:flutter_tdd/features/user/products/domain/models/popular_products_domain_model.dart'
-    as _i65;
+    as _i66;
 import 'package:flutter_tdd/features/user/products/presentation/pages/compare/compare_imports.dart'
     as _i46;
 import 'package:flutter_tdd/features/user/products/presentation/pages/downloads/downloads_import.dart'
@@ -448,7 +450,7 @@ class AppRouter extends _i62.RootStackRouter {
         routeData: routeData,
         child: _i42.CategoryDetails(
           key: args.key,
-          title: args.title,
+          categoryModel: args.categoryModel,
         ),
         opaque: true,
       );
@@ -580,9 +582,13 @@ class AppRouter extends _i62.RootStackRouter {
       );
     },
     SaleDetailsRoute.name: (routeData) {
+      final args = routeData.argsAs<SaleDetailsRouteArgs>();
       return _i62.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i58.SaleDetails(),
+        child: _i58.SaleDetails(
+          key: args.key,
+          dealId: args.dealId,
+        ),
         opaque: true,
       );
     },
@@ -1444,13 +1450,13 @@ class CategoryDetailsRoute
     extends _i62.PageRouteInfo<CategoryDetailsRouteArgs> {
   CategoryDetailsRoute({
     _i64.Key? key,
-    required String title,
+    required _i65.Category categoryModel,
   }) : super(
           CategoryDetailsRoute.name,
           path: '/category-details',
           args: CategoryDetailsRouteArgs(
             key: key,
-            title: title,
+            categoryModel: categoryModel,
           ),
         );
 
@@ -1460,16 +1466,16 @@ class CategoryDetailsRoute
 class CategoryDetailsRouteArgs {
   const CategoryDetailsRouteArgs({
     this.key,
-    required this.title,
+    required this.categoryModel,
   });
 
   final _i64.Key? key;
 
-  final String title;
+  final _i65.Category categoryModel;
 
   @override
   String toString() {
-    return 'CategoryDetailsRouteArgs{key: $key, title: $title}';
+    return 'CategoryDetailsRouteArgs{key: $key, categoryModel: $categoryModel}';
   }
 }
 
@@ -1629,7 +1635,7 @@ class PopularProductsRoute
     extends _i62.PageRouteInfo<PopularProductsRouteArgs> {
   PopularProductsRoute({
     _i64.Key? key,
-    required _i65.PopularProductsDomainModel popularProductsModel,
+    required _i66.PopularProductsDomainModel popularProductsModel,
   }) : super(
           PopularProductsRoute.name,
           path: '/popular-products',
@@ -1650,7 +1656,7 @@ class PopularProductsRouteArgs {
 
   final _i64.Key? key;
 
-  final _i65.PopularProductsDomainModel popularProductsModel;
+  final _i66.PopularProductsDomainModel popularProductsModel;
 
   @override
   String toString() {
@@ -1766,14 +1772,36 @@ class FlashSaleRoute extends _i62.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i58.SaleDetails]
-class SaleDetailsRoute extends _i62.PageRouteInfo<void> {
-  const SaleDetailsRoute()
-      : super(
+class SaleDetailsRoute extends _i62.PageRouteInfo<SaleDetailsRouteArgs> {
+  SaleDetailsRoute({
+    _i64.Key? key,
+    required int dealId,
+  }) : super(
           SaleDetailsRoute.name,
           path: '/sale-details',
+          args: SaleDetailsRouteArgs(
+            key: key,
+            dealId: dealId,
+          ),
         );
 
   static const String name = 'SaleDetailsRoute';
+}
+
+class SaleDetailsRouteArgs {
+  const SaleDetailsRouteArgs({
+    this.key,
+    required this.dealId,
+  });
+
+  final _i64.Key? key;
+
+  final int dealId;
+
+  @override
+  String toString() {
+    return 'SaleDetailsRouteArgs{key: $key, dealId: $dealId}';
+  }
 }
 
 /// generated route for

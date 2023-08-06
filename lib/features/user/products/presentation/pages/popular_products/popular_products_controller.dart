@@ -1,12 +1,13 @@
 part of 'popular_products_imports.dart';
 
 class PopularProductsController {
-  final PagingController<int, ProductDomainModel> pagingController =
+  final PagingController<int, Product> pagingController =
       PagingController(firstPageKey: 1);
   int pageSize = 12;
 
-  PopularProductsEntity _popularProductsParams(int id, int page, bool refresh) {
-    return PopularProductsEntity(id: id, currentPage: page, refresh: refresh);
+  PopularProductsParams _popularProductsParams(int id, int page, bool refresh) {
+    return PopularProductsParams(
+        id: id, currentPage: page, pageSize: pageSize, refresh: refresh);
   }
 
   void initPagination(int id) {
@@ -16,7 +17,7 @@ class PopularProductsController {
     });
   }
 
-  void getPopularProducts(int id, int currentPage,
+  Future<void> getPopularProducts(int id, int currentPage,
       {bool refresh = true}) async {
     var params = _popularProductsParams(id, currentPage, refresh);
     var data = await GetPopularProducts().call(params);

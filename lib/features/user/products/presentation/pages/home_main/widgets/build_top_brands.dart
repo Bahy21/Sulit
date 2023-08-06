@@ -19,7 +19,7 @@ class BuildTopBrands extends StatelessWidget {
         Gaps.vGap5,
         ...List.generate(
           brandList.length,
-          (index) => BuildBrandItem(brandModel: brandList[index]),
+          (index) => BuildTopBrandItem(brandModel: brandList[index]),
         )
       ],
     );

@@ -1,25 +1,32 @@
 part of 'category_details_widgets_imports.dart';
 
 class BuildProducts extends StatelessWidget {
-  const BuildProducts({Key? key}) : super(key: key);
+  final CategoryDetailsController categoryDetailsController;
+
+  const BuildProducts({super.key, required this.categoryDetailsController});
 
   @override
   Widget build(BuildContext context) {
     return Flexible(
-      child: GenericListView(
-        type: ListViewType.grid,
-        runSpacing: 10,
-        spacing: 10,
-        gridCrossCount: 2,
-        gridItemHeight: 200.spMin,
-        padding: const EdgeInsets.all(15),
-        children: const [
-          BuildCategoryDetailsItem(),
-          BuildCategoryDetailsItem(),
-          BuildCategoryDetailsItem(),
-          BuildCategoryDetailsItem(),
-          BuildCategoryDetailsItem(),
-        ],
+      child: RefreshIndicator(
+        onRefresh: () => categoryDetailsController.getPopularProducts(1),
+        child: PagedGridView<int, Product>(
+          padding: Dimens.standardPadding,
+          pagingController: categoryDetailsController.pagingController,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisSpacing: 5.r,
+            mainAxisSpacing: 15.r,
+            crossAxisCount: 2,
+            childAspectRatio: .9,
+          ),
+          builderDelegate: PagedChildBuilderDelegate<Product>(
+            firstPageProgressIndicatorBuilder: (_) =>
+                const BuildLoadingCatsProducts(),
+            itemBuilder: (_, item, index) =>
+                BuildProductItem(productModel: item),
+            noItemsFoundIndicatorBuilder: (cxt) => const BuildEmptyDataView(),
+          ),
+        ),
       ),
     );
   }

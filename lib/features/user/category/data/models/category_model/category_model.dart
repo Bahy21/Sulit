@@ -1,5 +1,6 @@
 import 'package:flutter_tdd/core/models/api_model/base_api_model.dart';
-import 'package:flutter_tdd/features/user/products/domain/models/category_domain_model.dart';
+import 'package:flutter_tdd/features/user/category/domain/models/category.dart';
+import 'package:flutter_tdd/features/user/category/domain/models/category.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'category_model.freezed.dart';
@@ -8,7 +9,7 @@ part 'category_model.g.dart';
 
 @freezed
 @immutable
-class CategoryModel extends BaseApiModel<CategoryDomainModel>
+class CategoryModel extends BaseApiModel<Category>
     with _$CategoryModel {
   const CategoryModel._();
 
@@ -27,8 +28,8 @@ class CategoryModel extends BaseApiModel<CategoryDomainModel>
       _$CategoryModelFromJson(json);
 
   @override
-  CategoryDomainModel toDomainModel() {
-    return CategoryDomainModel(
+  Category toDomainModel() {
+    return Category(
       name: name,
       id: id,
       digital: digital,

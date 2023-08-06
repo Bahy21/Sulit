@@ -1,7 +1,7 @@
 part of 'home_main_widgets_imports.dart';
 
 class BuildTopCategoriesItem extends StatelessWidget {
-  final CategoryDomainModel categoryModel;
+  final Category categoryModel;
 
   const BuildTopCategoriesItem({super.key, required this.categoryModel});
 
@@ -9,7 +9,7 @@ class BuildTopCategoriesItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () => AutoRouter.of(context)
-          .push(CategoryDetailsRoute(title: categoryModel.name)),
+          .push(CategoryDetailsRoute(categoryModel: categoryModel)),
       child: Container(
         height: 60.h,
         width: MediaQuery.of(context).size.width,

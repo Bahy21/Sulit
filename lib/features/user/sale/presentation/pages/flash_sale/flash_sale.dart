@@ -29,7 +29,7 @@ class _FlashSaleState extends State<FlashSale> {
           11,
           (index) => InkWell(
             onTap: () => AutoRouter.of(context).push(
-              const SaleDetailsRoute(),
+               SaleDetailsRoute(dealId: 4),
             ),
             child: Image.network(
               "https://globalnews.ca/wp-content/uploads/2018/01/sale-canada.jpg?quality=85&strip=all",

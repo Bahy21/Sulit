@@ -2,9 +2,9 @@ part of 'categories_imports.dart';
 
 class CategoriesController {
   final TextEditingController searchController = TextEditingController();
-  final GenericBloc<List<CategoryDomainModel>> categoriesCubit =
+  final GenericBloc<List<Category>> categoriesCubit =
       GenericBloc([]);
-  late List<CategoryDomainModel> allCats;
+  late List<Category> allCats;
 
   void getCategories(BuildContext context, {bool refresh = true}) async {
     var result = await GetCategories().call(refresh);

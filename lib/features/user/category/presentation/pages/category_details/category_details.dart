@@ -1,21 +1,21 @@
 part of 'category_details_imports.dart';
 
 class CategoryDetails extends StatefulWidget {
-  final String title;
+  final Category categoryModel;
 
-  const CategoryDetails({super.key, required this.title});
+  const CategoryDetails({super.key, required this.categoryModel});
 
   @override
   _CategoryDetailsState createState() => _CategoryDetailsState();
 }
 
 class _CategoryDetailsState extends State<CategoryDetails> {
-  final CategoryDetailsController controller =
+  final CategoryDetailsController categoryDetailsController =
       CategoryDetailsController();
 
   @override
   void initState() {
-    controller.initData();
+    categoryDetailsController.initData(context,widget.categoryModel.id);
     super.initState();
   }
 
@@ -23,18 +23,16 @@ class _CategoryDetailsState extends State<CategoryDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      key: controller.scaffold,
-      appBar: const BuildCustomAppBar(),
+      key: categoryDetailsController.scaffold,
+      appBar: DefaultAppBar(title: widget.categoryModel.name),
       drawer: BuildFilterDrawer(
-          categoryDetailsController: controller),
+          categoryDetailsController: categoryDetailsController),
       body: Column(
         children: [
-          BuildFilterBar(
-            categoryName: widget.title,
-            categoryDetailsController: controller,
-          ),
-          BuildSortBar(categoryDetailsController: controller),
-          const BuildProducts(),
+          BuildAllCategoriesView(
+              categoryDetailsController: categoryDetailsController),
+          BuildFilterBar(categoryDetailsController: categoryDetailsController),
+          BuildProducts(categoryDetailsController: categoryDetailsController),
         ],
       ),
     );

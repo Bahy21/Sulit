@@ -64,10 +64,10 @@ class CustomInputDecoration extends InputDecoration {
   Widget? get label => labelTxt==null?super.label:Text(labelTxt??"",style: labelStyle,);
 
   @override
-  TextStyle get labelStyle => AppTextStyle.s16_w400(color: AppColors.noContextInstance.blackOpacity);
+  TextStyle get labelStyle => AppTextStyle.s14_w400(color: AppColors.noContextInstance.blackOpacity);
 
   @override
-  TextStyle? get hintStyle => AppTextStyle.s16_w400(color: AppColors.noContextInstance.blackOpacity);
+  TextStyle? get hintStyle => AppTextStyle.s14_w400(color: AppColors.noContextInstance.blackOpacity);
 
 
   @override

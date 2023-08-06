@@ -1,6 +1,6 @@
 part of 'brand_details_imports.dart';
 class BrandDetailsController {
-  final GenericBloc<List<ProductDomainModel>> productsBloc = GenericBloc([]);
+  final GenericBloc<List<Product>> productsBloc = GenericBloc([]);
 
   BrandDetailsController(int brandId){
     getBrandProducts(brandId,refresh: false);

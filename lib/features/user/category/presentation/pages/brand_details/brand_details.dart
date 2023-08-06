@@ -21,8 +21,8 @@ class _BrandDetailsState extends State<BrandDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const BuildSearchAppBar(isHome: false),
-      body: BlocBuilder<GenericBloc<List<ProductDomainModel>>,
-          GenericState<List<ProductDomainModel>>>(
+      body: BlocBuilder<GenericBloc<List<Product>>,
+          GenericState<List<Product>>>(
         bloc: controller.productsBloc,
         builder: (context, state) {
           if(state is GenericUpdateState){

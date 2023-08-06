@@ -24,24 +24,26 @@ class _PopularProductsState extends State<PopularProducts> {
     return Scaffold(
       appBar: DefaultAppBar(
           title: widget.popularProductsModel.name, showBack: true),
-      body: PagedGridView<int, ProductDomainModel>(
-        padding: Dimens.paddingAll15PX,
-        pagingController: popularProductsController.pagingController,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisSpacing: 5.r,
-          mainAxisSpacing: 15.r,
-          crossAxisCount: 2,
-          childAspectRatio: .9,
-        ),
-
-        builderDelegate: PagedChildBuilderDelegate<ProductDomainModel>(
-          firstPageProgressIndicatorBuilder: (context) {
-            return const BuildShimmerItem(height: 23);
-          },
-          itemBuilder: (context, item, index) {
-            return BuildProductItem(productModel: item);
-          },
-          noItemsFoundIndicatorBuilder: (cxt) =>const BuildEmptyDataView(),
+      body: RefreshIndicator(
+        onRefresh: () => popularProductsController.getPopularProducts(
+            widget.popularProductsModel.id, 1),
+        child: PagedGridView<int, Product>(
+          padding: Dimens.paddingAll15PX,
+          shrinkWrap: true,
+          pagingController: popularProductsController.pagingController,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisSpacing: 5.r,
+            mainAxisSpacing: 15.r,
+            crossAxisCount: 2,
+            childAspectRatio: .9,
+          ),
+          builderDelegate: PagedChildBuilderDelegate<Product>(
+            firstPageProgressIndicatorBuilder: (_) =>
+                const BuildPopularProductsLoadingView(),
+            itemBuilder: (_, item, index) =>
+                BuildProductItem(productModel: item),
+            noItemsFoundIndicatorBuilder: (cxt) => const BuildEmptyDataView(),
+          ),
         ),
       ),
     );

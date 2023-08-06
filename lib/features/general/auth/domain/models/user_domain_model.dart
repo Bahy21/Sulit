@@ -9,6 +9,7 @@ class UserDomainModel extends BaseDomainModel {
   String? phone;
   String? token;
   String? tokenType;
+  bool?isPhoneActive;
 
   UserDomainModel({
     this.id,
@@ -19,6 +20,7 @@ class UserDomainModel extends BaseDomainModel {
     this.phone,
     this.token,
     this.tokenType,
+    this.isPhoneActive,
   });
 
   UserDomainModel.fromJson(Map<String, dynamic> json) {
@@ -30,6 +32,7 @@ class UserDomainModel extends BaseDomainModel {
     phone = json['phone'];
     token = json['token'];
     tokenType = json['token_type'];
+    isPhoneActive=json['phone_is_active'];
   }
 
   Map<String, dynamic> toJson() {
@@ -42,6 +45,7 @@ class UserDomainModel extends BaseDomainModel {
     data['phone'] = phone;
     data['token'] = token;
     data['token_type'] = tokenType;
+    data['phone_is_active']=isPhoneActive;
     return data;
   }
 }

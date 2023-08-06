@@ -9,10 +9,10 @@ import 'package:flutter_tdd/core/theme/colors/colors_extension.dart';
 import 'package:flutter_tdd/core/theme/text/app_text_style.dart';
 import 'package:flutter_tdd/core/widgets/CachedImage.dart';
 import 'package:flutter_tdd/features/user/category/presentation/pages/category_details/widgets/category_details_widgets_imports.dart';
-import 'package:flutter_tdd/features/user/products/domain/models/product_domain_model.dart';
+import 'package:flutter_tdd/features/user/products/domain/models/product.dart';
 
 class BuildProductItem extends StatelessWidget {
-  final ProductDomainModel productModel;
+  final Product productModel;
 
   const BuildProductItem({super.key, required this.productModel});
 

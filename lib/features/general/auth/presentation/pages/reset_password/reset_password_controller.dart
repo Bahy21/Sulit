@@ -19,7 +19,7 @@ class ResetPasswordController {
   void resetPassword(BuildContext context) async {
     if (formKey.currentState!.validate()) {
       btnKey.currentState!.animateForward();
-      ResetPasswordEntity param = ResetPasswordEntity(
+      ResetPasswordParams param = ResetPasswordParams(
           code: code.text,
           email: email.text,
           password: password.text,

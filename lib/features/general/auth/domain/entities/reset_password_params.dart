@@ -1,10 +1,10 @@
-class ResetPasswordEntity{
+class ResetPasswordParams{
   String? code;
   String?email;
   String? password;
   String? confirmPassword;
 
-  ResetPasswordEntity({this.code,this.confirmPassword,this.password, this.email});
+  ResetPasswordParams({this.code,this.confirmPassword,this.password, this.email});
 
   Map<String, dynamic> toJson() => {
     "email": email,

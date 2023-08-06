@@ -1,7 +1,15 @@
 part of 'category_details_widgets_imports.dart';
 
 class BuildFilterItem extends StatelessWidget {
-  const BuildFilterItem({Key? key}) : super(key: key);
+  final CategoryDetailsController categoryDetailsController;
+  final Attributes attributesModel;
+  final int index;
+
+  const BuildFilterItem(
+      {super.key,
+      required this.attributesModel,
+      required this.index,
+      required this.categoryDetailsController});
 
   @override
   Widget build(BuildContext context) {
@@ -9,19 +17,19 @@ class BuildFilterItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         InkWell(
-          onTap: () {},
+          onTap: () => categoryDetailsController.onOpenAttribute(index),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
                 margin: const EdgeInsets.symmetric(vertical: Dimens.dp10),
                 child: Text(
-                  "Filter By ...",
-                  style: AppTextStyle.s16_w800(color: context.colors.black),
+                  "Filter By ${attributesModel.name}",
+                  style: AppTextStyle.s14_w800(color: context.colors.black),
                 ),
               ),
               Visibility(
-                visible: true,
+                visible: attributesModel.opened,
                 replacement: Icon(
                   Icons.keyboard_arrow_down,
                   color: context.colors.black,
@@ -36,11 +44,16 @@ class BuildFilterItem extends StatelessWidget {
         ),
         Gaps.line(context.colors.gray, 10),
         Visibility(
-          visible: true,
+          visible: attributesModel.opened,
           child: Column(
             children: List.generate(
-              4,
-              (index) => const BuildSpecificationItem(),
+              attributesModel.attributeValues.length,
+              (position) => BuildSpecificationItem(
+                position: position,
+                attributeIndex:index,
+                categoryDetailsController: categoryDetailsController,
+                attributeValueModel: attributesModel.attributeValues[position],
+              ),
             ),
           ),
         ),

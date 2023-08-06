@@ -1,8 +1,9 @@
 part of 'sale_details_imports.dart';
 
 class SaleDetails extends StatefulWidget {
-  const SaleDetails({Key? key}) : super(key: key);
+final int dealId;
 
+  const SaleDetails({super.key, required this.dealId});
   @override
   State<SaleDetails> createState() => _SaleDetailsState();
 }
@@ -12,7 +13,7 @@ class _SaleDetailsState extends State<SaleDetails> {
 
   @override
   void initState() {
-    controller = SaleDetailsController(4);
+    controller = SaleDetailsController(widget.dealId);
     super.initState();
   }
 

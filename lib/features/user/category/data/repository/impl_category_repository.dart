@@ -8,31 +8,50 @@ import 'package:flutter_tdd/core/models/model_to_domain/model_to_domain.dart';
 import 'package:flutter_tdd/features/user/category/data/data_sources/category_data_sources.dart';
 import 'package:flutter_tdd/features/user/category/domain/entities/brand_details_params.dart';
 import 'package:flutter_tdd/features/user/category/domain/entities/brands_params.dart';
+import 'package:flutter_tdd/features/user/category/domain/entities/search_products_params.dart';
+import 'package:flutter_tdd/features/user/category/domain/entities/sub_category_params.dart';
+import 'package:flutter_tdd/features/user/category/domain/models/sub_category.dart';
 import 'package:flutter_tdd/features/user/category/domain/repository/category_repository.dart';
-import 'package:flutter_tdd/features/user/products/domain/models/category_domain_model.dart';
-import 'package:flutter_tdd/features/user/products/domain/models/product_domain_model.dart';
+import 'package:flutter_tdd/features/user/category/domain/models/category.dart';
+import 'package:flutter_tdd/features/user/products/domain/models/product.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: CategoryRepository)
 class ImplCategoryRepository extends CategoryRepository with ModelToDomain {
   var dataSources = getIt<CategoryDataSources>();
+
   @override
-  Future<Either<Failure, List<BrandDomainModel>>> getBrands(BrandsParams params) async {
-    var result = await  dataSources.getBrands(params);
+  Future<Either<Failure, List<BrandDomainModel>>> getBrands(
+      BrandsParams params) async {
+    var result = await dataSources.getBrands(params);
     return toDomainResultList<BrandDomainModel, BrandModel>(result);
   }
+
   @override
-  Future<Either<Failure, List<CategoryDomainModel>>> getAllCategories(
+  Future<Either<Failure, List<Category>>> getAllCategories(
       bool param) async {
     var countries = await dataSources.getAllCategories(param);
     return toDomainResultList(countries);
   }
 
   @override
-  Future<Either<Failure, List<ProductDomainModel>>> getBrandProducts(BrandDetailsParams params)async{
+  Future<Either<Failure, List<Product>>> getBrandProducts(
+      BrandDetailsParams params) async {
     var result = await dataSources.getBrandProducts(params);
     return toDomainResultList(result);
   }
 
-}
+  @override
+  Future<Either<Failure, SubCategory>> getSubCategories(
+      SubCategoryParams param) async {
+    var result = await dataSources.getSubCategories(param);
+    return toDomainResult(result);
+  }
 
+  @override
+  Future<Either<Failure, List<Product>>> getCategoryProducts(
+      SearchProductsParams params) async {
+    var result = await dataSources.getCategoryProducts(params);
+    return toDomainResultList(result);
+  }
+}

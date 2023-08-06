@@ -14,7 +14,7 @@ class _HomeMainState extends State<HomeMain> {
 
   @override
   void initState() {
-    controller.getHome(context,refresh: false);
+    controller.getHome(context, refresh: false);
     controller.getHome(context);
     super.initState();
   }

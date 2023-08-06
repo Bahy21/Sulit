@@ -7,15 +7,15 @@ import 'package:flutter_tdd/core/http/generic_http/generic_http.dart';
 import 'package:flutter_tdd/core/http/models/http_request_model.dart';
 import 'package:flutter_tdd/features/general/auth/data/data_source/auth_data_source.dart';
 import 'package:flutter_tdd/features/general/auth/data/models/user_model/user_model.dart';
-import 'package:flutter_tdd/features/general/auth/domain/entities/login_entity.dart';
-import 'package:flutter_tdd/features/general/auth/domain/entities/reset_password_entity.dart';
+import 'package:flutter_tdd/features/general/auth/domain/entities/login_params.dart';
+import 'package:flutter_tdd/features/general/auth/domain/entities/reset_password_params.dart';
 import 'package:flutter_tdd/features/general/auth/domain/entities/user_register_params.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: AuthDataSource)
 class ImplAuthDataSource extends AuthDataSource {
   @override
-  Future<Either<Failure, UserModel>> login(LoginEntity param) async {
+  Future<Either<Failure, UserModel>> login(LoginParams param) async {
     HttpRequestModel model = HttpRequestModel(
       url: ApiNames.login,
       responseType: ResType.model,
@@ -55,7 +55,7 @@ class ImplAuthDataSource extends AuthDataSource {
   }
 
   @override
-  Future<Either<Failure, String>> resetPassword(ResetPasswordEntity param) async {
+  Future<Either<Failure, String>> resetPassword(ResetPasswordParams param) async {
     HttpRequestModel model = HttpRequestModel(
       url: ApiNames.resetPassword,
       requestMethod: RequestMethod.post,

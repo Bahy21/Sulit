@@ -1,10 +1,10 @@
 part of 'home_main_widgets_imports.dart';
 
 class BuildDealsItem extends StatelessWidget {
-  final String title;
+  final FlashSale flashSaleModel;
   final Function() onTap;
 
-  const BuildDealsItem({super.key, required this.title, required this.onTap});
+  const BuildDealsItem({super.key, required this.flashSaleModel, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class BuildDealsItem extends StatelessWidget {
             ),
             Gaps.hGap5,
             Text(
-              title,
+              flashSaleModel.title,
               style: AppTextStyle.s13_w500(
                 color: context.colors.primary,
               ),
