@@ -17,6 +17,7 @@ import 'package:flutter_tdd/core/helpers/loading_helper.dart';
 import 'package:flutter_tdd/core/routes/router_imports.gr.dart';
 import 'package:flutter_tdd/core/theme/colors/colors_extension.dart';
 import 'package:flutter_tdd/features/general/auth/domain/entities/login_params.dart';
+import 'package:flutter_tdd/features/general/auth/domain/models/user_domain_model.dart';
 import 'package:flutter_tdd/features/general/auth/domain/use_cases/set_login.dart';
 import 'package:flutter_tdd/features/general/auth/presentation/manager/user_cubit/user_cubit.dart';
 import 'package:flutter_tdd/features/general/auth/presentation/widgets/build_header_title.dart';

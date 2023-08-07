@@ -1,17 +1,21 @@
+// ignore_for_file: library_private_types_in_public_api
+
 part of 'profile_imports.dart';
 
 class Profile extends StatefulWidget {
-  const Profile({Key? key}) : super(key: key);
+  final Address? address ;
+  const Profile({Key? key,  this.address}) : super(key: key);
 
   @override
   _ProfileState createState() => _ProfileState();
 }
 
 class _ProfileState extends State<Profile> {
-  final ProfileController controller = ProfileController();
+  late ProfileController controller;
 
   @override
   void initState() {
+    controller = ProfileController(context, widget.address);
     super.initState();
   }
 
@@ -20,10 +24,20 @@ class _ProfileState extends State<Profile> {
     return Scaffold(
       appBar: const DefaultAppBar(title: "Manage Profile",),
       body: ListView(
-        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16).r,
+        padding: const EdgeInsets.symmetric(
+          vertical: 20,
+          horizontal: 16,
+        ).r,
         children: [
-          BuildProfileFormFields(profileController: controller,),
-          const BuildProfileButton()
+          BuildProfileImage(
+            controller: controller,
+          ),
+          BuildProfileFormFields(
+            controller: controller,
+          ),
+          BuildProfileButton(
+            controller: controller,
+          )
         ],
       ),
     );

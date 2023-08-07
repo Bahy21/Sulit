@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 part of 'login_imports.dart';
 
 class LoginController {
@@ -14,18 +16,34 @@ class LoginController {
   void onSubmit(BuildContext context) async {
     if (formKey.currentState!.validate()) {
       btnKey.currentState?.animateForward();
-      var params = _loginParams();
+      var params = _setLoginParams();
       var result = await SetLogin().call(params);
       if (result != null) {
-        context.read<DeviceCubit>().updateUserAuth(true);
-        GlobalState.instance.set("token", result.token);
-        SharedPreferences preferences = await SharedPreferences.getInstance();
-        preferences.setString("user", json.encode(result.toJson()));
-        context.read<UserCubit>().onUpdateUserData(result);
-        AutoRouter.of(context).push(HomeRoute(index: 0));
+        _cashAndRoute(context, result);
       }
-      btnKey.currentState?.animateReverse();
+
     }
+  }
+
+  void _cashAndRoute(BuildContext context, UserDomainModel data) async {
+    context.read<DeviceCubit>().updateUserAuth(true);
+    GlobalState.instance.set("token", data.token);
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    preferences.setString("user", json.encode(data.toJson()));
+    context.read<UserCubit>().onUpdateUserData(data);
+    btnKey.currentState?.animateReverse();
+    AutoRouter.of(context).push(HomeRoute(index: 0));
+    CustomToast.showSimpleToast(
+      msg: "Register Done Successfully. Please verify and log in to your account",
+      type: ToastType.success,
+    );
+  }
+
+  LoginParams _setLoginParams(){
+    return LoginParams(
+      email: email.text,
+      password: password.text
+    );
   }
 
   Future<bool> onBackPressed() async {

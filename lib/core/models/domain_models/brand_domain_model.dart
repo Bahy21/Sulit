@@ -5,6 +5,9 @@ class BrandDomainModel extends BaseDomainModel{
  final String name;
  final  String logo;
 
-  BrandDomainModel({required this.id, required this.name, required this.logo});
-
+  BrandDomainModel({
+    required this.id,
+    required this.name,
+    required this.logo,
+  });
 }

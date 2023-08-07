@@ -8,8 +8,12 @@ class ContactUs extends StatefulWidget {
 }
 
 class _ContactUsState extends State<ContactUs> {
-  final ContactUsController contactUsData = ContactUsController();
-
+  late ContactUsController controller ;
+  @override
+  void initState() {
+    controller = ContactUsController(context);
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,8 +21,8 @@ class _ContactUsState extends State<ContactUs> {
       body: ListView(
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16).r,
         children: [
-          BuildContactUsFields(contactUsData: contactUsData),
-          BuildContactUsButton(contactUsData: contactUsData)
+          BuildContactUsFields(contactUsData: controller),
+          BuildContactUsButton(controller: controller)
         ],
       ),
     );

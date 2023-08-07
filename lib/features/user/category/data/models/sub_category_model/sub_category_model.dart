@@ -1,3 +1,5 @@
+
+
 import 'package:flutter_tdd/core/models/api_model/base_api_model.dart';
 import 'package:flutter_tdd/core/models/api_models/brand_model/brand_model.dart';
 import 'package:flutter_tdd/features/user/category/data/models/attributes_model/attributes_model.dart';
@@ -13,8 +15,7 @@ part 'sub_category_model.g.dart';
 
 @freezed
 @immutable
-class SubCategoryModel extends BaseApiModel<SubCategory>
-    with _$SubCategoryModel {
+class SubCategoryModel extends BaseApiModel<SubCategory> with _$SubCategoryModel {
   const SubCategoryModel._();
 
   @JsonSerializable(explicitToJson: true)

@@ -9,5 +9,39 @@ class ContactUsController{
   TextEditingController message = TextEditingController();
   TextEditingController subject = TextEditingController();
 
+  ContactUsController(BuildContext context) {
+    getInitialData(context);
+  }
 
+  void getInitialData(BuildContext context) {
+    var user = context.read<UserCubit>().state.model;
+    if (user != UserDomainModel()) {
+      name.text = user?.name ?? "";
+      email.text = user?.email ?? "";
+      phone.text = user?.phone ?? "";
+    }
+  }
+
+  Future<void> contactUs() async {
+    if (formKey.currentState!.validate()) {
+      var params = _contactUsParams();
+      var data = await SetContactUs().call(params);
+      if (data) {
+        CustomToast.showSimpleToast(
+          msg: "Your Message has been Sent successfully",
+          type: ToastType.success,
+        );
+      }
+    }
+  }
+
+  ContactUsParams _contactUsParams() {
+    return ContactUsParams(
+      name: name.text,
+      email: email.text,
+      phone: phone.text,
+      message: message.text,
+      title: subject.text,
+    );
+  }
 }
