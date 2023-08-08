@@ -10,12 +10,11 @@ class PopularProducts extends StatefulWidget {
 }
 
 class _PopularProductsState extends State<PopularProducts> {
-  final PopularProductsController popularProductsController =
-      PopularProductsController();
+  final PopularProductsController controller = PopularProductsController();
 
   @override
   void initState() {
-    popularProductsController.initPagination(widget.popularProductsModel.id);
+    controller.initPagination(widget.popularProductsModel.id);
     super.initState();
   }
 
@@ -25,12 +24,12 @@ class _PopularProductsState extends State<PopularProducts> {
       appBar: DefaultAppBar(
           title: widget.popularProductsModel.name, showBack: true),
       body: RefreshIndicator(
-        onRefresh: () => popularProductsController.getPopularProducts(
-            widget.popularProductsModel.id, 1),
+        onRefresh: () =>
+            controller.getPopularProducts(widget.popularProductsModel.id, 1),
         child: PagedGridView<int, Product>(
           padding: Dimens.paddingAll15PX,
           shrinkWrap: true,
-          pagingController: popularProductsController.pagingController,
+          pagingController: controller.pagingController,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisSpacing: 5.r,
             mainAxisSpacing: 15.r,
@@ -40,8 +39,11 @@ class _PopularProductsState extends State<PopularProducts> {
           builderDelegate: PagedChildBuilderDelegate<Product>(
             firstPageProgressIndicatorBuilder: (_) =>
                 const BuildPopularProductsLoadingView(),
-            itemBuilder: (_, item, index) =>
-                BuildProductItem(productModel: item),
+            itemBuilder: (_, item, index) => BuildProductItem(
+              productModel: item,
+              onRefresh: () => controller.getPopularProducts(
+                  widget.popularProductsModel.id, 1),
+            ),
             noItemsFoundIndicatorBuilder: (cxt) => const BuildEmptyDataView(),
           ),
         ),

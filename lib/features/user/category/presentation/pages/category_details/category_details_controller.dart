@@ -57,7 +57,6 @@ class CategoryDetailsController {
       {bool refresh = true}) async {
     currentCatId=id;
     var params = _productsParams(1, refresh);
-    print(">>>>>${params.toJson()}");
     var result = await GetSubCategories().call(params);
     _checkSubCategoriesList(result!, id, index);
     RangeValues rangeValues = RangeValues(double.parse(result.priceRange.min),
@@ -73,16 +72,18 @@ class CategoryDetailsController {
     subCatsCubit.removeRange(index, subCatsCubit.length);
     if (data.subCats.isNotEmpty) {
       data.subCats.insert(
-          0,
-          Category(
-              id: 0,
-              banner: "",
-              name: "All",
-              parentId: id,
-              digital: 0,
-              icon: "",
-              orderLevel: 0,
-              slug: ""));
+        0,
+        Category(
+          id: 0,
+          banner: "",
+          name: "All",
+          parentId: id,
+          digital: 0,
+          icon: "",
+          orderLevel: 0,
+          slug: "",
+        ),
+      );
       subCatsCubit.add(SubCategory(
         subCats: data.subCats,
         selectedId: data.subCats.first.id,

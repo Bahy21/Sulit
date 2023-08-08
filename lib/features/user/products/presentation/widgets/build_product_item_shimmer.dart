@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_tdd/core/constants/dimens.dart';
 import 'package:flutter_tdd/core/constants/gaps.dart';
 import 'package:flutter_tdd/core/theme/colors/colors_extension.dart';
-import 'package:flutter_tdd/core/widgets/CachedImage.dart';
 import 'package:flutter_tdd/core/widgets/build_shemer.dart';
 import 'package:flutter_tdd/features/user/category/presentation/pages/category_details/widgets/category_details_widgets_imports.dart';
 
@@ -41,15 +40,24 @@ class BuildProductItemShimmer extends StatelessWidget {
                     children: [
                       BuildShimmerView(
                         child: BuildIconItem(
-                            iconData: Icons.favorite_border, onTap: () {}),
+                          isWishList: true,
+                          iconData: Icons.favorite_border,
+                          onTap: () {},
+                        ),
                       ),
                       BuildShimmerView(
                         child: BuildIconItem(
-                            iconData: Icons.compare_arrows, onTap: () {}),
+                          iconData: Icons.compare_arrows,
+                          onTap: () {},
+                          isWishList: false,
+                        ),
                       ),
                       BuildShimmerView(
                         child: BuildIconItem(
-                            iconData: Icons.shopping_cart, onTap: () {}),
+                          iconData: Icons.shopping_cart,
+                          onTap: () {},
+                          isWishList: false,
+                        ),
                       ),
                     ],
                   ),

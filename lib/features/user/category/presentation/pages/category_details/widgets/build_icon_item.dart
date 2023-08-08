@@ -3,8 +3,9 @@ part of 'category_details_widgets_imports.dart';
 class BuildIconItem extends StatelessWidget {
   final IconData iconData;
   final Function() onTap;
+  final bool? isWishList ;
 
-  const BuildIconItem({super.key, required this.iconData, required this.onTap});
+  const BuildIconItem({super.key, required this.iconData, required this.onTap,  this.isWishList});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,7 @@ class BuildIconItem extends StatelessWidget {
         ),
         child: Icon(
           iconData,
-          color: context.colors.blackOpacity,
+          color: isWishList??false ? context.colors.primary : context.colors.blackOpacity,
           size: 16.sp,
         ),
       ),

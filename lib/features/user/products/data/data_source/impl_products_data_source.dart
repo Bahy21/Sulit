@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_dynamic_calls
+
 import 'package:dartz/dartz.dart';
 import 'package:flutter_tdd/core/errors/failures.dart';
 import 'package:flutter_tdd/core/http/generic_http/api_names.dart';
@@ -5,7 +7,7 @@ import 'package:flutter_tdd/core/http/generic_http/generic_http.dart';
 import 'package:flutter_tdd/core/http/models/http_request_model.dart';
 import 'package:flutter_tdd/core/models/api_models/product_model/product_model.dart';
 import 'package:flutter_tdd/features/user/products/data/data_source/products_data_source.dart';
-import 'package:flutter_tdd/features/user/products/data/model/home_model/home_model.dart';
+import 'package:flutter_tdd/features/user/products/data/models/home_model/home_model.dart';
 import 'package:flutter_tdd/features/user/products/domain/entities/popular_products_params.dart';
 import 'package:injectable/injectable.dart';
 
@@ -26,8 +28,7 @@ class ImplProductsDataSource extends ProductsDataSource {
   }
 
   @override
-  Future<Either<Failure, List<ProductModel>>> getPopularProducts(
-      PopularProductsParams param) async {
+  Future<Either<Failure, List<ProductModel>>> getPopularProducts(PopularProductsParams param) async {
     HttpRequestModel model = HttpRequestModel(
       url: ApiNames.getPopularProducts + param.paramToQuery(),
       requestMethod: RequestMethod.get,
@@ -40,5 +41,17 @@ class ImplProductsDataSource extends ProductsDataSource {
       responseKey: (data) => data["data"]["section_products"]["products"],
     );
     return await GenericHttpImpl<List<ProductModel>>().call(model);
+  }
+
+  @override
+  Future<Either<Failure, bool>> toggleFavourite(int param)async {
+    HttpRequestModel model = HttpRequestModel(
+      url: ApiNames.toggleWishlist(param),
+      requestMethod: RequestMethod.post,
+      responseType: ResType.type,
+      showLoader: true,
+      responseKey: (data) => data["key"] == 'success',
+    );
+    return await GenericHttpImpl<bool>().call(model);
   }
 }

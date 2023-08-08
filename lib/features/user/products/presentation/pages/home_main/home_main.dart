@@ -30,7 +30,10 @@ class _HomeMainState extends State<HomeMain> {
             bloc: controller.homeCubit,
             builder: (context, state) {
               if (state is GenericUpdateState) {
-                return BuildHomeView(homeDomainModel: state.data!);
+                return BuildHomeView(
+                  homeDomainModel: state.data!,
+                  controller: controller,
+                );
               } else {
                 return const BuildLoadingHomeView();
               }

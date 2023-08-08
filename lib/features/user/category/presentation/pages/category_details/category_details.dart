@@ -32,7 +32,7 @@ class _CategoryDetailsState extends State<CategoryDetails> {
           BuildAllCategoriesView(
               categoryDetailsController: categoryDetailsController),
           BuildFilterBar(categoryDetailsController: categoryDetailsController),
-          BuildProducts(categoryDetailsController: categoryDetailsController),
+          BuildProducts(controller: categoryDetailsController),
         ],
       ),
     );

@@ -47,6 +47,7 @@ class _BrandDetailsState extends State<BrandDetails> {
                 itemCount: state.data.length,
                 itemBuilder: (context, index) => BuildProductItem(
                   productModel: state.data[index],
+                  onRefresh: () => controller.getBrandProducts(widget.brandId),
                 ),
               ),
             );

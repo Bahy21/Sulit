@@ -24,6 +24,7 @@ class ApiNames{
   //products urls
   static const String getHome = "home";
   static const String getPopularProducts = "mostpopulars";
+  static String toggleWishlist (int id) => "products/$id/wishlist/toggle";
 
   // categories urls
   static const String getCategories = "categories";
@@ -31,17 +32,21 @@ class ApiNames{
   static const String brandDetails = "brands/";
   static const String getCategoryProducts = "search";
 
+  // blogs
+  static const String blogs = "blogs";
+
   // addresses
   static const String userAddresses = "user/addresses";
   static const String addUserAddress = "user/addresses/create";
   static const String countries = "countries";
   static const String states = "states";
   static const String cities  = "cities";
-  static String setDefaultAddress (int id) => "user/addresses/$id/set-default?_method=put" ;
+  static String setDefaultAddress (int id) => "user/addresses/$id/set-default?_method=put";
+  static String deleteAddress (int id) => "user/addresses/$id/delete";
+  static String editAddress (int id) => "user/addresses/$id/update?_method=put";
   // sale urls
   static const String getAllFlashSale = "flash-deals";
   static const String getSaleDetails = "flash-deal-products/";
-
   // general
   static const String terms = "terms";
   static const String privacyPolicy = "privacy-policy";
@@ -52,5 +57,7 @@ class ApiNames{
   static const String ITEMS = "Items";
   static const String FEATURED_ITEMS = "$ITEMS + /Featured";
   static const String REFRESH_TOKEN = "RefreshToken";
+  // wishlist
+  static const String wishlist = "wishlists";
 
 }

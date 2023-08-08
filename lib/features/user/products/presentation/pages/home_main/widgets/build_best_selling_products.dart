@@ -2,9 +2,10 @@ part of 'home_main_widgets_imports.dart';
 
 class BuildBestSellingProducts extends StatelessWidget {
   final List<Product> bestSellingProducts;
+  final HomeMainController controller ;
 
   const BuildBestSellingProducts(
-      {super.key, required this.bestSellingProducts});
+      {super.key, required this.bestSellingProducts, required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +29,7 @@ class BuildBestSellingProducts extends StatelessWidget {
                     (index) {
                       return BuildProductItem(
                         productModel: bestSellingProducts[index],
+                        onRefresh: () => controller.getHome(context),
                       );
                     },
                   )

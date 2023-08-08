@@ -2,8 +2,9 @@ part of 'home_main_widgets_imports.dart';
 
 class BuildFeaturedProducts extends StatelessWidget {
   final List<Product> featuredProducts;
+  final HomeMainController controller ;
 
-  const BuildFeaturedProducts({super.key, required this.featuredProducts});
+  const BuildFeaturedProducts({super.key, required this.featuredProducts, required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +27,7 @@ class BuildFeaturedProducts extends StatelessWidget {
                   (index) {
                     return BuildProductItem(
                       productModel: featuredProducts[index],
+                      onRefresh: () => controller.getHome(context),
                     );
                   },
                 )

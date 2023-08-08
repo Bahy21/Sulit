@@ -1,0 +1,27 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_tdd/core/constants/dimens.dart';
+import 'package:flutter_tdd/core/helpers/custom_toast.dart';
+import 'package:flutter_tdd/core/helpers/validator.dart';
+import 'package:flutter_tdd/core/models/domain_models/city.dart';
+import 'package:flutter_tdd/core/models/domain_models/country.dart';
+import 'package:flutter_tdd/core/models/domain_models/state.dart';
+import 'package:flutter_tdd/core/routes/router_imports.gr.dart';
+import 'package:flutter_tdd/core/theme/colors/colors_extension.dart';
+import 'package:flutter_tdd/core/widgets/DefaultButton.dart';
+import 'package:flutter_tdd/core/widgets/DropdownTextField.dart';
+import 'package:flutter_tdd/core/widgets/GenericTextField.dart';
+import 'package:flutter_tdd/core/widgets/custom_dropDown/CustomDropDown.dart';
+import 'package:flutter_tdd/core/widgets/default_app_bar.dart';
+import 'package:flutter_tdd/features/general/common/presentation/pages/location_address/location_cubit/location_cubit.dart';
+import 'package:flutter_tdd/features/user/addresses/domain/entities/edit_address_params.dart';
+import 'package:flutter_tdd/features/user/addresses/domain/models/address.dart';
+import 'package:flutter_tdd/features/user/addresses/domain/use_cases/get_cities_by_state_id.dart';
+import 'package:flutter_tdd/features/user/addresses/domain/use_cases/get_countries.dart';
+import 'package:flutter_tdd/features/user/addresses/domain/use_cases/get_states_by_countryId.dart';
+import 'package:flutter_tdd/features/user/addresses/domain/use_cases/set_edit_address.dart';
+import 'package:flutter_tdd/features/user/addresses/presentation/pages/edit_address/widgets/edit_address_w_imports.dart';
+
+part 'edit_address.dart';
+part 'edit_address_controller.dart';

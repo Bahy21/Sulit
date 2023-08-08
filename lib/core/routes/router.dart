@@ -17,6 +17,7 @@ part of 'router_imports.dart';
     ...sellerShopRoute,
     //user
     ...addressesRoute,
+    ...blogRoutes,
     ...baseRoute,
     ...cartRoute,
     ...categoryRoute,

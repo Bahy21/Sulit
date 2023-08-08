@@ -10,11 +10,13 @@ import 'package:flutter_tdd/core/theme/text/app_text_style.dart';
 import 'package:flutter_tdd/core/widgets/CachedImage.dart';
 import 'package:flutter_tdd/features/user/category/presentation/pages/category_details/widgets/category_details_widgets_imports.dart';
 import 'package:flutter_tdd/features/user/products/domain/models/product.dart';
+import 'package:flutter_tdd/features/user/products/presentation/manager/products_helper.dart';
 
 class BuildProductItem extends StatelessWidget {
   final Product productModel;
+  final VoidCallback onRefresh ;
 
-  const BuildProductItem({super.key, required this.productModel});
+  const BuildProductItem({super.key, required this.productModel, required this.onRefresh});
 
   @override
   Widget build(BuildContext context) {
@@ -98,11 +100,19 @@ class BuildProductItem extends StatelessWidget {
                     child: Column(
                       children: [
                         BuildIconItem(
-                            iconData: Icons.favorite_border, onTap: () {}),
+                          iconData: productModel.isWishlist ? Icons.favorite : Icons.favorite_border ,
+                          onTap: () => ProductsHelper().toggleFavourite(productModel.id, onRefresh??(){}),
+                          isWishList: productModel.isWishlist,
+                        ),
                         BuildIconItem(
-                            iconData: Icons.compare_arrows, onTap: () {}),
+                          iconData: Icons.compare_arrows,
+                          onTap: () {},
+
+                        ),
                         BuildIconItem(
-                            iconData: Icons.shopping_cart, onTap: () {}),
+                          iconData: Icons.shopping_cart,
+                          onTap: () {},
+                        ),
                       ],
                     ),
                   )
@@ -117,18 +127,21 @@ class BuildProductItem extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        productModel.mainPrice,
+                        productModel.mainPrice ?? "",
                         style: AppTextStyle.s11_bold(
-                            color: context.colors.primary),
+                          color: context.colors.primary,
+                        ),
                       ),
                       Gaps.hGap5,
                       Visibility(
                         visible: productModel.hasDiscount,
                         child: Text(
-                          productModel.strokedPrice,
+                          productModel.strokedPrice ?? "",
                           style: AppTextStyle.s11_bold(
                             color: context.colors.black,
-                          ).copyWith(decoration: TextDecoration.lineThrough),
+                          ).copyWith(
+                            decoration: TextDecoration.lineThrough,
+                          ),
                         ),
                       ),
                     ],
@@ -153,7 +166,9 @@ class BuildProductItem extends StatelessWidget {
                     productModel.name,
                     style: AppTextStyle.s13_w500(
                       color: context.colors.black,
-                    ).copyWith(overflow: TextOverflow.ellipsis),
+                    ).copyWith(
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ),
                 ],
               ),

@@ -3,7 +3,6 @@ import 'package:flutter_tdd/core/models/domain_models/brand_domain_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'brand_model.freezed.dart';
-
 part 'brand_model.g.dart';
 
 @freezed
@@ -23,6 +22,10 @@ class BrandModel extends BaseApiModel<BrandDomainModel> with _$BrandModel {
 
   @override
   BrandDomainModel toDomainModel() {
-    return BrandDomainModel(id: id, name: name, logo: logo);
+    return BrandDomainModel(
+      id: id,
+      name: name,
+      logo: logo,
+    );
   }
 }
