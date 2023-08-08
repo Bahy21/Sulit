@@ -10,13 +10,7 @@ class AddNewAddress extends StatefulWidget {
 }
 
 class _AddNewAddressState extends State<AddNewAddress> {
-  late AddNewAddressController controller;
-
-  @override
-  void initState() {
-    controller = AddNewAddressController();
-    super.initState();
-  }
+  final AddNewAddressController controller = AddNewAddressController();
 
   @override
   Widget build(BuildContext context) {
@@ -27,11 +21,10 @@ class _AddNewAddressState extends State<AddNewAddress> {
         body: Column(
           children: [
             BuildAddAddressForm(
-              controller: controller,
-            ),
+                addNewAddressController: controller),
             DefaultButton(
               title: "Save",
-              onTap: () => controller.addNewAddress(context),
+              onTap: () {},
               margin: const EdgeInsets.all(20),
             )
           ],

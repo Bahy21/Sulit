@@ -76,12 +76,13 @@ class ImplCategoryDataSources extends CategoryDataSources {
 
   @override
   Future<Either<Failure, SubCategoryModel>> getSubCategories(
-      SubCategoryParams param) async {
+      SearchProductsParams params) async {
     HttpRequestModel model = HttpRequestModel(
-      url: ApiNames.getCategories + param.paramToQuery(),
+      url: ApiNames.getCategoryProducts ,
       requestMethod: RequestMethod.get,
       responseType: ResType.model,
-      refresh: param.refresh,
+      requestBody: params.toJson(),
+      refresh: params.refresh,
       responseKey: (data) => data['data'],
       toJsonFunc: (json) => SubCategoryModel.fromJson(json),
     );

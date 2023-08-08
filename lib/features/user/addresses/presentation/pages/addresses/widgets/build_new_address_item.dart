@@ -1,19 +1,13 @@
 part of 'addresses_widgets_imports.dart';
 
 class BuildNewAddressItem extends StatelessWidget {
-  final Address address;
-  final AddressesController controller;
-
-  const BuildNewAddressItem(
-      {Key? key, required this.address, required this.controller})
-      : super(key: key);
+  const BuildNewAddressItem({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    int index = controller.addressesBloc.state.data.indexOf(address);
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal:Dimens.dp20, vertical: Dimens.dp10),
-      padding: const EdgeInsets.all(Dimens.dp10),
+      margin: EdgeInsets.symmetric(vertical: Dimens.dp5),
+      padding: EdgeInsets.all(Dimens.dp10),
       decoration: BoxDecoration(
         borderRadius: Dimens.borderRadius10PX,
         color: context.colors.white,
@@ -28,40 +22,24 @@ class BuildNewAddressItem extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Radio<bool>(
-            value: false,
-            groupValue: !controller.addressesBloc.state.data[index].selected,
-            onChanged: (val) => controller.onSelectAddress(address, val, context, index),
+          Radio(
+            value: true,
+            groupValue: false,
+            onChanged: (val) {},
             activeColor: context.colors.primary,
           ),
           Gaps.hGap10,
           Expanded(
             child: Column(
-              children: [
+              children: const [
                 BuildAddressItem(
-                  title: "Address",
-                  desc: address.address,
-                ),
-                BuildAddressItem(
-                  title: "Postal code",
-                  desc: address.postalCode,
-                ),
-                BuildAddressItem(
-                  title: "City",
-                  desc: address.city?.name ?? "",
-                ),
-                BuildAddressItem(
-                  title: "State",
-                  desc: address.state?.name ?? "",
-                ),
-                BuildAddressItem(
-                  title: "Country",
-                  desc: address.country.name,
-                ),
-                BuildAddressItem(
-                  title: "Phone",
-                  desc: address.phone,
-                )
+                    title: "Address",
+                    desc: "Egypt Egypt Egypt Egypt Egypt Egypt"),
+                BuildAddressItem(title: "Postal code", desc: "1323242342323"),
+                BuildAddressItem(title: "City", desc: "Egypt"),
+                BuildAddressItem(title: "State", desc: "Egypt"),
+                BuildAddressItem(title: "Country", desc: "Egypt"),
+                BuildAddressItem(title: "Phone", desc: "01234567890")
               ],
             ),
           ),

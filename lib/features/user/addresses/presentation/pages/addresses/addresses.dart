@@ -10,13 +10,8 @@ class Addresses extends StatefulWidget {
 }
 
 class _AddressesState extends State<Addresses> {
-  late AddressesController controller;
+  AddressesController controller = AddressesController();
 
-  @override
-  void initState() {
-    controller = AddressesController();
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,28 +20,32 @@ class _AddressesState extends State<Addresses> {
         title: "Addresses",
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(
-          vertical: Dimens.dp10,
-        ),
-        child: BlocBuilder<GenericBloc<List<Address>>,
-            GenericState<List<Address>>>(
-          bloc: controller.addressesBloc,
-          builder: (context, state) {
-            if (state is GenericUpdateState) {
-              return Column(
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 13),
+        child: Column(
+          children: [
+            Container(
+              margin: EdgeInsets.all(Dimens.dp10),
+              padding: EdgeInsets.all(Dimens.dp15),
+              decoration: BoxDecoration(
+                borderRadius: Dimens.borderRadius10PX,
+                color: context.colors.greyWhite,
+                border: Border.all(color: context.colors.greyWhite),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const BuildAddNewAddress(),
-                  Visibility(
-                    visible: !state.data.isNotEmpty,
-                    replacement: const BuildAddressesEmptyView(),
-                    child: BuildAddressesView(controller: controller,)
-                  )
+                  Text(
+                    "Add New Address",
+                    style: AppTextStyle.s15_w700(color: context.colors.primary),
+                  ),
+                  Icon(Icons.add_circle, color: context.colors.primary),
                 ],
-              );
-            } else {
-              return const BuildAddressLoading();
-            }
-          },
+              ),
+            ),
+            ...List.generate(5, (index) {
+              return BuildNewAddressItem();
+            }),
+          ],
         ),
       ),
     );

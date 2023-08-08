@@ -76,7 +76,7 @@ class _MoreState extends State<More> {
           BuildMoreItem(
             title: 'Manage Profile',
             icon: Icons.person_2_outlined,
-            onTap: () => AutoRouter.of(context).push( ProfileRoute()),
+            onTap: () => AutoRouter.of(context).push(const ProfileRoute()),
           ),
         ],
       ),

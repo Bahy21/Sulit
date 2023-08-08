@@ -27,7 +27,7 @@ class BuildLoadingCategoryItem extends StatelessWidget {
           ),
           BuildShimmerItem(
             height: 20.r,
-            margin: Dimens.paddingAll10PX,
+            margin: Dimens.paddingAll15PX,
           ),
         ],
       ),

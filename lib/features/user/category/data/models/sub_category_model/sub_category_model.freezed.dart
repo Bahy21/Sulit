@@ -33,7 +33,9 @@ mixin _$SubCategoryModel {
   @JsonKey(name: 'attributes')
   List<AttributesModel> get attributes => throw _privateConstructorUsedError;
   @JsonKey(name: 'price_range')
-  PriceRangeModel get priceRange => throw _privateConstructorUsedError;
+  PriceRangeModel get priceRange =>
+      throw _privateConstructorUsedError; // @JsonKey(name: 'section_products')
+//     required SectionPaginationModel allProducts,
   int? get selectedId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -294,6 +296,8 @@ class _$_SubCategoryModel extends _SubCategoryModel {
   @override
   @JsonKey(name: 'price_range')
   final PriceRangeModel priceRange;
+// @JsonKey(name: 'section_products')
+//     required SectionPaginationModel allProducts,
   @override
   final int? selectedId;
 
@@ -386,7 +390,8 @@ abstract class _SubCategoryModel extends SubCategoryModel {
   @override
   @JsonKey(name: 'price_range')
   PriceRangeModel get priceRange;
-  @override
+  @override // @JsonKey(name: 'section_products')
+//     required SectionPaginationModel allProducts,
   int? get selectedId;
   @override
   @JsonKey(ignore: true)

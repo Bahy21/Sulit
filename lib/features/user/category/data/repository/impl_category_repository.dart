@@ -43,8 +43,8 @@ class ImplCategoryRepository extends CategoryRepository with ModelToDomain {
 
   @override
   Future<Either<Failure, SubCategory>> getSubCategories(
-      SubCategoryParams param) async {
-    var result = await dataSources.getSubCategories(param);
+      SearchProductsParams params) async {
+    var result = await dataSources.getSubCategories(params);
     return toDomainResult(result);
   }
 

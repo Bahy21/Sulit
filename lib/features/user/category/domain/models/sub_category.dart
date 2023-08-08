@@ -4,6 +4,7 @@ import 'package:flutter_tdd/features/user/category/domain/models/attributes.dart
 import 'package:flutter_tdd/features/user/category/domain/models/category.dart';
 import 'package:flutter_tdd/features/user/category/domain/models/color_domain_model.dart';
 import 'package:flutter_tdd/features/user/category/domain/models/price_range.dart';
+import 'package:flutter_tdd/features/user/category/domain/models/section_pagination.dart';
 
 class SubCategory extends BaseDomainModel {
   final Category category;
@@ -13,6 +14,7 @@ class SubCategory extends BaseDomainModel {
   final List<ColorDomainModel> colors;
   final List<Attributes> attributes;
   final PriceRange priceRange;
+  // final SectionPagination allProducts;
   int? selectedId;
   bool isColorAttributeOpened;
 
@@ -24,6 +26,7 @@ class SubCategory extends BaseDomainModel {
     required this.colors,
     required this.attributes,
     required this.priceRange,
+    // required this.allProducts,
     this.selectedId,
     this.isColorAttributeOpened = false,
   });

@@ -19,11 +19,11 @@ class BuildProducts extends StatelessWidget {
             crossAxisCount: 2,
             childAspectRatio: .9,
           ),
+          showNewPageProgressIndicatorAsGridChild: false,
+          showNewPageErrorIndicatorAsGridChild: true,
           builderDelegate: PagedChildBuilderDelegate<Product>(
-            firstPageProgressIndicatorBuilder: (_) =>
-                const BuildLoadingCatsProducts(),
-            itemBuilder: (_, item, index) =>
-                BuildProductItem(productModel: item),
+            firstPageProgressIndicatorBuilder: (_) => const BuildLoadingCatsProducts(),
+            itemBuilder: (_, item, index) => BuildProductItem(productModel: item),
             noItemsFoundIndicatorBuilder: (cxt) => const BuildEmptyDataView(),
           ),
         ),

@@ -16,7 +16,7 @@ import 'package:flutter_tdd/features/user/category/domain/models/category.dart';
 import 'package:flutter_tdd/features/user/category/domain/models/color_domain_model.dart';
 import 'package:flutter_tdd/features/user/category/domain/models/sub_category.dart';
 import 'package:flutter_tdd/features/user/category/domain/use_cases/get_category_products.dart';
-import 'package:flutter_tdd/features/user/category/domain/use_cases/get_sub_category.dart';
+import 'package:flutter_tdd/features/user/category/domain/use_cases/get_sub_categories.dart';
 import 'package:flutter_tdd/features/user/products/domain/models/product.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 

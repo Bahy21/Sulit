@@ -13,7 +13,7 @@ class BuildLoadingCatsProducts extends StatelessWidget {
         spacing: 15.r,
         gridCrossCount: 2,
         gridItemHeight: 200.spMin,
-        // padding: Dimens.paddingAll15PX,
+        // padding: Dimens.paddingHorizontal15PX,
         children: List.generate(
           5,
           (index) => const BuildProductItemShimmer(),

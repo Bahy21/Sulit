@@ -33,7 +33,7 @@ class BuildCategoryItem extends StatelessWidget {
               haveRadius: false,
               url: categoryModel.banner ?? "",
             ),
-            Gaps.vGap10,
+            Gaps.vGap15,
             Flexible(
               child: Text(
                 categoryModel.name,

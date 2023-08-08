@@ -44,7 +44,7 @@ class CategoryDetailsController {
   }
 
   void initData(BuildContext context, int catId) {
-    getSubCategories(context, catId, 0, refresh: false);
+    // getSubCategories(context, catId, 0, refresh: false);
     getSubCategories(context, catId, 0).then((value) {
       getPopularProducts(1, refresh: false);
       pagingController.addPageRequestListener((pageKey) {
@@ -53,10 +53,12 @@ class CategoryDetailsController {
     });
   }
 
-  Future<void> getSubCategories(BuildContext context, int id, int index,
+  Future<void> getSubCategories(BuildContext context,  int id, int index,
       {bool refresh = true}) async {
-    var params = _subCategoryParams(id, refresh);
-    var result = await GetSubCategory().call(params);
+    currentCatId=id;
+    var params = _productsParams(1, refresh);
+    print(">>>>>${params.toJson()}");
+    var result = await GetSubCategories().call(params);
     _checkSubCategoriesList(result!, id, index);
     RangeValues rangeValues = RangeValues(double.parse(result.priceRange.min),
         double.parse(result.priceRange.max));
