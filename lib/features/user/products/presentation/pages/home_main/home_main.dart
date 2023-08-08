@@ -10,12 +10,11 @@ class HomeMain extends StatefulWidget {
 }
 
 class _HomeMainState extends State<HomeMain> {
-  final HomeMainController controller = HomeMainController();
+  late HomeMainController controller ;
 
   @override
   void initState() {
-    controller.getHome(context, refresh: false);
-    controller.getHome(context);
+    controller = HomeMainController(context);
     super.initState();
   }
 

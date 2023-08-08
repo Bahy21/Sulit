@@ -76,6 +76,8 @@ import 'package:flutter_tdd/features/seller/profile/presentation/pages/seller_pr
     as _i30;
 import 'package:flutter_tdd/features/seller/shop/presentation/pages/seller_shop_setting/seller_shop_setting_imports.dart'
     as _i31;
+import 'package:flutter_tdd/features/user/addresses/domain/models/address.dart'
+    as _i67;
 import 'package:flutter_tdd/features/user/addresses/presentation/pages/add_new_address/add_new_address_imports.dart'
     as _i32;
 import 'package:flutter_tdd/features/user/addresses/presentation/pages/addresses/addresses_imports.dart'
@@ -522,7 +524,7 @@ class AppRouter extends _i62.RootStackRouter {
         routeData: routeData,
         child: _i50.PopularProducts(
           key: args.key,
-          popularProductsModel: args.popularProductsModel,
+          model: args.popularProductsModel,
         ),
         opaque: true,
       );
@@ -542,9 +544,14 @@ class AppRouter extends _i62.RootStackRouter {
       );
     },
     ProfileRoute.name: (routeData) {
+      final args = routeData.argsAs<ProfileRouteArgs>(
+          orElse: () => const ProfileRouteArgs());
       return _i62.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i53.Profile(),
+        child: _i53.Profile(
+          key: args.key,
+          address: args.address,
+        ),
         opaque: true,
       );
     },
@@ -1690,14 +1697,36 @@ class WishlistRoute extends _i62.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i53.Profile]
-class ProfileRoute extends _i62.PageRouteInfo<void> {
-  const ProfileRoute()
-      : super(
+class ProfileRoute extends _i62.PageRouteInfo<ProfileRouteArgs> {
+  ProfileRoute({
+    _i64.Key? key,
+    _i67.Address? address,
+  }) : super(
           ProfileRoute.name,
           path: '/Profile',
+          args: ProfileRouteArgs(
+            key: key,
+            address: address,
+          ),
         );
 
   static const String name = 'ProfileRoute';
+}
+
+class ProfileRouteArgs {
+  const ProfileRouteArgs({
+    this.key,
+    this.address,
+  });
+
+  final _i64.Key? key;
+
+  final _i67.Address? address;
+
+  @override
+  String toString() {
+    return 'ProfileRouteArgs{key: $key, address: $address}';
+  }
 }
 
 /// generated route for

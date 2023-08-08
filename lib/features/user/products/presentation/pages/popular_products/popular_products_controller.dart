@@ -1,13 +1,13 @@
 part of 'popular_products_imports.dart';
 
 class PopularProductsController {
-  final PagingController<int, Product> pagingController =
-      PagingController(firstPageKey: 1);
+  final PagingController<int, Product> pagingController = PagingController(
+    firstPageKey: 1,
+  );
   int pageSize = 12;
 
-  PopularProductsParams _popularProductsParams(int id, int page, bool refresh) {
-    return PopularProductsParams(
-        id: id, currentPage: page, pageSize: pageSize, refresh: refresh);
+  PopularProductsController(int id) {
+    initPagination(id);
   }
 
   void initPagination(int id) {
@@ -31,5 +31,14 @@ class PopularProductsController {
       final nextPageKey = currentPage + 1;
       pagingController.appendPage(data, nextPageKey);
     }
+  }
+
+  PopularProductsParams _popularProductsParams(int id, int page, bool refresh) {
+    return PopularProductsParams(
+      id: id,
+      currentPage: page,
+      pageSize: pageSize,
+      refresh: refresh,
+    );
   }
 }
