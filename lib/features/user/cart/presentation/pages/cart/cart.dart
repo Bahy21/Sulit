@@ -8,7 +8,7 @@ class Cart extends StatefulWidget {
 }
 
 class _CartState extends State<Cart> {
-  final CartController cartController = CartController();
+  final CartController controller = CartController();
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class _CartState extends State<Cart> {
               padding: const EdgeInsets.symmetric(horizontal: Dimens.dp20),
               itemCount: 2,
               itemBuilder: (_, index) => BuildCartItem(
-                cartController: cartController,
+                cartController: controller,
               ),
             ),
           ),

@@ -18,7 +18,7 @@ class Put extends DioHelper {
   @override
   Future<Either<ServerFailure, Response>> call(RequestBodyModel params) async {
     if (params.showLoader) getIt<LoadingHelper>().showLoadingDialog();
-    FormData? formData = getIt<HandleRequestBody>()(params.body);
+    FormData? formData = getIt<HandleRequestBody>()(params.body,params.haveFile);
     //create multipart request for POST or PATCH method
 
     try {

@@ -13,23 +13,32 @@ class UserModel extends BaseApiModel<UserDomainModel> with _$UserModel {
 
   @JsonSerializable(explicitToJson: true)
   const factory UserModel({
-    @JsonKey(name: "id") required String id,
-    @JsonKey(name: "first_name") required String firstName,
-    @JsonKey(name: "last_name") required String lastName,
+    @JsonKey(name: "id") required int id,
+    @JsonKey(name: "name") required String name,
+    @JsonKey(name: "avatar") String? avatar,
+    @JsonKey(name: "avatar_original") required String avatarOriginal,
     @JsonKey(name: "email") required String email,
     @JsonKey(name: "phone") required String phone,
+    @JsonKey(name: "token") required String token,
+    @JsonKey(name: "token_type") required String tokenType,
+    @JsonKey(name: "phone_is_active") required bool isPhoneActive,
   }) = _UserModel;
 
-  factory UserModel.fromJson(Map<String, dynamic> json) => _$UserModelFromJson(json);
+  factory UserModel.fromJson(Map<String, dynamic> json) =>
+      _$UserModelFromJson(json);
 
   @override
   UserDomainModel toDomainModel() {
     return UserDomainModel(
       id: id,
       email: email,
-      firstName: firstName,
-      lastName: lastName,
       phone: phone,
+      name: name,
+      avatar: avatar,
+      token: token,
+      avatarOriginal: avatarOriginal,
+      tokenType: tokenType,
+      isPhoneActive: isPhoneActive,
     );
   }
 }

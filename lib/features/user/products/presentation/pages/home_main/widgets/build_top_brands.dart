@@ -1,30 +1,27 @@
 part of 'home_main_widgets_imports.dart';
 
 class BuildTopBrands extends StatelessWidget {
-  const BuildTopBrands({Key? key}) : super(key: key);
+  final List<BrandDomainModel> brandList;
+
+  const BuildTopBrands({super.key, required this.brandList});
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height * .35,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          BuildHeaderTitle(
-            title: "Top 10 Brands",
-            btnText: "View All Brands",
-            onTap: () => AutoRouter.of(context).push(const BrandsRoute()),
-          ),
-          Gaps.vGap10,
-          ...List.generate(
-              3,
-              (index) => const BuildCategoriesItem(
-                    title: 'Netflix',
-                    image:
-                        "https://deadline.com/wp-content/uploads/2022/08/Netflix_Symbol_logo.jpg",
-                  ))
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Gaps.vGap5,
+        BuildCustomHeaderTitle(
+          title: "Top 10 Brands",
+          btnText: "View All Brands",
+          onTap: () => AutoRouter.of(context).push(const BrandsRoute()),
+        ),
+        Gaps.vGap5,
+        ...List.generate(
+          brandList.length,
+          (index) => BuildTopBrandItem(brandModel: brandList[index]),
+        )
+      ],
     );
   }
 }

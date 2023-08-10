@@ -1,24 +1,38 @@
 part of 'category_details_widgets_imports.dart';
 
 class BuildSpecificationItem extends StatelessWidget {
-  const BuildSpecificationItem({Key? key}) : super(key: key);
+  final CategoryDetailsController categoryDetailsController;
+  final AttributeValue attributeValueModel;
+  final int position;
+  final int attributeIndex;
+
+  const BuildSpecificationItem(
+      {super.key,
+      required this.attributeValueModel,
+      required this.categoryDetailsController,
+      required this.position,
+      required this.attributeIndex});
 
   @override
   Widget build(BuildContext context) {
+    final Color textColor = attributeValueModel.selected
+        ? context.colors.primary
+        : context.colors.black;
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            "specification ",
-            style: AppTextStyle.s14_w400(color: context.colors.black),
+            attributeValueModel.value,
+            style: AppTextStyle.s14_w400(color: textColor),
           ),
           Checkbox(
-            value: false,
+            value: attributeValueModel.selected,
             visualDensity: const VisualDensity(vertical: -2),
-            onChanged: (val) {},
-            activeColor: Colors.grey.withOpacity(.3),
+            onChanged: (val) => categoryDetailsController.onSelectAttributes(
+                attributeIndex, position),
+            checkColor: context.colors.white,
           )
         ],
       ),

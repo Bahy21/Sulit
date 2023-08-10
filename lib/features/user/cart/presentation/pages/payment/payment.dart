@@ -8,7 +8,7 @@ class Payment extends StatefulWidget {
 }
 
 class _PaymentState extends State<Payment> {
-  final PaymentController paymentController = PaymentController();
+  final PaymentController controller = PaymentController();
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +22,10 @@ class _PaymentState extends State<Payment> {
             child: ListView(
               padding: const EdgeInsets.symmetric(horizontal: Dimens.dp20),
               children: [
-                BuildSummary(paymentController: paymentController),
-                BuildPaymentOptions(paymentController: paymentController),
-                BuildAdditionalInfo(paymentController: paymentController),
-                BuildConditions(paymentController: paymentController),
+                BuildSummary(paymentController: controller),
+                BuildPaymentOptions(paymentController: controller),
+                BuildAdditionalInfo(paymentController: controller),
+                BuildConditions(paymentController: controller),
               ],
             ),
           ),

@@ -8,8 +8,7 @@ class SupportTickets extends StatefulWidget {
 }
 
 class _SupportTicketsState extends State<SupportTickets> {
-  SupportTicketsController supportTicketsController =
-      SupportTicketsController();
+  SupportTicketsController controller = SupportTicketsController();
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +17,9 @@ class _SupportTicketsState extends State<SupportTickets> {
       body: ListView(
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16).r,
         children: [
-          BuildAddTicket(supportTicketsController: supportTicketsController),
+          BuildAddTicket(supportTicketsController: controller),
           Gaps.vGap32,
-          BuildTicketsList(supportTicketsController: supportTicketsController)
+          BuildTicketsList(supportTicketsController: controller)
         ],
       ),
     );

@@ -16,12 +16,27 @@ class _CategoriesState extends State<Categories> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar:  BuildSearchAppBar(homeController: widget.homeController),
-        body: ListView.builder(
-          padding: const EdgeInsets.all(Dimens.dp20),
-          itemCount: 4,
-          itemBuilder: (_, index) => BuildCategoryItem(
-              categoriesController: categoriesController),
+        appBar: BuildSearchAppBar(homeController: widget.homeController),
+        body: Column(
+          children: [
+            BuildCategorySearchView(categoriesController: categoriesController),
+            Flexible(
+              child: GenericListView(
+                type: ListViewType.gridApi,
+                onRefresh: categoriesController.getCategories,
+                params: [context],
+                cubit: categoriesController.categoriesCubit,
+                runSpacing: 15.r,
+                spacing: 15.r,
+                gridCrossCount: 2,
+                gridItemHeight: 150.spMin,
+                padding: Dimens.paddingAll15PX,
+                itemBuilder: (_, index, item) =>
+                    BuildCategoryItem(categoryModel: item),
+                loadingWidget: const BuildLoadingCategoriesView(),
+              ),
+            ),
+          ],
         ),
       ),
     );

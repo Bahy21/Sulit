@@ -15,24 +15,25 @@ class BuildTermsAndConditions extends StatelessWidget {
           child: Row(
             children: [
               Checkbox(
-                  checkColor: context.colors.white,
-                  activeColor: context.colors.primary,
-                  value: state.data,
-                  onChanged: (value) =>
-                      registerController.termCubit.onUpdateData(value!)),
+                checkColor: context.colors.white,
+                activeColor: context.colors.primary,
+                value: state.data,
+                onChanged: (value) =>
+                    registerController.termCubit.onUpdateData(value!),
+              ),
               GestureDetector(
                 onTap: () {},
                 child: Row(
                   children: [
                     Text(
                       "By signing up you agree to our ",
-                      style: AppTextStyle.s14_w400(
+                      style: AppTextStyle.s16_w400(
                           color: context.colors.blackOpacity),
                     ),
                     Text(
                       "terms and conditions",
                       style:
-                          AppTextStyle.s14_w400(color: context.colors.primary),
+                          AppTextStyle.s16_w400(color: context.colors.primary),
                     ),
                   ],
                 ),

@@ -13,6 +13,8 @@ class AppLightColors extends AppColors {
 
   @override
   Color get background => Colors.white;
+  @override
+  Color get grey => Colors.grey;
 
   @override
   Color get appBarColor => const Color(0xFFF9656B);
@@ -59,5 +61,8 @@ class AppLightColors extends AppColors {
   @override
   // TODO: implement drawerColor
   Color get drawerColor => const Color(0xFFe9e9f0);
+
+  @override
+  Color get offWhite => const Color(0xffF2F2F2);
 
 }

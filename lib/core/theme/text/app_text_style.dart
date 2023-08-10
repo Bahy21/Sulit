@@ -33,6 +33,9 @@ class AppTextStyle extends TextStyle {
   // ignore: non_constant_identifier_names
   const AppTextStyle.s11_w400({required Color color})
       : super(color: color, fontSize: 11, fontWeight: FontWeight.w400, height: fontHeight,);
+  // ignore: non_constant_identifier_names
+  const AppTextStyle.s11_bold({required Color color})
+      : super(color: color, fontSize: 11, fontWeight: FontWeight.bold, height: fontHeight,);
 
   // ignore: non_constant_identifier_names
   const AppTextStyle.s12_w400({required Color color})
@@ -55,6 +58,10 @@ class AppTextStyle extends TextStyle {
       : super(color: color, fontSize: 12, fontWeight: FontWeight.w700, height: fontHeight);
 
   // ignore: non_constant_identifier_names
+  const AppTextStyle.s13_w400({required Color color})
+      : super(color: color, fontSize: 13, fontWeight: FontWeight.w400, height: fontHeight,);
+
+  // ignore: non_constant_identifier_names
   const AppTextStyle.s13_w500({required Color color})
       : super(color: color, fontSize: 13, fontWeight: weight500, height: fontHeight,);
 
@@ -73,6 +80,10 @@ class AppTextStyle extends TextStyle {
   // ignore: non_constant_identifier_names
   const AppTextStyle.s14_w800({required Color color})
       : super(color: color, fontSize: 14, fontWeight: FontWeight.w800, height: fontHeight,);
+
+  // ignore: non_constant_identifier_names
+  const AppTextStyle.s15_w400({required Color color})
+      : super(color: color, fontSize: 15, fontWeight: FontWeight.w400, height: fontHeight,);
 
   // ignore: non_constant_identifier_names
   const AppTextStyle.s15_w500({required Color color})
@@ -120,6 +131,17 @@ class AppTextStyle extends TextStyle {
   // ignore: non_constant_identifier_names
   const AppTextStyle.s18_w700({required Color color})
       : super(color: color, fontSize: 18, fontWeight: FontWeight.w700, height: fontHeight,);
+  // ignore: non_constant_identifier_names
+  const AppTextStyle.s19_w500({required Color color})
+      : super(color: color, fontSize: 19, fontWeight: weight500, height: fontHeight);
+
+  // ignore: non_constant_identifier_names
+  const AppTextStyle.s19_w600({required Color color})
+      : super(color: color, fontSize: 19, fontWeight: FontWeight.w600, height: fontHeight,);
+
+  // ignore: non_constant_identifier_names
+  const AppTextStyle.s19_w700({required Color color})
+      : super(color: color, fontSize: 19, fontWeight: FontWeight.w700, height: fontHeight,);
 
   // ignore: non_constant_identifier_names
   const AppTextStyle.s20_w500({required Color color})

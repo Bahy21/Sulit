@@ -1,9 +1,9 @@
 part of 'category_details_imports.dart';
 
 class CategoryDetails extends StatefulWidget {
-  final String title;
+  final Category categoryModel;
 
-  const CategoryDetails({super.key, required this.title});
+  const CategoryDetails({super.key, required this.categoryModel});
 
   @override
   _CategoryDetailsState createState() => _CategoryDetailsState();
@@ -15,7 +15,7 @@ class _CategoryDetailsState extends State<CategoryDetails> {
 
   @override
   void initState() {
-    categoryDetailsController.initData();
+    categoryDetailsController.initData(context,widget.categoryModel.id);
     super.initState();
   }
 
@@ -24,17 +24,15 @@ class _CategoryDetailsState extends State<CategoryDetails> {
     return Scaffold(
       extendBody: true,
       key: categoryDetailsController.scaffold,
-      appBar: const BuildCustomAppBar(),
+      appBar: DefaultAppBar(title: widget.categoryModel.name),
       drawer: BuildFilterDrawer(
           categoryDetailsController: categoryDetailsController),
       body: Column(
         children: [
-          BuildFilterBar(
-            categoryName: widget.title,
-            categoryDetailsController: categoryDetailsController,
-          ),
-          BuildSortBar(categoryDetailsController: categoryDetailsController),
-          const BuildProducts(),
+          BuildAllCategoriesView(
+              categoryDetailsController: categoryDetailsController),
+          BuildFilterBar(categoryDetailsController: categoryDetailsController),
+          BuildProducts(controller: categoryDetailsController),
         ],
       ),
     );

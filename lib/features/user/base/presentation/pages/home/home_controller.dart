@@ -32,4 +32,8 @@ class HomeController {
       tabController.animateTo(index);
     }
   }
+  Future<bool> onBackPressed() async {
+    SystemNavigator.pop();
+    return true;
+  }
 }

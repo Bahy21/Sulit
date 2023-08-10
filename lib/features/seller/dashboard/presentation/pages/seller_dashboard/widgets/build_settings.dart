@@ -17,10 +17,9 @@ class BuildSettings extends StatelessWidget {
       ),
       children: [
         BuildSettingItem(
-          title: "Money Withdraw ",
+          title: "Money Withdraw",
           iconData: CupertinoIcons.creditcard,
-          onTap: () =>
-              AutoRouter.of(context).push(const SellerMoneyWithDrawRoute()),
+          onTap: () => AutoRouter.of(context).push(const SellerMoneyWithDrawRoute()),
         ),
         BuildSettingItem(
           title: "Add New Product",

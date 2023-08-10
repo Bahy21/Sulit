@@ -8,6 +8,7 @@ class Shipping extends StatefulWidget {
 }
 
 class _ShippingState extends State<Shipping> {
+  final ShippingController controller = ShippingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

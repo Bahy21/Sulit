@@ -9,15 +9,13 @@ class BuildLoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LoadingButton(
-        title: "Login",
-        onTap: () => controller.onSubmit(context),
-        color: context.colors.primary,
-        textColor: context.colors.white,
-        btnKey: controller.btnKey,
-        margin: const EdgeInsets.only(top: 10).r,
-        fontSize: 10,
-        height: 40.h,
-
+      title: "Login",
+      onTap: () => controller.onSubmit(context),
+      color: context.colors.primary,
+      textColor: context.colors.white,
+      btnKey: controller.btnKey,
+      margin: Dimens.paddingVertical10PX,
+      height: 40.h,
     );
   }
 }

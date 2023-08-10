@@ -8,7 +8,7 @@ class Search extends StatefulWidget {
 }
 
 class _SearchState extends State<Search> {
-  final SearchController searchController = SearchController();
+  final FilterController controller = FilterController();
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class _SearchState extends State<Search> {
         appBar: const BuildCustomAppBar(),
         body: Column(
           children: [
-            BuildSearchField(searchController: searchController),
+            BuildSearchField(controller: controller),
             Flexible(
               child: ListView(
                 children: [

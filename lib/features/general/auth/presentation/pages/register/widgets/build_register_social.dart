@@ -6,29 +6,23 @@ class BuildRegisterSocial extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20).r,
+      padding: Dimens.paddingVertical20PX,
       child: Column(
         children: [
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Expanded(
-                  child: Divider(
-                color: context.colors.blackOpacity,
-                endIndent: 20,
-              )),
+              Expanded(child: Gaps.line(context.colors.blackOpacity, 20)),
+              Gaps.hGap10,
               Text(
                 "Or join with",
                 style: AppTextStyle.s16_w400(color: context.colors.black),
               ),
-              Expanded(
-                  child: Divider(
-                color: context.colors.blackOpacity,
-                indent: 20,
-              )),
+              Gaps.hGap10,
+              Expanded(child: Gaps.line(context.colors.blackOpacity, 20)),
             ],
           ),
-          Gaps.vGap32,
+          Gaps.vGap20,
           SvgPicture.asset(
             Res.facebook,
             width: 50.r,

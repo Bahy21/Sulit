@@ -12,7 +12,7 @@ class BuildSuggestItem extends StatelessWidget {
         ...List.generate(
           3,
           (index) => GestureDetector(
-            onTap: ()=>AutoRouter.of(context).push(CategoryDetailsRoute(title: "title")),
+            // onTap: ()=>AutoRouter.of(context).push(CategoryDetailsRoute(title: "title")),
             child: Padding(
               padding: const EdgeInsets.symmetric(
                   horizontal: Dimens.dp20, vertical: Dimens.dp10),

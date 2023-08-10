@@ -8,7 +8,7 @@ class Delivery extends StatefulWidget {
 }
 
 class _DeliveryState extends State<Delivery> {
-  final DeliveryController deliveryController = DeliveryController();
+  final DeliveryController controller = DeliveryController();
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class _DeliveryState extends State<Delivery> {
             child: ListView(
               children: [
                 const BuildDeliveryProducts(),
-                BuildDeliveryType(deliveryController: deliveryController),
+                BuildDeliveryType(deliveryController: controller),
               ],
             ),
           ),

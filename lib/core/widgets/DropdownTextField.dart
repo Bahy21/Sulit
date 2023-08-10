@@ -4,6 +4,7 @@ import 'package:flutter_tdd/core/bloc/device_cubit/device_cubit.dart';
 import 'package:flutter_tdd/core/constants/input_field_style/custom_input_decoration.dart';
 import 'package:flutter_tdd/core/theme/colors/colors_extension.dart';
 import 'package:flutter_tdd/core/theme/text/app_text_style.dart';
+
 import 'custom_dropDown/CustomDropDown.dart';
 
 class DropdownTextField<T> extends StatelessWidget {
@@ -101,8 +102,8 @@ class DropdownTextField<T> extends StatelessWidget {
         selectedItem: selectedItem,
         itemAsString: itemAsString,
         showSelectedItem: showSelectedItem,
-        style: AppTextStyle.s14_w400(color: context.colors.black),
-        itemStyle: AppTextStyle.s14_w400(color: context.colors.black),
+        style: AppTextStyle.s13_w400(color: context.colors.black),
+        itemStyle: AppTextStyle.s13_w400(color: context.colors.black),
         searchBoxStyle: AppTextStyle.s12_w400(color: context.colors.blackOpacity),
         searchBoxDecoration: CustomInputDecoration(
             hint: searchHint ?? "بحث",

@@ -11,12 +11,11 @@ class BuildForgetPasswordButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return LoadingButton(
       title: "Send Password Reset Link",
-      onTap: () {},
+      onTap: () =>forgetPasswordController.forgetPassword(context),
       color: context.colors.primary,
       textColor: context.colors.white,
       btnKey: forgetPasswordController.btnKey,
-      margin: const EdgeInsets.only(top: 20).r,
-      fontSize: 10,
+      margin: Dimens.paddingVertical30PX,
       height: 40.h,
     );
   }

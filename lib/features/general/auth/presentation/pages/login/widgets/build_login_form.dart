@@ -18,29 +18,33 @@ class BuildLoginForm extends StatelessWidget {
             action: TextInputAction.next,
             validate: (value) => value?.validateEmpty(),
             label: "E-mail",
-            margin: const EdgeInsets.only(top: 20),
+            margin: Dimens.inputFieldMargin,
           ),
           BlocBuilder<GenericBloc<bool>, GenericState<bool>>(
-              bloc: controller.passwordCubit,
-              builder: (context, state) {
-                return GenericTextField(
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                  controller: controller.password,
-                  fieldTypes: !state.data ? FieldTypes.password : FieldTypes.normal,
-                  type: TextInputType.visiblePassword,
-                  action: TextInputAction.done,
-                  validate: (value) => value?.validatePassword(),
-                  label: "Password",
-                  margin: const EdgeInsets.only(top: 20),
-                  suffixIcon: IconButton(
-                    onPressed: () => controller.passwordCubit.onUpdateData(!state.data),
-                    icon: Icon(
-                        !state.data ? Icons.visibility_outlined : Icons.visibility_off_outlined,
-                        size: 20,
-                        color: context.colors.primary),
+            bloc: controller.passwordCubit,
+            builder: (context, state) {
+              return GenericTextField(
+                controller: controller.password,
+                fieldTypes:
+                    !state.data ? FieldTypes.password : FieldTypes.normal,
+                type: TextInputType.visiblePassword,
+                action: TextInputAction.done,
+                validate: (value) => value?.validateEmpty(),
+                label: "Password",
+                suffixIcon: IconButton(
+                  onPressed: () =>
+                      controller.passwordCubit.onUpdateData(!state.data),
+                  icon: Icon(
+                    !state.data
+                        ? Icons.visibility_outlined
+                        : Icons.visibility_off_outlined,
+                    size: 17.sp,
+                    color: context.colors.primary,
                   ),
-                );
-              }),
+                ),
+              );
+            },
+          ),
         ],
       ),
     );

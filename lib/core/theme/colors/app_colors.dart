@@ -35,6 +35,7 @@ abstract class AppColors {
   Color get primary;
 
   Color get secondary;
+  Color get grey;
 
   Color get greyWhite;
 
@@ -66,6 +67,6 @@ abstract class AppColors {
 
   Color get transparent;
   Color get drawerColor;
-
+  Color get offWhite;
 
 }

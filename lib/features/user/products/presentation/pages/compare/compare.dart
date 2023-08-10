@@ -8,6 +8,7 @@ class Compare extends StatefulWidget {
 }
 
 class _CompareState extends State<Compare> {
+  final CompareController controller = CompareController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

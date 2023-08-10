@@ -8,32 +8,32 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-  RegisterController registerController = RegisterController();
+  late RegisterController controller ;
 
+  @override
+  void initState() {
+    controller = RegisterController();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const BuildAuthAppBar(),
       body: GestureDetector(
-        onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
+        onTap: FocusScope.of(context).unfocus,
         child: ListView(
-          padding: const EdgeInsets.symmetric(horizontal: 16).r,
+          padding: Dimens.paddingHorizontal20PX,
           children: [
-            Column(
-              children: [
-                const BuildHeaderLogo(),
-                const BuildHeaderTitle(title: "Create an account"),
-                Gaps.vGap20,
-                BuildRegisterFormFields(registerController: registerController),
-                BuildTermsAndConditions(registerController: registerController),
-                Gaps.vGap20,
-                BuildRegisterButton(registerController: registerController),
-                Gaps.vGap32,
-                BuildSellerButton(registerController: registerController),
-                const BuildRegisterSocial(),
-                const BuildHaveAccount()
-              ],
-            ),
+            const BuildHeaderLogo(),
+            const BuildHeaderTitle(title: "Create an account"),
+            Gaps.vGap15,
+            BuildRegisterFormFields(registerController: controller),
+            Gaps.vGap10,
+            BuildTermsAndConditions(registerController: controller),
+            BuildRegisterButton(controller: controller),
+            BuildSellerButton(registerController: controller),
+            const BuildRegisterSocial(),
+            const BuildHaveAccount(),
           ],
         ),
       ),

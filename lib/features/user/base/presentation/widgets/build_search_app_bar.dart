@@ -6,9 +6,9 @@ import 'package:flutter_tdd/res.dart';
 import 'package:flutter_tdd/features/user/base/presentation/pages/home/home_imports.dart';
 
 class BuildSearchAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final HomeController homeController;
-
-  const BuildSearchAppBar({Key? key, required this.homeController})
+  final HomeController? homeController;
+  final bool? isHome ;
+  const BuildSearchAppBar({Key? key,  this.homeController, this.isHome})
       : super(key: key);
 
   @override
@@ -17,25 +17,28 @@ class BuildSearchAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0,
       backgroundColor: context.colors.white,
       toolbarHeight: 80,
-      leading: IconButton(
-        onPressed: () => homeController.scaffoldKey.currentState!.openDrawer(),
-        icon: Icon(
-          Icons.menu,
-          color: context.colors.black,
-          size: 25,
+      leading: Visibility(
+        visible: isHome?? true,
+        child: IconButton(
+          onPressed: () => homeController?.scaffoldKey.currentState!.openDrawer(),
+          icon: Icon(
+            Icons.menu,
+            color: context.colors.black,
+            size: 25,
+          ),
         ),
       ),
       title: Image.asset(Res.suliitLogo, height: 30, width: 150),
-      actions: [
-        IconButton(
-          onPressed: () => AutoRouter.of(context).push(const SearchRoute()),
-          icon: Icon(Icons.search, color: context.colors.black, size: 25),
-        ),
-      ],
+      // actions: [
+      //   IconButton(
+      //     onPressed: () => AutoRouter.of(context).push(const SearchRoute()),
+      //     icon: Icon(Icons.search, color: context.colors.black, size: 25),
+      //   ),
+      // ],
     );
   }
 
   @override
   // TODO: implement preferredSize
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight+20);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight+10);
 }

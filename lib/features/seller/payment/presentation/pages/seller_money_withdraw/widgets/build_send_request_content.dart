@@ -13,7 +13,7 @@ class BuildSendRequestContent extends StatelessWidget {
       child: AlertDialog(
         backgroundColor: context.colors.white,
         shape:
-            const RoundedRectangleBorder(borderRadius: Dimens.borderRadius5PX),
+             RoundedRectangleBorder(borderRadius: Dimens.borderRadius5PX),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

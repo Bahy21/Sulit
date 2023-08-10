@@ -1,7 +1,9 @@
-part of'home_main_widgets_imports.dart';
+part of 'home_main_widgets_imports.dart';
 
 class BuildHomeSwiper extends StatelessWidget {
-  const BuildHomeSwiper({Key? key}) : super(key: key);
+  final List<SliderDomainModel> slider;
+
+  const BuildHomeSwiper({super.key, required this.slider});
 
   @override
   Widget build(BuildContext context) {
@@ -10,13 +12,11 @@ class BuildHomeSwiper extends StatelessWidget {
       height: 160.spMin,
       child: Swiper(
         itemBuilder: (BuildContext context, int index) {
-          return const CachedImage(
-            url:
-            "https://cdn.shopify.com/s/files/1/0583/7737/1842/files/banner3.jpg?v=1629357208",
-          );
+          return CachedImage(url: slider[index].photo);
         },
-        itemCount: 3,
+        itemCount: slider.length,
         pagination: const SwiperPagination(),
+        autoplay: true,
       ),
     );
   }

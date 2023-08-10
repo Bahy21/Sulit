@@ -8,8 +8,13 @@ class ProductDetails extends StatefulWidget {
 }
 
 class _ProductDetailsState extends State<ProductDetails> {
-  ProductDetailsController productDetailsController =
-      ProductDetailsController();
+  late ProductDetailsController controller ;
+
+  @override
+  void initState (){
+    controller = ProductDetailsController();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,22 +26,17 @@ class _ProductDetailsState extends State<ProductDetails> {
           children: [
             const BuildProductDetailsSwiper(),
             Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 20, horizontal: 16).r,
+              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16).r,
               child: Column(
                 children: [
                   const BuildSellerInfo(),
-                  BuildProductInfo(
-                    productDetailsController: productDetailsController,
-                  ),
+                  BuildProductInfo(productDetailsController: controller),
                   const BuildProductButtons(),
                   const BuildProductDescription(),
                   const BuildTopSellingProducts(),
                   const BuildRelatedProducts(),
                   const BuildProductQueries(),
-                  BuildRelatedQuestions(
-                    productDetailsController: productDetailsController,
-                  )
+                  BuildRelatedQuestions(productDetailsController: controller)
                 ],
               ),
             ),
