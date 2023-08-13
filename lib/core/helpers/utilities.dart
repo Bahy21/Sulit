@@ -1,4 +1,5 @@
 import 'dart:io';
+
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -13,9 +14,12 @@ import 'custom_toast.dart';
 @lazySingleton
 class Utilities {
   void copyToClipBoard(String text) {
-    Clipboard.setData(ClipboardData(text: text)).then((value) {
-      CustomToast.showSnakeBar("Copied successfully", type: ToastType.success);
-    });
+    Clipboard.setData(ClipboardData(text: text)).then(
+      (value) {
+        CustomToast.showSnakeBar("Copied successfully",
+            type: ToastType.success);
+      },
+    );
   }
 
   Future<PermissionStatus> getContactsPermission() async {

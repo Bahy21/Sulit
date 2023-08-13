@@ -40,22 +40,29 @@ class ProfileController {
     }
   }
 
-  Future<void> removeImage() async {
-    imageCubit.onUpdateToInitState(null);
-  }
+  Future<void> removeImage() => imageCubit.onUpdateToInitState(null);
 
   Future<void> setEditProfile(BuildContext context, Address? address) async {
+    var user = context.read<UserCubit>().state.model;
     var params = _profileParams();
-
+    if (emailController.text != user!.email) {
+      setEditProfileEmail();
+    }
+    if (address != null) {
+      await _setDefaultAddress(address.id!, context);
+    }
     var data = await SetEditProfile().call(params);
     if (data != UserDomainModel()) {
-      await _setDefaultAddress(address!.id, context);
-      _cashData(data, context);
+      _cashAndRoute(data, context);
       CustomToast.showSimpleToast(
         msg: "Profile information updated successfully",
         type: ToastType.success,
       );
     }
+  }
+
+  Future<void> setEditProfileEmail() async {
+    await SetEditProfileEmail().call(emailController.text);
   }
 
   Future<void> _setDefaultAddress(int id, BuildContext context) async {
@@ -65,20 +72,23 @@ class ProfileController {
         msg: "Address set as default successfully",
         type: ToastType.success,
       );
-    }else {
-
     }
   }
 
-  void _cashData(UserDomainModel data, BuildContext context) async {
+  void _cashAndRoute(UserDomainModel data, BuildContext context) async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     UserDomainModel model = data;
     await preferences.setString(
       "user",
-      json.encode(
-        model.toJson(),
-      ),
+      json.encode(model.toJson()),
     );
+    if (model.isPhoneActive == false) {
+      AutoRouter.of(context).push(
+        ActiveAccountRoute(
+          phone: phoneController.text,
+        ),
+      );
+    }
     context.read<UserCubit>().onUpdateUserData(model);
   }
 

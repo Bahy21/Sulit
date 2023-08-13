@@ -107,9 +107,9 @@ import 'package:flutter_tdd/features/user/notifications/data/repository/impl_not
     as _i53;
 import 'package:flutter_tdd/features/user/notifications/domain/repository/notifications_repository.dart'
     as _i52;
-import 'package:flutter_tdd/features/user/products/data/data_source/impl_products_data_source.dart'
+import 'package:flutter_tdd/features/user/products/data/data_source/remote_data_sources/impl_products_data_source.dart'
     as _i57;
-import 'package:flutter_tdd/features/user/products/data/data_source/products_data_source.dart'
+import 'package:flutter_tdd/features/user/products/data/data_source/remote_data_sources/products_data_source.dart'
     as _i56;
 import 'package:flutter_tdd/features/user/products/data/repository/impl_products_repository.dart'
     as _i60;

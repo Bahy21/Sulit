@@ -13,13 +13,15 @@ class ApiNames{
   static const String activeAccount = "otp/verify";
   static const String resendCode = "ResendCode";
   static const String switchNotify = "SwitchNotify";
-  static const String forgetPassword = "cabaf46ee69d7b8445a5d791";
-  static const String resetPassword = "A2q4mG84Z9rE2B38In4HALSWTwt9eQ5Slzq56Cod";
+  static const String forgetPassword = "password/forgot";
+  static const String resetPassword = "password/reset";
   static const String resendPasswordCode = "password/forgot-resend-code";
   static const String logout = "logout";
+  static const String verifyPhone = "verification-phone/verify-phone";
 
   // profile urls
   static const String updateProfile = "profile/update?_method=put";
+  static const String updateProfileEmail = "new-email";
 
   //products urls
   static const String getHome = "home";

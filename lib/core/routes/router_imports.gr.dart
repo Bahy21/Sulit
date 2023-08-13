@@ -171,9 +171,13 @@ class AppRouter extends _i65.RootStackRouter {
       );
     },
     ActiveAccountRoute.name: (routeData) {
+      final args = routeData.argsAs<ActiveAccountRouteArgs>();
       return _i65.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i3.ActiveAccount(),
+        child: _i3.ActiveAccount(
+          key: args.key,
+          phone: args.phone,
+        ),
         opaque: true,
       );
     },
@@ -945,14 +949,36 @@ class LoginRoute extends _i65.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i3.ActiveAccount]
-class ActiveAccountRoute extends _i65.PageRouteInfo<void> {
-  const ActiveAccountRoute()
-      : super(
+class ActiveAccountRoute extends _i65.PageRouteInfo<ActiveAccountRouteArgs> {
+  ActiveAccountRoute({
+    _i67.Key? key,
+    required String phone,
+  }) : super(
           ActiveAccountRoute.name,
           path: '/active-account',
+          args: ActiveAccountRouteArgs(
+            key: key,
+            phone: phone,
+          ),
         );
 
   static const String name = 'ActiveAccountRoute';
+}
+
+class ActiveAccountRouteArgs {
+  const ActiveAccountRouteArgs({
+    this.key,
+    required this.phone,
+  });
+
+  final _i67.Key? key;
+
+  final String phone;
+
+  @override
+  String toString() {
+    return 'ActiveAccountRouteArgs{key: $key, phone: $phone}';
+  }
 }
 
 /// generated route for

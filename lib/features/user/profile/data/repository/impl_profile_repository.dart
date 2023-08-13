@@ -12,9 +12,16 @@ import 'package:injectable/injectable.dart';
 @Injectable(as:ProfileRepository)
 class ImplProfileRepository extends ProfileRepository with ModelToDomain{
   var dataSources = getIt<ProfileDataSources>();
+
   @override
-  Future<Either<Failure, UserDomainModel>> updateProfile(ProfileParams params)async {
-    var result =await dataSources.updateProfile(params);
+  Future<Either<Failure, UserDomainModel>> updateProfile(
+      ProfileParams params) async {
+    var result = await dataSources.updateProfile(params);
     return toDomainResult<UserDomainModel, UserModel>(result);
+  }
+
+  @override
+  Future<Either<Failure, bool>> updateProfileEmail(String param) async {
+    return await dataSources.updateProfileEmail(param);
   }
 }

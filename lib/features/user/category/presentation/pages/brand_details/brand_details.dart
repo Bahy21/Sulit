@@ -20,7 +20,7 @@ class _BrandDetailsState extends State<BrandDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const BuildSearchAppBar(isHome: false),
+      appBar: const BuildSearchAppBar(isHome: false,),
       body: BlocBuilder<GenericBloc<List<Product>>,
           GenericState<List<Product>>>(
         bloc: controller.productsBloc,

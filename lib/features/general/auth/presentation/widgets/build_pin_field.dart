@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tdd/core/theme/colors/colors_extension.dart';
+import 'package:flutter_tdd/core/theme/text/app_text_style.dart';
 
 import 'package:pin_code_fields/pin_code_fields.dart';
 
@@ -15,12 +16,13 @@ class BuildPinField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-       margin:margin?? const EdgeInsets.symmetric(horizontal: 20),
+       margin:margin?? const EdgeInsets.symmetric(vertical: 20),
       child: PinCodeTextField(
         length: 6,
         appContext: context,
         onChanged: (String value) {},
         backgroundColor: Colors.transparent,
+        textStyle: AppTextStyle.s16_w500(color: context.colors.black),
         animationType: AnimationType.fade,
         pinTheme: PinTheme(
             shape: PinCodeFieldShape.box,
@@ -35,7 +37,7 @@ class BuildPinField extends StatelessWidget {
             activeFillColor: context.colors.white,
             disabledColor: context.colors.black,
         ),
-        animationDuration: Duration(milliseconds: 300),
+        animationDuration: const Duration(milliseconds: 300),
         enableActiveFill: true,
         onCompleted: onComplete,
       ),

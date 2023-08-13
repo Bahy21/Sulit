@@ -1,4 +1,5 @@
 import 'package:flutter_tdd/core/models/domain_model/base_domain_model.dart';
+import 'package:flutter_tdd/features/user/addresses/domain/models/address.dart';
 
 class UserDomainModel extends BaseDomainModel {
   int? id;
@@ -10,6 +11,7 @@ class UserDomainModel extends BaseDomainModel {
   String? token;
   String? tokenType;
   bool?isPhoneActive;
+  Address? address ;
 
   UserDomainModel({
     this.id,
@@ -21,6 +23,7 @@ class UserDomainModel extends BaseDomainModel {
     this.token,
     this.tokenType,
     this.isPhoneActive,
+    this.address
   });
 
   UserDomainModel.fromJson(Map<String, dynamic> json) {
@@ -33,6 +36,7 @@ class UserDomainModel extends BaseDomainModel {
     token = json['token'];
     tokenType = json['token_type'];
     isPhoneActive=json['phone_is_active'];
+    address = address != null ? Address.fromJson(json) : null ;
   }
 
   Map<String, dynamic> toJson() {
@@ -46,6 +50,7 @@ class UserDomainModel extends BaseDomainModel {
     data['token'] = token;
     data['token_type'] = tokenType;
     data['phone_is_active']=isPhoneActive;
+    data['address'] = address?.toJson();
     return data;
   }
 }

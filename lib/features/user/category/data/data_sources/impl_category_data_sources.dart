@@ -68,7 +68,7 @@ class ImplCategoryDataSources extends CategoryDataSources {
         ),
       ),
       responseKey: (data) =>
-          data["data"]["section_products"]["products"]["products"],
+          data["data"]["section_products"]["products"],
       errorFunc: (data) => data["msg"],
     );
     return await GenericHttpImpl<List<ProductModel>>().call(model);

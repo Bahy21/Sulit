@@ -10,6 +10,7 @@ import 'package:flutter_tdd/features/general/auth/data/models/user_model/user_mo
 import 'package:flutter_tdd/features/general/auth/domain/entities/login_params.dart';
 import 'package:flutter_tdd/features/general/auth/domain/entities/reset_password_params.dart';
 import 'package:flutter_tdd/features/general/auth/domain/entities/user_register_params.dart';
+import 'package:flutter_tdd/features/general/auth/domain/entities/verify_phone_params.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: AuthDataSource)
@@ -80,5 +81,19 @@ class ImplAuthDataSource extends AuthDataSource {
       errorFunc: (data)=> data["msg"],
     );
     return await GenericHttpImpl<UserModel>().call(model);
+  }
+
+  @override
+  Future<Either<Failure, bool>> verifyPhone(VerifyPhoneParams params)async {
+    HttpRequestModel model = HttpRequestModel(
+      url: ApiNames.verifyPhone,
+      requestMethod: RequestMethod.post,
+      responseType: ResType.type,
+      requestBody: params.toJson(),
+      showLoader: true,
+      responseKey: (data) => params.isSuccess(data),
+      errorFunc: (data)=> data['msg'],
+    );
+    return await GenericHttpImpl<bool>().call(model);
   }
 }

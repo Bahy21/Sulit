@@ -37,7 +37,7 @@ class BuildNewAddressItem extends StatelessWidget {
           children: [
             Radio<bool>(
               value: false,
-              groupValue: !controller.addressesBloc.state.data[index].selected,
+              groupValue: !controller.addressesBloc.state.data[index].selected!,
               onChanged: (val) =>
                   controller.onSelectAddress(address, val, context, index),
               activeColor: context.colors.primary,
@@ -48,11 +48,11 @@ class BuildNewAddressItem extends StatelessWidget {
                 children: [
                   BuildAddressItem(
                     title: "Address",
-                    desc: address.address,
+                    desc: address.address!,
                   ),
                   BuildAddressItem(
                     title: "Postal code",
-                    desc: address.postalCode,
+                    desc: address.postalCode!,
                   ),
                   BuildAddressItem(
                     title: "City",
@@ -64,18 +64,18 @@ class BuildNewAddressItem extends StatelessWidget {
                   ),
                   BuildAddressItem(
                     title: "Country",
-                    desc: address.country.name,
+                    desc: address.country?.name??"",
                   ),
                   BuildAddressItem(
                     title: "Phone",
-                    desc: address.phone,
+                    desc: address.phone??"",
                   )
                 ],
               ),
             ),
             IconButton(
               icon: Icon(Icons.delete_outline, color: context.colors.primary),
-              onPressed: () => controller.deleteAddress(address.id),
+              onPressed: () => controller.deleteAddress(address.id!),
             )
           ],
         ),

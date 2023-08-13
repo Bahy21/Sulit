@@ -29,7 +29,7 @@ class _EditAddressState extends State<EditAddress> {
             title: "Update".toUpperCase(),
             onTap: () => controller.editAddress(
               context,
-              widget.address.id,
+              widget.address
             ),
             margin: const EdgeInsets.all(20),
           )

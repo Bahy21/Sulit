@@ -106,8 +106,7 @@ class BuildProductItem extends StatelessWidget {
                         ),
                         BuildIconItem(
                           iconData: Icons.compare_arrows,
-                          onTap: () {},
-
+                          onTap: () => ProductsHelper().addProductToCompare(productModel ),
                         ),
                         BuildIconItem(
                           iconData: Icons.shopping_cart,

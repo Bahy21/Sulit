@@ -4,8 +4,9 @@ class BuildIconItem extends StatelessWidget {
   final IconData iconData;
   final Function() onTap;
   final bool? isWishList ;
+  final Color? containerColor ;
 
-  const BuildIconItem({super.key, required this.iconData, required this.onTap,  this.isWishList});
+  const BuildIconItem({super.key, required this.iconData, required this.onTap,  this.isWishList, this.containerColor});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class BuildIconItem extends StatelessWidget {
         padding:Dimens.paddingAll3PX,
         margin: Dimens.paddingAll5PX,
         decoration: BoxDecoration(
-          color: context.colors.white,
+          color: containerColor ?? context.colors.white,
           shape: BoxShape.circle,
           boxShadow: [
             BoxShadow(

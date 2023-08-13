@@ -24,7 +24,7 @@ mixin _$AddressModel {
   @JsonKey(name: "user_id")
   int get userId => throw _privateConstructorUsedError;
   String get address => throw _privateConstructorUsedError;
-  CountryModel get country => throw _privateConstructorUsedError;
+  CountryModel? get country => throw _privateConstructorUsedError;
   StateModel? get state => throw _privateConstructorUsedError;
   CityModel? get city => throw _privateConstructorUsedError;
   @JsonKey(name: "postal_code")
@@ -53,7 +53,7 @@ abstract class $AddressModelCopyWith<$Res> {
       {int id,
       @JsonKey(name: "user_id") int userId,
       String address,
-      CountryModel country,
+      CountryModel? country,
       StateModel? state,
       CityModel? city,
       @JsonKey(name: "postal_code") String postalCode,
@@ -63,7 +63,7 @@ abstract class $AddressModelCopyWith<$Res> {
       double lang,
       @JsonKey(name: "is_active") bool isActive});
 
-  $CountryModelCopyWith<$Res> get country;
+  $CountryModelCopyWith<$Res>? get country;
   $StateModelCopyWith<$Res>? get state;
   $CityModelCopyWith<$Res>? get city;
 }
@@ -84,7 +84,7 @@ class _$AddressModelCopyWithImpl<$Res, $Val extends AddressModel>
     Object? id = null,
     Object? userId = null,
     Object? address = null,
-    Object? country = null,
+    Object? country = freezed,
     Object? state = freezed,
     Object? city = freezed,
     Object? postalCode = null,
@@ -107,10 +107,10 @@ class _$AddressModelCopyWithImpl<$Res, $Val extends AddressModel>
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
-      country: null == country
+      country: freezed == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
-              as CountryModel,
+              as CountryModel?,
       state: freezed == state
           ? _value.state
           : state // ignore: cast_nullable_to_non_nullable
@@ -148,8 +148,12 @@ class _$AddressModelCopyWithImpl<$Res, $Val extends AddressModel>
 
   @override
   @pragma('vm:prefer-inline')
-  $CountryModelCopyWith<$Res> get country {
-    return $CountryModelCopyWith<$Res>(_value.country, (value) {
+  $CountryModelCopyWith<$Res>? get country {
+    if (_value.country == null) {
+      return null;
+    }
+
+    return $CountryModelCopyWith<$Res>(_value.country!, (value) {
       return _then(_value.copyWith(country: value) as $Val);
     });
   }
@@ -191,7 +195,7 @@ abstract class _$$_AddressModelCopyWith<$Res>
       {int id,
       @JsonKey(name: "user_id") int userId,
       String address,
-      CountryModel country,
+      CountryModel? country,
       StateModel? state,
       CityModel? city,
       @JsonKey(name: "postal_code") String postalCode,
@@ -202,7 +206,7 @@ abstract class _$$_AddressModelCopyWith<$Res>
       @JsonKey(name: "is_active") bool isActive});
 
   @override
-  $CountryModelCopyWith<$Res> get country;
+  $CountryModelCopyWith<$Res>? get country;
   @override
   $StateModelCopyWith<$Res>? get state;
   @override
@@ -223,7 +227,7 @@ class __$$_AddressModelCopyWithImpl<$Res>
     Object? id = null,
     Object? userId = null,
     Object? address = null,
-    Object? country = null,
+    Object? country = freezed,
     Object? state = freezed,
     Object? city = freezed,
     Object? postalCode = null,
@@ -246,10 +250,10 @@ class __$$_AddressModelCopyWithImpl<$Res>
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as String,
-      country: null == country
+      country: freezed == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
-              as CountryModel,
+              as CountryModel?,
       state: freezed == state
           ? _value.state
           : state // ignore: cast_nullable_to_non_nullable
@@ -294,7 +298,7 @@ class _$_AddressModel extends _AddressModel {
       {required this.id,
       @JsonKey(name: "user_id") required this.userId,
       required this.address,
-      required this.country,
+      this.country,
       this.state,
       this.city,
       @JsonKey(name: "postal_code") required this.postalCode,
@@ -316,7 +320,7 @@ class _$_AddressModel extends _AddressModel {
   @override
   final String address;
   @override
-  final CountryModel country;
+  final CountryModel? country;
   @override
   final StateModel? state;
   @override
@@ -388,7 +392,7 @@ abstract class _AddressModel extends AddressModel {
           {required final int id,
           @JsonKey(name: "user_id") required final int userId,
           required final String address,
-          required final CountryModel country,
+          final CountryModel? country,
           final StateModel? state,
           final CityModel? city,
           @JsonKey(name: "postal_code") required final String postalCode,
@@ -411,7 +415,7 @@ abstract class _AddressModel extends AddressModel {
   @override
   String get address;
   @override
-  CountryModel get country;
+  CountryModel? get country;
   @override
   StateModel? get state;
   @override
