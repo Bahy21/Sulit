@@ -3,11 +3,13 @@ part of 'category_details_widgets_imports.dart';
 class BuildColorFilterItem extends StatelessWidget {
   final ColorDomainModel colorModel;
   final CategoryDetailsController categoryDetailsController;
-final int index;
+  final int index;
+
   const BuildColorFilterItem(
       {super.key,
       required this.colorModel,
-      required this.categoryDetailsController, required this.index});
+      required this.categoryDetailsController,
+      required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +28,9 @@ final int index;
         alignment: Alignment.center,
         child: Container(
           width: 10,
-         height: 10,
-         padding: Dimens.paddingAll5PX,
-          color:
-              Color(int.parse(colorModel.code.replaceFirst("#", "0xff"))),
+          height: 10,
+          padding: Dimens.paddingAll5PX,
+          color: Color(int.parse(colorModel.code.replaceFirst("#", "0xff"))),
         ),
       ),
     );

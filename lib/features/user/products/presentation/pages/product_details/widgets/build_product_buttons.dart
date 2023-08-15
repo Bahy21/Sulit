@@ -5,14 +5,15 @@ class BuildProductButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
+    return Padding(
+      padding: Dimens.paddingHorizontal15PX,
+      child: SizedBox(
+        height: 55,
+        child:  Row(
           children: [
             Container(
               padding:
-                  const EdgeInsets.symmetric(vertical: 10, horizontal: 15).r,
+              const EdgeInsets.symmetric(vertical: 10, horizontal: 15).r,
               margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 5).r,
               decoration: BoxDecoration(
                   color: context.colors.primary,
@@ -30,7 +31,7 @@ class BuildProductButtons extends StatelessWidget {
                   vertical: 10,
                 ).r,
                 margin:
-                    const EdgeInsets.symmetric(vertical: 5, horizontal: 5).r,
+                const EdgeInsets.symmetric(vertical: 5, horizontal: 5).r,
                 decoration: BoxDecoration(
                     color: context.colors.primary,
                     borderRadius: BorderRadius.circular(5).r),
@@ -56,47 +57,7 @@ class BuildProductButtons extends StatelessWidget {
             ),
           ],
         ),
-        Gaps.vGap20,
-        Row(
-          children: [
-            Expanded(
-              child: Text(
-                "Add To WishList",
-                style: AppTextStyle.s16_w700(
-                  color: context.colors.primary,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ),
-            Expanded(
-              child: Text(
-                "Add To Compare",
-                style: AppTextStyle.s16_w700(
-                  color: context.colors.primary,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            )
-          ],
-        ),
-        Gaps.line(context.colors.greyWhite, 30.h),
-        Text(
-          "Share : ",
-          style: AppTextStyle.s16_w500(
-            color: context.colors.black,
-          ),
-        ),
-        Gaps.vGap15,
-        Wrap(
-          children: const [
-            BuildShareItem(image: Res.facebook,),
-            BuildShareItem(image: Res.apple,),
-            BuildShareItem(image: Res.facebook,),
-          ],
-        ),
-        Gaps.line(context.colors.greyWhite, 30.h),
-
-      ],
+      ),
     );
   }
 }

@@ -43,7 +43,7 @@ class _PrivacyState extends State<Privacy> {
               padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 10).r,
               children: List.generate(
                 80,
-                    (index) => BuildShimmerView(
+                    (index) => BuildShimmerItem(
                   borderRadius: BorderRadius.circular(3),
                   height: 5,
                   margin: const EdgeInsets.symmetric(vertical: 3),

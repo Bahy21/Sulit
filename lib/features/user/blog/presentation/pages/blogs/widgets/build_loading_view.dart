@@ -24,7 +24,7 @@ class BuildLoadingView extends StatelessWidget {
           padding: const EdgeInsets.all(10).r,
           child: Row(
             children: [
-              BuildShimmerView(
+              BuildShimmerItem(
                 child: CachedImage(
                   url: "",
                   width: 100.w,
@@ -38,28 +38,28 @@ class BuildLoadingView extends StatelessWidget {
                 children: const [
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: 4.0),
-                    child: BuildShimmerView(
+                    child: BuildShimmerItem(
                       width: 100,
                       height: 5,
                     ),
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: 4.0),
-                    child: BuildShimmerView(
+                    child: BuildShimmerItem(
                       width: 100,
                       height: 5,
                     ),
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: 4.0),
-                    child: BuildShimmerView(
+                    child: BuildShimmerItem(
                       width: 100,
                       height: 5,
                     ),
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: 4.0),
-                    child: BuildShimmerView(
+                    child: BuildShimmerItem(
                       width: 100,
                       height: 5,
                     ),

@@ -9,7 +9,7 @@ import 'package:flutter_tdd/core/widgets/build_custom_app_bar.dart';
 import 'package:flutter_tdd/core/widgets/default_app_bar.dart';
 import 'package:flutter_tdd/features/user/category/domain/entities/price_range_params.dart';
 import 'package:flutter_tdd/features/user/category/domain/entities/search_products_params.dart';
-import 'package:flutter_tdd/features/user/category/domain/entities/sub_category_params.dart';
+import 'package:flutter_tdd/features/user/category/domain/entities/generic_params.dart';
 import 'package:flutter_tdd/features/user/category/domain/models/attributes.dart';
 import 'package:flutter_tdd/features/user/category/domain/models/category.dart';
 import 'package:flutter_tdd/features/user/category/domain/models/category.dart';

@@ -6,8 +6,8 @@ class BuildShareItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 40.r,
-      height: 40.r,
+      width: 35.r,
+      height: 35.r,
       padding: const EdgeInsets.all(3).r,
       margin: const EdgeInsetsDirectional.only(end: 10),
       decoration: BoxDecoration(

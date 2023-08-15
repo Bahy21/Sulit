@@ -2,18 +2,19 @@ part of 'category_details_widgets_imports.dart';
 
 class BuildIconItem extends StatelessWidget {
   final IconData iconData;
+  final EdgeInsets? padding;
   final Function() onTap;
   final bool? isWishList ;
   final Color? containerColor ;
 
-  const BuildIconItem({super.key, required this.iconData, required this.onTap,  this.isWishList, this.containerColor});
+  const BuildIconItem({super.key, required this.iconData,this.padding, required this.onTap,  this.isWishList, this.containerColor});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding:Dimens.paddingAll3PX,
+        padding:padding??Dimens.paddingAll3PX,
         margin: Dimens.paddingAll5PX,
         decoration: BoxDecoration(
           color: containerColor ?? context.colors.white,
@@ -21,8 +22,8 @@ class BuildIconItem extends StatelessWidget {
           boxShadow: [
             BoxShadow(
               color: context.colors.gray.withOpacity(.5),
-              blurRadius: 1,
-              spreadRadius: 1,
+              blurRadius: .5,
+              spreadRadius: .5,
             )
           ],
         ),

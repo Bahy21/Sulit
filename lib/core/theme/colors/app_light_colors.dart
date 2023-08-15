@@ -12,7 +12,7 @@ class AppLightColors extends AppColors {
   Color get white => Colors.white;
 
   @override
-  Color get background => Colors.white;
+  Color get background => const Color(0xfff9f9f9);
   @override
   Color get grey => Colors.grey;
 

@@ -36,7 +36,7 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
         statusBarBrightness: Brightness.light
       ),
       backgroundColor: context.colors.white,
-      elevation: 0,
+      elevation: .5,
       leadingWidth: showBack == true ? 55 : 10,
       leading: leading ??
           Visibility(

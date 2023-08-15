@@ -1,8 +1,8 @@
-class SubCategoryParams {
+class GenericParams {
   int? id;
   bool refresh;
 
-  SubCategoryParams({
+  GenericParams({
     this.id,
     this.refresh = true,
   });

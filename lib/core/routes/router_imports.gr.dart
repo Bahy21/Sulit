@@ -552,9 +552,13 @@ class AppRouter extends _i65.RootStackRouter {
       );
     },
     ProductDetailsRoute.name: (routeData) {
+      final args = routeData.argsAs<ProductDetailsRouteArgs>();
       return _i65.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i52.ProductDetails(),
+        child: _i52.ProductDetails(
+          key: args.key,
+          productId: args.productId,
+        ),
         opaque: true,
       );
     },
@@ -1780,14 +1784,36 @@ class HomeMainRouteArgs {
 
 /// generated route for
 /// [_i52.ProductDetails]
-class ProductDetailsRoute extends _i65.PageRouteInfo<void> {
-  const ProductDetailsRoute()
-      : super(
+class ProductDetailsRoute extends _i65.PageRouteInfo<ProductDetailsRouteArgs> {
+  ProductDetailsRoute({
+    _i67.Key? key,
+    required int productId,
+  }) : super(
           ProductDetailsRoute.name,
           path: '/product-details',
+          args: ProductDetailsRouteArgs(
+            key: key,
+            productId: productId,
+          ),
         );
 
   static const String name = 'ProductDetailsRoute';
+}
+
+class ProductDetailsRouteArgs {
+  const ProductDetailsRouteArgs({
+    this.key,
+    required this.productId,
+  });
+
+  final _i67.Key? key;
+
+  final int productId;
+
+  @override
+  String toString() {
+    return 'ProductDetailsRouteArgs{key: $key, productId: $productId}';
+  }
 }
 
 /// generated route for

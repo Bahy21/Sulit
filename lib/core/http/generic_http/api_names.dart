@@ -25,6 +25,7 @@ class ApiNames{
 
   //products urls
   static const String getHome = "home";
+  static const String getProductDetails = "products";
   static const String getPopularProducts = "mostpopulars";
   static String toggleWishlist (int id) => "products/$id/wishlist/toggle";
 

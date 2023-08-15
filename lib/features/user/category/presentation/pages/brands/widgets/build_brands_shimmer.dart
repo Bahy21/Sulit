@@ -16,7 +16,7 @@ class BuildBrandShimmer extends StatelessWidget {
           mainAxisSpacing: 20.r,
           childAspectRatio: 9 / 8,
         ),
-        itemBuilder: (context, index) => BuildShimmerView(
+        itemBuilder: (context, index) => BuildShimmerItem(
           child: Container(
             decoration: BoxDecoration(
               color: context.colors.white,

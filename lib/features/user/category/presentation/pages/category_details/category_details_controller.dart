@@ -16,8 +16,8 @@ class CategoryDetailsController {
   List<String> selectedColors = [];
   int currentCatId = 0;
 
-  SubCategoryParams _subCategoryParams(int id, bool refresh) {
-    return SubCategoryParams(id: id, refresh: refresh);
+  GenericParams _subCategoryParams(int id, bool refresh) {
+    return GenericParams(id: id, refresh: refresh);
   }
 
   SearchProductsParams _productsParams(int page, bool refresh) {

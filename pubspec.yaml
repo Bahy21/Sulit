@@ -72,7 +72,8 @@ dependencies:
   drift: ^2.8.0
   sqlite3_flutter_libs: ^0.5.0
   path: ^1.8.2
-
+  flutter_sticky_header: ^0.6.5
+  scrollable_list_tab_scroller: ^1.1.0
 
 
 

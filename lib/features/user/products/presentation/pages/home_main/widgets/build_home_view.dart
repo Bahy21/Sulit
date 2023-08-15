@@ -12,7 +12,7 @@ class BuildHomeView extends StatelessWidget {
       padding: Dimens.paddingVertical10PX,
       children: [
         BuildHomeSwiper(
-          slider: homeDomainModel.sliders,
+          slider: homeDomainModel.sliders
         ),
         BuildBanners(
           banners: homeDomainModel.bannersOne,

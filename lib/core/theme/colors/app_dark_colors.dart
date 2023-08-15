@@ -19,7 +19,7 @@ class AppDarkColors extends AppColors {
   Color get black => Colors.white;
 
   @override
-  Color get background => Colors.black;
+  Color get background => const Color(0xfff9f9f9);
   @override
   Color get grey => Colors.grey;
 

@@ -1,46 +1,43 @@
 part of 'product_details_imports.dart';
 
 class ProductDetails extends StatefulWidget {
-  const ProductDetails({Key? key}) : super(key: key);
+  final int productId;
+
+  const ProductDetails({super.key, required this.productId});
 
   @override
   State<ProductDetails> createState() => _ProductDetailsState();
 }
 
 class _ProductDetailsState extends State<ProductDetails> {
-  late ProductDetailsController controller ;
+  late ProductDetailsController controller;
 
   @override
-  void initState (){
-    controller = ProductDetailsController();
+  void initState() {
+    controller = ProductDetailsController(context, widget.productId);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 2,
+    return SafeArea(
+      top: true,
       child: Scaffold(
-        appBar: const BuildCustomAppBar(),
-        body: ListView(
-          children: [
-            const BuildProductDetailsSwiper(),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16).r,
-              child: Column(
-                children: [
-                  const BuildSellerInfo(),
-                  BuildProductInfo(productDetailsController: controller),
-                  const BuildProductButtons(),
-                  const BuildProductDescription(),
-                  const BuildTopSellingProducts(),
-                  const BuildRelatedProducts(),
-                  const BuildProductQueries(),
-                  BuildRelatedQuestions(productDetailsController: controller)
-                ],
-              ),
-            ),
-          ],
+        backgroundColor: context.colors.background,
+        bottomNavigationBar: BuildProductButtons(),
+        body: BlocBuilder<GenericBloc<ProductDetailsDomainModel?>,
+            GenericState<ProductDetailsDomainModel?>>(
+          bloc: controller.detailsCubit,
+          builder: (context, state) {
+            if (state is GenericUpdateState) {
+              return BuildDetailsView(
+                controller: controller,
+                detailsModel: state.data!,
+              );
+            } else {
+              return const BuildLoadingDetails();
+            }
+          },
         ),
       ),
     );

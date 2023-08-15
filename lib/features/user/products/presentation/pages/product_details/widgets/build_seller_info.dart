@@ -1,48 +1,13 @@
 part of 'product_details_widgets_imports.dart';
 
 class BuildSellerInfo extends StatelessWidget {
-  const BuildSellerInfo({Key? key}) : super(key: key);
+final Shop shopModel;
 
+  const BuildSellerInfo({super.key, required this.shopModel});
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          "Olaey",
-          style: AppTextStyle.s20_w500(
-            color: context.colors.black,
-          ),
-        ),
-        Gaps.vGap15,
-        Row(
-          children: [
-            RatingBar.builder(
-              initialRating: 0,
-              ignoreGestures: true,
-              minRating: 1,
-              direction: Axis.horizontal,
-              allowHalfRating: true,
-              itemCount: 5,
-              itemSize: 16.sp,
-              unratedColor: context.colors.disableGray,
-              itemPadding: const EdgeInsets.only(bottom: 5).r,
-              itemBuilder: (context, _) => const Icon(
-                Icons.star,
-                color: Colors.amber,
-              ),
-              onRatingUpdate: (rating) {},
-            ),
-            Gaps.hGap10,
-            Text(
-              "(0 reviews)",
-              style: AppTextStyle.s14_w400(
-                color: context.colors.black,
-              ),
-            ),
-          ],
-        ),
-        Gaps.vGap15,
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -51,13 +16,13 @@ class BuildSellerInfo extends StatelessWidget {
               children: [
                 Text(
                   "Sold By :",
-                  style: AppTextStyle.s12_w500(
+                  style: AppTextStyle.s12_w600(
                     color: context.colors.black,
                   ),
                 ),
                 Gaps.vGap5,
                 Text(
-                  "In House for beauty",
+                  shopModel.name,
                   style: AppTextStyle.s14_w400(
                     color: context.colors.black,
                   ),
@@ -65,15 +30,15 @@ class BuildSellerInfo extends StatelessWidget {
               ],
             ),
             DefaultButton(
-                title: "Message Seller",
-                width: 120.w,
-                height: 25.h,
-                fontSize: 10,
-                borderRadius: BorderRadius.circular(5).r,
-                onTap: () {}),
+              title: "Message Seller",
+              width: 120.w,
+              height: 25.h,
+              borderRadius: Dimens.borderRadius5PX,
+              onTap: () {},
+            ),
           ],
         ),
-        Gaps.line(context.colors.greyWhite, 30.h),
+        Gaps.line(context.colors.greyWhite, 20.h),
       ],
     );
   }

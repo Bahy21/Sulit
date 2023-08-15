@@ -12,7 +12,7 @@ import 'package:flutter_tdd/features/user/category/data/models/sub_category_mode
 import 'package:flutter_tdd/features/user/category/domain/entities/brand_details_params.dart';
 import 'package:flutter_tdd/features/user/category/domain/entities/brands_params.dart';
 import 'package:flutter_tdd/features/user/category/domain/entities/search_products_params.dart';
-import 'package:flutter_tdd/features/user/category/domain/entities/sub_category_params.dart';
+import 'package:flutter_tdd/features/user/category/domain/entities/generic_params.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: CategoryDataSources)

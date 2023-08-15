@@ -14,9 +14,10 @@ import 'package:flutter_tdd/features/user/products/presentation/manager/products
 
 class BuildProductItem extends StatelessWidget {
   final Product productModel;
-  final VoidCallback onRefresh ;
+  final VoidCallback? onRefresh;
 
-  const BuildProductItem({super.key, required this.productModel, required this.onRefresh});
+  const BuildProductItem(
+      {super.key, required this.productModel, this.onRefresh});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +37,8 @@ class BuildProductItem extends StatelessWidget {
         ],
       ),
       child: InkWell(
-        onTap: () => AutoRouter.of(context).push(const ProductDetailsRoute()),
+        onTap: () => AutoRouter.of(context)
+            .push(ProductDetailsRoute(productId: productModel.id)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -100,13 +102,17 @@ class BuildProductItem extends StatelessWidget {
                     child: Column(
                       children: [
                         BuildIconItem(
-                          iconData: productModel.isWishlist ? Icons.favorite : Icons.favorite_border ,
-                          onTap: () => ProductsHelper().toggleFavourite(productModel.id, onRefresh??(){}),
+                          iconData: productModel.isWishlist
+                              ? Icons.favorite
+                              : Icons.favorite_border,
+                          onTap: () => ProductsHelper().toggleFavourite(
+                              productModel.id, onRefresh ?? () {}),
                           isWishList: productModel.isWishlist,
                         ),
                         BuildIconItem(
                           iconData: Icons.compare_arrows,
-                          onTap: () => ProductsHelper().addProductToCompare(productModel ),
+                          onTap: () => ProductsHelper()
+                              .addProductToCompare(productModel),
                         ),
                         BuildIconItem(
                           iconData: Icons.shopping_cart,

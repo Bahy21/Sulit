@@ -10,7 +10,7 @@ class BuildFlashSaleLoadingView extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            BuildShimmerView(
+            BuildShimmerItem(
               child: Container(
                 margin: const EdgeInsets.all(5),
                 padding: const EdgeInsets.symmetric(
@@ -19,13 +19,13 @@ class BuildFlashSaleLoadingView extends StatelessWidget {
                   color: Colors.grey,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: const BuildShimmerView(
+                child: const BuildShimmerItem(
                   height: 10,
                   width: 30,
                 ),
               ),
             ),
-            BuildShimmerView(
+            BuildShimmerItem(
               child: Container(
                 margin: const EdgeInsets.all(5),
                 padding: const EdgeInsets.symmetric(
@@ -34,13 +34,13 @@ class BuildFlashSaleLoadingView extends StatelessWidget {
                   color: Colors.grey,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: const BuildShimmerView(
+                child: const BuildShimmerItem(
                   height: 10,
                   width: 30,
                 ),
               ),
             ),
-            BuildShimmerView(
+            BuildShimmerItem(
               child: Container(
                 margin: const EdgeInsets.all(5),
                 padding: const EdgeInsets.symmetric(
@@ -49,13 +49,13 @@ class BuildFlashSaleLoadingView extends StatelessWidget {
                   color: Colors.grey,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: const BuildShimmerView(
+                child: const BuildShimmerItem(
                   height: 10,
                   width: 30,
                 ),
               ),
             ),
-            BuildShimmerView(
+            BuildShimmerItem(
               child: Container(
                 margin: const EdgeInsets.all(5),
                 padding: const EdgeInsets.symmetric(
@@ -64,7 +64,7 @@ class BuildFlashSaleLoadingView extends StatelessWidget {
                   color: Colors.grey,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: const BuildShimmerView(
+                child: const BuildShimmerItem(
                   height: 10,
                   width: 30,
                 ),

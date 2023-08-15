@@ -17,6 +17,7 @@ part 'product_model.g.dart';
 @immutable
 class ProductModel extends BaseApiModel<Product> with _$ProductModel {
   const ProductModel._();
+
   @JsonSerializable(explicitToJson: true)
   const factory ProductModel({
     required int id,
@@ -39,7 +40,7 @@ class ProductModel extends BaseApiModel<Product> with _$ProductModel {
     @JsonKey(name: 'count_reviews') required int countReviews,
     @JsonKey(name: 'sold_by_type') required String soldByType,
     @JsonKey(name: 'sold_by_name') required String soldByName,
-     ShopModel? shop,
+    ShopModel? shop,
     List<ReviewsModel>? reviews,
     @JsonKey(name: 'is_resale') required bool isResale,
     @JsonKey(name: 'reseller_id') required int resellerId,
@@ -51,7 +52,7 @@ class ProductModel extends BaseApiModel<Product> with _$ProductModel {
     required num rating,
     required int sales,
     @JsonKey(name: 'seller_id') required int sellerId,
-     BrandModel? brand,
+    BrandModel? brand,
     String? description,
     @JsonKey(name: 'video_provider') String? videoProvider,
     @JsonKey(name: 'video_link') String? videoLink,
@@ -71,6 +72,7 @@ class ProductModel extends BaseApiModel<Product> with _$ProductModel {
       name: name,
       category: category?.toDomainModel(),
       thumbnailImage: thumbnailImage,
+      images: images,
       strokedPrice: strokedPrice,
       sellerId: sellerId,
       sales: sales,
@@ -95,6 +97,7 @@ class ProductModel extends BaseApiModel<Product> with _$ProductModel {
       soldByType: soldByType,
       reviews: reviews?.map((e) => e.toDomainModel()).toList(),
       choiceOptions: choiceOptions.map((e) => e.toDomainModel()).toList(),
+      colors: colors.map((e) => e.toDomainModel()).toList(),
       tags: tags,
       videoLink: videoLink,
       videoProvider: videoProvider,

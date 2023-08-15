@@ -353,6 +353,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.8.3"
+  easy_debounce:
+    dependency: transitive
+    description:
+      name: easy_debounce
+      sha256: f082609cfb8f37defb9e37fc28bc978c6712dedf08d4c5a26f820fa10165a236
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.3"
   equatable:
     dependency: "direct main"
     description:
@@ -707,6 +715,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.6.2"
+  flutter_sticky_header:
+    dependency: "direct main"
+    description:
+      name: flutter_sticky_header
+      sha256: "017f398fbb45a589e01491861ca20eb6570a763fd9f3888165a978e11248c709"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.6.5"
   flutter_svg:
     dependency: "direct main"
     description:
@@ -1341,6 +1357,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.0"
+  scrollable_list_tab_scroller:
+    dependency: "direct main"
+    description:
+      name: scrollable_list_tab_scroller
+      sha256: "4f2567d4b18fe957a32db5d2fb938d999770ad809b61676486f0ed63c7720e70"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.0"
+  scrollable_positioned_list:
+    dependency: transitive
+    description:
+      name: scrollable_positioned_list
+      sha256: "1b54d5f1329a1e263269abc9e2543d90806131aa14fe7c6062a8054d57249287"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.3.8"
+  scrolls_to_top:
+    dependency: transitive
+    description:
+      name: scrolls_to_top
+      sha256: e34b72b8322d5b925e6bf4793134893a8f2260e45bce6bf3046f756a54c4eecd
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.1"
   shared_preferences:
     dependency: "direct main"
     description:
@@ -1690,6 +1730,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.7"
+  value_layout_builder:
+    dependency: transitive
+    description:
+      name: value_layout_builder
+      sha256: "98202ec1807e94ac72725b7f0d15027afde513c55c69ff3f41bcfccb950831bc"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.3.1"
   vector_graphics:
     dependency: transitive
     description:
