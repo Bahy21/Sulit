@@ -1,0 +1,24 @@
+import 'package:dartz/dartz.dart';
+import 'package:flutter_tdd/core/errors/failures.dart';
+import 'package:flutter_tdd/core/helpers/di.dart';
+import 'package:flutter_tdd/core/models/model_to_domain/model_to_domain.dart';
+import 'package:flutter_tdd/features/user/cart/data/data_sources/cart_data_sources.dart';
+import 'package:flutter_tdd/features/user/cart/domain/entities/get_cart_items_params.dart';
+import 'package:flutter_tdd/features/user/cart/domain/models/cart.dart';
+import 'package:flutter_tdd/features/user/cart/domain/repository/cart_repository.dart';
+import 'package:injectable/injectable.dart';
+
+@Injectable(as: CartRepository)
+class ImplCartRepository extends CartRepository with ModelToDomain{
+  var dataSource = getIt<CartDataSources>();
+  @override
+  Future<Either<Failure, CartDomainModel>> getCartItems(GetCartItemsParams params)async {
+    var result = await dataSource.getCartItems(params);
+    return toDomainResult(result);
+  }
+
+  @override
+  Future<Either<Failure, bool>> addCartAddress(int param)async {
+    return await dataSource.addCartAddress(param);
+  }
+}

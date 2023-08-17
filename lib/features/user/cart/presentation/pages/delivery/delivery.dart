@@ -1,7 +1,9 @@
 part of 'delivery_imports.dart';
 
 class Delivery extends StatefulWidget {
-  const Delivery({Key? key}) : super(key: key);
+  final List<CartItem> cartItems;
+
+  const Delivery({Key? key, required this.cartItems}) : super(key: key);
 
   @override
   _DeliveryState createState() => _DeliveryState();
@@ -21,8 +23,12 @@ class _DeliveryState extends State<Delivery> {
           Flexible(
             child: ListView(
               children: [
-                const BuildDeliveryProducts(),
-                BuildDeliveryType(deliveryController: controller),
+                BuildDeliveryProducts(
+                  cartItems: widget.cartItems,
+                ),
+                BuildDeliveryType(
+                  deliveryController: controller,
+                ),
               ],
             ),
           ),

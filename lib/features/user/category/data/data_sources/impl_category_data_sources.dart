@@ -54,8 +54,7 @@ class ImplCategoryDataSources extends CategoryDataSources {
   }
 
   @override
-  Future<Either<Failure, List<ProductModel>>> getBrandProducts(
-      BrandDetailsParams params) async {
+  Future<Either<Failure, List<ProductModel>>> getBrandProducts(BrandDetailsParams params) async {
     HttpRequestModel model = HttpRequestModel(
       url: "${ApiNames.brandDetails}${params.brandId}",
       requestMethod: RequestMethod.get,
@@ -67,8 +66,7 @@ class ImplCategoryDataSources extends CategoryDataSources {
           (e) => ProductModel.fromJson(e),
         ),
       ),
-      responseKey: (data) =>
-          data["data"]["section_products"]["products"],
+      responseKey: (data) => data["data"]["section_products"]["products"],
       errorFunc: (data) => data["msg"],
     );
     return await GenericHttpImpl<List<ProductModel>>().call(model);

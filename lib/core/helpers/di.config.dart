@@ -79,10 +79,10 @@ import 'package:flutter_tdd/features/user/cart/data/data_sources/cart_data_sourc
     as _i20;
 import 'package:flutter_tdd/features/user/cart/data/data_sources/impl_cart_data_sources.dart'
     as _i21;
-import 'package:flutter_tdd/features/user/cart/data/repository/cart_repository.dart'
-    as _i22;
-import 'package:flutter_tdd/features/user/cart/domain/repository/cart_repository.dart'
+import 'package:flutter_tdd/features/user/cart/data/repository/impl_cart_repository.dart'
     as _i23;
+import 'package:flutter_tdd/features/user/cart/domain/repository/cart_repository.dart'
+    as _i22;
 import 'package:flutter_tdd/features/user/category/data/data_sources/category_data_sources.dart'
     as _i24;
 import 'package:flutter_tdd/features/user/category/data/data_sources/impl_category_data_sources.dart'

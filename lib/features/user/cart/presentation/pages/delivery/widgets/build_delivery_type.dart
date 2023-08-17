@@ -36,16 +36,14 @@ class BuildDeliveryType extends StatelessWidget {
                         title: "Home Delivery",
                         value: 0,
                         groupValue: state.data,
-                        onChanged: (val) => deliveryController.deliveryTypeCubit
-                            .onUpdateData(val!),
+                        onChanged: (val) => deliveryController.deliveryTypeCubit.onUpdateData(val!),
                       ),
                       Gaps.hGap10,
                       BuildDeliveryItem(
                         title: "Local Pickup",
                         value: 1,
                         groupValue: state.data,
-                        onChanged: (val) => deliveryController.deliveryTypeCubit
-                            .onUpdateData(val!),
+                        onChanged: (val) => deliveryController.deliveryTypeCubit.onUpdateData(val!),
                       ),
                     ],
                   ),

@@ -63,4 +63,7 @@ class ApiNames{
   // wishlist
   static const String wishlist = "wishlists";
 
+  //cart
+  static const String cart = "cart";
+  static const String addCartAddress = "cart/add-address";
 }

@@ -93,6 +93,8 @@ import 'package:flutter_tdd/features/user/blog/presentation/pages/blog_details/b
     as _i36;
 import 'package:flutter_tdd/features/user/blog/presentation/pages/blogs/blogs_imports.dart'
     as _i35;
+import 'package:flutter_tdd/features/user/cart/domain/models/cart_item.dart'
+    as _i70;
 import 'package:flutter_tdd/features/user/cart/presentation/pages/cart/cart_imports.dart'
     as _i39;
 import 'package:flutter_tdd/features/user/cart/presentation/pages/delivery/delivery_imports.dart'
@@ -102,7 +104,7 @@ import 'package:flutter_tdd/features/user/cart/presentation/pages/payment/paymen
 import 'package:flutter_tdd/features/user/cart/presentation/pages/shipping/shipping_imports.dart'
     as _i42;
 import 'package:flutter_tdd/features/user/category/domain/models/category.dart'
-    as _i70;
+    as _i71;
 import 'package:flutter_tdd/features/user/category/presentation/pages/brand_details/brand_details_imports.dart'
     as _i46;
 import 'package:flutter_tdd/features/user/category/presentation/pages/brands/brands_imports.dart'
@@ -116,7 +118,7 @@ import 'package:flutter_tdd/features/user/dashboard/presentation/pages/dashboard
 import 'package:flutter_tdd/features/user/notifications/presentation/pages/notifications/notifications_imports.dart'
     as _i48;
 import 'package:flutter_tdd/features/user/products/domain/models/popular_products_domain_model.dart'
-    as _i71;
+    as _i72;
 import 'package:flutter_tdd/features/user/products/presentation/pages/compare/compare_imports.dart'
     as _i49;
 import 'package:flutter_tdd/features/user/products/presentation/pages/downloads/downloads_import.dart'
@@ -448,9 +450,13 @@ class AppRouter extends _i65.RootStackRouter {
       );
     },
     DeliveryRoute.name: (routeData) {
+      final args = routeData.argsAs<DeliveryRouteArgs>();
       return _i65.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i40.Delivery(),
+        child: _i40.Delivery(
+          key: args.key,
+          cartItems: args.cartItems,
+        ),
         opaque: true,
       );
     },
@@ -462,9 +468,13 @@ class AppRouter extends _i65.RootStackRouter {
       );
     },
     ShippingRoute.name: (routeData) {
+      final args = routeData.argsAs<ShippingRouteArgs>();
       return _i65.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i42.Shipping(),
+        child: _i42.Shipping(
+          key: args.key,
+          cartItems: args.cartItems,
+        ),
         opaque: true,
       );
     },
@@ -1529,14 +1539,36 @@ class CartRoute extends _i65.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i40.Delivery]
-class DeliveryRoute extends _i65.PageRouteInfo<void> {
-  const DeliveryRoute()
-      : super(
+class DeliveryRoute extends _i65.PageRouteInfo<DeliveryRouteArgs> {
+  DeliveryRoute({
+    _i67.Key? key,
+    required List<_i70.CartItem> cartItems,
+  }) : super(
           DeliveryRoute.name,
           path: '/Delivery',
+          args: DeliveryRouteArgs(
+            key: key,
+            cartItems: cartItems,
+          ),
         );
 
   static const String name = 'DeliveryRoute';
+}
+
+class DeliveryRouteArgs {
+  const DeliveryRouteArgs({
+    this.key,
+    required this.cartItems,
+  });
+
+  final _i67.Key? key;
+
+  final List<_i70.CartItem> cartItems;
+
+  @override
+  String toString() {
+    return 'DeliveryRouteArgs{key: $key, cartItems: $cartItems}';
+  }
 }
 
 /// generated route for
@@ -1553,14 +1585,36 @@ class PaymentRoute extends _i65.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i42.Shipping]
-class ShippingRoute extends _i65.PageRouteInfo<void> {
-  const ShippingRoute()
-      : super(
+class ShippingRoute extends _i65.PageRouteInfo<ShippingRouteArgs> {
+  ShippingRoute({
+    _i67.Key? key,
+    required List<_i70.CartItem> cartItems,
+  }) : super(
           ShippingRoute.name,
           path: '/Shipping',
+          args: ShippingRouteArgs(
+            key: key,
+            cartItems: cartItems,
+          ),
         );
 
   static const String name = 'ShippingRoute';
+}
+
+class ShippingRouteArgs {
+  const ShippingRouteArgs({
+    this.key,
+    required this.cartItems,
+  });
+
+  final _i67.Key? key;
+
+  final List<_i70.CartItem> cartItems;
+
+  @override
+  String toString() {
+    return 'ShippingRouteArgs{key: $key, cartItems: $cartItems}';
+  }
 }
 
 /// generated route for
@@ -1615,7 +1669,7 @@ class CategoryDetailsRoute
     extends _i65.PageRouteInfo<CategoryDetailsRouteArgs> {
   CategoryDetailsRoute({
     _i67.Key? key,
-    required _i70.Category categoryModel,
+    required _i71.Category categoryModel,
   }) : super(
           CategoryDetailsRoute.name,
           path: '/category-details',
@@ -1636,7 +1690,7 @@ class CategoryDetailsRouteArgs {
 
   final _i67.Key? key;
 
-  final _i70.Category categoryModel;
+  final _i71.Category categoryModel;
 
   @override
   String toString() {
@@ -1822,7 +1876,7 @@ class PopularProductsRoute
     extends _i65.PageRouteInfo<PopularProductsRouteArgs> {
   PopularProductsRoute({
     _i67.Key? key,
-    required _i71.PopularProductsDomainModel popularProductsModel,
+    required _i72.PopularProductsDomainModel popularProductsModel,
   }) : super(
           PopularProductsRoute.name,
           path: '/popular-products',
@@ -1843,7 +1897,7 @@ class PopularProductsRouteArgs {
 
   final _i67.Key? key;
 
-  final _i71.PopularProductsDomainModel popularProductsModel;
+  final _i72.PopularProductsDomainModel popularProductsModel;
 
   @override
   String toString() {

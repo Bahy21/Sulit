@@ -16,5 +16,5 @@ part 'build_add_new_address.dart';
 part 'build_add_new_address_card_shimmer.dart';
 part 'build_address_loading.dart';
 part 'build_list_address_shimmer.dart';
-part 'build_addresses_view.dart';
 part 'build_addresses_empty_view.dart';
+part 'build_addresses_view.dart';
