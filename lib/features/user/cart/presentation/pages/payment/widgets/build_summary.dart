@@ -1,9 +1,10 @@
 part of 'payment_widgets_imports.dart';
 
 class BuildSummary extends StatelessWidget {
-final PaymentController paymentController;
+final PaymentController controller;
+final Shipping shipping ;
 
-  const BuildSummary({super.key, required this.paymentController});
+  const BuildSummary({super.key, required this.controller, required this.shipping});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,7 +28,7 @@ final PaymentController paymentController;
                     color: context.colors.primary,
                     borderRadius: Dimens.borderRadius5PX),
                 child: Text(
-                  "2 items",
+                  "${shipping.summary.items.length} items",
                   style: AppTextStyle.s14_w400(color: context.colors.white),
                 ),
               )
@@ -36,21 +37,18 @@ final PaymentController paymentController;
           Gaps.line(context.colors.primary, 20),
           const BuildSummaryHeader(title: "Products", details: "Total"),
           ...List.generate(
-            3,
-            (index) =>
-                const BuildSummaryItem(title: "Subtotal", details: "200"),
-          ),
-          const BuildSummaryHeader(title: "Subtotal", details: "${122} د.إ "),
-          const BuildSummaryHeader(title: "Tax", details: "${2} د.إ "),
-          const BuildSummaryHeader(
-              title: "Total Shipping", details: "${22} د.إ "),
+            shipping.summary.items.length,
+            (index) =>  BuildSummaryItem(title: "Subtotal", details: shipping.summary.items[index].total)),
+           BuildSummaryHeader(title: "Subtotal", details: shipping.summary.subTotal),
+           BuildSummaryHeader(title: "Tax", details: shipping.summary.tax),
+           BuildSummaryHeader(title: "Total Shipping", details: shipping.summary.shipping),
           Gaps.line(context.colors.primary, 20),
-          const BuildSummaryHeader(
+          BuildSummaryHeader(
             title: "Total",
-            details: "${304} د.إ ",
+            details: shipping.summary.total,
             // isTotal: true,
           ),
-         BuildCoupon(paymentController:paymentController),
+         BuildCoupon(controller:controller),
         ],
       ),
     );

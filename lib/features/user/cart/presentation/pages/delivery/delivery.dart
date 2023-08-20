@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 part of 'delivery_imports.dart';
 
 class Delivery extends StatefulWidget {
@@ -16,7 +18,7 @@ class _DeliveryState extends State<Delivery> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const BuildCustomAppBar(),
-      bottomNavigationBar: const BuildDeliveryButtons(),
+      bottomNavigationBar:  BuildDeliveryButtons(controller: controller, cartItems: widget.cartItems,),
       body: Column(
         children: [
           const BuildCartStepper(current: 3),

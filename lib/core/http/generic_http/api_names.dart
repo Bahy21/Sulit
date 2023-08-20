@@ -66,4 +66,6 @@ class ApiNames{
   //cart
   static const String cart = "cart";
   static const String addCartAddress = "cart/add-address";
+  static const String cartStoreShipping = "cart/store-shipping-info";
+  static const String applyCoupon = "cart/apply-coupon";
 }

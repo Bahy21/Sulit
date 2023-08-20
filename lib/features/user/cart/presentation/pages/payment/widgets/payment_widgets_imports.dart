@@ -11,6 +11,7 @@ import 'package:flutter_tdd/core/theme/text/app_text_style.dart';
 import 'package:flutter_tdd/core/widgets/DefaultButton.dart';
 import 'package:flutter_tdd/core/widgets/GenericTextField.dart';
 import 'package:flutter_tdd/core/helpers/validator.dart';
+import 'package:flutter_tdd/features/user/cart/domain/models/shipping.dart';
 import 'package:flutter_tdd/res.dart';
 import 'package:flutter_tdd/features/user/cart/presentation/pages/payment/payment_imports.dart';
 part 'build_payment_buttons.dart';

@@ -1,9 +1,9 @@
 part of 'payment_widgets_imports.dart';
 
 class BuildPaymentOptions extends StatelessWidget {
-  final PaymentController paymentController;
+  final PaymentController controller;
 
-  const BuildPaymentOptions({super.key, required this.paymentController});
+  const BuildPaymentOptions({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class BuildPaymentOptions extends StatelessWidget {
           ),
         ),
         BlocBuilder<GenericBloc<int>, GenericState<int>>(
-          bloc: paymentController.paymentCubit,
+          bloc: controller.paymentCubit,
           builder: (_, state) {
             return Row(
               children: [
@@ -26,14 +26,14 @@ class BuildPaymentOptions extends StatelessWidget {
                   img: Res.logo,
                   selected: 0,
                   group: state.data,
-                  onTap: () => paymentController.paymentCubit.onUpdateData(0),
+                  onTap: () => controller.paymentCubit.onUpdateData(0),
                 ),
                 Gaps.hGap10,
                 BuildPaymentItem(
                   img: Res.logo,
                   selected: 1,
                   group: state.data,
-                  onTap: () => paymentController.paymentCubit.onUpdateData(1),
+                  onTap: () => controller.paymentCubit.onUpdateData(1),
                 ),
               ],
             );

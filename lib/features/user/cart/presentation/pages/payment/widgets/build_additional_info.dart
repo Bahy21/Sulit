@@ -1,9 +1,9 @@
 part of 'payment_widgets_imports.dart';
 
 class BuildAdditionalInfo extends StatelessWidget {
-  final PaymentController paymentController;
+  final PaymentController controller;
 
-  const BuildAdditionalInfo({super.key, required this.paymentController});
+  const BuildAdditionalInfo({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {
