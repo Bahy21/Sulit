@@ -62,7 +62,7 @@ class BuildProductInfo extends StatelessWidget {
                 ),
                 const Spacer(),
                 Text(
-                  "${productModel.variant.mainPrice} ",
+                  "${productModel.variant?.mainPrice} ",
                   style: AppTextStyle.s18_w500(
                     color: context.colors.primary,
                   ),

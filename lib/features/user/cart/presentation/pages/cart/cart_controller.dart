@@ -2,13 +2,13 @@ part of 'cart_imports.dart';
 
 class CartController {
   final GenericBloc<CartDomainModel> cartItemsBloc = GenericBloc(CartDomainModel());
-
   CartController(){
     getCartItems();
   }
-
+ 
   Future<void> getCartItems({bool refresh = true}) async {
-    var params = _cartParams(refresh);
+    String? token = await getIt<GetDeviceId>().deviceId;
+    var params = _cartParams(refresh,token!);
     return await GetCart().call(params).then(
           (value) => cartItemsBloc.onUpdateData(
             value,
@@ -16,9 +16,9 @@ class CartController {
         );
   }
 
-  GetCartItemsParams _cartParams(bool refresh) {
+  GetCartItemsParams _cartParams(bool refresh, String token) {
     return GetCartItemsParams(
-      macAddress: "",
+      macAddress: token ,
       refresh: refresh,
     );
   }

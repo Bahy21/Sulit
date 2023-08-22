@@ -3,9 +3,9 @@ import 'package:flutter_tdd/core/models/domain_model/base_domain_model.dart';
 class Variant extends BaseDomainModel{
   int id;
   String name;
-  double strokedPrice;
+  String strokedPrice;
 
-  double calculablePrice;
+  String calculablePrice;
 
   String mainPrice;
 

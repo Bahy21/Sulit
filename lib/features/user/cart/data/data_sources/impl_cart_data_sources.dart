@@ -11,6 +11,7 @@ import 'package:flutter_tdd/features/user/cart/data/data_sources/cart_data_sourc
 import 'package:flutter_tdd/features/user/cart/data/models/cart_model/cart_model.dart';
 import 'package:flutter_tdd/features/user/cart/data/models/coupon_response_model/coupon_response_model.dart';
 import 'package:flutter_tdd/features/user/cart/data/models/shipping_model/shipping_model.dart';
+import 'package:flutter_tdd/features/user/cart/domain/entities/create_order_params.dart';
 import 'package:flutter_tdd/features/user/cart/domain/entities/get_cart_items_params.dart';
 import 'package:injectable/injectable.dart';
 
@@ -22,6 +23,7 @@ class ImplCartDataSources extends CartDataSources {
       url: ApiNames.cart,
       requestMethod: RequestMethod.get,
       refresh: params.refresh,
+      requestBody: {"mac_address":params.macAddress},
       responseType: ResType.model,
       showLoader: true,
       toJsonFunc: (json) => CartModel.fromJson(json),
@@ -74,5 +76,19 @@ class ImplCartDataSources extends CartDataSources {
       errorFunc: (data)=> data["msg"],
     );
     return await GenericHttpImpl<CouponResponseModel>().call(model);
+  }
+
+  @override
+  Future<Either<Failure, bool>> createOrder(CreateOrderParams params)async {
+    HttpRequestModel model = HttpRequestModel(
+      url: ApiNames.storeOrders,
+      requestBody: params.toJson(),
+      requestMethod: RequestMethod.post,
+      responseType: ResType.type,
+      showLoader: true,
+      responseKey: (data)=> params.isSuccess(data),
+      errorFunc: (data)=> data["msg"],
+    );
+    return await GenericHttpImpl<bool>().call(model);
   }
 }

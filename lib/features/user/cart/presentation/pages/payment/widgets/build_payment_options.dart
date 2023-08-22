@@ -2,8 +2,9 @@ part of 'payment_widgets_imports.dart';
 
 class BuildPaymentOptions extends StatelessWidget {
   final PaymentController controller;
+  final List<PaymentOption> paymentOptions ;
 
-  const BuildPaymentOptions({super.key, required this.controller});
+  const BuildPaymentOptions({super.key, required this.controller, required this.paymentOptions});
 
   @override
   Widget build(BuildContext context) {
@@ -17,29 +18,20 @@ class BuildPaymentOptions extends StatelessWidget {
             style: AppTextStyle.s16_w800(color: context.colors.black),
           ),
         ),
-        BlocBuilder<GenericBloc<int>, GenericState<int>>(
-          bloc: controller.paymentCubit,
-          builder: (_, state) {
-            return Row(
-              children: [
-                BuildPaymentItem(
-                  img: Res.logo,
-                  selected: 0,
-                  group: state.data,
-                  onTap: () => controller.paymentCubit.onUpdateData(0),
-                ),
-                Gaps.hGap10,
-                BuildPaymentItem(
-                  img: Res.logo,
-                  selected: 1,
-                  group: state.data,
-                  onTap: () => controller.paymentCubit.onUpdateData(1),
-                ),
-              ],
-            );
-          },
+        Row(
+          children: List.generate(paymentOptions.length, (index) =>  BuildPaymentItem(
+            img: paymentOptions[index].image,
+            selected: paymentOptions[index].selected,
+            onTap: () {
+              for(var e in paymentOptions){
+                e.selected = false ;
+              }
+              paymentOptions[index].selected = true;
+              controller.shippingBloc.onUpdateData(controller.shippingBloc.state.data);
+            }
+          ),)
         ),
-        const BuildWalletBalance(),
+         BuildWalletBalance(walletBalance: controller.shippingBloc.state.data!.summary.walletBalance,),
         Gaps.vGap5,
       ],
     );

@@ -24,7 +24,7 @@ class _PaymentState extends State<Payment> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const BuildCustomAppBar(),
-      bottomNavigationBar: const BuildPaymentButtons(),
+      bottomNavigationBar:  BuildPaymentButtons(controller: controller,),
       body: BlocBuilder<GenericBloc<Shipping?>, GenericState<Shipping?>>(
         bloc: controller.shippingBloc,
         builder: (context, state) {
@@ -40,7 +40,10 @@ class _PaymentState extends State<Payment> {
                         controller: controller,
                         shipping: state.data!,
                       ),
-                      BuildPaymentOptions(controller: controller),
+                      BuildPaymentOptions(
+                        controller: controller,
+                        paymentOptions: state.data!.paymentOption!,
+                      ),
                       BuildAdditionalInfo(controller: controller),
                       BuildConditions(controller: controller),
                     ],

@@ -1,6 +1,7 @@
 part of 'payment_widgets_imports.dart';
 class BuildPaymentButtons extends StatelessWidget {
-  const BuildPaymentButtons({Key? key}) : super(key: key);
+  final PaymentController controller;
+  const BuildPaymentButtons({Key? key, required this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,7 @@ class BuildPaymentButtons extends StatelessWidget {
             child: DefaultButton(
               title: "Complete Order",
               color: context.colors.primary,
-              onTap: () {},
+              onTap: () => controller.createOrder(),
             ),
           ),
         ],

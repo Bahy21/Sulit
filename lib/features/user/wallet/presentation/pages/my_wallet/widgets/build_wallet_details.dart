@@ -1,6 +1,7 @@
 part of'my_wallet_widgets_imports.dart';
 class BuildWalletDetails extends StatelessWidget {
-  const BuildWalletDetails({Key? key}) : super(key: key);
+  final String walletBalance;
+  const BuildWalletDetails({Key? key, required this.walletBalance}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -8,7 +9,6 @@ class BuildWalletDetails extends StatelessWidget {
       alignment: AlignmentDirectional.center,
       padding: const EdgeInsets.all(16).r,
       margin: const EdgeInsets.symmetric(vertical: 4).r,
-      height: 115.h,
       decoration: BoxDecoration(
         gradient: LinearGradient(colors: [
           context.colors.appBarColor,
@@ -24,7 +24,7 @@ class BuildWalletDetails extends StatelessWidget {
           Gaps.vGap20,
 
           Text(
-            "0.00 AED",
+            "$walletBalance AED",
             style: AppTextStyle.s20_w500(color: context.colors.white),
           ),
           Gaps.vGap10,

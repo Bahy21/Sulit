@@ -24,7 +24,7 @@ class _ProductDetailsState extends State<ProductDetails> {
       top: true,
       child: Scaffold(
         backgroundColor: context.colors.background,
-        bottomNavigationBar: BuildProductButtons(),
+        bottomNavigationBar: const BuildProductButtons(),
         body: BlocBuilder<GenericBloc<ProductDetailsDomainModel?>,
             GenericState<ProductDetailsDomainModel?>>(
           bloc: controller.detailsCubit,

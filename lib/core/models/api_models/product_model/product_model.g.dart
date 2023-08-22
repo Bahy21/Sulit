@@ -26,7 +26,9 @@ _$_ProductModel _$$_ProductModelFromJson(Map<String, dynamic> json) =>
           .toList(),
       minQty: json['min_qty'] as int,
       currencySymbol: json['currency_symbol'] as String,
-      variant: VariantModel.fromJson(json['variant'] as Map<String, dynamic>),
+      variant: json['variant'] == null
+          ? null
+          : VariantModel.fromJson(json['variant'] as Map<String, dynamic>),
       tags: (json['tags'] as List<dynamic>).map((e) => e as String).toList(),
       countReviews: json['count_reviews'] as int,
       soldByType: json['sold_by_type'] as String,
@@ -74,7 +76,7 @@ Map<String, dynamic> _$$_ProductModelToJson(_$_ProductModel instance) =>
       'colors': instance.colors.map((e) => e.toJson()).toList(),
       'min_qty': instance.minQty,
       'currency_symbol': instance.currencySymbol,
-      'variant': instance.variant.toJson(),
+      'variant': instance.variant?.toJson(),
       'tags': instance.tags,
       'count_reviews': instance.countReviews,
       'sold_by_type': instance.soldByType,

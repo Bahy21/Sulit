@@ -10,8 +10,8 @@ _$_VariantModel _$$_VariantModelFromJson(Map<String, dynamic> json) =>
     _$_VariantModel(
       id: json['id'] as int,
       name: json['name'] as String,
-      strokedPrice: (json['stroked_price'] as num).toDouble(),
-      calculablePrice: (json['calculable_price'] as num).toDouble(),
+      strokedPrice: json['stroked_price'] as String,
+      calculablePrice: json['calculable_price'] as String,
       mainPrice: json['main_price'] as String,
       currentStock: (json['current_stock'] as num).toDouble(),
       currencySymbol: json['currency_symbol'] as String,

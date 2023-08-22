@@ -667,9 +667,13 @@ class AppRouter extends _i65.RootStackRouter {
       );
     },
     TicketsDetailsRoute.name: (routeData) {
+      final args = routeData.argsAs<TicketsDetailsRouteArgs>();
       return _i65.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i63.TicketsDetails(),
+        child: _i63.TicketsDetails(
+          key: args.key,
+          id: args.id,
+        ),
         opaque: true,
       );
     },
@@ -2109,14 +2113,36 @@ class SupportTicketsRoute extends _i65.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i63.TicketsDetails]
-class TicketsDetailsRoute extends _i65.PageRouteInfo<void> {
-  const TicketsDetailsRoute()
-      : super(
+class TicketsDetailsRoute extends _i65.PageRouteInfo<TicketsDetailsRouteArgs> {
+  TicketsDetailsRoute({
+    _i67.Key? key,
+    required int id,
+  }) : super(
           TicketsDetailsRoute.name,
           path: '/tickets-details',
+          args: TicketsDetailsRouteArgs(
+            key: key,
+            id: id,
+          ),
         );
 
   static const String name = 'TicketsDetailsRoute';
+}
+
+class TicketsDetailsRouteArgs {
+  const TicketsDetailsRouteArgs({
+    this.key,
+    required this.id,
+  });
+
+  final _i67.Key? key;
+
+  final int id;
+
+  @override
+  String toString() {
+    return 'TicketsDetailsRouteArgs{key: $key, id: $id}';
+  }
 }
 
 /// generated route for

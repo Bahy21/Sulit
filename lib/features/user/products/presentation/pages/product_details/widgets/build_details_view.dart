@@ -21,7 +21,7 @@ class BuildDetailsView extends StatelessWidget {
         slivers: [
           BuildProductInfo(controller: controller,productModel:detailsModel.product),
           BuildProductSpecifications(productDetailsController: controller),
-          BuildProductReviews(),
+          const BuildProductReviews(),
           // const BuildProductShare(),
           BuildTopSellingProducts(topProducts: detailsModel.topProducts),
           BuildRelatedProducts(relatedProducts: detailsModel.relatedProducts),

@@ -1,7 +1,8 @@
 part of 'payment_widgets_imports.dart';
 
 class BuildWalletBalance extends StatelessWidget {
-  const BuildWalletBalance({Key? key}) : super(key: key);
+  final String walletBalance ;
+  const BuildWalletBalance({Key? key, required this.walletBalance}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,7 @@ class BuildWalletBalance extends StatelessWidget {
               style: AppTextStyle.s16_w800(color: context.colors.black),
             ),
             Text(
-              "100 د.إ",
+              "$walletBalance د.إ ",
               style: AppTextStyle.s16_w800(color: context.colors.primary),
             ),
           ],

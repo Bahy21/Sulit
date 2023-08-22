@@ -13,6 +13,8 @@ class PaymentOption extends BaseDomainModel {
 
   String details;
 
+  bool selected = false ;
+
   PaymentOption({
     required this.paymentType,
     required this.paymentTypeKey,

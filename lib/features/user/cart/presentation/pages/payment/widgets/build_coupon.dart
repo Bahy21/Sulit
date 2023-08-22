@@ -8,7 +8,7 @@ class BuildCoupon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: controller.formKey,
+      key: controller.couponFormKey,
       child: GenericTextField(
         hint: "Have Coupon? Enter here",
         fieldTypes: FieldTypes.normal,
