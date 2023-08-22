@@ -3,7 +3,10 @@ part of'tickets_details_imports.dart';
 class TicketsDetails extends StatefulWidget {
   final int id;
 
-  const TicketsDetails({Key? key, required this.id}) : super(key: key);
+  const TicketsDetails({
+    Key? key,
+    required this.id,
+  }) : super(key: key);
 
   @override
   State<TicketsDetails> createState() => _TicketsDetailsState();
@@ -22,7 +25,7 @@ class _TicketsDetailsState extends State<TicketsDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: BuildAddReplayButton(
-        ticketsDetailsController: controller,
+        controller: controller, id: widget.id,
       ),
       appBar: const DefaultAppBar(title: "Ticket Details", showBack: true),
       body: BlocBuilder<GenericBloc<Ticket?>, GenericState<Ticket?>>(
@@ -37,7 +40,9 @@ class _TicketsDetailsState extends State<TicketsDetails> {
                 Visibility(
                   visible: state.data!.replies!.isNotEmpty,
                   replacement: Padding(
-                    padding:  EdgeInsets.only(top: 300.h),
+                    padding: EdgeInsets.only(
+                      top: 300.h,
+                    ),
                     child: Text(
                       "No replies found yet. ! ",
                       style: AppTextStyle.s12_w400(color: context.colors.grey),

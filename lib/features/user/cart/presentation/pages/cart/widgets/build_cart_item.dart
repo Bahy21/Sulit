@@ -45,9 +45,9 @@ class BuildCartItem extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children:  [
-                BuildPriceItem(title: "Price", price: cartItem.price),
-                BuildPriceItem(title: "Tax", price: cartItem.tax),
-                BuildPriceItem(title: "Total", price: cartItem.total),
+                BuildPriceItem(title: "Price", price: cartItem.price, currency: cartItem.currencySymbol,),
+                BuildPriceItem(title: "Tax", price: cartItem.tax, currency: cartItem.currencySymbol,),
+                BuildPriceItem(title: "Total", price: cartItem.total, currency: cartItem.currencySymbol,),
               ],
             ),
           ),

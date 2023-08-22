@@ -33,6 +33,8 @@ class PaymentController {
       return;
     }
     var params = _orderParams();
+    // print(params.toJson());
+    // return ;
     var data = await CreateOrder().call(params);
     if (data) {
       CustomToast.showSimpleToast(

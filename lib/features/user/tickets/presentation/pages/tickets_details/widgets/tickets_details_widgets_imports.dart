@@ -23,3 +23,4 @@ part 'build_replay_item.dart';
 part 'build_ticket_details_loading.dart';
 part 'build_ticket_details_item.dart';
 part 'build_ticket_details_dialog.dart';
+part 'build_add_ticket_reply_image.dart';

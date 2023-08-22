@@ -30,7 +30,7 @@ class BuildWalletBalance extends StatelessWidget {
               style: AppTextStyle.s16_w800(color: context.colors.black),
             ),
             Text(
-              "$walletBalance د.إ ",
+              walletBalance,
               style: AppTextStyle.s16_w800(color: context.colors.primary),
             ),
           ],

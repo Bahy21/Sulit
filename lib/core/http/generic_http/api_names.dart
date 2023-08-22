@@ -70,8 +70,13 @@ class ApiNames{
   static const String cartStoreShipping = "cart/store-shipping-info";
   static const String applyCoupon = "cart/apply-coupon";
   static const String storeOrders = "orders/store";
+
   //tickets
   static const String createTicket = "tickets/store";
   static const String tickets = "tickets";
   static String ticketDetails (int id) =>  "tickets/$id/show";
+  static String addTicketReply (int id) =>  "tickets/$id/replies/store";
+
+  //PurchaseHistory
+  static const String getPurchaseHistory = "orders/purchase-history";
 }

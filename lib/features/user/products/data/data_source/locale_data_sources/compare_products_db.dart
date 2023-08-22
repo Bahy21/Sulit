@@ -23,6 +23,7 @@ LazyDatabase _openConnection() {
   });
 }
 
+
 @DriftDatabase(tables: [ProductsTable])
 class ComparedProductsDb extends _$ComparedProductsDb {
   ComparedProductsDb() : super(_openConnection());
@@ -39,7 +40,7 @@ class ComparedProductsDb extends _$ComparedProductsDb {
   }
 
   Future<int> deleteItem(int id) async {
-    return await (delete(productsTable)..where((tbl) => tbl.id.equals(id)))
+    return await (delete(productsTable)..where((tbl) => tbl.productId.equals(id)))
         .go();
   }
 

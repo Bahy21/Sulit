@@ -37,7 +37,7 @@ class BuildReplayItem extends StatelessWidget {
             placeHolder: Image.asset(
               Res.profile,
             ),
-            url: replyModel.user.avatar!,
+            url: replyModel.user.avatarOriginal!,
           ),
           trailing: Text(
               DateFormat.yMd().add_jm().format(replyModel.createdAt),
