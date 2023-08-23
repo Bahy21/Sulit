@@ -35,7 +35,7 @@ class ProductsHelper {
 
   Future<int> _addItemToCompare(Product product) async {
     var params = _comparedParams(product);
-    var data = await AddProductToCompare().call(params);
+    var data = getIt<ComparedProductsDb>().insertItem(params);
     CustomToast.showSimpleToast(
       msg: "Item Added To Compare Successfully",
       type: ToastType.success,
@@ -46,8 +46,8 @@ class ProductsHelper {
   Future<bool> _isAddedToCompared(Product product) async {
     var exitedItems = await getComparedProducts();
     if (exitedItems.isNotEmpty) {
-      if (exitedItems.any((element) => element.id == product.id)) {
-        return true;
+      if (exitedItems.where((element) => element.productId == product.id).toList().isNotEmpty) {
+        return true ;
       } else {
         return false;
       }
@@ -62,7 +62,7 @@ class ProductsHelper {
 
   ProductsTableData _comparedParams(Product product) {
     return ProductsTableData(
-      id: product.id,
+      productId: product.id,
       name: product.name,
       image: product.thumbnailImage,
       brand: product.brandName,

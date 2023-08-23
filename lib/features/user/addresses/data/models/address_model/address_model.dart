@@ -6,28 +6,27 @@ import 'package:flutter_tdd/features/user/addresses/domain/models/address.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'address_model.freezed.dart';
-
 part 'address_model.g.dart';
 
 @freezed
 @immutable
 class AddressModel extends BaseApiModel<Address> with _$AddressModel {
   const AddressModel._();
-
   @JsonSerializable(explicitToJson: true)
-  const factory AddressModel(
-      {required int id,
-      @JsonKey(name: "user_id") required int userId,
-      required String address,
-        CountryModel? country,
-       StateModel? state,
-       CityModel? city,
-      @JsonKey(name: "postal_code") required String postalCode,
-      required String phone,
-      @JsonKey(name: "set_default") required bool setDefault,
-      required double lat,
-      required double lang,
-      @JsonKey(name: "is_active") required bool isActive}) = _AddressModel;
+  const factory AddressModel({
+    required int id,
+    @JsonKey(name: "user_id") required int userId,
+    required String address,
+    CountryModel? country,
+    StateModel? state,
+    CityModel? city,
+    @JsonKey(name: "postal_code") required String postalCode,
+    required String phone,
+    @JsonKey(name: "set_default") required bool setDefault,
+    required double lat,
+    required double lang,
+    @JsonKey(name: "is_active") required bool isActive,
+  }) = _AddressModel;
 
   factory AddressModel.fromJson(Map<String, dynamic> json) =>
       _$AddressModelFromJson(json);

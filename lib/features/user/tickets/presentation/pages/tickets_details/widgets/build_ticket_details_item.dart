@@ -1,6 +1,7 @@
 part of'tickets_details_widgets_imports.dart';
 class BuildTicketDetailsItem extends StatelessWidget {
-  const BuildTicketDetailsItem({Key? key}) : super(key: key);
+  final Ticket ticket ;
+  const BuildTicketDetailsItem({Key? key, required this.ticket}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,12 +16,12 @@ class BuildTicketDetailsItem extends StatelessWidget {
             ]),
         child: ListTile(
           title: Text(
-            "test 2 903873063",
+            ticket.subject,
             style: AppTextStyle.s14_w500(color: context.colors.black),
           ),
 
           trailing: Text(
-            "Pending",
+            ticket.status,
             style: AppTextStyle.s12_w400(color: context.colors.primary),
           ),
           minLeadingWidth: 10.w,

@@ -3,7 +3,6 @@ import 'package:flutter_tdd/features/user/products/domain/models/banner_domain_m
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'banner_model.freezed.dart';
-
 part 'banner_model.g.dart';
 
 @freezed

@@ -29,10 +29,24 @@ class _CompareState extends State<Compare> {
                   const EdgeInsets.symmetric(vertical: 20, horizontal: 16).r,
               child: Column(
                 children: [
-                  const BuildResetButton(),
-                  Table(
-                    border: TableBorder.all(
-                        color: context.colors.blackOpacity, width: 0),
+                BuildResetButton(
+                  isNotEmpty: state.data.isNotEmpty,
+                ),
+                Visibility(
+                  visible: state.data.isNotEmpty,
+                  replacement: Padding(
+                    padding: EdgeInsets.only(top: 350.h),
+                    child: Center(
+                      child: Text(
+                        'No compared items found.  ! ',
+                        style: AppTextStyle.s12_w400(
+                          color: context.colors.grey,
+                        ),
+                      ),
+                    ),
+                  ),
+                  child: Table(
+                    border: TableBorder.all(color: context.colors.blackOpacity, width: 0),
                     children: [
                       TableRow(
                         decoration: BoxDecoration(
@@ -107,10 +121,12 @@ class _CompareState extends State<Compare> {
                       )
                     ],
                   ),
-                ],
-              ),
-            );
-          },
-        ));
+                ),
+              ],
+            ),
+          );
+        },
+      ),
+    );
   }
 }

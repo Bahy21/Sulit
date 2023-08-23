@@ -1,7 +1,8 @@
 part of 'delivery_widgets_imports.dart';
 
 class BuildDeliveryProducts extends StatelessWidget {
-  const BuildDeliveryProducts({Key? key}) : super(key: key);
+  final List<CartItem> cartItems ;
+  const BuildDeliveryProducts({Key? key, required this.cartItems}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,12 +19,12 @@ class BuildDeliveryProducts extends StatelessWidget {
           ),
           child: Text(
             "Products",
-            style: AppTextStyle.s15_w700(color: context.colors.black),
+            style: AppTextStyle.s15_w700(color: context.colors.black).copyWith(),
           ),
         ),
         ...List.generate(
-          2,
-          (index) => const BuildDeliveryProductItem(),
+          cartItems.length,
+          (index) =>  BuildDeliveryProductItem(cartItem: cartItems[index],),
         )
       ],
     );

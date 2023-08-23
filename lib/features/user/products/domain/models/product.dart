@@ -56,7 +56,7 @@ class Product extends BaseDomainModel {
     required this.hasDiscount,
     required this.discount,
     this.strokedPrice,
-    this.variant,
+     this.variant,
     this.mainPrice,
     this.choiceOptions,
     this.colors,

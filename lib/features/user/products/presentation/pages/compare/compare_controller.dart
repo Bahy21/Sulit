@@ -7,7 +7,7 @@ class CompareController {
   }
 
   Future<void> getComparedProducts() async {
-    return await GetComparedItems().call(NoParams()).then(
+    return await getIt<ComparedProductsDb>().getItems().then(
           (value) => productsBloc.onUpdateData(value),
         );
   }

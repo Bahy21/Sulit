@@ -5,11 +5,13 @@ class BuildAddressLoading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: const [
-        BuildAddNewAddressCardShimmer(),
-        BuildListAddressShimmer(),
-      ],
+    return Expanded(
+      child: ListView(
+        children: const [
+          BuildAddNewAddressCardShimmer(),
+          BuildListAddressShimmer(),
+        ],
+      ),
     );
   }
 }

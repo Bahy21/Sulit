@@ -8,20 +8,40 @@ class MyWallet extends StatefulWidget {
 }
 
 class _MyWalletState extends State<MyWallet> {
-  final MyWalletController controller = MyWalletController();
+  late MyWalletController controller;
+
+  @override
+  void initState() {
+    controller = MyWalletController();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const DefaultAppBar(title: "My Wallet", showBack: true),
-      body: ListView(
-        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16).r,
-        children: [
-          const BuildWalletDetails(),
-          Gaps.vGap20,
-          const BuildChargeWallet(),
-          Gaps.vGap32,
-          const BuildWalletHistory()
-        ],
+      body: BlocBuilder<GenericBloc<Wallet?>, GenericState<Wallet?>>(
+        bloc: controller.walletBloc,
+        builder: (context, state) {
+          if (state is GenericUpdateState) {
+            return ListView(
+              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16).r,
+              children: [
+                BuildWalletDetails(
+                  walletBalance: state.data!.walletBalance,
+                ),
+                Gaps.vGap20,
+                const BuildChargeWallet(),
+                Gaps.vGap32,
+                BuildWalletHistory(
+                  walletRechargeHistory: state.data!.rechargeHistory,
+                )
+              ],
+            );
+          } else {
+            return const BuildWalletLoading();
+          }
+        },
       ),
     );
   }

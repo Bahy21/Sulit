@@ -1,7 +1,8 @@
 part of 'tickets_details_widgets_imports.dart';
 
 class BuildReplayItem extends StatelessWidget {
-  const BuildReplayItem({Key? key}) : super(key: key);
+  final TicketReply replyModel;
+  const BuildReplayItem({Key? key, required this.replyModel}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +21,11 @@ class BuildReplayItem extends StatelessWidget {
             ]),
         child: ListTile(
           title: Text(
-            "Tarek fouda",
+            replyModel.user.name!,
             style: AppTextStyle.s14_w500(color: context.colors.black),
           ),
           subtitle: Text(
-            "text new replay ",
+             replyModel.reply,
             style: AppTextStyle.s12_w400(color: context.colors.blackOpacity),
           ),
           leading: CachedImage(
@@ -36,10 +37,10 @@ class BuildReplayItem extends StatelessWidget {
             placeHolder: Image.asset(
               Res.profile,
             ),
-            url: "",
+            url: replyModel.user.avatarOriginal!,
           ),
           trailing: Text(
-            "12/3/2023 3:00 pm",
+              DateFormat.yMd().add_jm().format(replyModel.createdAt),
             style: AppTextStyle.s12_w400(color: context.colors.blackOpacity),
           ),
           minLeadingWidth: 10.w,

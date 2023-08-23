@@ -40,7 +40,7 @@ class BuildProductDetailsSwiper extends StatelessWidget {
         ),
         BuildIconItem(
           iconData: Icons.compare_arrows,
-          onTap: () {},
+          onTap: () => getIt<ProductsHelper>().addProductToCompare(productModel),
           padding: Dimens.paddingAll8PX,
         ),
       ],

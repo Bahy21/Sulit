@@ -46,6 +46,7 @@ class ApiNames{
   static const String countries = "countries";
   static const String states = "states";
   static const String cities  = "cities";
+  static const String myWallet  = "my-wallet";
   static String setDefaultAddress (int id) => "user/addresses/$id/set-default?_method=put";
   static String deleteAddress (int id) => "user/addresses/$id/delete";
   static String editAddress (int id) => "user/addresses/$id/update?_method=put";
@@ -65,4 +66,19 @@ class ApiNames{
   // wishlist
   static const String wishlist = "wishlists";
 
+  //cart
+  static const String cart = "cart";
+  static const String addCartAddress = "cart/add-address";
+  static const String cartStoreShipping = "cart/store-shipping-info";
+  static const String applyCoupon = "cart/apply-coupon";
+  static const String storeOrders = "orders/store";
+
+  //tickets
+  static const String createTicket = "tickets/store";
+  static const String tickets = "tickets";
+  static String ticketDetails (int id) =>  "tickets/$id/show";
+  static String addTicketReply (int id) =>  "tickets/$id/replies/store";
+
+  //PurchaseHistory
+  static const String getPurchaseHistory = "orders/purchase-history";
 }

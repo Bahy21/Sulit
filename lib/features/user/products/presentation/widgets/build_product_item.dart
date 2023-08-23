@@ -4,6 +4,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_tdd/core/constants/dimens.dart';
 import 'package:flutter_tdd/core/constants/gaps.dart';
+import 'package:flutter_tdd/core/helpers/di.dart';
 import 'package:flutter_tdd/core/routes/router_imports.gr.dart';
 import 'package:flutter_tdd/core/theme/colors/colors_extension.dart';
 import 'package:flutter_tdd/core/theme/text/app_text_style.dart';
@@ -114,8 +115,7 @@ class BuildProductItem extends StatelessWidget {
                         ),
                         BuildIconItem(
                           iconData: Icons.compare_arrows,
-                          onTap: () => ProductsHelper()
-                              .addProductToCompare(productModel),
+                          onTap: () => getIt<ProductsHelper>().addProductToCompare(productModel),
                         ),
                         BuildIconItem(
                           iconData: Icons.shopping_cart,

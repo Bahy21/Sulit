@@ -1,9 +1,9 @@
 part of 'payment_widgets_imports.dart';
 
 class BuildConditions extends StatelessWidget {
-  final PaymentController paymentController;
+  final PaymentController controller;
 
-  const BuildConditions({super.key, required this.paymentController});
+  const BuildConditions({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -12,14 +12,14 @@ class BuildConditions extends StatelessWidget {
       child: Row(
         children: [
           BlocBuilder<GenericBloc<bool>, GenericState<bool>>(
-            bloc: paymentController.conditionsCubit,
+            bloc: controller.conditionsCubit,
             builder: (_, state) {
               return Checkbox(
                 value: state.data,
                 activeColor: Colors.grey.withOpacity(.3),
                 visualDensity: const VisualDensity(horizontal: -2),
                 onChanged: (val) =>
-                    paymentController.conditionsCubit.onUpdateData(!state.data),
+                    controller.conditionsCubit.onUpdateData(!state.data),
               );
             },
           ),
