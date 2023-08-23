@@ -45,11 +45,31 @@ class BuildLoadingDetails extends StatelessWidget {
         ),
         Flexible(
           child: ListView(
-            children:const [
-               BuildLoadingInfo(),
-               BuildLoadingAttributes(),
-
+            children: const [
+              BuildLoadingInfo(),
+              BuildLoadingAttributes(),
             ],
+          ),
+        ),
+        Padding(
+          padding: Dimens.paddingHorizontal15PX,
+          child: SizedBox(
+            height: 45.h,
+            child: Row(
+              children: [
+                BuildShimmerItem(
+                  height: 45.h,
+                  width: 45.h,
+                  margin: Dimens.paddingAll5PX,
+                ),
+                Expanded(
+                  child: BuildShimmerItem(
+                    height: 45.h,
+                    margin: Dimens.paddingAll5PX,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ],

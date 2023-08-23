@@ -16,35 +16,7 @@ class CategoryDetailsController {
   List<String> selectedColors = [];
   int currentCatId = 0;
 
-  GenericParams _subCategoryParams(int id, bool refresh) {
-    return GenericParams(id: id, refresh: refresh);
-  }
-
-  SearchProductsParams _productsParams(int page, bool refresh) {
-    var specifications = specificationsCubit.state.data;
-    var colors = specifications?.colors
-        .where((element) => element.selected)
-        .map((e) => e.code)
-        .toList();
-    var attributes = specifications?.attributes.map((e) => e.attributeValues
-        .where((val) => val.selected)
-        .map((element) => element.value)
-        .toList());
-    return SearchProductsParams(
-      catId: currentCatId,
-      brandId: brandId,
-      color: colors,
-      attributes: attributes?.expand((element) => element).toList(),
-      minPrice: rangeCubit.state.data?.value.start,
-      maxPrice: rangeCubit.state.data?.value.end,
-      refresh: refresh,
-      pageSize: pageSize,
-      currentPage: page,
-    );
-  }
-
   void initData(BuildContext context, int catId) {
-    // getSubCategories(context, catId, 0, refresh: false);
     getSubCategories(context, catId, 0).then((value) {
       getPopularProducts(1, refresh: false);
       pagingController.addPageRequestListener((pageKey) {
@@ -53,9 +25,9 @@ class CategoryDetailsController {
     });
   }
 
-  Future<void> getSubCategories(BuildContext context,  int id, int index,
+  Future<void> getSubCategories(BuildContext context, int id, int index,
       {bool refresh = true}) async {
-    currentCatId=id;
+    currentCatId = id;
     var params = _productsParams(1, refresh);
     var result = await GetSubCategories().call(params);
     _checkSubCategoriesList(result!, id, index);
@@ -176,5 +148,28 @@ class CategoryDetailsController {
     specifications!.colors[index].selected =
         !specifications.colors[index].selected;
     specificationsCubit.onUpdateData(specifications);
+  }
+
+  SearchProductsParams _productsParams(int page, bool refresh) {
+    var specifications = specificationsCubit.state.data;
+    var colors = specifications?.colors
+        .where((element) => element.selected)
+        .map((e) => e.code)
+        .toList();
+    var attributes = specifications?.attributes.map((e) => e.attributeValues
+        .where((val) => val.selected)
+        .map((element) => element.value)
+        .toList());
+    return SearchProductsParams(
+      catId: currentCatId,
+      brandId: brandId,
+      color: colors,
+      attributes: attributes?.expand((element) => element).toList(),
+      minPrice: rangeCubit.state.data?.value.start,
+      maxPrice: rangeCubit.state.data?.value.end,
+      refresh: refresh,
+      pageSize: pageSize,
+      currentPage: page,
+    );
   }
 }

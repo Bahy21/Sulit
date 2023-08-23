@@ -1,4 +1,5 @@
 part of 'brands_widgets_imports.dart';
+
 class BuildBrandShimmer extends StatelessWidget {
   const BuildBrandShimmer({Key? key}) : super(key: key);
 
@@ -9,11 +10,10 @@ class BuildBrandShimmer extends StatelessWidget {
       child: GridView.builder(
         physics: const NeverScrollableScrollPhysics(),
         itemCount: 10,
-        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16).r,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          crossAxisSpacing: 20.r,
-          mainAxisSpacing: 20.r,
+          crossAxisSpacing: 15.r,
+          mainAxisSpacing: 15.r,
           childAspectRatio: 9 / 8,
         ),
         itemBuilder: (context, index) => BuildShimmerItem(
@@ -23,16 +23,11 @@ class BuildBrandShimmer extends StatelessWidget {
               borderRadius: BorderRadius.circular(5),
               boxShadow: [
                 BoxShadow(
-                    color: context.colors.greyWhite,
-                    blurRadius: 1,
-                    spreadRadius: 1)
+                  color: context.colors.greyWhite,
+                  blurRadius: 1,
+                  spreadRadius: .5,
+                )
               ],
-            ),
-            child: CachedImage(
-              fit: BoxFit.cover,
-              haveRadius: true,
-              borderRadius: BorderRadius.circular(5).r,
-              url: "",
             ),
           ),
         ),

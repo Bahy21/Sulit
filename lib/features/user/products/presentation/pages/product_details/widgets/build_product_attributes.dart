@@ -1,54 +1,44 @@
-part of  'product_details_widgets_imports.dart';
+part of 'product_details_widgets_imports.dart';
 
 class BuildProductAttributes extends StatelessWidget {
-  final ProductDetailsController productDetailsController;
+  final ProductDetailsController controller;
+  final List<ProductOptions> productOptions;
 
-  const BuildProductAttributes({super.key, required this.productDetailsController});
+  const BuildProductAttributes(
+      {super.key, required this.controller, required this.productOptions});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-
-      children: [
-        Gaps.vGap10,
-        BlocBuilder<GenericBloc<int>, GenericState<int>>(
-          bloc: productDetailsController.isSelected,
-          builder: (context, state) {
-            return Wrap(
-              children: List.generate(
-                4,
-                    (index) => InkWell(
-                  onTap: () => productDetailsController.isSelected
-                      .onUpdateData(index),
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 7)
-                        .r,
-                    margin: const EdgeInsetsDirectional.only(end: 10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5).r,
-                      border: Border.all(
-                          color: state.data == index
-                              ? context.colors.primary
-                              : context.colors.disableGray),
-                      color: context.colors.white,
-                    ),
-                    child: Text(
-                      "Large",
-                      style: AppTextStyle.s12_w400(
-                        color: context.colors.black,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
+    return Visibility(
+      visible: productOptions.isNotEmpty,
+      replacement: Gaps.vGap5,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Gaps.vGap10,
+          ...List.generate(
+            productOptions.length,
+            (index) => Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  productOptions[index].title,
+                  style: AppTextStyle.s12_w500(
+                    color: context.colors.black,
                   ),
+                  textAlign: TextAlign.center,
                 ),
-              ),
-            );
-          },
-        ),
-        Gaps.line(context.colors.greyWhite, 20.h),
-      ],
+                BuildAttributeList(
+                  controller: controller,
+                  index: index,
+                  productOptions: productOptions,
+                ),
+              ],
+            ),
+          ),
+          Gaps.line(context.colors.greyWhite, 20.h),
+        ],
+      ),
     );
   }
 }

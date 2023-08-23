@@ -1,17 +1,17 @@
-part of 'product_details_widgets_imports.dart';
+part of  'product_details_widgets_imports.dart';
+class BuildOwnQuestions extends StatelessWidget {
+  final ProductQueries productQueries;
 
-class BuildRelatedProducts extends StatelessWidget {
-  final List<Product> relatedProducts;
-
-  const BuildRelatedProducts({super.key, required this.relatedProducts});
-
+  const BuildOwnQuestions({Key? key, required this.productQueries})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
       child: Visibility(
-        visible: relatedProducts.isNotEmpty,
+        visible: productQueries.ownProductQueries.isNotEmpty,
+        replacement: Gaps.vGap10,
         child: Container(
-          height: 270.spMin,
+          height: 150.spMin,
           padding: Dimens.paddingAll8PX,
           margin: Dimens.standardPadding,
           decoration: BoxDecoration(
@@ -30,7 +30,7 @@ class BuildRelatedProducts extends StatelessWidget {
             children: [
               Gaps.vGap10,
               Text(
-                "Related Products",
+                "Own Questions : ",
                 style: AppTextStyle.s15_w700(
                   color: context.colors.black,
                 ),
@@ -41,11 +41,16 @@ class BuildRelatedProducts extends StatelessWidget {
                   physics: const BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                    children: List.generate(
-                      relatedProducts.length,
-                      (index) =>
-                          BuildProductItem(productModel: relatedProducts[index]),
-                    ),
+                    children: [
+                      ...List.generate(
+                        productQueries.ownProductQueries.length,
+                            (index) {
+                          return BuildQuestionItem(
+                            queryModel: productQueries.ownProductQueries[index],
+                          );
+                        },
+                      )
+                    ],
                   ),
                 ),
               ),

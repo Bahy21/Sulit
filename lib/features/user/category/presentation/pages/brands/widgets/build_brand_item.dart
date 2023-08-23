@@ -9,7 +9,7 @@ class BuildBrandItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () => AutoRouter.of(context).push(
-         BrandDetailsRoute(brandId: brand.id),
+        BrandDetailsRoute(brandId: brand.id),
       ),
       child: Container(
         decoration: BoxDecoration(
@@ -19,7 +19,7 @@ class BuildBrandItem extends StatelessWidget {
             BoxShadow(
               color: context.colors.greyWhite,
               blurRadius: 1,
-              spreadRadius: 1,
+              spreadRadius: .5,
             )
           ],
         ),

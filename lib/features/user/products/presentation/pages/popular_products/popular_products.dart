@@ -10,17 +10,18 @@ class PopularProducts extends StatefulWidget {
 }
 
 class _PopularProductsState extends State<PopularProducts> {
-  final PopularProductsController controller = PopularProductsController();
+  late PopularProductsController controller;
 
   @override
   void initState() {
-    controller.initPagination(widget.popularProductsModel.id);
+    controller = PopularProductsController(widget.popularProductsModel.id);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: context.colors.customBackground,
       appBar: DefaultAppBar(
           title: widget.popularProductsModel.name, showBack: true),
       body: RefreshIndicator(

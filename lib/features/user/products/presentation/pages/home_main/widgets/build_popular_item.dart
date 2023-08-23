@@ -16,12 +16,11 @@ class BuildPopularItem extends StatelessWidget {
         decoration: BoxDecoration(
           color: context.colors.white,
           borderRadius: Dimens.borderRadius5PX,
-          border: Border.all(color: context.colors.greyWhite),
           boxShadow: [
             BoxShadow(
               color: context.colors.greyWhite,
               blurRadius: 1,
-              spreadRadius: 1,
+              spreadRadius: .5,
             )
           ],
         ),

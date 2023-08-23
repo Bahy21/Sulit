@@ -11,7 +11,7 @@ class Product extends BaseDomainModel {
   final int id;
   final String name;
   final String thumbnailImage;
-  final List<String> images;
+  List<String> images;
   final bool isMultiple;
   final String priceHighLowDiscount;
   final String priceHighLow;
@@ -23,7 +23,7 @@ class Product extends BaseDomainModel {
   final List<ColorDomainModel>? colors;
   final int minQty;
   final String currencySymbol;
-  final Variant variant;
+  Variant? variant;
   final List<String>? tags;
   final num rating;
   final int sales;
@@ -56,7 +56,7 @@ class Product extends BaseDomainModel {
     required this.hasDiscount,
     required this.discount,
     this.strokedPrice,
-    required this.variant,
+    this.variant,
     this.mainPrice,
     this.choiceOptions,
     this.colors,

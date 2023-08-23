@@ -1,20 +1,14 @@
 import 'package:flutter_tdd/core/models/domain_model/base_domain_model.dart';
 
-class Variant extends BaseDomainModel{
+class Variant extends BaseDomainModel {
   int id;
   String name;
-  double strokedPrice;
-
-  double calculablePrice;
-
+  String strokedPrice;
+  String calculablePrice;
   String mainPrice;
-
-  double currentStock;
-
+  int currentStock;
   String currencySymbol;
-
   String image;
-
   String options;
 
   Variant({

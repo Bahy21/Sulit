@@ -558,6 +558,7 @@ class AppRouter extends _i65.RootStackRouter {
         child: _i52.ProductDetails(
           key: args.key,
           productId: args.productId,
+          isResale: args.isResale,
         ),
         opaque: true,
       );
@@ -1788,12 +1789,14 @@ class ProductDetailsRoute extends _i65.PageRouteInfo<ProductDetailsRouteArgs> {
   ProductDetailsRoute({
     _i67.Key? key,
     required int productId,
+    required bool isResale,
   }) : super(
           ProductDetailsRoute.name,
           path: '/product-details',
           args: ProductDetailsRouteArgs(
             key: key,
             productId: productId,
+            isResale: isResale,
           ),
         );
 
@@ -1804,15 +1807,18 @@ class ProductDetailsRouteArgs {
   const ProductDetailsRouteArgs({
     this.key,
     required this.productId,
+    required this.isResale,
   });
 
   final _i67.Key? key;
 
   final int productId;
 
+  final bool isResale;
+
   @override
   String toString() {
-    return 'ProductDetailsRouteArgs{key: $key, productId: $productId}';
+    return 'ProductDetailsRouteArgs{key: $key, productId: $productId, isResale: $isResale}';
   }
 }
 

@@ -16,7 +16,7 @@ class BuildColorFilterItem extends StatelessWidget {
     return InkWell(
       onTap: () => categoryDetailsController.onSelectColor(index),
       child: Container(
-        width: 50,
+        width: 45.w,
         padding: Dimens.paddingAll8PX,
         decoration: BoxDecoration(
             border: Border.all(
@@ -27,8 +27,8 @@ class BuildColorFilterItem extends StatelessWidget {
             borderRadius: BorderRadius.circular(4)),
         alignment: Alignment.center,
         child: Container(
-          width: 10,
-          height: 10,
+          width: 10.r,
+          height: 10.r,
           padding: Dimens.paddingAll5PX,
           color: Color(int.parse(colorModel.code.replaceFirst("#", "0xff"))),
         ),

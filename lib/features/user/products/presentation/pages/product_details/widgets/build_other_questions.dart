@@ -1,19 +1,20 @@
 part of 'product_details_widgets_imports.dart';
 
-class BuildRelatedProducts extends StatelessWidget {
-  final List<Product> relatedProducts;
+class BuildOtherQuestions extends StatelessWidget {
+  final ProductQueries productQueries;
 
-  const BuildRelatedProducts({super.key, required this.relatedProducts});
+  const BuildOtherQuestions({Key? key, required this.productQueries})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
       child: Visibility(
-        visible: relatedProducts.isNotEmpty,
+        visible: productQueries.otherProductQueries.isNotEmpty,
         child: Container(
-          height: 270.spMin,
+          height: 150.spMin,
           padding: Dimens.paddingAll8PX,
-          margin: Dimens.standardPadding,
+          margin: Dimens.paddingHorizontal15PX,
           decoration: BoxDecoration(
             borderRadius: Dimens.borderRadius5PX,
             color: context.colors.white,
@@ -30,7 +31,7 @@ class BuildRelatedProducts extends StatelessWidget {
             children: [
               Gaps.vGap10,
               Text(
-                "Related Products",
+                "Other Questions : ",
                 style: AppTextStyle.s15_w700(
                   color: context.colors.black,
                 ),
@@ -41,11 +42,16 @@ class BuildRelatedProducts extends StatelessWidget {
                   physics: const BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                    children: List.generate(
-                      relatedProducts.length,
-                      (index) =>
-                          BuildProductItem(productModel: relatedProducts[index]),
-                    ),
+                    children: [
+                      ...List.generate(
+                        productQueries.otherProductQueries.length,
+                        (index) {
+                          return BuildQuestionItem(
+                            queryModel: productQueries.otherProductQueries[index],
+                          );
+                        },
+                      )
+                    ],
                   ),
                 ),
               ),

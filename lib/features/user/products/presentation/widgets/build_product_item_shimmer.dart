@@ -21,7 +21,7 @@ class BuildProductItemShimmer extends StatelessWidget {
           BoxShadow(
             color: context.colors.greyWhite,
             blurRadius: 1,
-            spreadRadius: 1,
+            spreadRadius: .5,
           )
         ],
       ),

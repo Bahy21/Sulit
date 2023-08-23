@@ -35,7 +35,7 @@ class ProductModel extends BaseApiModel<Product> with _$ProductModel {
     required List<ColorModel> colors,
     @JsonKey(name: "min_qty") required int minQty,
     @JsonKey(name: "currency_symbol") required String currencySymbol,
-    required VariantModel variant,
+     VariantModel? variant,
     required List<String> tags,
     @JsonKey(name: 'count_reviews') required int countReviews,
     @JsonKey(name: 'sold_by_type') required String soldByType,
@@ -101,7 +101,7 @@ class ProductModel extends BaseApiModel<Product> with _$ProductModel {
       tags: tags,
       videoLink: videoLink,
       videoProvider: videoProvider,
-      variant: variant.toDomainModel(),
+      variant: variant?.toDomainModel(),
     );
   }
 }

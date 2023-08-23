@@ -27,18 +27,21 @@ class BuildProductItem extends StatelessWidget {
       decoration: BoxDecoration(
         color: context.colors.white,
         borderRadius: Dimens.borderRadius5PX,
-        border: Border.all(color: context.colors.greyWhite),
         boxShadow: [
           BoxShadow(
             color: context.colors.greyWhite,
             blurRadius: 1,
-            spreadRadius: 1,
+            spreadRadius: .5,
           )
         ],
       ),
       child: InkWell(
-        onTap: () => AutoRouter.of(context)
-            .push(ProductDetailsRoute(productId: productModel.id)),
+        onTap: () => AutoRouter.of(context).push(
+          ProductDetailsRoute(
+            productId: productModel.id,
+            isResale: productModel.isResale,
+          ),
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -129,27 +132,23 @@ class BuildProductItem extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    children: [
-                      Text(
-                        productModel.mainPrice ?? "",
-                        style: AppTextStyle.s11_bold(
-                          color: context.colors.primary,
-                        ),
+                  Text(
+                    productModel.priceHighLowDiscount,
+                    style: AppTextStyle.s11_bold(
+                      color: context.colors.primary,
+                    ),
+                  ),
+                  Gaps.vGap3,
+                  Visibility(
+                    visible: productModel.hasDiscount,
+                    child: Text(
+                      productModel.priceHighLow,
+                      style: AppTextStyle.s11_bold(
+                        color: context.colors.black,
+                      ).copyWith(
+                        decoration: TextDecoration.lineThrough,
                       ),
-                      Gaps.hGap5,
-                      Visibility(
-                        visible: productModel.hasDiscount,
-                        child: Text(
-                          productModel.strokedPrice ?? "",
-                          style: AppTextStyle.s11_bold(
-                            color: context.colors.black,
-                          ).copyWith(
-                            decoration: TextDecoration.lineThrough,
-                          ),
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
                   RatingBar.builder(
                     initialRating: productModel.rating.toDouble(),

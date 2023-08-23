@@ -13,10 +13,8 @@ class BuildDeals extends StatelessWidget {
         (index) => Expanded(
           child: BuildDealsItem(
             flashSaleModel: flashSales[index],
-            onTap: () {
-              AutoRouter.of(context)
-                  .push(SaleDetailsRoute(dealId: flashSales[index].id));
-            },
+            onTap: () => AutoRouter.of(context)
+                .push(SaleDetailsRoute(dealId: flashSales[index].id)),
           ),
         ),
       ),

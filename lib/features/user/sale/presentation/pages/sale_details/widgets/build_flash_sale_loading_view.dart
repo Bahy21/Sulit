@@ -74,14 +74,11 @@ class BuildFlashSaleLoadingView extends StatelessWidget {
         ),
         Expanded(
           child: GridView.builder(
-            padding: const EdgeInsets.symmetric(
-              vertical: 20,
-              horizontal: 16,
-            ).r,
+            padding: Dimens.standardPadding,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              crossAxisSpacing: 20.r,
-              mainAxisSpacing: 20.r,
+              crossAxisSpacing: 15.r,
+              mainAxisSpacing: 15.r,
               childAspectRatio: 8 / 9,
             ),
             itemCount: 10,

@@ -15,14 +15,14 @@ class _CategoryDetailsState extends State<CategoryDetails> {
 
   @override
   void initState() {
-    categoryDetailsController.initData(context,widget.categoryModel.id);
+    categoryDetailsController.initData(context, widget.categoryModel.id);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBody: true,
+      backgroundColor: context.colors.customBackground,
       key: categoryDetailsController.scaffold,
       appBar: DefaultAppBar(title: widget.categoryModel.name),
       drawer: BuildFilterDrawer(

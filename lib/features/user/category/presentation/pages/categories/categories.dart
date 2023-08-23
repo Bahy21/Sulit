@@ -16,9 +16,11 @@ class _CategoriesState extends State<Categories> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: context.colors.customBackground,
         appBar: BuildSearchAppBar(homeController: widget.homeController),
         body: Column(
           children: [
+            Gaps.vGap10,
             BuildCategorySearchView(categoriesController: categoriesController),
             Flexible(
               child: GenericListView(
@@ -30,7 +32,7 @@ class _CategoriesState extends State<Categories> {
                 spacing: 15.r,
                 gridCrossCount: 2,
                 gridItemHeight: 150.spMin,
-                padding: Dimens.paddingAll15PX,
+                padding: Dimens.standardPadding,
                 itemBuilder: (_, index, item) =>
                     BuildCategoryItem(categoryModel: item),
                 loadingWidget: const BuildLoadingCategoriesView(),

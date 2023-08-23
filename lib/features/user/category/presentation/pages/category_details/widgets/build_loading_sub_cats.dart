@@ -7,7 +7,6 @@ class BuildLoadingSubCats extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 35.h,
-      color: Colors.white,
       padding: Dimens.paddingAll5PX,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,

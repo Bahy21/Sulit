@@ -1,57 +1,61 @@
 part of 'product_details_widgets_imports.dart';
 
 class BuildProductButtons extends StatelessWidget {
-  const BuildProductButtons({Key? key}) : super(key: key);
+final ProductDetailsController controller;
 
+  const BuildProductButtons({super.key, required this.controller});
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: Dimens.paddingHorizontal15PX,
       child: SizedBox(
-        height: 55,
-        child:  Row(
+        height: 45.h,
+        child: Row(
           children: [
-            Container(
-              padding:
-              const EdgeInsets.symmetric(vertical: 10, horizontal: 15).r,
-              margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 5).r,
-              decoration: BoxDecoration(
+            InkWell(
+              onTap: (){},
+              child: Container(
+                padding: Dimens.paddingAll15PX,
+                margin: Dimens.paddingAll5PX,
+                decoration: BoxDecoration(
                   color: context.colors.primary,
-                  borderRadius: BorderRadius.circular(5).r),
-              child: Icon(
-                Icons.shopping_bag_outlined,
-                color: context.colors.white,
-                size: 14.sp,
+                  borderRadius: Dimens.borderRadius5PX,
+                ),
+                child: Icon(
+                  Icons.shopping_bag_outlined,
+                  color: context.colors.white,
+                  size: 15.sp,
+                ),
               ),
             ),
             Expanded(
-              child: Container(
-                alignment: Alignment.center,
-                padding: const EdgeInsets.symmetric(
-                  vertical: 10,
-                ).r,
-                margin:
-                const EdgeInsets.symmetric(vertical: 5, horizontal: 5).r,
-                decoration: BoxDecoration(
+              child: InkWell(
+                onTap: () => AutoRouter.of(context).push(const CartRoute()),
+                child: Container(
+                  alignment: Alignment.center,
+                  padding: Dimens.paddingVertical10PX,
+                  margin: Dimens.paddingAll5PX,
+                  decoration: BoxDecoration(
                     color: context.colors.primary,
-                    borderRadius: BorderRadius.circular(5).r),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.shopping_cart_outlined,
-                      color: context.colors.white,
-                      size: 14.sp,
-                    ),
-                    Gaps.hGap10,
-                    Text(
-                      "Buy Now",
-                      style: AppTextStyle.s12_w400(
+                    borderRadius: Dimens.borderRadius5PX,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.shopping_cart_outlined,
                         color: context.colors.white,
+                        size: 15.sp,
                       ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
+                      Gaps.hGap10,
+                      Text(
+                        "Buy Now",
+                        style: AppTextStyle.s12_w400(
+                          color: context.colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

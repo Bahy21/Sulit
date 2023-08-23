@@ -9,7 +9,7 @@ class BuildFeaturedProducts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 230.spMin,
+      height: 250.spMin,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

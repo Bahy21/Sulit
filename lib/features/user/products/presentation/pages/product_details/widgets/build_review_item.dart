@@ -1,13 +1,15 @@
 part of 'product_details_widgets_imports.dart';
-class BuildReviewItem extends StatelessWidget {
-  const BuildReviewItem({Key? key}) : super(key: key);
 
+class BuildReviewItem extends StatelessWidget {
+final Reviews reviewModel;
+
+  const BuildReviewItem({super.key, required this.reviewModel});
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsetsDirectional.only(end: Dimens.dp10),
-      padding: Dimens.paddingAll10PX,
-      width: 180.w,
+      padding: Dimens.paddingAll8PX,
+      width: 230.w,
       decoration: BoxDecoration(
         color: context.colors.white,
         borderRadius: Dimens.borderRadius5PX,
@@ -27,7 +29,8 @@ class BuildReviewItem extends StatelessWidget {
             width: 50.r,
             fit: BoxFit.fill,
             haveRadius: false,
-            url:  "",
+            boxShape: BoxShape.circle,
+            url: reviewModel.userReview.avatarOriginal,
           ),
           Gaps.hGap10,
           Expanded(
@@ -36,13 +39,15 @@ class BuildReviewItem extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  "popularProductModel.name",
+                  reviewModel.userReview.name,
                   style: AppTextStyle.s13_w500(color: context.colors.black),
                 ),
                 Gaps.vGap5,
                 Text(
-                  ' Products',
-                  style: AppTextStyle.s12_w500(color: context.colors.black),
+                  reviewModel.comment,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 3,
+                  style: AppTextStyle.s11_bold(color: context.colors.black),
                 ),
               ],
             ),

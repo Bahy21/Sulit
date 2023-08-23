@@ -13,13 +13,16 @@ class BuildAllCategoriesView extends StatelessWidget {
       bloc: categoryDetailsController.subCategoriesCubit,
       builder: (context, state) {
         if (state is GenericUpdateState) {
-          return Column(
-            children: List.generate(
-              state.data.length,
-              (position) => BuildSubCategories(
-                categoryDetailsController: categoryDetailsController,
-                parentSubCategory: state.data[position],
-                position: position,
+          return Padding(
+            padding: Dimens.paddingVertical5PX,
+            child: Column(
+              children: List.generate(
+                state.data.length,
+                (position) => BuildSubCategories(
+                  categoryDetailsController: categoryDetailsController,
+                  parentSubCategory: state.data[position],
+                  position: position,
+                ),
               ),
             ),
           );

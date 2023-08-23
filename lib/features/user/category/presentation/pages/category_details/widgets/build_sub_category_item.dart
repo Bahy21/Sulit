@@ -18,7 +18,7 @@ class BuildSubCategoryItem extends StatelessWidget {
     Color color = (subCategoryModel.id == selected ||
             subCategoryModel.parentId == selected)
         ? context.colors.primary
-        : context.colors.greyWhite;
+        : context.colors.white;
     Color textColor = (subCategoryModel.id == selected ||
             subCategoryModel.parentId == selected)
         ? context.colors.white
@@ -27,10 +27,15 @@ class BuildSubCategoryItem extends StatelessWidget {
       onTap: () => categoryDetailsController.onSelectSubCategory(
           context, selected, subCategoryModel, index),
       child: Container(
+        height: 30.h,
         padding: Dimens.paddingHorizontal15PX,
         margin: Dimens.paddingHorizontal5PX,
-        decoration:
-            BoxDecoration(color: color, borderRadius: Dimens.borderRadius5PX),
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: Dimens.borderRadius5PX,
+          border: Border.all(color: context.colors.greyWhite),
+
+        ),
         alignment: Alignment.center,
         child: Text(
           subCategoryModel.name,

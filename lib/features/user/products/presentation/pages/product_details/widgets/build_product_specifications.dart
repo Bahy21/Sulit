@@ -1,10 +1,11 @@
 part of 'product_details_widgets_imports.dart';
 
 class BuildProductSpecifications extends StatelessWidget {
-  final ProductDetailsController productDetailsController;
+  final ProductDetailsController controller;
+  final Product productModel;
 
   const BuildProductSpecifications(
-      {super.key, required this.productDetailsController});
+      {super.key, required this.controller, required this.productModel});
 
   @override
   Widget build(BuildContext context) {
@@ -27,11 +28,10 @@ class BuildProductSpecifications extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             BuildProductAttributes(
-                productDetailsController: productDetailsController),
-            BuildProductColors(
-                productDetailsController: productDetailsController),
-            BuildProductQty(
-                productDetailsController: productDetailsController),
+              controller: controller,
+              productOptions: productModel.choiceOptions ?? [],
+            ),
+            BuildProductQty(controller: controller, productModel: productModel),
           ],
         ),
       ),

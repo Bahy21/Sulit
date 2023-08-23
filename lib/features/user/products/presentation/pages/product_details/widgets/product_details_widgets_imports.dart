@@ -13,21 +13,28 @@ import 'package:flutter_tdd/core/models/api_models/product_model/product_model.d
 import 'package:flutter_tdd/core/routes/router_imports.gr.dart';
 import 'package:flutter_tdd/core/theme/colors/colors_extension.dart';
 import 'package:flutter_tdd/core/widgets/DefaultButton.dart';
+import 'package:flutter_tdd/core/widgets/GenericListView.dart';
 import 'package:flutter_tdd/core/widgets/GenericTextField.dart';
+import 'package:flutter_tdd/core/widgets/GridFixedHeightDelegate.dart';
 import 'package:flutter_tdd/core/widgets/build_shimmer_item.dart';
 import 'package:flutter_tdd/features/user/cart/presentation/pages/cart/widgets/cart_widgets_imports.dart';
 
 import 'package:flutter_tdd/core/theme/text/app_text_style.dart';
 import 'package:flutter_tdd/core/widgets/CachedImage.dart';
+import 'package:flutter_tdd/features/user/category/domain/models/color_domain_model.dart';
 import 'package:flutter_tdd/features/user/category/presentation/pages/category_details/widgets/category_details_widgets_imports.dart';
 import 'package:flutter_tdd/features/user/products/domain/models/product.dart';
 import 'package:flutter_tdd/features/user/products/domain/models/product_details_domain_model.dart';
+import 'package:flutter_tdd/features/user/products/domain/models/product_options.dart';
+import 'package:flutter_tdd/features/user/products/domain/models/product_queries.dart';
+import 'package:flutter_tdd/features/user/products/domain/models/queries.dart';
+import 'package:flutter_tdd/features/user/products/domain/models/reviews.dart';
 import 'package:flutter_tdd/features/user/products/domain/models/shop.dart';
 import 'package:flutter_tdd/features/user/products/presentation/widgets/build_product_item.dart';
 import 'package:flutter_tdd/features/user/products/presentation/widgets/build_product_item_shimmer.dart';
 import 'package:flutter_tdd/res.dart';
 import '../product_details_imports.dart';
-
+import 'package:flutter_tdd/core/helpers/validator.dart';
 
 part 'build_product_info.dart';
 
@@ -49,11 +56,9 @@ part 'build_products_description.dart';
 
 part 'build_product_queries.dart';
 
-part 'build_related_questions.dart';
-part 'build_color_item.dart';
-part 'build_product_colors.dart';
+part 'build_other_questions.dart';
 part 'build_product_attributes.dart';
-part 'build_attribute_item.dart';
+part 'build_attribute_items.dart';
 
 part 'build_product_qty.dart';
 part 'build_product_specifications.dart';
@@ -68,3 +73,5 @@ part 'build_loading_details.dart';
 part 'build_loading_attributes.dart';
 part 'build_loading_info.dart';
 part 'build_details_view.dart';
+part 'build_own_questions.dart';
+part 'build_attribute_list.dart';

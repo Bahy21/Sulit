@@ -9,25 +9,31 @@ class BuildDetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return NestedScrollView(
-      headerSliverBuilder: (_, innerBoxIsScrolled) => [
-        BuildProductDetailsSwiper(
-          innerBoxIsScrolled: innerBoxIsScrolled,
-          productModel: detailsModel.product,
-        ),
-      ],
-      body: CustomScrollView(
-        physics: const BouncingScrollPhysics(),
-        slivers: [
-          BuildProductInfo(controller: controller,productModel:detailsModel.product),
-          BuildProductSpecifications(productDetailsController: controller),
-          BuildProductReviews(),
-          // const BuildProductShare(),
-          BuildTopSellingProducts(topProducts: detailsModel.topProducts),
-          BuildRelatedProducts(relatedProducts: detailsModel.relatedProducts),
-          BuildRelatedQuestions(productDetailsController: controller),
-          const BuildProductQueries(),
+    return Flexible(
+      child: NestedScrollView(
+        headerSliverBuilder: (_, innerBoxIsScrolled) => [
+          BuildProductDetailsSwiper(
+            innerBoxIsScrolled: innerBoxIsScrolled,
+            productModel: detailsModel.product,
+          ),
         ],
+        body: CustomScrollView(
+          physics: const BouncingScrollPhysics(),
+          slivers: [
+            BuildProductInfo(
+              controller: controller,
+              productModel: detailsModel.product,
+            ),
+            BuildProductSpecifications(
+                controller: controller, productModel: detailsModel.product),
+            BuildProductReviews(allReviews: detailsModel.product.reviews ?? []),
+            BuildTopSellingProducts(topProducts: detailsModel.topProducts),
+            BuildRelatedProducts(relatedProducts: detailsModel.relatedProducts),
+            BuildOtherQuestions(productQueries: detailsModel.productQueries),
+            BuildOwnQuestions(productQueries: detailsModel.productQueries),
+            BuildProductQueries(controller: controller),
+          ],
+        ),
       ),
     );
   }

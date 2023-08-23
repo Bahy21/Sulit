@@ -42,7 +42,7 @@ mixin _$ProductModel {
   int get minQty => throw _privateConstructorUsedError;
   @JsonKey(name: "currency_symbol")
   String get currencySymbol => throw _privateConstructorUsedError;
-  VariantModel get variant => throw _privateConstructorUsedError;
+  VariantModel? get variant => throw _privateConstructorUsedError;
   List<String> get tags => throw _privateConstructorUsedError;
   @JsonKey(name: 'count_reviews')
   int get countReviews => throw _privateConstructorUsedError;
@@ -106,7 +106,7 @@ abstract class $ProductModelCopyWith<$Res> {
       List<ColorModel> colors,
       @JsonKey(name: "min_qty") int minQty,
       @JsonKey(name: "currency_symbol") String currencySymbol,
-      VariantModel variant,
+      VariantModel? variant,
       List<String> tags,
       @JsonKey(name: 'count_reviews') int countReviews,
       @JsonKey(name: 'sold_by_type') String soldByType,
@@ -130,7 +130,7 @@ abstract class $ProductModelCopyWith<$Res> {
       @JsonKey(name: 'category_name') String categoryName,
       @JsonKey(name: 'brand_name') String brandName});
 
-  $VariantModelCopyWith<$Res> get variant;
+  $VariantModelCopyWith<$Res>? get variant;
   $ShopModelCopyWith<$Res>? get shop;
   $CategoryModelCopyWith<$Res>? get category;
   $BrandModelCopyWith<$Res>? get brand;
@@ -162,7 +162,7 @@ class _$ProductModelCopyWithImpl<$Res, $Val extends ProductModel>
     Object? colors = null,
     Object? minQty = null,
     Object? currencySymbol = null,
-    Object? variant = null,
+    Object? variant = freezed,
     Object? tags = null,
     Object? countReviews = null,
     Object? soldByType = null,
@@ -239,10 +239,10 @@ class _$ProductModelCopyWithImpl<$Res, $Val extends ProductModel>
           ? _value.currencySymbol
           : currencySymbol // ignore: cast_nullable_to_non_nullable
               as String,
-      variant: null == variant
+      variant: freezed == variant
           ? _value.variant
           : variant // ignore: cast_nullable_to_non_nullable
-              as VariantModel,
+              as VariantModel?,
       tags: null == tags
           ? _value.tags
           : tags // ignore: cast_nullable_to_non_nullable
@@ -336,8 +336,12 @@ class _$ProductModelCopyWithImpl<$Res, $Val extends ProductModel>
 
   @override
   @pragma('vm:prefer-inline')
-  $VariantModelCopyWith<$Res> get variant {
-    return $VariantModelCopyWith<$Res>(_value.variant, (value) {
+  $VariantModelCopyWith<$Res>? get variant {
+    if (_value.variant == null) {
+      return null;
+    }
+
+    return $VariantModelCopyWith<$Res>(_value.variant!, (value) {
       return _then(_value.copyWith(variant: value) as $Val);
     });
   }
@@ -401,7 +405,7 @@ abstract class _$$_ProductModelCopyWith<$Res>
       List<ColorModel> colors,
       @JsonKey(name: "min_qty") int minQty,
       @JsonKey(name: "currency_symbol") String currencySymbol,
-      VariantModel variant,
+      VariantModel? variant,
       List<String> tags,
       @JsonKey(name: 'count_reviews') int countReviews,
       @JsonKey(name: 'sold_by_type') String soldByType,
@@ -426,7 +430,7 @@ abstract class _$$_ProductModelCopyWith<$Res>
       @JsonKey(name: 'brand_name') String brandName});
 
   @override
-  $VariantModelCopyWith<$Res> get variant;
+  $VariantModelCopyWith<$Res>? get variant;
   @override
   $ShopModelCopyWith<$Res>? get shop;
   @override
@@ -459,7 +463,7 @@ class __$$_ProductModelCopyWithImpl<$Res>
     Object? colors = null,
     Object? minQty = null,
     Object? currencySymbol = null,
-    Object? variant = null,
+    Object? variant = freezed,
     Object? tags = null,
     Object? countReviews = null,
     Object? soldByType = null,
@@ -536,10 +540,10 @@ class __$$_ProductModelCopyWithImpl<$Res>
           ? _value.currencySymbol
           : currencySymbol // ignore: cast_nullable_to_non_nullable
               as String,
-      variant: null == variant
+      variant: freezed == variant
           ? _value.variant
           : variant // ignore: cast_nullable_to_non_nullable
-              as VariantModel,
+              as VariantModel?,
       tags: null == tags
           ? _value._tags
           : tags // ignore: cast_nullable_to_non_nullable
@@ -652,7 +656,7 @@ class _$_ProductModel extends _ProductModel {
       required final List<ColorModel> colors,
       @JsonKey(name: "min_qty") required this.minQty,
       @JsonKey(name: "currency_symbol") required this.currencySymbol,
-      required this.variant,
+      this.variant,
       required final List<String> tags,
       @JsonKey(name: 'count_reviews') required this.countReviews,
       @JsonKey(name: 'sold_by_type') required this.soldByType,
@@ -738,7 +742,7 @@ class _$_ProductModel extends _ProductModel {
   @JsonKey(name: "currency_symbol")
   final String currencySymbol;
   @override
-  final VariantModel variant;
+  final VariantModel? variant;
   final List<String> _tags;
   @override
   List<String> get tags {
@@ -957,7 +961,7 @@ abstract class _ProductModel extends ProductModel {
       required final List<ColorModel> colors,
       @JsonKey(name: "min_qty") required final int minQty,
       @JsonKey(name: "currency_symbol") required final String currencySymbol,
-      required final VariantModel variant,
+      final VariantModel? variant,
       required final List<String> tags,
       @JsonKey(name: 'count_reviews') required final int countReviews,
       @JsonKey(name: 'sold_by_type') required final String soldByType,
@@ -1021,7 +1025,7 @@ abstract class _ProductModel extends ProductModel {
   @JsonKey(name: "currency_symbol")
   String get currencySymbol;
   @override
-  VariantModel get variant;
+  VariantModel? get variant;
   @override
   List<String> get tags;
   @override

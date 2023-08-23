@@ -10,11 +10,11 @@ class BuildBestSellingProducts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 230.spMin,
+      height: 250.spMin,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Gaps.vGap10,
+          Gaps.vGap5,
           const BuildHeaderTitle(title: "Just for you"),
           Flexible(
             child: SingleChildScrollView(

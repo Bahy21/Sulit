@@ -4,7 +4,8 @@ class BuildProductInfo extends StatelessWidget {
   final ProductDetailsController controller;
   final Product productModel;
 
-  const BuildProductInfo({Key? key, required this.controller,required this.productModel})
+  const BuildProductInfo(
+      {Key? key, required this.controller, required this.productModel})
       : super(key: key);
 
   @override
@@ -60,18 +61,34 @@ class BuildProductInfo extends StatelessWidget {
                     color: context.colors.black,
                   ),
                 ),
-                const Spacer(),
+              ],
+            ),
+            Gaps.vGap10,
+            Row(
+              children: [
                 Text(
-                  "${productModel.variant.mainPrice} ",
-                  style: AppTextStyle.s18_w500(
+                  "${productModel.priceHighLowDiscount} ",
+                  style: AppTextStyle.s16_w500(
                     color: context.colors.primary,
+                  ),
+                ),
+                Visibility(
+                  visible: productModel.hasDiscount,
+                  child: Text(
+                    "${productModel.priceHighLow} ",
+                    style: AppTextStyle.s16_w500(
+                      color: context.colors.black,
+                    ).copyWith(
+                      decoration: TextDecoration.lineThrough,
+                    ),
                   ),
                 ),
               ],
             ),
             Gaps.line(context.colors.greyWhite, 10.h),
-             BuildSellerInfo(shopModel: productModel.shop!),
-             BuildProductDescription(description:productModel.description??""),
+            BuildSellerInfo(shopModel: productModel.shop!),
+            BuildProductDescription(
+                description: productModel.description ?? ""),
             Gaps.vGap10,
           ],
         ),

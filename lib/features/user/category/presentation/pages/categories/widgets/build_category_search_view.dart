@@ -9,6 +9,7 @@ class BuildCategorySearchView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GenericTextField(
+      fillColor: context.colors.white,
       fieldTypes: FieldTypes.normal,
       controller: categoriesController.searchController,
       type: TextInputType.text,

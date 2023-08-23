@@ -24,6 +24,7 @@ class GenericListView<T> extends StatelessWidget {
   final List<Widget> children;
   final Color? dividerColor;
   final String? emptyStr;
+  final Widget? emptyWidget;
   final Color? refreshBg;
   final Color? loadingColor;
   final Widget? loadingWidget;
@@ -34,23 +35,24 @@ class GenericListView<T> extends StatelessWidget {
   final int gridCrossCount;
 
   const GenericListView({
-  super.key,
-  this.onRefresh,
-  this.type = ListViewType.normal,
-  this.cubit,
-  this.itemBuilder,
-  this.params,
-  this.children = const [],
-  this.dividerColor,
-  this.emptyStr,
-  this.refreshBg,
-  this.padding = EdgeInsets.zero,
-  this.loadingColor,
-  this.loadingWidget,
-  this.spacing = 10,
-  this.runSpacing = 10,
-  this.gridItemHeight = 100,
-  this.gridCrossCount = 2,
+    super.key,
+    this.onRefresh,
+    this.type = ListViewType.normal,
+    this.cubit,
+    this.itemBuilder,
+    this.params,
+    this.children = const [],
+    this.dividerColor,
+    this.emptyStr,
+    this.refreshBg,
+    this.padding = EdgeInsets.zero,
+    this.loadingColor,
+    this.loadingWidget,
+    this.spacing = 10,
+    this.runSpacing = 10,
+    this.gridItemHeight = 100,
+    this.gridCrossCount = 2,
+    this.emptyWidget,
   });
 
   @override
@@ -73,6 +75,7 @@ class GenericListView<T> extends StatelessWidget {
           cubit: cubit!,
           itemBuilder: itemBuilder!,
           params: params,
+          emptyWidget: emptyWidget,
           dividerColor: dividerColor,
           emptyStr: emptyStr,
           refreshBg: refreshBg,
@@ -86,6 +89,7 @@ class GenericListView<T> extends StatelessWidget {
           itemBuilder: itemBuilder!,
           params: params,
           emptyStr: emptyStr,
+          emptyWidget: emptyWidget,
           refreshBg: refreshBg,
           padding: padding,
           loadingWidget: loadingWidget,
@@ -97,6 +101,7 @@ class GenericListView<T> extends StatelessWidget {
           itemBuilder: itemBuilder!,
           params: params,
           emptyStr: emptyStr,
+          emptyWidget: emptyWidget,
           refreshBg: refreshBg,
           padding: padding,
           spacing: spacing,
@@ -134,6 +139,7 @@ class _SeparatedListView<T> extends StatefulWidget {
   final GenericBuilder itemBuilder;
   final Color? dividerColor;
   final String? emptyStr;
+  final Widget? emptyWidget;
   final Color? refreshBg;
   final Color? loadingColor;
   final Widget? loadingWidget;
@@ -141,15 +147,15 @@ class _SeparatedListView<T> extends StatefulWidget {
 
   const _SeparatedListView(
       {required this.onRefresh,
-        this.params,
-        required this.cubit,
-        required this.itemBuilder,
-        this.dividerColor,
-        this.emptyStr,
-        this.refreshBg,
-        required this.padding,
-        this.loadingColor,
-        this.loadingWidget});
+      this.params,
+      required this.cubit,
+      required this.itemBuilder,
+      this.dividerColor,
+      this.emptyStr,
+      this.refreshBg,
+      required this.padding,
+      this.loadingColor,
+      this.loadingWidget, this.emptyWidget});
 
   @override
   _SeparatedListViewState createState() => _SeparatedListViewState<T>();
@@ -193,7 +199,7 @@ class _SeparatedListViewState<T> extends State<_SeparatedListView> {
               ),
             );
           }
-          return _genericListViewEmptyList(widget.emptyStr);
+          return widget.emptyWidget?? _genericListViewEmptyList(widget.emptyStr);
         }
         return _genericListViewLoadingView(widget.loadingColor);
       },
@@ -207,6 +213,7 @@ class _ApiListView<T> extends StatefulWidget {
   final GenericBloc<List<T>> cubit;
   final GenericBuilder itemBuilder;
   final String? emptyStr;
+  final Widget? emptyWidget;
   final Color? refreshBg;
   final Color? loadingColor;
   final Widget? loadingWidget;
@@ -214,14 +221,14 @@ class _ApiListView<T> extends StatefulWidget {
 
   const _ApiListView(
       {required this.onRefresh,
-        this.params,
-        required this.cubit,
-        required this.itemBuilder,
-        this.emptyStr,
-        this.refreshBg,
-        required this.padding,
-        this.loadingColor,
-        this.loadingWidget});
+      this.params,
+      required this.cubit,
+      required this.itemBuilder,
+      this.emptyStr,
+      this.refreshBg,
+      required this.padding,
+      this.loadingColor,
+      this.loadingWidget, this.emptyWidget});
 
   @override
   _ApiListViewState createState() => _ApiListViewState<T>();
@@ -260,7 +267,7 @@ class _ApiListViewState<T> extends State<_ApiListView> {
               ),
             );
           }
-          return _genericListViewEmptyList(widget.emptyStr);
+          return widget.emptyWidget?? _genericListViewEmptyList(widget.emptyStr);
         }
         return widget.loadingWidget ??
             _genericListViewLoadingView(widget.loadingColor);
@@ -275,6 +282,7 @@ class _GridViewApi<T> extends StatefulWidget {
   final GenericBloc<List<T>> cubit;
   final GenericBuilder itemBuilder;
   final String? emptyStr;
+  final Widget? emptyWidget;
   final Color? refreshBg;
   final Color? loadingColor;
   final Widget? loadingWidget;
@@ -286,18 +294,18 @@ class _GridViewApi<T> extends StatefulWidget {
 
   const _GridViewApi(
       {required this.onRefresh,
-        this.params,
-        required this.cubit,
-        required this.itemBuilder,
-        this.emptyStr,
-        this.refreshBg,
-        required this.spacing,
-        required this.runSpacing,
-        required this.padding,
-        required this.gridCrossCount,
-        required this.gridItemHeight,
-        this.loadingColor,
-        this.loadingWidget});
+      this.params,
+      required this.cubit,
+      required this.itemBuilder,
+      this.emptyStr,
+      this.refreshBg,
+      required this.spacing,
+      required this.runSpacing,
+      required this.padding,
+      required this.gridCrossCount,
+      required this.gridItemHeight,
+      this.loadingColor,
+      this.loadingWidget, this.emptyWidget});
 
   @override
   _GridViewApiState createState() => _GridViewApiState<T>();
@@ -342,7 +350,7 @@ class _GridViewApiState<T> extends State<_GridViewApi> {
               ),
             );
           }
-          return _genericListViewEmptyList(widget.emptyStr);
+          return widget.emptyWidget?? _genericListViewEmptyList(widget.emptyStr);
         }
         return widget.loadingWidget ??
             _genericListViewLoadingView(widget.loadingColor);
@@ -361,11 +369,11 @@ class _GridView extends StatelessWidget {
 
   const _GridView(
       {required this.children,
-        required this.padding,
-        required this.spacing,
-        required this.runSpacing,
-        required this.gridItemHeight,
-        required this.gridCrossCount});
+      required this.padding,
+      required this.spacing,
+      required this.runSpacing,
+      required this.gridItemHeight,
+      required this.gridCrossCount});
 
   @override
   Widget build(BuildContext context) {

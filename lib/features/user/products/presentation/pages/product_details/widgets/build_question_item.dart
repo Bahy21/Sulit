@@ -1,48 +1,66 @@
 part of 'product_details_widgets_imports.dart';
 
 class BuildQuestionItem extends StatelessWidget {
-  const BuildQuestionItem({Key? key}) : super(key: key);
+  final Queries queryModel;
+
+  const BuildQuestionItem({super.key, required this.queryModel});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(
-        vertical: 5,
-      ).r,
-      width: 180.w,
-
+      margin: const EdgeInsetsDirectional.only(end: Dimens.dp10),
+      padding: Dimens.paddingAll8PX,
+      width: 200.w,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5).r,
-          color: context.colors.white,
-          boxShadow: [
-            BoxShadow(
-                color: context.colors.greyWhite,
-                blurRadius: 1,
-                spreadRadius: 1)
-          ]),
-      child: ListTile(
-        title: Text(
-          "Tarek fouda",
-          style: AppTextStyle.s14_w500(
-              color: context.colors.black),
-        ),
-        subtitle: Text(
-          "my first question",
-          style: AppTextStyle.s12_w400(
-              color: context.colors.blackOpacity),
-        ),
-        leading: CachedImage(
-          height: 40.r,
-          width: 40.r,
-          fit: BoxFit.cover,
-          haveRadius: false,
-          boxShape: BoxShape.circle,
-          placeHolder: Image.asset(
-            Res.profile,
+        color: context.colors.white,
+        borderRadius: Dimens.borderRadius5PX,
+        border: Border.all(color: context.colors.greyWhite),
+        boxShadow: [
+          BoxShadow(
+            color: context.colors.greyWhite,
+            blurRadius: 1,
+            spreadRadius: 1,
+          )
+        ],
+      ),
+      child: Row(
+        children: [
+          CachedImage(
+            height: 50.r,
+            width: 50.r,
+            fit: BoxFit.fill,
+            haveRadius: false,
+            boxShape: BoxShape.circle,
+            url: queryModel.userDetails.avatarOriginal,
           ),
-          url: "",
-        ),
-        minLeadingWidth: 10.w,
+          Gaps.hGap10,
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  queryModel.userDetails.name,
+                  style: AppTextStyle.s12_w500(color: context.colors.black),
+                ),
+                Gaps.vGap4,
+                Text(
+                  queryModel.question,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                  style: AppTextStyle.s11_bold(color: context.colors.black),
+                ),
+                Gaps.vGap3,
+                Text(
+                  queryModel.reply,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                  style: AppTextStyle.s11_bold(color: context.colors.black),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

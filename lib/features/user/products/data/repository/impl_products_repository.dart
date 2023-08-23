@@ -8,9 +8,12 @@ import 'package:flutter_tdd/features/user/products/data/data_source/remote_data_
 import 'package:flutter_tdd/features/user/products/data/models/home_model/home_model.dart';
 import 'package:flutter_tdd/features/user/products/data/models/product_details_model/product_details_model.dart';
 import 'package:flutter_tdd/features/user/products/domain/entities/popular_products_params.dart';
+import 'package:flutter_tdd/features/user/products/domain/entities/send_query_params.dart';
+import 'package:flutter_tdd/features/user/products/domain/entities/variant_price_params.dart';
 import 'package:flutter_tdd/features/user/products/domain/models/home_domain_model.dart';
 import 'package:flutter_tdd/features/user/products/domain/models/product.dart';
 import 'package:flutter_tdd/features/user/products/domain/models/product_details_domain_model.dart';
+import 'package:flutter_tdd/features/user/products/domain/models/queries.dart';
 import 'package:flutter_tdd/features/user/products/domain/repository/products_repository.dart';
 import 'package:injectable/injectable.dart';
 
@@ -47,5 +50,17 @@ class ImplProductsRepository extends ProductsRepository with ModelToDomain {
   @override
   Future<List<ProductsTableData>> getItems() {
     return ComparedProductsDb().getItems();
+  }
+
+  @override
+  Future<Either<Failure, Queries>> sendQuery(SendQueryParams params) async {
+    var result = await dataSources.sendQuery(params);
+    return toDomainResult(result);
+  }
+
+  @override
+  Future<Either<Failure, Product>> getVariantPrice(VariantPriceParams param)async {
+    var result = await dataSources.getVariantPrice(param);
+    return toDomainResult(result);
   }
 }

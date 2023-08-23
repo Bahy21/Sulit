@@ -78,6 +78,7 @@ class HandleErrors {
   void _tokenExpired() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.remove("user");
-    Phoenix.rebirth(getIt<BuildContext>());
+    CustomToast.showSnakeBar("You don't have permission");
+    // Phoenix.rebirth(getIt<BuildContext>());
   }
 }

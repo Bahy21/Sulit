@@ -5,15 +5,27 @@ class BuildBrandDetailsLoadingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  GridView.builder(
-      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16).r,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        crossAxisSpacing: 20.r,
-        mainAxisSpacing: 20.r,
+    return GenericListView(
+      type: ListViewType.grid,
+      runSpacing: 15.r,
+      spacing: 15.r,
+      gridCrossCount: 2,
+      gridItemHeight: 200.spMin,
+      padding: Dimens.standardPadding,
+      children: List.generate(
+        8,
+        (index) => const BuildProductItemShimmer(),
       ),
-      itemCount: 8,
-      itemBuilder: (context, index) => const BuildProductItemShimmer(),
     );
+    //   GridView.builder(
+    //   padding: Dimens.standardPadding,
+    //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+    //     crossAxisCount: 2,
+    //     crossAxisSpacing:15.r,
+    //     mainAxisSpacing: 15.r,
+    //   ),
+    //   itemCount: 8,
+    //   itemBuilder: (context, index) => const BuildProductItemShimmer(),
+    // );
   }
 }
