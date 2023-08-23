@@ -13,25 +13,18 @@ class BuildAttributeList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      physics: const NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      itemCount: productOptions[index].options.length,
-      padding: Dimens.paddingVertical10PX,
-      gridDelegate: GridFixedHeightDelegate(
-        crossAxisCount: 4,
-        mainAxisSpacing: 5.r,
-        crossAxisSpacing: 5.r,
-        height: 25.h,
-      ),
-      itemBuilder: (_, position) {
-        return BuildAttributeItems(
+    return Wrap(
+      runSpacing: 5.r,
+      spacing: 5.r,
+      children: List.generate(
+        productOptions[index].options.length,
+        (position) => BuildAttributeItems(
           controller: controller,
           optionModel: productOptions,
           index: index,
           position: position,
-        );
-      },
+        ),
+      ),
     );
   }
 }

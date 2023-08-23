@@ -28,11 +28,13 @@ class BuildProductAttributes extends StatelessWidget {
                   ),
                   textAlign: TextAlign.center,
                 ),
+                Gaps.vGap10,
                 BuildAttributeList(
                   controller: controller,
                   index: index,
                   productOptions: productOptions,
                 ),
+                Gaps.vGap15,
               ],
             ),
           ),

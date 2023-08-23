@@ -22,12 +22,13 @@ class BuildAttributeItems extends StatelessWidget {
       onTap: () =>
           controller.onSelectAttributes(context, optionModel, index, position),
       child: Container(
+        width: 100.w,
         padding: Dimens.paddingAll8PX,
         decoration: BoxDecoration(
           border: Border.all(
             color: current ? context.colors.primary : context.colors.greyWhite,
           ),
-          borderRadius: BorderRadius.circular(4),
+          borderRadius: Dimens.borderRadius5PX,
         ),
         alignment: Alignment.center,
         child: Text(
