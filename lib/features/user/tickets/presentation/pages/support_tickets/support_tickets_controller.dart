@@ -1,7 +1,8 @@
 // ignore_for_file: use_build_context_synchronously
 
-part of'support_tickets_imports.dart';
-class SupportTicketsController{
+part of 'support_tickets_imports.dart';
+
+class SupportTicketsController {
   GenericBloc<bool> isVisibleCubit = GenericBloc(false);
   final GenericBloc<List<File>> imagesCubit = GenericBloc([]);
   final GlobalKey<FormState> formKey = GlobalKey();
@@ -9,14 +10,31 @@ class SupportTicketsController{
   final TextEditingController detailsController = TextEditingController();
   final GenericBloc<List<Ticket>> ticketsBloc = GenericBloc([]);
 
-  SupportTicketsController(){
-    getTickets(refresh: false);
-    getTickets();
+  void getTickets({bool refresh = true}) async {
+    return await GetTickets()
+        .call(refresh)
+        .then((value) => ticketsBloc.onUpdateData(value));
   }
 
-  Future<void> getTickets ({bool refresh = true})async {
-    return await GetTickets().call(refresh).then((value) => ticketsBloc.onUpdateData(value));
+  Future<void> createTicket(BuildContext context) async {
+    if (formKey.currentState!.validate()) {
+      var params = _createTicketParams();
+      var data = await SetCreateTicket().call(params);
+      if (data != null) {
+        CustomToast.showSimpleToast(msg: "Ticket has been sent successfully");
+        AutoRouter.of(context).pop();
+        subjectController.clear();
+        detailsController.clear();
+        imagesCubit.onUpdateData([]);
+        ticketsBloc.state.data.add(data);
+        ticketsBloc.onUpdateData(ticketsBloc.state.data);
+      }
+    }
+  }
 
+  void onOpenTicket(Ticket ticketModel) {
+    ticketModel.selected = !ticketModel.selected;
+    ticketsBloc.onUpdateData(ticketsBloc.state.data);
   }
 
   Future<List<File>> addImages(BuildContext context) async {
@@ -30,15 +48,14 @@ class SupportTicketsController{
     }
   }
 
-  Future<void> createTicket(BuildContext context) async {
-    if(formKey.currentState!.validate()){
-      var params = _createTicketParams();
-      var data = await SetCreateTicket().call(params);
-      if (data){
-        CustomToast.showSimpleToast(msg: "Ticket has been sent successfully");
-        AutoRouter.of(context).pop();
-      }
-    }
+  void showAddTicketDialog(
+      BuildContext context, SupportTicketsController controller) {
+    showDialog(
+      context: context,
+      builder: (context) => BuildTicketDialog(
+        supportTicketsController: controller,
+      ),
+    );
   }
 
   CreateTicketParams _createTicketParams() {

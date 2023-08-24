@@ -5,7 +5,7 @@ import 'package:flutter_tdd/features/user/tickets/domain/entities/add_ticket_rep
 import 'package:flutter_tdd/features/user/tickets/domain/entities/create_ticket_params.dart';
 
 abstract class TicketsDataSources {
-  Future<Either<Failure, bool>> createTicket (CreateTicketParams params);
+  Future<Either<Failure, TicketModel>> createTicket (CreateTicketParams params);
   Future<Either<Failure, List<TicketModel>>> getTickets (bool param);
   Future<Either<Failure, TicketModel>> getTicketDetails (int param);
   Future<Either<Failure, bool>> addTicketReply (AddTicketReplyParams params);

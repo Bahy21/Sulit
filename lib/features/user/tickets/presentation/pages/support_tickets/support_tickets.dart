@@ -20,25 +20,34 @@ class _SupportTicketsState extends State<SupportTickets> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const DefaultAppBar(title: "Support Tickets", showBack: true),
-      body: BlocBuilder<GenericBloc<List<Ticket>>, GenericState<List<Ticket>>>(
-        bloc: controller.ticketsBloc,
-        builder: (context, state) {
-          if (state is GenericUpdateState) {
-            return ListView(
-              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16).r,
-              children: [
-                BuildAddTicket(supportTicketsController: controller),
-                Gaps.vGap32,
-                BuildTicketsList(
-                  controller: controller,
-                  tickets: state.data,
-                )
-              ],
-            );
-          } else {
-            return const BuildSupportTicketsLoading();
-          }
-        },
+      backgroundColor: context.colors.customBackground,
+      floatingActionButton: BuildAddTicketBtn(controller: controller),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const BuildHeaderText(),
+          Flexible(
+            child: GenericListView(
+              type: ListViewType.api,
+              padding: Dimens.standardPadding,
+              onRefresh: controller.getTickets,
+              cubit: controller.ticketsBloc,
+              itemBuilder: (_, index, item) => BuildTicketItem(
+                ticketModel: item,
+                controller: controller,
+              ),
+              emptyWidget: Center(
+                child: Text(
+                  "You have no tickets. !",
+                  style: AppTextStyle.s12_w400(
+                    color: context.colors.grey,
+                  ),
+                ),
+              ),
+              loadingWidget: const BuildSupportTicketsLoading(),
+            ),
+          ),
+        ],
       ),
     );
   }

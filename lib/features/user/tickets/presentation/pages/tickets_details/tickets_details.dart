@@ -1,12 +1,9 @@
-part of'tickets_details_imports.dart';
+part of 'tickets_details_imports.dart';
 
 class TicketsDetails extends StatefulWidget {
   final int id;
 
-  const TicketsDetails({
-    Key? key,
-    required this.id,
-  }) : super(key: key);
+  const TicketsDetails({Key? key, required this.id}) : super(key: key);
 
   @override
   State<TicketsDetails> createState() => _TicketsDetailsState();
@@ -25,7 +22,8 @@ class _TicketsDetailsState extends State<TicketsDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: BuildAddReplayButton(
-        controller: controller, id: widget.id,
+        controller: controller,
+        id: widget.id,
       ),
       appBar: const DefaultAppBar(title: "Ticket Details", showBack: true),
       body: BlocBuilder<GenericBloc<Ticket?>, GenericState<Ticket?>>(
