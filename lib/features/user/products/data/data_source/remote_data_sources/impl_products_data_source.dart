@@ -71,7 +71,7 @@ class ImplProductsDataSource extends ProductsDataSource {
       requestMethod: RequestMethod.post,
       responseType: ResType.type,
       showLoader: true,
-      responseKey: (data) => data["key"] == 'success',
+      responseKey: (data) => data["data"]["status"],
     );
     return await GenericHttpImpl<bool>().call(model);
   }
@@ -101,7 +101,6 @@ class ImplProductsDataSource extends ProductsDataSource {
       responseType: ResType.list,
       showLoader: true,
       requestBody: param.toJson(),
-
       toJsonFunc: (json) => ProductModel.fromJson(json),
       responseKey: (data) => data["data"],
     );

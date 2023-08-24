@@ -3,9 +3,13 @@ part of 'product_details_widgets_imports.dart';
 class BuildProductDetailsSwiper extends StatelessWidget {
   final bool innerBoxIsScrolled;
   final Product productModel;
+  final ProductDetailsController controller;
 
   const BuildProductDetailsSwiper(
-      {super.key, required this.innerBoxIsScrolled, required this.productModel});
+      {super.key,
+      required this.innerBoxIsScrolled,
+      required this.productModel,
+      required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -34,13 +38,19 @@ class BuildProductDetailsSwiper extends StatelessWidget {
       ),
       actions: [
         BuildIconItem(
-          iconData: Icons.favorite,
-          onTap: () {},
+          iconData:
+              productModel.isWishlist ? Icons.favorite : Icons.favorite_border,
+          checkValue: productModel.isWishlist,
+          onTap: () => getIt<ProductsHelper>().toggleFavourite(
+            id: productModel.id,
+            onRefresh: () => controller.onChangeFav(productModel),
+          ),
           padding: Dimens.paddingAll8PX,
         ),
         BuildIconItem(
           iconData: Icons.compare_arrows,
-          onTap: () => getIt<ProductsHelper>().addProductToCompare(productModel),
+          onTap: () =>
+              getIt<ProductsHelper>().addProductToCompare(productModel),
           padding: Dimens.paddingAll8PX,
         ),
       ],

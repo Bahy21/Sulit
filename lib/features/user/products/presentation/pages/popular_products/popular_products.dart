@@ -42,7 +42,7 @@ class _PopularProductsState extends State<PopularProducts> {
                 const BuildPopularProductsLoadingView(),
             itemBuilder: (_, item, index) => BuildProductItem(
               productModel: item,
-              onRefresh: () => controller.getPopularProducts(
+              onFavRefresh: () => controller.getPopularProducts(
                   widget.popularProductsModel.id, 1),
             ),
             noItemsFoundIndicatorBuilder: (cxt) => const BuildEmptyDataView(),

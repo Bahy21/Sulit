@@ -17,15 +17,5 @@ class BuildBrandDetailsLoadingView extends StatelessWidget {
         (index) => const BuildProductItemShimmer(),
       ),
     );
-    //   GridView.builder(
-    //   padding: Dimens.standardPadding,
-    //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-    //     crossAxisCount: 2,
-    //     crossAxisSpacing:15.r,
-    //     mainAxisSpacing: 15.r,
-    //   ),
-    //   itemCount: 8,
-    //   itemBuilder: (context, index) => const BuildProductItemShimmer(),
-    // );
   }
 }

@@ -40,7 +40,6 @@ class BuildProductItemShimmer extends StatelessWidget {
                     children: [
                       BuildShimmerItem(
                         child: BuildIconItem(
-                          isWishList: true,
                           iconData: Icons.favorite_border,
                           onTap: () {},
                         ),
@@ -49,14 +48,12 @@ class BuildProductItemShimmer extends StatelessWidget {
                         child: BuildIconItem(
                           iconData: Icons.compare_arrows,
                           onTap: () {},
-                          isWishList: false,
                         ),
                       ),
                       BuildShimmerItem(
                         child: BuildIconItem(
                           iconData: Icons.shopping_cart,
                           onTap: () {},
-                          isWishList: false,
                         ),
                       ),
                     ],

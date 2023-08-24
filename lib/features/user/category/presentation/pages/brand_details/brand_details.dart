@@ -29,53 +29,17 @@ class _BrandDetailsState extends State<BrandDetails> {
         params: [context, widget.brandId],
         cubit: controller.productsBloc,
         runSpacing: 15.r,
-        spacing: 5.r,
+        spacing: 15.r,
         gridCrossCount: 2,
         gridItemHeight: 200.spMin,
-        padding: Dimens.standardPadding,
+        padding: Dimens.paddingAll15PX,
         itemBuilder: (_, index, item) => BuildProductItem(
           productModel: item,
-          onRefresh: () => controller.getBrandProducts(context, widget.brandId),
+          onFavRefresh: () => controller.getBrandProducts(context, widget.brandId),
         ),
-        loadingWidget: const BuildBrandDetailsLoadingView(),
+        loadingWidget: const BuildLoadingProductsGridView(),
         emptyWidget: const BuildEmptyDataView(),
       ),
-
-      // BlocBuilder<GenericBloc<List<Product>>,
-      //     GenericState<List<Product>>>(
-      //   bloc: controller.productsBloc,
-      //   builder: (context, state) {
-      //     if(state is GenericUpdateState){
-      //       return Visibility(
-      //         visible: state.data.isNotEmpty,
-      //         replacement: Container(
-      //           alignment: Alignment.center,
-      //           child: Column(
-      //             mainAxisAlignment: MainAxisAlignment.center,
-      //             children: [
-      //               Image.asset(Res.emptyCart, scale : 3),
-      //             ],
-      //           ),
-      //         ),
-      //         child: GridView.builder(
-      //           padding: Dimens.standardPadding,
-      //           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-      //             crossAxisCount: 2,
-      //             crossAxisSpacing: 15.r,
-      //             mainAxisSpacing: 15.r,
-      //           ),
-      //           itemCount: state.data.length,
-      //           itemBuilder: (context, index) => BuildProductItem(
-      //             productModel: state.data[index],
-      //             onRefresh: () => controller.getBrandProducts(widget.brandId),
-      //           ),
-      //         ),
-      //       );
-      //     }else {
-      //      return const BuildBrandDetailsLoadingView();
-      //     }
-      //   },
-      // ),
     );
   }
 }

@@ -26,7 +26,9 @@ class ProductDetailsController {
     var result = await GetProductDetails().call(params);
     detailsCubit.onUpdateData(result);
     basicImage = detailsCubit.state.data!.product.images;
+    print(">>>>>${detailsCubit.state.data?.product.variant?.currentStock}");
     _initVariants(context);
+    print(">>>>>${detailsCubit.state.data?.product.variant?.currentStock}");
   }
 
   void _initVariants(BuildContext context) {
@@ -57,6 +59,11 @@ class ProductDetailsController {
       details?.product.variant = result.variant;
       detailsCubit.onUpdateData(details);
     }
+  }
+
+  void onChangeFav(Product item) {
+    item.isWishlist = !item.isWishlist;
+    detailsCubit.onUpdateData(detailsCubit.state.data);
   }
 
   void onSelectAttributes(BuildContext context, List<ProductOptions> model,
@@ -98,15 +105,20 @@ class ProductDetailsController {
     var variantPrice = detailsCubit.state.data?.product.variant;
     var price = double.parse(variantPrice!.calculablePrice);
     price = price / qtyCubit.state.data;
-    if (variantPrice.currentStock > qtyCubit.state.data) {
-      var newQty = qtyCubit.state.data + 1;
-      var priceQty = newQty * price;
-      variantPrice.calculablePrice = priceQty.toString();
-      qtyCubit.onUpdateData(newQty);
-      detailsCubit.onUpdateData(detailsCubit.state.data);
+    if (variantPrice.currentStock >= 1) {
+      if (variantPrice.currentStock > qtyCubit.state.data) {
+        var newQty = qtyCubit.state.data + 1;
+        var priceQty = newQty * price;
+        variantPrice.calculablePrice = priceQty.toString();
+        qtyCubit.onUpdateData(newQty);
+        detailsCubit.onUpdateData(detailsCubit.state.data);
+      } else {
+        CustomToast.showSimpleToast(
+            msg: "Only ${variantPrice.currentStock} available in stock");
+        return;
+      }
     } else {
-      CustomToast.showSimpleToast(
-          msg: "Only ${variantPrice.currentStock} available in stock");
+      CustomToast.showSimpleToast(msg: "Out of stock");
       return;
     }
   }

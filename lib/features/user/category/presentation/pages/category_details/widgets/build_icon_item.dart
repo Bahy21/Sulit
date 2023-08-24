@@ -4,17 +4,26 @@ class BuildIconItem extends StatelessWidget {
   final IconData iconData;
   final EdgeInsets? padding;
   final Function() onTap;
-  final bool? isWishList ;
-  final Color? containerColor ;
+  final bool? checkValue;
+  final Color? containerColor;
 
-  const BuildIconItem({super.key, required this.iconData,this.padding, required this.onTap,  this.isWishList, this.containerColor});
+  const BuildIconItem(
+      {super.key,
+      required this.iconData,
+      required this.onTap,
+      this.padding,
+      this.checkValue,
+      this.containerColor});
 
   @override
   Widget build(BuildContext context) {
+    var iconColor = checkValue == true
+        ? context.colors.primary
+        : context.colors.blackOpacity;
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding:padding??Dimens.paddingAll3PX,
+        padding: padding ?? Dimens.paddingAll3PX,
         margin: Dimens.paddingAll5PX,
         decoration: BoxDecoration(
           color: containerColor ?? context.colors.white,
@@ -29,7 +38,7 @@ class BuildIconItem extends StatelessWidget {
         ),
         child: Icon(
           iconData,
-          color: isWishList??false ? context.colors.primary : context.colors.blackOpacity,
+          color: iconColor,
           size: 16.sp,
         ),
       ),

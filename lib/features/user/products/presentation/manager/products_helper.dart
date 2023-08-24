@@ -8,15 +8,20 @@ import 'package:injectable/injectable.dart';
 
 @injectable
 class ProductsHelper {
-  Future<void> toggleFavourite(int id, void Function() onRefresh) async {
+  Future<void> toggleFavourite({required int id, required Function() onRefresh}) async {
     var data = await SetToggleFavourite().call(id);
     if (data) {
       CustomToast.showSimpleToast(
         msg: "Item has been added to wishlist",
         type: ToastType.success,
       );
-      onRefresh();
+    } else {
+      CustomToast.showSimpleToast(
+        msg: "Item has been removed from wishlist",
+        type: ToastType.success,
+      );
     }
+    onRefresh();
   }
 
   Future<int> addProductToCompare(Product product) async {
@@ -46,8 +51,11 @@ class ProductsHelper {
   Future<bool> _isAddedToCompared(Product product) async {
     var exitedItems = await getComparedProducts();
     if (exitedItems.isNotEmpty) {
-      if (exitedItems.where((element) => element.productId == product.id).toList().isNotEmpty) {
-        return true ;
+      if (exitedItems
+          .where((element) => element.productId == product.id)
+          .toList()
+          .isNotEmpty) {
+        return true;
       } else {
         return false;
       }

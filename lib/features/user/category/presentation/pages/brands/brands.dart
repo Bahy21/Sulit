@@ -22,7 +22,7 @@ class _BrandsState extends State<Brands> {
       backgroundColor: context.colors.customBackground,
       appBar: const DefaultAppBar(title: "All Brands", showBack: true),
       body: PagedGridView<int, BrandDomainModel>(
-        padding: Dimens.standardPadding,
+        padding: Dimens.paddingAll15PX,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           crossAxisSpacing: 15.r,

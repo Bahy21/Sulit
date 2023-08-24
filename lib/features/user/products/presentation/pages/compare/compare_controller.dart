@@ -1,8 +1,9 @@
-part of'compare_imports.dart';
+part of 'compare_imports.dart';
+
 class CompareController {
   final GenericBloc<List<ProductsTableData>> productsBloc = GenericBloc([]);
 
-  CompareController (){
+  CompareController() {
     getComparedProducts();
   }
 
@@ -12,5 +13,6 @@ class CompareController {
         );
   }
 
+  List<String> headers = ["Name", "Image", "Price", "Brand", "Category", ""];
 
 }

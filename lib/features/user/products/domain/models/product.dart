@@ -28,7 +28,7 @@ class Product extends BaseDomainModel {
   final num rating;
   final int sales;
   final bool isDigital;
-  final bool isWishlist;
+  bool isWishlist;
   final int sellerId;
   final int countReviews;
   final String soldByType;
@@ -56,7 +56,7 @@ class Product extends BaseDomainModel {
     required this.hasDiscount,
     required this.discount,
     this.strokedPrice,
-     this.variant,
+    this.variant,
     this.mainPrice,
     this.choiceOptions,
     this.colors,

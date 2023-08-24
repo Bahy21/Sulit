@@ -2,8 +2,8 @@ part of 'product_details_widgets_imports.dart';
 
 class BuildRelatedProducts extends StatelessWidget {
   final List<Product> relatedProducts;
-
-  const BuildRelatedProducts({super.key, required this.relatedProducts});
+final ProductDetailsController controller;
+  const BuildRelatedProducts({super.key, required this.relatedProducts, required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -43,8 +43,15 @@ class BuildRelatedProducts extends StatelessWidget {
                   child: Row(
                     children: List.generate(
                       relatedProducts.length,
-                      (index) =>
-                          BuildProductItem(productModel: relatedProducts[index]),
+                      (index) => Padding(
+                        padding: Dimens.paddingHorizontal5PX,
+                        child: BuildProductItem(
+                          productModel: relatedProducts[index],
+                          onFavRefresh: () => controller.onChangeFav(
+                            relatedProducts[index],
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ),

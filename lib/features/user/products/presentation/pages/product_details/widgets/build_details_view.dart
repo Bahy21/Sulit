@@ -15,6 +15,7 @@ class BuildDetailsView extends StatelessWidget {
           BuildProductDetailsSwiper(
             innerBoxIsScrolled: innerBoxIsScrolled,
             productModel: detailsModel.product,
+            controller: controller,
           ),
         ],
         body: CustomScrollView(
@@ -27,8 +28,14 @@ class BuildDetailsView extends StatelessWidget {
             BuildProductSpecifications(
                 controller: controller, productModel: detailsModel.product),
             BuildProductReviews(allReviews: detailsModel.product.reviews ?? []),
-            BuildTopSellingProducts(topProducts: detailsModel.topProducts),
-            BuildRelatedProducts(relatedProducts: detailsModel.relatedProducts),
+            BuildTopSellingProducts(
+              topProducts: detailsModel.topProducts,
+              controller: controller,
+            ),
+            BuildRelatedProducts(
+              relatedProducts: detailsModel.relatedProducts,
+              controller: controller,
+            ),
             BuildOtherQuestions(productQueries: detailsModel.productQueries),
             BuildOwnQuestions(productQueries: detailsModel.productQueries),
             BuildProductQueries(controller: controller),

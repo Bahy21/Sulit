@@ -1,4 +1,5 @@
-part of'compare_widgets_imports.dart';
+part of 'compare_widgets_imports.dart';
+
 class BuildResetButton extends StatelessWidget {
   final bool isNotEmpty  ;
   const BuildResetButton({Key? key, required this.isNotEmpty}) : super(key: key);

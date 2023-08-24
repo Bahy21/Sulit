@@ -15,15 +15,14 @@ import 'package:flutter_tdd/features/user/products/presentation/manager/products
 
 class BuildProductItem extends StatelessWidget {
   final Product productModel;
-  final VoidCallback? onRefresh;
+  final VoidCallback onFavRefresh;
 
   const BuildProductItem(
-      {super.key, required this.productModel, this.onRefresh});
+      {super.key, required this.productModel, required this.onFavRefresh});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsetsDirectional.only(end: Dimens.dp10),
       width: 160.w,
       decoration: BoxDecoration(
         color: context.colors.white,
@@ -84,7 +83,7 @@ class BuildProductItem extends StatelessWidget {
                               ),
                             ),
                             Container(
-                              padding: const EdgeInsets.all(6).r,
+                              padding: Dimens.paddingAll5PX,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 color: context.colors.primary,
@@ -110,12 +109,13 @@ class BuildProductItem extends StatelessWidget {
                               ? Icons.favorite
                               : Icons.favorite_border,
                           onTap: () => ProductsHelper().toggleFavourite(
-                              productModel.id, onRefresh ?? () {}),
-                          isWishList: productModel.isWishlist,
+                              id: productModel.id, onRefresh: onFavRefresh),
+                          checkValue: productModel.isWishlist,
                         ),
                         BuildIconItem(
                           iconData: Icons.compare_arrows,
-                          onTap: () => getIt<ProductsHelper>().addProductToCompare(productModel),
+                          onTap: () => getIt<ProductsHelper>()
+                              .addProductToCompare(productModel),
                         ),
                         BuildIconItem(
                           iconData: Icons.shopping_cart,
