@@ -26,7 +26,7 @@ class BuildProducts extends StatelessWidget {
                 const BuildLoadingCatsProducts(),
             itemBuilder: (_, item, index) => BuildProductItem(
               productModel: item,
-              onFavRefresh: () => controller.getPopularProducts(1),
+              onFavRefresh: () => controller.onFavChanged(item),
             ),
             noItemsFoundIndicatorBuilder: (cxt) => const BuildEmptyDataView(),
           ),

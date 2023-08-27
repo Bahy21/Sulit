@@ -5,6 +5,7 @@ class Res {
   static const String appLoaderBg = "assets/images/appLoaderBg.png";
   static const String ar = "assets/lang/ar.json";
   static const String arrow = "assets/images/arrow.svg";
+  static const String blog = "assets/images/blog.png";
   static const String emptyCart = "assets/images/emptyCart.png";
   static const String en = "assets/lang/en.json";
   static const String facebook = "assets/images/facebook.svg";
@@ -14,6 +15,7 @@ class Res {
   static const String marker = "assets/images/marker.png";
   static const String mobile = "assets/images/mobile.svg";
   static const String myProfile = "assets/images/myProfile.png";
+  static const String noData = "assets/images/noData.png";
   static const String NotoSans = "assets/fonts/NotoSans.ttf";
   static const String offline = "assets/images/offline.png";
   static const String password = "assets/images/password.svg";

@@ -106,6 +106,7 @@ flutter:
     - assets/images/apple.svg
     - assets/images/appLoaderBg.png
     - assets/images/arrow.svg
+    - assets/images/blog.png
     - assets/images/emptyCart.png
     - assets/images/facebook.svg
     - assets/images/icon.png
@@ -114,15 +115,14 @@ flutter:
     - assets/images/marker.png
     - assets/images/mobile.svg
     - assets/images/myProfile.png
+    - assets/images/noData.png
     - assets/images/offline.png
     - assets/images/password.svg
     - assets/images/pdf.png
     - assets/images/profile.png
     - assets/images/suliitLogo.png
-    - assets/images/blog.png
     - assets/lang/ar.json
     - assets/lang/en.json
-
   fonts:
     - family: NotoSans
       fonts:

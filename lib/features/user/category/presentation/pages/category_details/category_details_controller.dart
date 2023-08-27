@@ -16,7 +16,7 @@ class CategoryDetailsController {
   List<String> selectedColors = [];
   int currentCatId = 0;
 
-  void initData(BuildContext context, int catId) {
+  CategoryDetailsController(BuildContext context, int catId) {
     getSubCategories(context, catId, 0).then((value) {
       getPopularProducts(1, refresh: false);
       pagingController.addPageRequestListener((pageKey) {
@@ -42,20 +42,9 @@ class CategoryDetailsController {
   void _checkSubCategoriesList(SubCategory data, int id, int index) {
     final subCatsCubit = subCategoriesCubit.state.data;
     subCatsCubit.removeRange(index, subCatsCubit.length);
+    var insertedItem = _insertedItem(id);
     if (data.subCats.isNotEmpty) {
-      data.subCats.insert(
-        0,
-        Category(
-          id: 0,
-          banner: "",
-          name: "All",
-          parentId: id,
-          digital: 0,
-          icon: "",
-          orderLevel: 0,
-          slug: "",
-        ),
-      );
+      data.subCats.insert(0, insertedItem);
       subCatsCubit.add(SubCategory(
         subCats: data.subCats,
         selectedId: data.subCats.first.id,
@@ -104,6 +93,15 @@ class CategoryDetailsController {
         categoryModel.id == 0 ? index : index + 1,
       );
     }
+  }
+
+  void onFavChanged(Product model) {
+    model.isWishlist = !model.isWishlist;
+    int index = pagingController.itemList!.indexWhere((e) => e.id == model.id);
+    pagingController.itemList![index] = model;
+    var data = pagingController.itemList;
+    pagingController.itemList = [];
+    pagingController.itemList = data;
   }
 
   void changePriceValue(RangeValues values, BuildContext context) {
@@ -170,6 +168,19 @@ class CategoryDetailsController {
       refresh: refresh,
       pageSize: pageSize,
       currentPage: page,
+    );
+  }
+
+  Category _insertedItem(int parentId) {
+    return Category(
+      id: 0,
+      banner: "",
+      name: "All",
+      parentId: parentId,
+      digital: 0,
+      icon: "",
+      orderLevel: 0,
+      slug: "",
     );
   }
 }
