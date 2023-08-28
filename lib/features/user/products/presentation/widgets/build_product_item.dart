@@ -119,7 +119,7 @@ class BuildProductItem extends StatelessWidget {
                         ),
                         BuildIconItem(
                           iconData: Icons.shopping_cart,
-                          onTap: () {},
+                          onTap: () => getIt<ProductsHelper>().addToCartDialog(context, productModel,  ),
                         ),
                       ],
                     ),

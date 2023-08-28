@@ -1,14 +1,22 @@
+// ignore_for_file: use_build_context_synchronously
+
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_tdd/core/helpers/custom_toast.dart';
 import 'package:flutter_tdd/core/helpers/di.dart';
+import 'package:flutter_tdd/core/helpers/get_device_id.dart';
+import 'package:flutter_tdd/features/user/cart/domain/use_cases/add_product_to_cart.dart';
 import 'package:flutter_tdd/features/user/products/data/data_source/locale_data_sources/compare_products_db.dart';
+import 'package:flutter_tdd/features/user/products/domain/entities/add_product_to_cart_params.dart';
 import 'package:flutter_tdd/features/user/products/domain/models/product.dart';
-import 'package:flutter_tdd/features/user/products/domain/use_cases/add_product_to_compare.dart';
 import 'package:flutter_tdd/features/user/products/domain/use_cases/set_toggle_favourite.dart';
+import 'package:flutter_tdd/features/user/products/presentation/widgets/build_add_to_cart_dialog.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable
 class ProductsHelper {
-  Future<void> toggleFavourite({required int id, required Function() onRefresh}) async {
+  Future<void> toggleFavourite(
+      {required int id, required Function() onRefresh}) async {
     var data = await SetToggleFavourite().call(id);
     if (data) {
       CustomToast.showSimpleToast(
@@ -76,6 +84,38 @@ class ProductsHelper {
       brand: product.brandName,
       category: product.categoryName,
       price: product.priceHighLow,
+    );
+  }
+
+  void addToCartDialog(BuildContext context, Product product, ) {
+    showDialog(
+      context: context,
+      builder: (context) => BuildAddToCartDialog(
+        product: product,
+      ),
+    );
+  }
+
+  Future<void> addProductToCart(int qty,int? variantId, BuildContext context) async {
+    var params = await _addToCartParams(variantId);
+    if (params.variantId == null) {
+      CustomToast.showSimpleToast(msg: 'Variant not found. !');
+      return;
+    }
+    var data = await AddProductToCart().call(params);
+    if (data != '') {
+      CustomToast.showSimpleToast(msg: 'Product added to your cart. !');
+    }
+    AutoRouter.of(context).pop();
+  }
+
+  Future<AddProductToCartParams> _addToCartParams(
+    int? variantId,
+  ) async {
+    return AddProductToCartParams(
+      quantity: 1,
+      variantId: variantId,
+      macAddress: await getIt<GetDeviceId>().deviceId,
     );
   }
 }

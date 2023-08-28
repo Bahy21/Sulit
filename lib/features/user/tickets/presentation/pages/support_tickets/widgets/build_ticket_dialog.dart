@@ -64,8 +64,7 @@ class BuildTicketDialog extends StatelessWidget {
                   width: 120.w,
                   height: 35.h,
                   fontSize: 14,
-                  margin:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 10).r,
+                  margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10).r,
                   onTap: ()=> supportTicketsController.createTicket(context)
                 ),
               ],

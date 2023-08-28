@@ -5,6 +5,7 @@ import 'package:flutter_tdd/features/user/category/domain/entities/generic_param
 import 'package:flutter_tdd/features/user/products/data/models/home_model/home_model.dart';
 import 'package:flutter_tdd/features/user/products/data/models/product_details_model/product_details_model.dart';
 import 'package:flutter_tdd/features/user/products/data/models/queries_model/queries_model.dart';
+import 'package:flutter_tdd/features/user/products/domain/entities/add_product_to_cart_params.dart';
 import 'package:flutter_tdd/features/user/products/domain/entities/popular_products_params.dart';
 import 'package:flutter_tdd/features/user/products/domain/entities/send_query_params.dart';
 import 'package:flutter_tdd/features/user/products/domain/entities/variant_price_params.dart';
@@ -16,5 +17,4 @@ abstract class ProductsDataSource{
   Future<Either<Failure, bool>> toggleFavourite(int param);
   Future<Either<Failure,QueriesModel>>sendQuery(SendQueryParams params);
   Future<Either<Failure, ProductModel>> getVariantPrice(VariantPriceParams param);
-
 }

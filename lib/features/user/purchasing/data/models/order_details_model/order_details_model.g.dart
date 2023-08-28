@@ -13,6 +13,10 @@ _$_OrderDetailsModel _$$_OrderDetailsModelFromJson(Map<String, dynamic> json) =>
       quantity: json['quantity'] as int,
       deliveryType: json['delivery_type'] as String,
       price: json['price'] as String,
+      tax: json['tax'] as String?,
+      product: json['product'] == null
+          ? null
+          : ProductModel.fromJson(json['product'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_OrderDetailsModelToJson(
@@ -23,4 +27,6 @@ Map<String, dynamic> _$$_OrderDetailsModelToJson(
       'quantity': instance.quantity,
       'delivery_type': instance.deliveryType,
       'price': instance.price,
+      'tax': instance.tax,
+      'product': instance.product?.toJson(),
     };

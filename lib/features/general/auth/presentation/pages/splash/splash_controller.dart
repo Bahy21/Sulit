@@ -3,12 +3,11 @@
 part of 'splash_imports.dart';
 
 class SplashController {
+
   void manipulateSaveData(BuildContext context) async {
     updateLang(context);
     SharedPreferences prefs = await SharedPreferences.getInstance();
     var strUser = prefs.get("user");
-    // AutoRouter.of(context).push(ProductDetailsRoute(productId: 3816));
-
     if (strUser != null) {
       context.read<DeviceCubit>().updateUserAuth(true);
       UserDomainModel user = UserDomainModel.fromJson(json.decode("$strUser"));
@@ -17,7 +16,6 @@ class SplashController {
       AutoRouter.of(context).push(HomeRoute(index: 0));
     } else {
       context.read<DeviceCubit>().updateUserAuth(false);
-      await Future.delayed(const Duration(seconds: 2), () {});
       AutoRouter.of(context).push(HomeRoute(index: 0));
     }
   }

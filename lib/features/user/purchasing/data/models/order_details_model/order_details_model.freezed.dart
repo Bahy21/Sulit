@@ -26,6 +26,8 @@ mixin _$OrderDetailsModel {
   @JsonKey(name: 'delivery_type')
   String get deliveryType => throw _privateConstructorUsedError;
   String get price => throw _privateConstructorUsedError;
+  String? get tax => throw _privateConstructorUsedError;
+  ProductModel? get product => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,7 +46,11 @@ abstract class $OrderDetailsModelCopyWith<$Res> {
       String variation,
       int quantity,
       @JsonKey(name: 'delivery_type') String deliveryType,
-      String price});
+      String price,
+      String? tax,
+      ProductModel? product});
+
+  $ProductModelCopyWith<$Res>? get product;
 }
 
 /// @nodoc
@@ -65,6 +71,8 @@ class _$OrderDetailsModelCopyWithImpl<$Res, $Val extends OrderDetailsModel>
     Object? quantity = null,
     Object? deliveryType = null,
     Object? price = null,
+    Object? tax = freezed,
+    Object? product = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -87,7 +95,27 @@ class _$OrderDetailsModelCopyWithImpl<$Res, $Val extends OrderDetailsModel>
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as String,
+      tax: freezed == tax
+          ? _value.tax
+          : tax // ignore: cast_nullable_to_non_nullable
+              as String?,
+      product: freezed == product
+          ? _value.product
+          : product // ignore: cast_nullable_to_non_nullable
+              as ProductModel?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ProductModelCopyWith<$Res>? get product {
+    if (_value.product == null) {
+      return null;
+    }
+
+    return $ProductModelCopyWith<$Res>(_value.product!, (value) {
+      return _then(_value.copyWith(product: value) as $Val);
+    });
   }
 }
 
@@ -104,7 +132,12 @@ abstract class _$$_OrderDetailsModelCopyWith<$Res>
       String variation,
       int quantity,
       @JsonKey(name: 'delivery_type') String deliveryType,
-      String price});
+      String price,
+      String? tax,
+      ProductModel? product});
+
+  @override
+  $ProductModelCopyWith<$Res>? get product;
 }
 
 /// @nodoc
@@ -123,6 +156,8 @@ class __$$_OrderDetailsModelCopyWithImpl<$Res>
     Object? quantity = null,
     Object? deliveryType = null,
     Object? price = null,
+    Object? tax = freezed,
+    Object? product = freezed,
   }) {
     return _then(_$_OrderDetailsModel(
       id: null == id
@@ -145,6 +180,14 @@ class __$$_OrderDetailsModelCopyWithImpl<$Res>
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as String,
+      tax: freezed == tax
+          ? _value.tax
+          : tax // ignore: cast_nullable_to_non_nullable
+              as String?,
+      product: freezed == product
+          ? _value.product
+          : product // ignore: cast_nullable_to_non_nullable
+              as ProductModel?,
     ));
   }
 }
@@ -158,7 +201,9 @@ class _$_OrderDetailsModel extends _OrderDetailsModel {
       required this.variation,
       required this.quantity,
       @JsonKey(name: 'delivery_type') required this.deliveryType,
-      required this.price})
+      required this.price,
+      this.tax,
+      this.product})
       : super._();
 
   factory _$_OrderDetailsModel.fromJson(Map<String, dynamic> json) =>
@@ -175,10 +220,14 @@ class _$_OrderDetailsModel extends _OrderDetailsModel {
   final String deliveryType;
   @override
   final String price;
+  @override
+  final String? tax;
+  @override
+  final ProductModel? product;
 
   @override
   String toString() {
-    return 'OrderDetailsModel(id: $id, variation: $variation, quantity: $quantity, deliveryType: $deliveryType, price: $price)';
+    return 'OrderDetailsModel(id: $id, variation: $variation, quantity: $quantity, deliveryType: $deliveryType, price: $price, tax: $tax, product: $product)';
   }
 
   @override
@@ -193,13 +242,15 @@ class _$_OrderDetailsModel extends _OrderDetailsModel {
                 other.quantity == quantity) &&
             (identical(other.deliveryType, deliveryType) ||
                 other.deliveryType == deliveryType) &&
-            (identical(other.price, price) || other.price == price));
+            (identical(other.price, price) || other.price == price) &&
+            (identical(other.tax, tax) || other.tax == tax) &&
+            (identical(other.product, product) || other.product == product));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, variation, quantity, deliveryType, price);
+  int get hashCode => Object.hash(
+      runtimeType, id, variation, quantity, deliveryType, price, tax, product);
 
   @JsonKey(ignore: true)
   @override
@@ -222,7 +273,9 @@ abstract class _OrderDetailsModel extends OrderDetailsModel {
       required final String variation,
       required final int quantity,
       @JsonKey(name: 'delivery_type') required final String deliveryType,
-      required final String price}) = _$_OrderDetailsModel;
+      required final String price,
+      final String? tax,
+      final ProductModel? product}) = _$_OrderDetailsModel;
   const _OrderDetailsModel._() : super._();
 
   factory _OrderDetailsModel.fromJson(Map<String, dynamic> json) =
@@ -239,6 +292,10 @@ abstract class _OrderDetailsModel extends OrderDetailsModel {
   String get deliveryType;
   @override
   String get price;
+  @override
+  String? get tax;
+  @override
+  ProductModel? get product;
   @override
   @JsonKey(ignore: true)
   _$$_OrderDetailsModelCopyWith<_$_OrderDetailsModel> get copyWith =>
