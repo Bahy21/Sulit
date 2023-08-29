@@ -1,16 +1,16 @@
-part of'purchased_history_imports.dart';
-class PurchasedHistoryController{
-  GenericBloc<bool> isSelectedCubit = GenericBloc(false);
-  final GenericBloc<List<OrderDomianModel>> purchaseCubit = GenericBloc([]);
+part of 'purchased_history_imports.dart';
 
-  PurchasedHistoryController(){
-    getPurchasingHistory(refresh: false);
-    getPurchasingHistory();
-  }
+class PurchasedHistoryController {
+  final GenericBloc<List<OrderDomianModel>> purchaseCubit = GenericBloc([]);
 
   Future<void> getPurchasingHistory({bool refresh = true}) async {
     return await GetPurchasingHistory().call(refresh).then(
           (value) => purchaseCubit.onUpdateData(value),
         );
+  }
+
+  void onOpenHistory(OrderDomianModel orderModel) {
+    orderModel.selected = !orderModel.selected;
+    purchaseCubit.onUpdateData(purchaseCubit.state.data);
   }
 }

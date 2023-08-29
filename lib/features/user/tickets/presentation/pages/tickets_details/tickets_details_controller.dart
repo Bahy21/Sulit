@@ -1,20 +1,44 @@
 // ignore_for_file: use_build_context_synchronously
 
-part of'tickets_details_imports.dart';
-class TicketsDetailsController{
+part of 'tickets_details_imports.dart';
+
+class TicketsDetailsController {
   final GenericBloc<List<File>> imagesCubit = GenericBloc([]);
   final GenericBloc<Ticket?> ticketCubit = GenericBloc(null);
-  final TextEditingController discription = TextEditingController();
+  final TextEditingController description = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey();
 
   TicketsDetailsController(int id) {
+    getTicketsDetails(id, refresh: false);
     getTicketsDetails(id);
   }
 
-  Future<void> getTicketsDetails(int id) async {
-    await GetTicketDetails().call(id).then(
+  Future<void> getTicketsDetails(int id, {bool refresh = true}) async {
+    var params = _detailsParams(id, refresh);
+    await GetTicketDetails().call(params).then(
           (value) => ticketCubit.onUpdateData(value),
         );
+  }
+
+  Future<void> addTicketReply(int id, BuildContext context) async {
+    if (imagesCubit.state.data.isEmpty) {
+      CustomToast.showSimpleToast(msg: 'Please add at least one image');
+      return;
+    }
+    if (formKey.currentState!.validate()) {
+      var params = _replyParams(id);
+      var data = await SetAddTicketReply().call(params);
+      if (data != null) {
+        AutoRouter.of(context).pop();
+        CustomToast.showSimpleToast(msg: 'Reply has been sent successfully');
+        description.clear();
+        imagesCubit.onUpdateData([]);
+        ticketCubit.state.data?.replies?.insert(0, data);
+        ticketCubit.onUpdateData(ticketCubit.state.data);
+      } else {
+        return;
+      }
+    }
   }
 
   Future<List<File>> addImages(BuildContext context) async {
@@ -28,36 +52,21 @@ class TicketsDetailsController{
     }
   }
 
-  Future<void> addTicketReply(int id, BuildContext context) async {
-    if(imagesCubit.state.data.isEmpty){
-      CustomToast.showSimpleToast(msg: 'Please add at least one image');
-      return ;
-    }
-    if(formKey.currentState!.validate()){
-      var params = _replyParams(id);
-      var data = await SetAddTicketReply().call(params);
-      if (data) {
-        CustomToast.showSimpleToast(msg: 'Reply has been sent successfully');
-        AutoRouter.of(context).pop();
-      }else {
-        return ;
-      }
-    }
+  void showAddReplyDialog(BuildContext context, int id) {
+    showDialog(
+      context: context,
+      builder: (context) => BuildTicketDetailsDialog(controller: this, id: id),
+    );
   }
 
-  Future<void> showAddReplyDialog(BuildContext context, int id)async {
-    await showDialog(
-      context: context,
-      builder: (context) => BuildTicketDetailsDialog(
-        controller: this, id: id,
-      ),
-    );
+  GenericParams _detailsParams(int id, bool refresh) {
+    return GenericParams(id: id, refresh: refresh);
   }
 
   AddTicketReplyParams _replyParams(int id) {
     return AddTicketReplyParams(
       id: id,
-      reply: discription.text,
+      reply: description.text,
       images: imagesCubit.state.data,
     );
   }

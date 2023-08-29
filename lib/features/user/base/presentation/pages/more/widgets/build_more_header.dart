@@ -11,10 +11,12 @@ class BuildMoreHeader extends StatelessWidget {
     var user = context.watch<UserCubit>().state.model ;
     return Column(
       children: [
+
         Container(
+          margin: Dimens.paddingVertical15PX,
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10).r,
+            borderRadius: Dimens.borderRadius10PX,
           ),
           child: Stack(
             alignment: Alignment.bottomCenter,
@@ -82,7 +84,6 @@ class BuildMoreHeader extends StatelessWidget {
             ],
           ),
         ),
-        Gaps.vGap15,
         Text(
           user?.name??"",
           style: AppTextStyle.s16_w400(color: context.colors.black),
@@ -96,6 +97,7 @@ class BuildMoreHeader extends StatelessWidget {
           margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10).r,
           onTap: () => AutoRouter.of(context).push(const SellerDashboardRoute()),
         ),
+        Gaps.vGap24,
       ],
     );
   }

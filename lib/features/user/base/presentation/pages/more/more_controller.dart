@@ -1,5 +1,6 @@
-part of'more_imports.dart';
-class MoreController{
+part of 'more_imports.dart';
+
+class MoreController {
   final GenericBloc<File?> imageCubit = GenericBloc(null);
 
   Future<void> getImage(BuildContext context) async {

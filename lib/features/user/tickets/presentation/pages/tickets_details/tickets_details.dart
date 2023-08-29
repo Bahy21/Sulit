@@ -21,10 +21,9 @@ class _TicketsDetailsState extends State<TicketsDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: BuildAddReplayButton(
-        controller: controller,
-        id: widget.id,
-      ),
+      backgroundColor: context.colors.customBackground,
+      floatingActionButton:
+          BuildAddReplayButton(controller: controller, id: widget.id),
       appBar: const DefaultAppBar(title: "Ticket Details", showBack: true),
       body: BlocBuilder<GenericBloc<Ticket?>, GenericState<Ticket?>>(
         bloc: controller.ticketCubit,
@@ -32,30 +31,8 @@ class _TicketsDetailsState extends State<TicketsDetails> {
           if (state is GenericUpdateState) {
             return Column(
               children: [
-                BuildTicketDetailsItem(
-                  ticket: state.data!,
-                ),
-                Visibility(
-                  visible: state.data!.replies!.isNotEmpty,
-                  replacement: Padding(
-                    padding: EdgeInsets.only(
-                      top: 300.h,
-                    ),
-                    child: Text(
-                      "No replies found yet. ! ",
-                      style: AppTextStyle.s12_w400(color: context.colors.grey),
-                    ),
-                  ),
-                  child: Flexible(
-                    child: ListView.builder(
-                      padding: const EdgeInsets.symmetric(horizontal: 16).r,
-                      itemBuilder: (context, index) => BuildReplayItem(
-                        replyModel: state.data!.replies![index],
-                      ),
-                      itemCount: state.data!.replies!.length,
-                    ),
-                  ),
-                ),
+                BuildTicketDetailsItem(ticket: state.data!),
+                BuildTicketDetailsReplies(replies: state.data!.replies!),
               ],
             );
           } else {

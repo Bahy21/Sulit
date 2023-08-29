@@ -10,25 +10,25 @@ class BuildTicketDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return AlertDialog(
       backgroundColor: context.colors.white,
-      contentPadding: const EdgeInsets.symmetric(vertical: 5, horizontal: 12).r,
+      contentPadding: Dimens.paddingAll10PX,
       content: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
                 "Create Ticket",
                 style: AppTextStyle.s14_w500(color: context.colors.black),
               ),
               IconButton(
-                  onPressed: () => AutoRouter.of(context).pop(),
-                  icon: Icon(
-                    Icons.close,
-                    color: context.colors.blackOpacity,
-                  )),
+                onPressed: () => AutoRouter.of(context).pop(),
+                icon: Icon(
+                  Icons.close,
+                  color: context.colors.black,
+                ),
+              ),
             ],
           ),
           Form(
@@ -42,8 +42,7 @@ class BuildTicketDialog extends StatelessWidget {
                   controller: supportTicketsController.subjectController,
                   validate: (value) => value?.validateEmpty(),
                   label: "Subject",
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                  margin: const EdgeInsets.symmetric(vertical: 10).r,
+                  margin: Dimens.paddingVertical5PX,
                 ),
                 GenericTextField(
                   fieldTypes: FieldTypes.rich,
@@ -53,20 +52,18 @@ class BuildTicketDialog extends StatelessWidget {
                   validate: (value) => value?.validateEmpty(),
                   label: "Description",
                   max: 4,
-                  contentPadding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 10).r,
+                  margin: Dimens.paddingVertical5PX,
                 ),
                 BuildAddTicketsImages(
                   controller: supportTicketsController,
                 ),
                 DefaultButton(
-                  title: "confirm",
-                  width: 120.w,
-                  height: 35.h,
-                  fontSize: 14,
-                  margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10).r,
-                  onTap: ()=> supportTicketsController.createTicket(context)
-                ),
+                    title: "confirm",
+                    width: 120.w,
+                    height: 30.h,
+                    margin: Dimens.paddingVertical10PX,
+                    onTap: () =>
+                        supportTicketsController.createTicket(context)),
               ],
             ),
           ),

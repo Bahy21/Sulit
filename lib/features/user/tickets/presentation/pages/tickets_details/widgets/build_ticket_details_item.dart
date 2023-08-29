@@ -6,14 +6,18 @@ class BuildTicketDetailsItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 16).r,
+        margin: Dimens.paddingAll15PX,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5).r,
-            color: context.colors.white,
-            boxShadow: [
-              BoxShadow(
-                  color: context.colors.greyWhite, blurRadius: 1, spreadRadius: 1)
-            ]),
+          borderRadius: Dimens.borderRadius5PX,
+          color: context.colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: context.colors.greyWhite,
+              blurRadius: 1,
+              spreadRadius: .5,
+            )
+          ],
+        ),
         child: ListTile(
           title: Text(
             ticket.subject,

@@ -31,6 +31,9 @@ class ApiNames{
   static const String sendQuery = "product-queries";
   static const String getVariantPrice = "products";
 
+  //dashboard urls
+  static const String getDashboard = "dashboard";
+
 
   // categories urls
   static const String getCategories = "categories";

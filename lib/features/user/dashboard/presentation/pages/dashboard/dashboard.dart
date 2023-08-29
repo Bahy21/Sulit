@@ -8,41 +8,34 @@ class DashBoard extends StatefulWidget {
 }
 
 class _DashBoardState extends State<DashBoard> {
-  final DashBoardController controller = DashBoardController();
+  late DashboardController controller;
+
+  @override
+  void initState() {
+    controller = DashboardController();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: context.colors.customBackground,
       appBar: const DefaultAppBar(title: "Dashboard", showBack: true),
-      body: ListView(
-        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16).r,
-        children: [
-          const BuildDefaultShippingAddress(),
-          Gaps.vGap10,
-          BuildDashboardItem(
-            colors: [
-              context.colors.blue,
-              context.colors.blueAccent,
-            ],
-            title: "1 Product",
-            subTitle: "in your cart",
-          ),
-          BuildDashboardItem(
-            colors: [
-              context.colors.appBarColor,
-              context.colors.blueAccent,
-            ],
-            title: "4 Products",
-            subTitle: "in your WishList",
-          ),
-          BuildDashboardItem(
-            colors: [
-              context.colors.appBarColor,
-              context.colors.secondary,
-            ],
-            title: "0 Product",
-            subTitle: "you Ordered",
-          )
-        ],
+      body: BlocBuilder<GenericBloc<Dashboards?>, GenericState<Dashboards?>>(
+        bloc: controller.dashboardsCubit,
+        builder: (context, state) {
+          if (state is GenericUpdateState) {
+            return ListView(
+              padding: Dimens.standardPadding,
+              children: [
+                BuildDefaultShippingAddress(dashboardModel: state.data!),
+                BuildDashboardView(dashboardModel: state.data!),
+              ],
+            );
+          } else {
+            return const BuildLoadingDashboard();
+          }
+        },
       ),
     );
   }

@@ -1,22 +1,28 @@
 part of 'dashboard_widgets_imports.dart';
 
 class BuildDashboardItem extends StatelessWidget {
-  final List <Color> colors;
+  final List<Color> colors;
   final String title;
   final String subTitle;
 
-  const BuildDashboardItem({Key? key, required this.colors, required this.title, required this.subTitle}) : super(key: key);
+  const BuildDashboardItem(
+      {Key? key,
+      required this.colors,
+      required this.title,
+      required this.subTitle})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       alignment: AlignmentDirectional.centerStart,
-      padding: const EdgeInsets.all(16).r,
-      margin: const EdgeInsets.symmetric(vertical: 4).r,
-      height: 150.h,
+      padding: Dimens.paddingAll15PX,
+      margin: Dimens.paddingVertical5PX,
+      height: 140.h,
       decoration: BoxDecoration(
-        gradient: LinearGradient(colors:colors,begin: AlignmentDirectional.topStart),
-        borderRadius: BorderRadius.circular(10).r,
+        gradient: LinearGradient(
+            colors: colors, begin: AlignmentDirectional.topStart),
+        borderRadius: Dimens.borderRadius10PX,
       ),
       child: Column(
         children: [

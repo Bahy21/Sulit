@@ -5,6 +5,7 @@ import 'package:flutter_tdd/core/constants/dimens.dart';
 import 'package:flutter_tdd/core/constants/gaps.dart';
 import 'package:flutter_tdd/core/theme/colors/colors_extension.dart';
 import 'package:flutter_tdd/core/widgets/build_shimmer_item.dart';
+import 'package:flutter_tdd/core/widgets/custom_decoration.dart';
 import 'package:flutter_tdd/features/user/category/presentation/pages/category_details/widgets/category_details_widgets_imports.dart';
 
 class BuildProductItemShimmer extends StatelessWidget {
@@ -14,17 +15,7 @@ class BuildProductItemShimmer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 160.w,
-      decoration: BoxDecoration(
-        color: context.colors.white,
-        borderRadius: Dimens.borderRadius5PX,
-        boxShadow: [
-          BoxShadow(
-            color: context.colors.greyWhite,
-            blurRadius: 1,
-            spreadRadius: .5,
-          )
-        ],
-      ),
+      decoration: CustomDecoration(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
