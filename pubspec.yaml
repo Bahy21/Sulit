@@ -115,7 +115,6 @@ flutter:
     - assets/images/marker.png
     - assets/images/mobile.svg
     - assets/images/myProfile.png
-    - assets/images/noData.png
     - assets/images/offline.png
     - assets/images/password.svg
     - assets/images/pdf.png

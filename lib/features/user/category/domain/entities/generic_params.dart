@@ -1,9 +1,9 @@
 class GenericParams {
-  int? id;
+  int id;
   bool refresh;
 
   GenericParams({
-    this.id,
+    required this.id,
     this.refresh = true,
   });
 

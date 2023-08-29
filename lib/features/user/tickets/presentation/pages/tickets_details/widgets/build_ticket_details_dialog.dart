@@ -1,4 +1,5 @@
-part of'tickets_details_widgets_imports.dart';
+part of 'tickets_details_widgets_imports.dart';
+
 class BuildTicketDetailsDialog extends StatelessWidget {
   final TicketsDetailsController controller;
   final int id;
@@ -11,21 +12,23 @@ class BuildTicketDetailsDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return AlertDialog(
       backgroundColor: context.colors.white,
-      contentPadding:
-          const EdgeInsets.symmetric(vertical: 10, horizontal: 12).r,
+      contentPadding: Dimens.paddingAll10PX,
       content: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              Text(
+                "Add Reply",
+                style: AppTextStyle.s14_w500(color: context.colors.black),
+              ),
               IconButton(
                 onPressed: () => AutoRouter.of(context).pop(),
                 icon: Icon(
                   Icons.close,
-                  color: context.colors.blackOpacity,
+                  color: context.colors.black,
                 ),
               ),
             ],
@@ -38,24 +41,18 @@ class BuildTicketDetailsDialog extends StatelessWidget {
                   fieldTypes: FieldTypes.rich,
                   type: TextInputType.text,
                   action: TextInputAction.done,
-                  validate: (value) {},
+                  validate: (value) => value?.validateEmpty(),
                   label: "Description",
                   max: 4,
-                  controller: controller.discription,
-                  contentPadding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                  margin: const EdgeInsets.symmetric(vertical: 10).r,
+                  controller: controller.description,
+                  margin: Dimens.paddingVertical8PX,
                 ),
-                BuildAddTicketReplyImage(
-                  controller: controller,
-                ),
+                BuildAddTicketReplyImage(controller: controller),
                 DefaultButton(
                   title: "Send Replay",
-                  width: 120,
-                  height: 35,
-                  fontSize: 14,
-                  margin:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                  width: 120.w,
+                  height: 30.h,
+                  margin: Dimens.paddingVertical10PX,
                   onTap: () => controller.addTicketReply(id, context),
                 ),
               ],

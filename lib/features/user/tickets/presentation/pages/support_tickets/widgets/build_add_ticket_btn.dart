@@ -7,14 +7,13 @@ class BuildAddTicketBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FloatingActionButton(
-      backgroundColor: context.colors.blackOpacity,
-      elevation: 2,
-      onPressed: () => controller.showAddTicketDialog(context, controller),
-      child: Icon(
-        Icons.add,
-        color: context.colors.white,
-        size: 30.sp,
+    return Padding(
+      padding: Dimens.paddingAll10PX,
+      child: FloatingActionButton(
+        backgroundColor: context.colors.primary,
+        elevation: 2,
+        onPressed: () => controller.showAddTicketDialog(context, controller),
+        child: Icon(Icons.add, color: context.colors.white, size: 30.sp),
       ),
     );
   }

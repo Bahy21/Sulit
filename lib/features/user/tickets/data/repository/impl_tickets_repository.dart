@@ -2,11 +2,13 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_tdd/core/errors/failures.dart';
 import 'package:flutter_tdd/core/helpers/di.dart';
 import 'package:flutter_tdd/core/models/model_to_domain/model_to_domain.dart';
+import 'package:flutter_tdd/features/user/category/domain/entities/generic_params.dart';
 import 'package:flutter_tdd/features/user/tickets/data/data_sources/tickets_data_sources.dart';
 import 'package:flutter_tdd/features/user/tickets/data/models/ticket_model/ticket_model.dart';
 import 'package:flutter_tdd/features/user/tickets/domain/entities/add_ticket_reply.dart';
 import 'package:flutter_tdd/features/user/tickets/domain/entities/create_ticket_params.dart';
 import 'package:flutter_tdd/features/user/tickets/domain/models/ticket.dart';
+import 'package:flutter_tdd/features/user/tickets/domain/models/ticket_reply.dart';
 import 'package:flutter_tdd/features/user/tickets/domain/repository/tickets_repository.dart';
 import 'package:injectable/injectable.dart';
 
@@ -28,14 +30,15 @@ class ImplTicketsRepository extends TicketsRepository with ModelToDomain {
   }
 
   @override
-  Future<Either<Failure, Ticket>> getTicketDetails(int param) async {
+  Future<Either<Failure, Ticket>> getTicketDetails(GenericParams param) async {
     var result = await dataSource.getTicketDetails(param);
     return toDomainResult(result);
   }
 
   @override
-  Future<Either<Failure, bool>> addTicketReply(
-      AddTicketReplyParams param) async {
-    return await dataSource.addTicketReply(param);
+  Future<Either<Failure, TicketReply>> addTicketReply(
+      AddTicketReplyParams params) async {
+    var result = await dataSource.addTicketReply(params);
+    return toDomainResult(result);
   }
 }

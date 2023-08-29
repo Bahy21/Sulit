@@ -26,7 +26,7 @@ class SupportTicketsController {
         subjectController.clear();
         detailsController.clear();
         imagesCubit.onUpdateData([]);
-        ticketsBloc.state.data.add(data);
+        ticketsBloc.state.data.insert(0,data);
         ticketsBloc.onUpdateData(ticketsBloc.state.data);
       }
     }

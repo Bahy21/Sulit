@@ -5,8 +5,10 @@ import 'package:flutter_tdd/core/errors/failures.dart';
 import 'package:flutter_tdd/core/http/generic_http/api_names.dart';
 import 'package:flutter_tdd/core/http/generic_http/generic_http.dart';
 import 'package:flutter_tdd/core/http/models/http_request_model.dart';
+import 'package:flutter_tdd/features/user/category/domain/entities/generic_params.dart';
 import 'package:flutter_tdd/features/user/tickets/data/data_sources/tickets_data_sources.dart';
 import 'package:flutter_tdd/features/user/tickets/data/models/ticket_model/ticket_model.dart';
+import 'package:flutter_tdd/features/user/tickets/data/models/ticket_reply_model/ticket_reply_model.dart';
 import 'package:flutter_tdd/features/user/tickets/domain/entities/add_ticket_reply.dart';
 import 'package:flutter_tdd/features/user/tickets/domain/entities/create_ticket_params.dart';
 import 'package:injectable/injectable.dart';
@@ -49,9 +51,10 @@ class ImplTicketsDataSources extends TicketsDataSources {
   }
 
   @override
-  Future<Either<Failure, TicketModel>> getTicketDetails(int param) async {
+  Future<Either<Failure, TicketModel>> getTicketDetails(
+      GenericParams param) async {
     HttpRequestModel model = HttpRequestModel(
-      url: ApiNames.ticketDetails(param),
+      url: ApiNames.ticketDetails(param.id),
       requestMethod: RequestMethod.get,
       responseType: ResType.model,
       showLoader: true,
@@ -63,17 +66,18 @@ class ImplTicketsDataSources extends TicketsDataSources {
   }
 
   @override
-  Future<Either<Failure, bool>> addTicketReply(
+  Future<Either<Failure, TicketReplyModel>> addTicketReply(
       AddTicketReplyParams params) async {
     HttpRequestModel model = HttpRequestModel(
       url: ApiNames.addTicketReply(params.id),
       requestMethod: RequestMethod.post,
-      responseType: ResType.type,
+      responseType: ResType.model,
       requestBody: params.toJson(),
       showLoader: true,
-      responseKey: (data) => data["key"] == 'success',
+      toJsonFunc: (json) => TicketReplyModel.fromJson(json),
+      responseKey: (data) => data['data'],
       errorFunc: (data) => data["msg"],
     );
-    return await GenericHttpImpl<bool>().call(model);
+    return await GenericHttpImpl<TicketReplyModel>().call(model);
   }
 }

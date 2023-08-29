@@ -15,7 +15,6 @@ class Res {
   static const String marker = "assets/images/marker.png";
   static const String mobile = "assets/images/mobile.svg";
   static const String myProfile = "assets/images/myProfile.png";
-  static const String noData = "assets/images/noData.png";
   static const String NotoSans = "assets/fonts/NotoSans.ttf";
   static const String offline = "assets/images/offline.png";
   static const String password = "assets/images/password.svg";

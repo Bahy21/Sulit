@@ -15,8 +15,8 @@ class BuildAddTicketsImages extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10).r,
-            child: const Text("Images", style: AppTextStyle.s12_w400(color: Colors.black),),
+            padding: Dimens.paddingVertical8PX,
+            child: const Text("Images", style: AppTextStyle.s13_w400(color: Colors.black),),
           ),
           BlocBuilder<GenericBloc<List<File>>, GenericState<List<File>>>(
             bloc: controller.imagesCubit,
@@ -27,13 +27,13 @@ class BuildAddTicketsImages extends StatelessWidget {
                 child: Row(
                   children: [
                     ...List.generate(
-                      controller.imagesCubit.state.data.length,
-                      (index) => Container(
-                        height: 60,
-                        width: 60,
-                        margin: EdgeInsets.only(left: 5.r),
+                      state.data.length,
+                          (index) => Container(
+                        height: 55.r,
+                        width: 55.r,
+                        margin: Dimens.paddingHorizontal5PX,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
+                          borderRadius: Dimens.borderRadius10PX,
                           border: Border.all(
                             color: Colors.transparent,
                           ),
@@ -47,20 +47,15 @@ class BuildAddTicketsImages extends StatelessWidget {
                     GestureDetector(
                       onTap: () => controller.addImages(context),
                       child: Container(
-                        height: 60,
-                        width: 60,
-                        margin: EdgeInsetsDirectional.only(start: 5.r, end: 5.r),
+                        height: 55.r,
+                        width: 55.r,
+                        margin: Dimens.paddingHorizontal5PX,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(
-                            15.r,
-                          ),
-                          color: context.colors.grey.withOpacity(
-                            0.1,
-                          ),
-                        ),
-                        child:  Icon(
+                            borderRadius: Dimens.borderRadius10PX,
+                            color: context.colors.offWhite),
+                        child: Icon(
                           Icons.add,
-                          size: 15,
+                          size: 15.sp,
                           color: context.colors.blackOpacity,
                         ),
                       ),

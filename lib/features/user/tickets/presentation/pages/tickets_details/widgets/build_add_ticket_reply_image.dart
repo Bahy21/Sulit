@@ -15,10 +15,10 @@ class BuildAddTicketReplyImage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10).r,
+            padding: Dimens.paddingVertical8PX,
             child: const Text(
               "Images",
-              style: AppTextStyle.s12_w400(color: Colors.black),
+              style: AppTextStyle.s13_w400(color: Colors.black),
             ),
           ),
           BlocBuilder<GenericBloc<List<File>>, GenericState<List<File>>>(
@@ -30,13 +30,13 @@ class BuildAddTicketReplyImage extends StatelessWidget {
                 child: Row(
                   children: [
                     ...List.generate(
-                      controller.imagesCubit.state.data.length,
+                      state.data.length,
                       (index) => Container(
-                        height: 60,
-                        width: 60,
-                        margin: EdgeInsets.only(left: 5.r),
+                        height: 55.r,
+                        width: 55.r,
+                        margin: Dimens.paddingHorizontal5PX,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
+                          borderRadius: Dimens.borderRadius10PX,
                           border: Border.all(
                             color: Colors.transparent,
                           ),
@@ -50,21 +50,15 @@ class BuildAddTicketReplyImage extends StatelessWidget {
                     GestureDetector(
                       onTap: () => controller.addImages(context),
                       child: Container(
-                        height: 60,
-                        width: 60,
-                        margin:
-                            EdgeInsetsDirectional.only(start: 5.r, end: 5.r),
+                        height: 55.r,
+                        width: 55.r,
+                        margin: Dimens.paddingHorizontal5PX,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(
-                            15.r,
-                          ),
-                          color: context.colors.grey.withOpacity(
-                            0.1,
-                          ),
-                        ),
+                            borderRadius: Dimens.borderRadius10PX,
+                            color: context.colors.offWhite),
                         child: Icon(
                           Icons.add,
-                          size: 15,
+                          size: 15.sp,
                           color: context.colors.blackOpacity,
                         ),
                       ),
