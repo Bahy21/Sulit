@@ -9,15 +9,7 @@ class BuildConversationItem extends StatelessWidget {
         margin: const EdgeInsets.symmetric(
           vertical: 5,
         ).r,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5).r,
-            color: context.colors.white,
-            boxShadow: [
-              BoxShadow(
-                  color: context.colors.greyWhite,
-                  blurRadius: 1,
-                  spreadRadius: 1)
-            ]),
+        decoration: CustomDecoration(),
         child: ListTile(
           title: Text(
             "Tarek fouda",

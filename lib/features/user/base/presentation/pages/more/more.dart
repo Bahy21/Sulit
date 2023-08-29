@@ -10,19 +10,19 @@ class More extends StatefulWidget {
 }
 
 class _MoreState extends State<More> {
-  MoreController controller = MoreController();
+  final MoreController controller = MoreController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: context.colors.customBackground,
       appBar: BuildSearchAppBar(homeController: widget.homeController),
       body: ListView(
-        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16).r,
+        padding: Dimens.paddingAll15PX,
         children: [
-          BuildMoreHeader(
-            moreController: controller,
-          ),
-          Gaps.vGap32,
+          // BuildMoreHeader(
+          //   moreController: controller,
+          // ),
           BuildMoreItem(
             title: 'DashBoard',
             icon: Icons.home_outlined,
@@ -32,12 +32,18 @@ class _MoreState extends State<More> {
             haveStatus: true,
             title: 'Purchased History',
             icon: Icons.file_copy_outlined,
-            onTap: () => AutoRouter.of(context).push(const PurchasedHistoryRoute()),
+            onTap: () =>
+                AutoRouter.of(context).push(const PurchasedHistoryRoute()),
           ),
           BuildMoreItem(
             title: 'Downloads',
             icon: Icons.download,
             onTap: () => AutoRouter.of(context).push(const DownloadsRoute()),
+          ),
+          BuildMoreItem(
+            title: 'Blogs',
+            icon: Icons.list_alt,
+            onTap: () => AutoRouter.of(context).push(const BlogsRoute()),
           ),
           BuildMoreItem(
             title: 'WishList',
@@ -67,7 +73,7 @@ class _MoreState extends State<More> {
             onTap: () => AutoRouter.of(context).push(const MyWalletRoute()),
           ),
           BuildMoreItem(
-            title:  'Support Tickets',
+            title: 'Support Tickets',
             icon: Icons.airplane_ticket_outlined,
             onTap: () =>
                 AutoRouter.of(context).push(const SupportTicketsRoute()),
@@ -75,13 +81,9 @@ class _MoreState extends State<More> {
           BuildMoreItem(
             title: 'Manage Profile',
             icon: Icons.person_2_outlined,
-            onTap: () => AutoRouter.of(context).push( ProfileRoute()),
+            onTap: () => AutoRouter.of(context).push(ProfileRoute()),
           ),
-          BuildMoreItem(
-            title: 'Blogs',
-            icon: Icons.list_alt,
-            onTap: () => AutoRouter.of(context).push( const BlogsRoute()),
-          ),
+
         ],
       ),
     );
