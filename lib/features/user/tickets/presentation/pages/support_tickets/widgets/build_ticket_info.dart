@@ -12,17 +12,7 @@ class BuildTicketInfo extends StatelessWidget {
       child: Container(
         margin: Dimens.paddingVertical5PX,
         padding: Dimens.paddingAll10PX,
-        decoration: BoxDecoration(
-          borderRadius: Dimens.borderRadius5PX,
-          color: context.colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: context.colors.greyWhite,
-              blurRadius: 1,
-              spreadRadius: .5,
-            )
-          ],
-        ),
+        decoration: CustomDecoration(),
         child: Column(
           children: [
             ListTile(

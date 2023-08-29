@@ -13,17 +13,7 @@ class BuildTicketItem extends StatelessWidget {
       children: [
         Container(
           margin: Dimens.paddingVertical5PX,
-          decoration: BoxDecoration(
-            borderRadius: Dimens.borderRadius5PX,
-            color: context.colors.white,
-            boxShadow: [
-              BoxShadow(
-                color: context.colors.greyWhite,
-                blurRadius: 1,
-                spreadRadius: .5,
-              )
-            ],
-          ),
+          decoration: CustomDecoration(),
           child: ListTile(
             onTap: () => controller.onOpenTicket(ticketModel),
             title: Text(
