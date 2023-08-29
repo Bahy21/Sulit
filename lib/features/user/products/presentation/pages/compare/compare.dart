@@ -12,7 +12,7 @@ class _CompareState extends State<Compare> {
 
   @override
   void initState() {
-    controller = CompareController();
+    controller = CompareController(context);
     super.initState();
   }
 
@@ -29,7 +29,7 @@ class _CompareState extends State<Compare> {
             padding: Dimens.standardPadding,
             child: Column(
               children: [
-                BuildResetButton(isNotEmpty: state.data.isNotEmpty),
+                BuildResetButton(controller: controller),
                 BuildCompareTable(
                   controller: controller,
                   compareData: state.data,

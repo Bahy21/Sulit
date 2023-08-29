@@ -49,7 +49,7 @@ class ProfileController {
       setEditProfileEmail();
     }
     if (address != null) {
-      await _setDefaultAddress(address.id!, context);
+      await SetDefaultAddress().call(address.id!);
     }
     var data = await SetEditProfile().call(params);
     if (data != UserDomainModel()) {
@@ -65,15 +65,6 @@ class ProfileController {
     await SetEditProfileEmail().call(emailController.text);
   }
 
-  Future<void> _setDefaultAddress(int id, BuildContext context) async {
-    var data = await SetDefaultAddress().call(id);
-    if (data) {
-      CustomToast.showSimpleToast(
-        msg: "Address set as default successfully",
-        type: ToastType.success,
-      );
-    }
-  }
 
   void _cashAndRoute(UserDomainModel data, BuildContext context) async {
     SharedPreferences preferences = await SharedPreferences.getInstance();

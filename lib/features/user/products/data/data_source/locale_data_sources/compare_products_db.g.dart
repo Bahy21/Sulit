@@ -9,6 +9,11 @@ class $ProductsTableTable extends ProductsTable
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
   $ProductsTableTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _userIdMeta = const VerificationMeta('userId');
+  @override
+  late final GeneratedColumn<int> userId = GeneratedColumn<int>(
+      'user_id', aliasedName, true,
+      type: DriftSqlType.int, requiredDuringInsert: false);
   static const VerificationMeta _productIdMeta =
       const VerificationMeta('productId');
   @override
@@ -43,7 +48,7 @@ class $ProductsTableTable extends ProductsTable
       type: DriftSqlType.string, requiredDuringInsert: false);
   @override
   List<GeneratedColumn> get $columns =>
-      [productId, name, image, price, brand, category];
+      [userId, productId, name, image, price, brand, category];
   @override
   String get aliasedName => _alias ?? 'products_table';
   @override
@@ -53,6 +58,10 @@ class $ProductsTableTable extends ProductsTable
       {bool isInserting = false}) {
     final context = VerificationContext();
     final data = instance.toColumns(true);
+    if (data.containsKey('user_id')) {
+      context.handle(_userIdMeta,
+          userId.isAcceptableOrUnknown(data['user_id']!, _userIdMeta));
+    }
     if (data.containsKey('product_id')) {
       context.handle(_productIdMeta,
           productId.isAcceptableOrUnknown(data['product_id']!, _productIdMeta));
@@ -86,6 +95,8 @@ class $ProductsTableTable extends ProductsTable
   ProductsTableData map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
     return ProductsTableData(
+      userId: attachedDatabase.typeMapping
+          .read(DriftSqlType.int, data['${effectivePrefix}user_id']),
       productId: attachedDatabase.typeMapping
           .read(DriftSqlType.int, data['${effectivePrefix}product_id']),
       name: attachedDatabase.typeMapping
@@ -109,6 +120,7 @@ class $ProductsTableTable extends ProductsTable
 
 class ProductsTableData extends DataClass
     implements Insertable<ProductsTableData> {
+  final int? userId;
   final int? productId;
   final String? name;
   final String? image;
@@ -116,7 +128,8 @@ class ProductsTableData extends DataClass
   final String? brand;
   final String? category;
   const ProductsTableData(
-      {this.productId,
+      {this.userId,
+      this.productId,
       this.name,
       this.image,
       this.price,
@@ -125,6 +138,9 @@ class ProductsTableData extends DataClass
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
+    if (!nullToAbsent || userId != null) {
+      map['user_id'] = Variable<int>(userId);
+    }
     if (!nullToAbsent || productId != null) {
       map['product_id'] = Variable<int>(productId);
     }
@@ -148,6 +164,8 @@ class ProductsTableData extends DataClass
 
   ProductsTableCompanion toCompanion(bool nullToAbsent) {
     return ProductsTableCompanion(
+      userId:
+          userId == null && nullToAbsent ? const Value.absent() : Value(userId),
       productId: productId == null && nullToAbsent
           ? const Value.absent()
           : Value(productId),
@@ -168,6 +186,7 @@ class ProductsTableData extends DataClass
       {ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return ProductsTableData(
+      userId: serializer.fromJson<int?>(json['userId']),
       productId: serializer.fromJson<int?>(json['productId']),
       name: serializer.fromJson<String?>(json['name']),
       image: serializer.fromJson<String?>(json['image']),
@@ -180,6 +199,7 @@ class ProductsTableData extends DataClass
   Map<String, dynamic> toJson({ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
+      'userId': serializer.toJson<int?>(userId),
       'productId': serializer.toJson<int?>(productId),
       'name': serializer.toJson<String?>(name),
       'image': serializer.toJson<String?>(image),
@@ -190,13 +210,15 @@ class ProductsTableData extends DataClass
   }
 
   ProductsTableData copyWith(
-          {Value<int?> productId = const Value.absent(),
+          {Value<int?> userId = const Value.absent(),
+          Value<int?> productId = const Value.absent(),
           Value<String?> name = const Value.absent(),
           Value<String?> image = const Value.absent(),
           Value<String?> price = const Value.absent(),
           Value<String?> brand = const Value.absent(),
           Value<String?> category = const Value.absent()}) =>
       ProductsTableData(
+        userId: userId.present ? userId.value : this.userId,
         productId: productId.present ? productId.value : this.productId,
         name: name.present ? name.value : this.name,
         image: image.present ? image.value : this.image,
@@ -207,6 +229,7 @@ class ProductsTableData extends DataClass
   @override
   String toString() {
     return (StringBuffer('ProductsTableData(')
+          ..write('userId: $userId, ')
           ..write('productId: $productId, ')
           ..write('name: $name, ')
           ..write('image: $image, ')
@@ -219,11 +242,12 @@ class ProductsTableData extends DataClass
 
   @override
   int get hashCode =>
-      Object.hash(productId, name, image, price, brand, category);
+      Object.hash(userId, productId, name, image, price, brand, category);
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       (other is ProductsTableData &&
+          other.userId == this.userId &&
           other.productId == this.productId &&
           other.name == this.name &&
           other.image == this.image &&
@@ -233,6 +257,7 @@ class ProductsTableData extends DataClass
 }
 
 class ProductsTableCompanion extends UpdateCompanion<ProductsTableData> {
+  final Value<int?> userId;
   final Value<int?> productId;
   final Value<String?> name;
   final Value<String?> image;
@@ -241,6 +266,7 @@ class ProductsTableCompanion extends UpdateCompanion<ProductsTableData> {
   final Value<String?> category;
   final Value<int> rowid;
   const ProductsTableCompanion({
+    this.userId = const Value.absent(),
     this.productId = const Value.absent(),
     this.name = const Value.absent(),
     this.image = const Value.absent(),
@@ -250,6 +276,7 @@ class ProductsTableCompanion extends UpdateCompanion<ProductsTableData> {
     this.rowid = const Value.absent(),
   });
   ProductsTableCompanion.insert({
+    this.userId = const Value.absent(),
     this.productId = const Value.absent(),
     this.name = const Value.absent(),
     this.image = const Value.absent(),
@@ -259,6 +286,7 @@ class ProductsTableCompanion extends UpdateCompanion<ProductsTableData> {
     this.rowid = const Value.absent(),
   });
   static Insertable<ProductsTableData> custom({
+    Expression<int>? userId,
     Expression<int>? productId,
     Expression<String>? name,
     Expression<String>? image,
@@ -268,6 +296,7 @@ class ProductsTableCompanion extends UpdateCompanion<ProductsTableData> {
     Expression<int>? rowid,
   }) {
     return RawValuesInsertable({
+      if (userId != null) 'user_id': userId,
       if (productId != null) 'product_id': productId,
       if (name != null) 'name': name,
       if (image != null) 'image': image,
@@ -279,7 +308,8 @@ class ProductsTableCompanion extends UpdateCompanion<ProductsTableData> {
   }
 
   ProductsTableCompanion copyWith(
-      {Value<int?>? productId,
+      {Value<int?>? userId,
+      Value<int?>? productId,
       Value<String?>? name,
       Value<String?>? image,
       Value<String?>? price,
@@ -287,6 +317,7 @@ class ProductsTableCompanion extends UpdateCompanion<ProductsTableData> {
       Value<String?>? category,
       Value<int>? rowid}) {
     return ProductsTableCompanion(
+      userId: userId ?? this.userId,
       productId: productId ?? this.productId,
       name: name ?? this.name,
       image: image ?? this.image,
@@ -300,6 +331,9 @@ class ProductsTableCompanion extends UpdateCompanion<ProductsTableData> {
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
+    if (userId.present) {
+      map['user_id'] = Variable<int>(userId.value);
+    }
     if (productId.present) {
       map['product_id'] = Variable<int>(productId.value);
     }
@@ -327,6 +361,7 @@ class ProductsTableCompanion extends UpdateCompanion<ProductsTableData> {
   @override
   String toString() {
     return (StringBuffer('ProductsTableCompanion(')
+          ..write('userId: $userId, ')
           ..write('productId: $productId, ')
           ..write('name: $name, ')
           ..write('image: $image, ')

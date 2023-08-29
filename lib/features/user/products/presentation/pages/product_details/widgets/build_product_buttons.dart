@@ -30,7 +30,11 @@ final ProductDetailsController controller;
             ),
             Expanded(
               child: InkWell(
-                onTap: () => AutoRouter.of(context).push(const CartRoute()),
+                onTap: () => getIt<ProductsHelper>().addToCartDialog(
+                  context,
+                  controller.detailsCubit.state.data!.product,
+                ),
+                // AutoRouter.of(context).push(const CartRoute()),
                 child: Container(
                   alignment: Alignment.center,
                   padding: Dimens.paddingVertical10PX,

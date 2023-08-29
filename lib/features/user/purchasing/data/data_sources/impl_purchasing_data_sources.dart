@@ -28,16 +28,14 @@ class ImplPurchasingDataSources extends PurchasingDataSources {
   }
 
   @override
-  Future<Either<Failure, OrderModel>> trackOrder(String code)async {
+  Future<Either<Failure, OrderModel>> trackOrder(String param)async {
     HttpRequestModel model = HttpRequestModel(
-      url: ApiNames.getPurchaseHistory ,
+      url: ApiNames.getTrackOrder(param) ,
       requestMethod: RequestMethod.get,
       responseType: ResType.list,
       showLoader: true,
-      toJsonFunc: (json) => List<OrderModel>.from(
-        json.map((e) => OrderModel.fromJson(e)),
-      ),
-      responseKey: (data) => data["data"]["orders"],
+      toJsonFunc: (json) => OrderModel.fromJson(json),
+      responseKey: (data) => data["data"],
     );
     return await GenericHttpImpl<OrderModel>().call(model);
   }

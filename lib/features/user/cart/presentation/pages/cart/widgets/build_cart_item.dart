@@ -65,8 +65,12 @@ class BuildCartItem extends StatelessWidget {
             children: [
               BuildCustomBounce(
                 onTap: () {
-                  cartItem.quantity ++;
+                  cartItem.quantity++;
                   controller.cartItemsBloc.onUpdateData(controller.cartItemsBloc.state.data);
+                  controller.updateCartItem(
+                    cartItem.quantity,
+                    cartItem.id,
+                  );
                 },
                 iconData: CupertinoIcons.add,
               ),
@@ -80,6 +84,7 @@ class BuildCartItem extends StatelessWidget {
                 onTap: () {
                   cartItem.quantity --;
                   controller.cartItemsBloc.onUpdateData(controller.cartItemsBloc.state.data);
+                  controller.updateCartItem(cartItem.quantity, cartItem.id);
                 },
                 iconData: CupertinoIcons.minus,
               ),

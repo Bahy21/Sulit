@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tdd/core/theme/colors/app_colors.dart';
+import 'package:flutter_tdd/core/widgets/auth_dialog.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 enum ToastType { success, error, info }
@@ -25,6 +27,15 @@ class CustomToast {
         fontSize: 16.0);
   }
 
+  static void showAuthDialog(BuildContext context) {
+    showCupertinoDialog(
+      context: context,
+      builder: (context) {
+        return const BuildAuthDialog();
+      },
+    );
+  }
+
   static void showSimpleToast(
       {required String msg,
       Color? color,
@@ -39,4 +50,5 @@ class CustomToast {
         textColor: textColor ?? Colors.white,
         fontSize: 16.0);
   }
+
 }

@@ -2,9 +2,12 @@
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tdd/core/helpers/custom_toast.dart';
 import 'package:flutter_tdd/core/helpers/di.dart';
 import 'package:flutter_tdd/core/helpers/get_device_id.dart';
+import 'package:flutter_tdd/core/helpers/global_context.dart';
+import 'package:flutter_tdd/features/general/auth/presentation/manager/user_cubit/user_cubit.dart';
 import 'package:flutter_tdd/features/user/cart/domain/use_cases/add_product_to_cart.dart';
 import 'package:flutter_tdd/features/user/products/data/data_source/locale_data_sources/compare_products_db.dart';
 import 'package:flutter_tdd/features/user/products/domain/entities/add_product_to_cart_params.dart';
@@ -32,7 +35,7 @@ class ProductsHelper {
     onRefresh();
   }
 
-  Future<int> addProductToCompare(Product product) async {
+  Future<int> addProductToCompare(Product product, BuildContext context) async {
     var isAdded = await _isAddedToCompared(product);
     if (isAdded == true) {
       var data = getIt<ComparedProductsDb>().deleteItem(product.id);
@@ -42,12 +45,12 @@ class ProductsHelper {
       );
       return data;
     } else {
-      return _addItemToCompare(product);
+      return _addItemToCompare(product, context);
     }
   }
 
-  Future<int> _addItemToCompare(Product product) async {
-    var params = _comparedParams(product);
+  Future<int> _addItemToCompare(Product product, BuildContext context) async {
+    var params = _comparedParams(product, context);
     var data = getIt<ComparedProductsDb>().insertItem(params);
     CustomToast.showSimpleToast(
       msg: "Item Added To Compare Successfully",
@@ -76,8 +79,10 @@ class ProductsHelper {
     return await getIt<ComparedProductsDb>().getItems();
   }
 
-  ProductsTableData _comparedParams(Product product) {
+  ProductsTableData _comparedParams(Product product, BuildContext context) {
+    var userId = context.read<UserCubit>().state.model!.id;
     return ProductsTableData(
+      userId: userId,
       productId: product.id,
       name: product.name,
       image: product.thumbnailImage,
@@ -97,7 +102,7 @@ class ProductsHelper {
   }
 
   Future<void> addProductToCart(int qty,int? variantId, BuildContext context) async {
-    var params = await _addToCartParams(variantId);
+    var params = await _addToCartParams(variantId, qty);
     if (params.variantId == null) {
       CustomToast.showSimpleToast(msg: 'Variant not found. !');
       return;
@@ -111,9 +116,10 @@ class ProductsHelper {
 
   Future<AddProductToCartParams> _addToCartParams(
     int? variantId,
+      int qty
   ) async {
     return AddProductToCartParams(
-      quantity: 1,
+      quantity: qty,
       variantId: variantId,
       macAddress: await getIt<GetDeviceId>().deviceId,
     );

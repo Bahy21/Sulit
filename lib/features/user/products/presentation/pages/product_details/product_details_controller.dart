@@ -20,6 +20,8 @@ class ProductDetailsController {
     isResale = productResale;
   }
 
+
+
   void getProductDetails(BuildContext context, int productId,
       {bool refresh = true}) async {
     var params = _detailsParams(refresh, productId);

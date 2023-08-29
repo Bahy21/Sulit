@@ -20,4 +20,5 @@ class Res {
   static const String pdf = "assets/images/pdf.png";
   static const String profile = "assets/images/profile.png";
   static const String suliitLogo = "assets/images/suliitLogo.png";
+  static const String placeHolder = "assets/images/place_holder.png";
 }

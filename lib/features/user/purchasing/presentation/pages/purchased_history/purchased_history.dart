@@ -25,7 +25,7 @@ class _PurchasedHistoryState extends State<PurchasedHistory> {
         builder: (context, state) {
           if (state is GenericUpdateState) {
             return Visibility(
-              visible: state.data.isEmpty,
+              visible: state.data.isNotEmpty,
               replacement: Center(
                   child: Text(
                 'No items in the history. ! ',

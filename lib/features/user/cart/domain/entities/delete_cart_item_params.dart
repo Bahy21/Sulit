@@ -3,11 +3,11 @@ import 'package:flutter_tdd/core/helpers/get_device_id.dart';
 
 class DeleteCartItemParams {
   int id;
-  String deviceId ;
+  String? deviceId ;
 
   DeleteCartItemParams({
     required this.id,
-    required this.deviceId
+     this.deviceId
   });
 
   Map<String, dynamic> toJson ()=> {

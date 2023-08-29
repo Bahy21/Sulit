@@ -20,7 +20,7 @@ class ActiveAccountController {
         msg: "Phone Verified Successfully",
         type: ToastType.success
       );
-      AutoRouter.of(context).pop();
+      AutoRouter.of(context).pop(true);
     }
   }
 

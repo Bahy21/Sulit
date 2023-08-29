@@ -5,11 +5,13 @@ class BuildAddressesEmptyView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: MediaQuery.of(context).size.height*.4),
-      child: Text(
-        "You have no addresses !",
-        style: AppTextStyle.s14_w600(
-          color: context.colors.black,
+      padding: EdgeInsets.only(top: 250.h),
+      child: Center(
+        child: Text(
+          "You have no addresses !",
+          style: AppTextStyle.s14_w600(
+            color: context.colors.black,
+          ),
         ),
       ),
     );

@@ -122,6 +122,7 @@ flutter:
     - assets/images/blog.png
     - assets/lang/ar.json
     - assets/lang/en.json
+    - assets/images/place_holder.png
 
   fonts:
     - family: NotoSans
