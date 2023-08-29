@@ -15,7 +15,6 @@ class _PurchasedHistoryState extends State<PurchasedHistory> {
     controller = PurchasedHistoryController();
     super.initState();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

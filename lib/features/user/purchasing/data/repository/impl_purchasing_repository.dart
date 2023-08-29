@@ -15,4 +15,12 @@ class ImplPurchasingRepository extends PurchasingRepository with ModelToDomain{
     var result = await dataSource.getPurchaseHistory(param);
     return toDomainResultList(result);
   }
+
+  @override
+  Future<Either<Failure, OrderDomianModel>> trackOrder(String code)async {
+    var result = await dataSource.trackOrder(code);
+    return toDomainResult(result);
+  }
+
+
 }

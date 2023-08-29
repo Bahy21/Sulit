@@ -31,6 +31,8 @@ class ProductDetailsController {
     print(">>>>>${detailsCubit.state.data?.product.variant?.currentStock}");
   }
 
+  
+
   void _initVariants(BuildContext context) {
     detailsCubit.state.data?.product.choiceOptions?.map((e) {
       e.selectedAttribute.add(e.options.first);

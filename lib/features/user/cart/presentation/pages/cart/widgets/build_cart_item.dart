@@ -1,8 +1,18 @@
 part of 'cart_widgets_imports.dart';
 
 class BuildCartItem extends StatelessWidget {
-  final CartItem cartItem ;
-  const BuildCartItem({super.key, required this.cartItem, });
+  final CartItem cartItem;
+
+  final CartController controller;
+
+  final int index;
+
+  const BuildCartItem({
+    super.key,
+    required this.cartItem,
+    required this.controller,
+    required this.index,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -53,15 +63,32 @@ class BuildCartItem extends StatelessWidget {
           ),
           Row(
             children: [
-              BuildCustomBounce(onTap: () {}, iconData: CupertinoIcons.add),
+              BuildCustomBounce(
+                onTap: () {
+                  cartItem.quantity ++;
+                  controller.cartItemsBloc.onUpdateData(controller.cartItemsBloc.state.data);
+                },
+                iconData: CupertinoIcons.add,
+              ),
               Text(
                 cartItem.quantity.toString(),
-                style: AppTextStyle.s16_w400(color: context.colors.black),
+                style: AppTextStyle.s16_w400(
+                  color: context.colors.black,
+                ),
               ),
-              BuildCustomBounce(onTap: () {}, iconData: CupertinoIcons.minus),
+              BuildCustomBounce(
+                onTap: () {
+                  cartItem.quantity --;
+                  controller.cartItemsBloc.onUpdateData(controller.cartItemsBloc.state.data);
+                },
+                iconData: CupertinoIcons.minus,
+              ),
               const Spacer(),
               BuildCustomBounce(
-                onTap: () {},
+                onTap: () => controller.deleteItemFromCart(
+                  cartItem.id,
+                  index,
+                ),
                 iconData: CupertinoIcons.delete,
                 deleteIcon: true,
               ),

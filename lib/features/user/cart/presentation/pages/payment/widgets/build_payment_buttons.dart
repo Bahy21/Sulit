@@ -32,7 +32,7 @@ class BuildPaymentButtons extends StatelessWidget {
             child: DefaultButton(
               title: "Complete Order",
               color: context.colors.primary,
-              onTap: () => controller.createOrder(),
+              onTap: () => controller.createOrder(context),
             ),
           ),
         ],

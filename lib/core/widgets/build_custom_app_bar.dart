@@ -3,7 +3,8 @@ import 'package:flutter_tdd/core/theme/colors/colors_extension.dart';
 import 'package:flutter_tdd/res.dart';
 
 class BuildCustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const BuildCustomAppBar({Key? key}) : super(key: key);
+  final void Function()? onBack ;
+  const BuildCustomAppBar({Key? key,  this.onBack}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +14,7 @@ class BuildCustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: context.colors.white,
       leading: IconButton(
         icon: const Icon(Icons.arrow_back_ios),
-        onPressed: () => Navigator.of(context).pop(),
+        onPressed: onBack ?? () => Navigator.of(context).pop(),
       ),
       title: Image.asset(Res.suliitLogo, height: 30, width: 150),
     );

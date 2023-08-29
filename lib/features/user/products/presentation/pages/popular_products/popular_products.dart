@@ -23,7 +23,9 @@ class _PopularProductsState extends State<PopularProducts> {
     return Scaffold(
       backgroundColor: context.colors.customBackground,
       appBar: DefaultAppBar(
-          title: widget.popularProductsModel.name, showBack: true),
+        title: widget.popularProductsModel.name,
+        showBack: true,
+      ),
       body: RefreshIndicator(
         onRefresh: () =>
             controller.getPopularProducts(widget.popularProductsModel.id, 1),

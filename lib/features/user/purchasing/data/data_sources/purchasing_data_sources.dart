@@ -4,4 +4,5 @@ import 'package:flutter_tdd/features/user/purchasing/data/models/order_model/ord
 
 abstract class PurchasingDataSources {
   Future<Either<Failure, List<OrderModel>>> getPurchaseHistory(bool param);
+  Future<Either<Failure, OrderModel>> trackOrder (String code);
 }

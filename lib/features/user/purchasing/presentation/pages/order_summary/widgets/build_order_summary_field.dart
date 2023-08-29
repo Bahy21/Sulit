@@ -14,14 +14,14 @@ class BuildOrderSummaryFields extends StatelessWidget {
           hint: "Order code:",
           contentPadding:
           const EdgeInsets.symmetric(horizontal: 16, vertical: 10).r,
-          margin: EdgeInsets.symmetric(vertical: 10).r,
+          margin: const EdgeInsets.symmetric(vertical: 10).r,
         ),
         DefaultButton(
             title: "Track Order",
             width: 120.w,
             height: 35.h,
             fontSize: 14,
-            margin: EdgeInsets.symmetric(horizontal: 10, vertical: 20).r,
+            margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 20).r,
             onTap: () {}),
       ],
     );

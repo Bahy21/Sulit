@@ -4,7 +4,8 @@ class BuildCartButtons extends StatelessWidget {
   final String price ;
   final String currency ;
   final List<CartItem> cartItems ;
-  const BuildCartButtons({Key? key, required this.price, required this.currency, required this.cartItems}) : super(key: key);
+  final CartController controller ;
+  const BuildCartButtons({Key? key, required this.price, required this.currency, required this.cartItems, required this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +40,7 @@ class BuildCartButtons extends StatelessWidget {
                 child: DefaultButton(
                   title: "Continue to shipping",
                   color: context.colors.primary,
-                  onTap: () =>
-                      AutoRouter.of(context).push(ShippingRoute(cartItems: cartItems)),
+                  onTap: () => controller.navigateToShipping(context)
                 ),
               ),
             ],

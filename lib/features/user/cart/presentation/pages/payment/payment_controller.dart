@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 part of 'payment_imports.dart';
 
 class PaymentController {
@@ -24,7 +26,7 @@ class PaymentController {
     }
   }
 
-  Future<void> createOrder() async {
+  Future<void> createOrder(BuildContext context) async {
     if (!conditionsCubit.state.data) {
       CustomToast.showSimpleToast(
         msg: "You must accept terms and conditions",
@@ -33,13 +35,14 @@ class PaymentController {
       return;
     }
     var params = _orderParams();
-    // print(params.toJson());
-    // return ;
     var data = await CreateOrder().call(params);
-    if (data) {
+    if (data != null) {
       CustomToast.showSimpleToast(
         msg: "Thank You for Your Order!",
         type: ToastType.success,
+      );
+      AutoRouter.of(context).push(
+        ConfirmationRoute(summary: data),
       );
     }
   }

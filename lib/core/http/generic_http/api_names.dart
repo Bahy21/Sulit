@@ -31,6 +31,7 @@ class ApiNames{
   static const String sendQuery = "product-queries";
   static const String getVariantPrice = "products";
 
+
   // categories urls
   static const String getCategories = "categories";
   static const String getBrands = "brands";
@@ -72,6 +73,7 @@ class ApiNames{
   static const String cartStoreShipping = "cart/store-shipping-info";
   static const String applyCoupon = "cart/apply-coupon";
   static const String storeOrders = "orders/store";
+  static const String storeProductToCart = "cart/store";
 
   //tickets
   static const String createTicket = "tickets/store";
@@ -81,4 +83,5 @@ class ApiNames{
 
   //PurchaseHistory
   static const String getPurchaseHistory = "orders/purchase-history";
+  static String getTrackOrder (int code) => "orders/$code/track-your-order";
 }

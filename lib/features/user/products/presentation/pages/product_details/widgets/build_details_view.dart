@@ -26,8 +26,12 @@ class BuildDetailsView extends StatelessWidget {
               productModel: detailsModel.product,
             ),
             BuildProductSpecifications(
-                controller: controller, productModel: detailsModel.product),
-            BuildProductReviews(allReviews: detailsModel.product.reviews ?? []),
+              controller: controller,
+              productModel: detailsModel.product,
+            ),
+            BuildProductReviews(
+              allReviews: detailsModel.product.reviews ?? [],
+            ),
             BuildTopSellingProducts(
               topProducts: detailsModel.topProducts,
               controller: controller,
