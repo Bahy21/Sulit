@@ -9,6 +9,11 @@ class PurchasedHistoryController {
         );
   }
 
+  Future<void> downloadInvoice(int id) async {
+  var data=  await DownloadInvoice().call(id);
+  print("@@@@$data");
+  }
+
   void onOpenHistory(OrderDomianModel orderModel) {
     orderModel.selected = !orderModel.selected;
     purchaseCubit.onUpdateData(purchaseCubit.state.data);

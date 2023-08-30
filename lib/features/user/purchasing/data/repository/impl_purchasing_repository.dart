@@ -8,19 +8,24 @@ import 'package:flutter_tdd/features/user/purchasing/domain/repository/purchasin
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: PurchasingRepository)
-class ImplPurchasingRepository extends PurchasingRepository with ModelToDomain{
+class ImplPurchasingRepository extends PurchasingRepository with ModelToDomain {
   var dataSource = getIt<PurchasingDataSources>();
+
   @override
-  Future<Either<Failure, List<OrderDomianModel>>> getPurchaseHistory(bool param)async {
+  Future<Either<Failure, List<OrderDomianModel>>> getPurchaseHistory(
+      bool param) async {
     var result = await dataSource.getPurchaseHistory(param);
     return toDomainResultList(result);
   }
 
   @override
-  Future<Either<Failure, OrderDomianModel>> trackOrder(String code)async {
+  Future<Either<Failure, OrderDomianModel>> trackOrder(String code) async {
     var result = await dataSource.trackOrder(code);
     return toDomainResult(result);
   }
 
-
+  @override
+  Future<Either<Failure, bool>> downloadInvoice(int params) async {
+    return await dataSource.downloadInvoice(params);
+  }
 }

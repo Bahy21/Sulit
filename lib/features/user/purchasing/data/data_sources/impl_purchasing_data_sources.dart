@@ -12,9 +12,10 @@ import 'purchasing_data_sources.dart';
 @Injectable(as: PurchasingDataSources)
 class ImplPurchasingDataSources extends PurchasingDataSources {
   @override
-  Future<Either<Failure, List<OrderModel>>> getPurchaseHistory(bool param) async{
+  Future<Either<Failure, List<OrderModel>>> getPurchaseHistory(
+      bool param) async {
     HttpRequestModel model = HttpRequestModel(
-      url: ApiNames.getPurchaseHistory ,
+      url: ApiNames.getPurchaseHistory,
       requestMethod: RequestMethod.get,
       refresh: param,
       responseType: ResType.list,
@@ -28,9 +29,9 @@ class ImplPurchasingDataSources extends PurchasingDataSources {
   }
 
   @override
-  Future<Either<Failure, OrderModel>> trackOrder(String code)async {
+  Future<Either<Failure, OrderModel>> trackOrder(String code) async {
     HttpRequestModel model = HttpRequestModel(
-      url: ApiNames.getPurchaseHistory ,
+      url: ApiNames.getPurchaseHistory,
       requestMethod: RequestMethod.get,
       responseType: ResType.list,
       showLoader: true,
@@ -40,5 +41,17 @@ class ImplPurchasingDataSources extends PurchasingDataSources {
       responseKey: (data) => data["data"]["orders"],
     );
     return await GenericHttpImpl<OrderModel>().call(model);
+  }
+
+  @override
+  Future<Either<Failure, bool>> downloadInvoice(int params) async {
+    HttpRequestModel model = HttpRequestModel(
+      url: ApiNames.downloadInvoice(params),
+      requestMethod: RequestMethod.get,
+      responseType: ResType.type,
+      showLoader: true,
+      responseKey: (data) => data,
+    );
+    return await GenericHttpImpl<bool>().call(model);
   }
 }
