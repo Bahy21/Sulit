@@ -19,8 +19,8 @@ class ImplPurchasingRepository extends PurchasingRepository with ModelToDomain {
   }
 
   @override
-  Future<Either<Failure, OrderDomianModel>> trackOrder(String code) async {
-    var result = await dataSource.trackOrder(code);
+  Future<Either<Failure, OrderDomianModel>> trackOrder(String param) async {
+    var result = await dataSource.trackOrder(param);
     return toDomainResult(result);
   }
 

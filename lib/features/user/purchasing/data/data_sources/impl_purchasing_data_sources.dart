@@ -12,14 +12,16 @@ import 'purchasing_data_sources.dart';
 @Injectable(as: PurchasingDataSources)
 class ImplPurchasingDataSources extends PurchasingDataSources {
   @override
-  Future<Either<Failure, List<OrderModel>>> getPurchaseHistory(bool param) async{
+  Future<Either<Failure, List<OrderModel>>> getPurchaseHistory(
+      bool param) async {
     HttpRequestModel model = HttpRequestModel(
-      url: ApiNames.getPurchaseHistory ,
+      url: ApiNames.getPurchaseHistory,
       requestMethod: RequestMethod.get,
       refresh: param,
       responseType: ResType.list,
       showLoader: true,
-      toJsonFunc: (json) => List<OrderModel>.from(
+      toJsonFunc: (json) =>
+      List<OrderModel>.from(
         json.map((e) => OrderModel.fromJson(e)),
       ),
       responseKey: (data) => data["data"]["orders"],
@@ -28,9 +30,9 @@ class ImplPurchasingDataSources extends PurchasingDataSources {
   }
 
   @override
-  Future<Either<Failure, OrderModel>> trackOrder(String param)async {
+  Future<Either<Failure, OrderModel>> trackOrder(String param) async {
     HttpRequestModel model = HttpRequestModel(
-      url: ApiNames.getTrackOrder(param) ,
+      url: ApiNames.getTrackOrder(param),
       requestMethod: RequestMethod.get,
       responseType: ResType.list,
       showLoader: true,
@@ -50,4 +52,5 @@ class ImplPurchasingDataSources extends PurchasingDataSources {
       responseKey: (data) => data,
     );
     return await GenericHttpImpl<bool>().call(model);
+  }
 }

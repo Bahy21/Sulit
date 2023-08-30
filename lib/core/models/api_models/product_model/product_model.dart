@@ -32,7 +32,7 @@ class ProductModel extends BaseApiModel<Product> with _$ProductModel {
     required String discount,
     @JsonKey(name: 'choice_options')
         required List<ProductOptionsModel> choiceOptions,
-    required List<ColorModel> colors,
+     List<ColorModel>? colors,
     @JsonKey(name: "min_qty") required int minQty,
     @JsonKey(name: "currency_symbol") required String currencySymbol,
      VariantModel? variant,
@@ -97,7 +97,7 @@ class ProductModel extends BaseApiModel<Product> with _$ProductModel {
       soldByType: soldByType,
       reviews: reviews?.map((e) => e.toDomainModel()).toList(),
       choiceOptions: choiceOptions.map((e) => e.toDomainModel()).toList(),
-      colors: colors.map((e) => e.toDomainModel()).toList(),
+      colors: colors?.map((e) => e.toDomainModel()).toList(),
       tags: tags,
       videoLink: videoLink,
       videoProvider: videoProvider,

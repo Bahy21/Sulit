@@ -21,8 +21,8 @@ _$_ProductModel _$$_ProductModelFromJson(Map<String, dynamic> json) =>
       choiceOptions: (json['choice_options'] as List<dynamic>)
           .map((e) => ProductOptionsModel.fromJson(e as Map<String, dynamic>))
           .toList(),
-      colors: (json['colors'] as List<dynamic>)
-          .map((e) => ColorModel.fromJson(e as Map<String, dynamic>))
+      colors: (json['colors'] as List<dynamic>?)
+          ?.map((e) => ColorModel.fromJson(e as Map<String, dynamic>))
           .toList(),
       minQty: json['min_qty'] as int,
       currencySymbol: json['currency_symbol'] as String,
@@ -73,7 +73,7 @@ Map<String, dynamic> _$$_ProductModelToJson(_$_ProductModel instance) =>
       'has_discount': instance.hasDiscount,
       'discount': instance.discount,
       'choice_options': instance.choiceOptions.map((e) => e.toJson()).toList(),
-      'colors': instance.colors.map((e) => e.toJson()).toList(),
+      'colors': instance.colors?.map((e) => e.toJson()).toList(),
       'min_qty': instance.minQty,
       'currency_symbol': instance.currencySymbol,
       'variant': instance.variant?.toJson(),

@@ -9,62 +9,46 @@ class BuildBlogItem extends StatelessWidget {
     return GestureDetector(
       onTap: () => AutoRouter.of(context).push(BlogDetailsRoute(blog : blog)),
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 10.r, vertical: 10),
-        decoration: BoxDecoration(
-            border: Border.all(color: context.colors.greyWhite),
-            borderRadius: BorderRadius.circular(15),
-            color: context.colors.white,
-            boxShadow: [
-              BoxShadow(
-                color: context.colors.greyWhite,
-                spreadRadius: 1,
-                blurRadius: 1,
-              )
-            ]),
-        padding: const EdgeInsets.all(10).r,
+        margin: Dimens.paddingVertical5PX,
+        decoration: CustomDecoration(),
+        padding:Dimens.paddingAll15PX,
         child: Row(
           children: [
             CachedImage(
               url: blog.banner,
               width: 100.w,
               height: 100.h,
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: Dimens.borderRadius10PX,
             ),
             Gaps.hGap12,
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 4.0),
+                  padding: Dimens.paddingVertical5PX,
                   child: Text(
                     blog.title,
                     style: AppTextStyle.s14_w800(
                         color: context.colors.black),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 4.0),
-                  child: Text(
-                    blog.slug,
-                    style: AppTextStyle.s14_w800(
-                        color: context.colors.black),
-                  ),
+                Text(
+                  blog.slug,
+                  style: AppTextStyle.s14_w800(
+                      color: context.colors.black),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 4.0),
+                  padding: Dimens.paddingVertical5PX,
                   child: Text(
                     blog.category,
                     style: AppTextStyle.s14_w800(
                         color: context.colors.black),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 4.0),
-                  child: Text(
-                    blog.shortDescription,
-                    style: AppTextStyle.s14_w800(
-                        color: context.colors.black),
-                  ),
+                Text(
+                  blog.shortDescription,
+                  style: AppTextStyle.s14_w800(
+                      color: context.colors.black),
                 ),
               ],
             )

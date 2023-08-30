@@ -37,7 +37,7 @@ mixin _$ProductModel {
   @JsonKey(name: 'choice_options')
   List<ProductOptionsModel> get choiceOptions =>
       throw _privateConstructorUsedError;
-  List<ColorModel> get colors => throw _privateConstructorUsedError;
+  List<ColorModel>? get colors => throw _privateConstructorUsedError;
   @JsonKey(name: "min_qty")
   int get minQty => throw _privateConstructorUsedError;
   @JsonKey(name: "currency_symbol")
@@ -103,7 +103,7 @@ abstract class $ProductModelCopyWith<$Res> {
       @JsonKey(name: 'has_discount') bool hasDiscount,
       String discount,
       @JsonKey(name: 'choice_options') List<ProductOptionsModel> choiceOptions,
-      List<ColorModel> colors,
+      List<ColorModel>? colors,
       @JsonKey(name: "min_qty") int minQty,
       @JsonKey(name: "currency_symbol") String currencySymbol,
       VariantModel? variant,
@@ -159,7 +159,7 @@ class _$ProductModelCopyWithImpl<$Res, $Val extends ProductModel>
     Object? hasDiscount = null,
     Object? discount = null,
     Object? choiceOptions = null,
-    Object? colors = null,
+    Object? colors = freezed,
     Object? minQty = null,
     Object? currencySymbol = null,
     Object? variant = freezed,
@@ -227,10 +227,10 @@ class _$ProductModelCopyWithImpl<$Res, $Val extends ProductModel>
           ? _value.choiceOptions
           : choiceOptions // ignore: cast_nullable_to_non_nullable
               as List<ProductOptionsModel>,
-      colors: null == colors
+      colors: freezed == colors
           ? _value.colors
           : colors // ignore: cast_nullable_to_non_nullable
-              as List<ColorModel>,
+              as List<ColorModel>?,
       minQty: null == minQty
           ? _value.minQty
           : minQty // ignore: cast_nullable_to_non_nullable
@@ -402,7 +402,7 @@ abstract class _$$_ProductModelCopyWith<$Res>
       @JsonKey(name: 'has_discount') bool hasDiscount,
       String discount,
       @JsonKey(name: 'choice_options') List<ProductOptionsModel> choiceOptions,
-      List<ColorModel> colors,
+      List<ColorModel>? colors,
       @JsonKey(name: "min_qty") int minQty,
       @JsonKey(name: "currency_symbol") String currencySymbol,
       VariantModel? variant,
@@ -460,7 +460,7 @@ class __$$_ProductModelCopyWithImpl<$Res>
     Object? hasDiscount = null,
     Object? discount = null,
     Object? choiceOptions = null,
-    Object? colors = null,
+    Object? colors = freezed,
     Object? minQty = null,
     Object? currencySymbol = null,
     Object? variant = freezed,
@@ -528,10 +528,10 @@ class __$$_ProductModelCopyWithImpl<$Res>
           ? _value._choiceOptions
           : choiceOptions // ignore: cast_nullable_to_non_nullable
               as List<ProductOptionsModel>,
-      colors: null == colors
+      colors: freezed == colors
           ? _value._colors
           : colors // ignore: cast_nullable_to_non_nullable
-              as List<ColorModel>,
+              as List<ColorModel>?,
       minQty: null == minQty
           ? _value.minQty
           : minQty // ignore: cast_nullable_to_non_nullable
@@ -653,7 +653,7 @@ class _$_ProductModel extends _ProductModel {
       required this.discount,
       @JsonKey(name: 'choice_options')
       required final List<ProductOptionsModel> choiceOptions,
-      required final List<ColorModel> colors,
+      final List<ColorModel>? colors,
       @JsonKey(name: "min_qty") required this.minQty,
       @JsonKey(name: "currency_symbol") required this.currencySymbol,
       this.variant,
@@ -727,12 +727,14 @@ class _$_ProductModel extends _ProductModel {
     return EqualUnmodifiableListView(_choiceOptions);
   }
 
-  final List<ColorModel> _colors;
+  final List<ColorModel>? _colors;
   @override
-  List<ColorModel> get colors {
+  List<ColorModel>? get colors {
+    final value = _colors;
+    if (value == null) return null;
     if (_colors is EqualUnmodifiableListView) return _colors;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_colors);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -958,7 +960,7 @@ abstract class _ProductModel extends ProductModel {
       required final String discount,
       @JsonKey(name: 'choice_options')
       required final List<ProductOptionsModel> choiceOptions,
-      required final List<ColorModel> colors,
+      final List<ColorModel>? colors,
       @JsonKey(name: "min_qty") required final int minQty,
       @JsonKey(name: "currency_symbol") required final String currencySymbol,
       final VariantModel? variant,
@@ -1017,7 +1019,7 @@ abstract class _ProductModel extends ProductModel {
   @JsonKey(name: 'choice_options')
   List<ProductOptionsModel> get choiceOptions;
   @override
-  List<ColorModel> get colors;
+  List<ColorModel>? get colors;
   @override
   @JsonKey(name: "min_qty")
   int get minQty;

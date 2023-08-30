@@ -49,7 +49,7 @@ class BuildProductItem extends StatelessWidget {
               child: Stack(
                 children: [
                   CachedImage(
-                    fit: BoxFit.contain,
+                    fit: BoxFit.fill,
                     haveRadius: true,
                     borderRadius: Dimens.borderRadius5PX,
                     url: productModel.thumbnailImage,

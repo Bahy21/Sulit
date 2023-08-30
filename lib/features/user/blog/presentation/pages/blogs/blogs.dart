@@ -19,32 +19,16 @@ class _BlogsState extends State<Blogs> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const DefaultAppBar(
-        title: "Blogs",
-      ),
-      body: BlocBuilder<GenericBloc<List<Blog>>, GenericState<List<Blog>>>(
-        bloc: controller.blogsBloc,
-        builder: (context, state) {
-          if (state is GenericUpdateState) {
-            return Visibility(
-              visible: state.data.isNotEmpty,
-              replacement: Text(
-                "No Blogs Yet",
-                style: AppTextStyle.s14_w400(color: context.colors.black),
-              ),
-              child: ListView(
-                children: List.generate(
-                  state.data.length,
-                  (index) => BuildBlogItem(
-                    blog: state.data[index],
-                  ),
-                ),
-              ),
-            );
-          } else {
-            return const BuildLoadingView();
-          }
-        },
+      backgroundColor: context.colors.customBackground,
+      appBar: const DefaultAppBar(title: "Blogs"),
+      body: GenericListView(
+        padding: Dimens.paddingAll15PX,
+        type: ListViewType.api,
+        emptyStr: "No Blogs Yet",
+        loadingWidget: const BuildLoadingView(),
+        itemBuilder: (_, index, item) => BuildBlogItem(blog: item),
+        cubit: controller.blogsBloc,
+        onRefresh: controller.getBlogs,
       ),
     );
   }

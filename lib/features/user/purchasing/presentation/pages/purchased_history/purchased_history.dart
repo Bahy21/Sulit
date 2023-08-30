@@ -32,33 +32,6 @@ class _PurchasedHistoryState extends State<PurchasedHistory> {
         ),
         loadingWidget: const BuildHistoryLoading(),
         emptyStr: "No items in the history. !",
-      body: BlocBuilder<GenericBloc<List<OrderDomianModel>>,
-          GenericState<List<OrderDomianModel>>>(
-        bloc: controller.purchaseCubit,
-        builder: (context, state) {
-          if (state is GenericUpdateState) {
-            return Visibility(
-              visible: state.data.isNotEmpty,
-              replacement: Center(
-                  child: Text(
-                'No items in the history. ! ',
-                style: AppTextStyle.s14_w400(color: context.colors.grey),
-              )),
-              child: ListView.builder(
-                physics: const BouncingScrollPhysics(),
-                padding:
-                    const EdgeInsets.symmetric(vertical: 20, horizontal: 16).r,
-                itemCount: state.data.length,
-                itemBuilder: (context, index) => BuildPurchasedHistoryItem(
-                  order: state.data[index],
-                  controller: controller,
-                ),
-              ),
-            );
-          } else {
-            return const BuildHistoryLoading();
-          }
-        },
       ),
     );
   }

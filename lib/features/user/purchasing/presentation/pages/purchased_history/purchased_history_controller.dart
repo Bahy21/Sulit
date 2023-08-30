@@ -10,8 +10,7 @@ class PurchasedHistoryController {
   }
 
   Future<void> downloadInvoice(int id) async {
-  var data=  await DownloadInvoice().call(id);
-  print("@@@@$data");
+    await FileHelper().downloadFile(url: ApiNames.downloadInvoice(id));
   }
 
   void onOpenHistory(OrderDomianModel orderModel) {

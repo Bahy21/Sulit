@@ -28,8 +28,7 @@ class BuildPurchasedHistoryItem extends StatelessWidget {
                   ),
                   Text(
                     order.code,
-                    style:
-                        AppTextStyle.s13_w500(color: context.colors.primary),
+                    style: AppTextStyle.s13_w500(color: context.colors.primary),
                   ),
                   const Spacer(),
                   InkWell(
@@ -45,7 +44,6 @@ class BuildPurchasedHistoryItem extends StatelessWidget {
                 ],
               ),
               Gaps.vGap5,
-
               Row(
                 children: [
                   Text(
@@ -54,8 +52,7 @@ class BuildPurchasedHistoryItem extends StatelessWidget {
                   ),
                   Text(
                     order.total,
-                    style:
-                        AppTextStyle.s13_w500(color: context.colors.primary),
+                    style: AppTextStyle.s13_w500(color: context.colors.primary),
                   ),
                 ],
               ),
@@ -77,7 +74,7 @@ class BuildPurchasedHistoryItem extends StatelessWidget {
                     itemColor: context.colors.greyWhite,
                   ),
                   BuildOptionItem(
-                    onTap: () =>controller.downloadInvoice(order.id),
+                    onTap: () => controller.downloadInvoice(order.id),
                     iconData: Icons.download,
                     iconColor: context.colors.yellow,
                     itemColor: context.colors.greyWhite,
