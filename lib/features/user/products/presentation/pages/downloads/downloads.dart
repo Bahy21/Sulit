@@ -8,15 +8,30 @@ class Downloads extends StatefulWidget {
 }
 
 class _DownloadsState extends State<Downloads> {
-  final DownloadsController controller = DownloadsController();
+  late DownloadsController controller;
+
+  @override
+  void initState() {
+    controller = DownloadsController();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: const DefaultAppBar(title: "Downloads", showBack: true),
-        body: ListView.builder(
-          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16).r,
-          itemBuilder: (context, index) => const BuildDownloadsItem(),
-          itemCount: 5,
-        ));
+      backgroundColor: context.colors.customBackground,
+      appBar: const DefaultAppBar(title: "Downloads", showBack: true),
+      body: GenericListView(
+        padding: Dimens.paddingAll15PX,
+        type: ListViewType.api,
+        cubit: controller.productsCubit,
+        onRefresh: controller.getDigitalProducts,
+        itemBuilder: (_, index, item) => BuildDownloadsItem(
+          productModel: item,
+          controller: controller,
+        ),
+        loadingWidget: const BuildLoadingDownloads(),
+      ),
+    );
   }
 }

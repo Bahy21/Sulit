@@ -36,6 +36,12 @@ class _MoreState extends State<More> {
                 AutoRouter.of(context).push(const PurchasedHistoryRoute()),
           ),
           BuildMoreItem(
+            title: 'Return Orders',
+            icon: Icons.file_copy_outlined,
+            onTap: () =>
+                AutoRouter.of(context).push(const ReturnOrdersRoute()),
+          ),
+          BuildMoreItem(
             title: 'Downloads',
             icon: Icons.download,
             onTap: () => AutoRouter.of(context).push(const DownloadsRoute()),

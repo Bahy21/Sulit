@@ -24,8 +24,5 @@ class ImplPurchasingRepository extends PurchasingRepository with ModelToDomain {
     return toDomainResult(result);
   }
 
-  @override
-  Future<Either<Failure, bool>> downloadInvoice(int params) async {
-    return await dataSource.downloadInvoice(params);
-  }
+
 }

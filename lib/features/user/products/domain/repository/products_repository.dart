@@ -19,5 +19,6 @@ abstract class ProductsRepository {
   Future<Either<Failure, bool>> toggleFavourite(int param);
   Future<Either<Failure,Queries>>sendQuery(SendQueryParams params);
   Future<Either<Failure, Product>> getVariantPrice(VariantPriceParams param);
+  Future<Either<Failure, List<Product>>> getDigitalProducts(bool param);
 
 }

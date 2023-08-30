@@ -60,8 +60,15 @@ class ImplProductsRepository extends ProductsRepository with ModelToDomain {
   }
 
   @override
-  Future<Either<Failure, Product>> getVariantPrice(VariantPriceParams param)async {
+  Future<Either<Failure, Product>> getVariantPrice(
+      VariantPriceParams param) async {
     var result = await dataSources.getVariantPrice(param);
     return toDomainResult(result);
+  }
+
+  @override
+  Future<Either<Failure, List<Product>>> getDigitalProducts(bool param) async {
+    var result = await dataSources.getDigitalProducts(param);
+    return toDomainResultList(result);
   }
 }

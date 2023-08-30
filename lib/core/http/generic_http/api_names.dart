@@ -30,6 +30,8 @@ class ApiNames{
   static String toggleWishlist (int id) => "products/$id/wishlist/toggle";
   static const String sendQuery = "product-queries";
   static const String getVariantPrice = "products";
+  static const String getDownloadProducts = "orders/digital-purchase-history";
+  static String downloadDigitalProduct (int id) => "orders/digital-purchase-history/$id/download-product";
 
   //dashboard urls
   static const String getDashboard = "dashboard";
@@ -54,19 +56,23 @@ class ApiNames{
   static String setDefaultAddress (int id) => "user/addresses/$id/set-default?_method=put";
   static String deleteAddress (int id) => "user/addresses/$id/delete";
   static String editAddress (int id) => "user/addresses/$id/update?_method=put";
+
   // sale urls
   static const String getAllFlashSale = "flash-deals";
   static const String getSaleDetails = "flash-deal-products/";
+
   // general
   static const String terms = "terms";
   static const String privacyPolicy = "privacy-policy";
   static const String contactUs = "contact-us";
   static const String supportPolicy = "support-policy";
   static const String returnPolicy = "return-policy";
+
   // items routes
   static const String ITEMS = "Items";
   static const String FEATURED_ITEMS = "$ITEMS + /Featured";
   static const String REFRESH_TOKEN = "RefreshToken";
+
   // wishlist
   static const String wishlist = "wishlists";
 

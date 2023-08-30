@@ -42,15 +42,5 @@ class ImplPurchasingDataSources extends PurchasingDataSources {
     return await GenericHttpImpl<OrderModel>().call(model);
   }
 
-  @override
-  Future<Either<Failure, bool>> downloadInvoice(int params) async {
-    HttpRequestModel model = HttpRequestModel(
-      url: ApiNames.downloadInvoice(params),
-      requestMethod: RequestMethod.get,
-      responseType: ResType.type,
-      showLoader: true,
-      responseKey: (data) => data,
-    );
-    return await GenericHttpImpl<bool>().call(model);
-  }
+
 }

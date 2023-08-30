@@ -108,7 +108,20 @@ class ImplProductsDataSource extends ProductsDataSource {
     return await GenericHttpImpl<ProductModel>().call(model);
   }
 
-
-
-
+  @override
+  Future<Either<Failure, List<ProductModel>>> getDigitalProducts(
+      bool param) async {
+    HttpRequestModel model = HttpRequestModel(
+      url: ApiNames.getDownloadProducts,
+      requestMethod: RequestMethod.get,
+      refresh: param,
+      responseType: ResType.list,
+      showLoader: true,
+      toJsonFunc: (json) => List<ProductModel>.from(
+        json.map((e) => ProductModel.fromJson(e)),
+      ),
+      responseKey: (data) => data["data"]["products"],
+    );
+    return await GenericHttpImpl<List<ProductModel>>().call(model);
+  }
 }
