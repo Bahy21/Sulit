@@ -23,6 +23,14 @@ class BuildDoNotHaveAccount extends StatelessWidget {
               style: AppTextStyle.s16_w400(color: context.colors.primary),
             ),
           ),
+          Gaps.vGap10,
+          GestureDetector(
+            onTap: () => AutoRouter.of(context).push(HomeRoute(index: 0)),
+            child: Text(
+              "Skip",
+              style: AppTextStyle.s16_w400(color: context.colors.primary),
+            ),
+          ),
         ],
       ),
     );

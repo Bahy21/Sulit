@@ -11,6 +11,7 @@ import 'package:flutter_tdd/features/user/cart/data/data_sources/cart_data_sourc
 import 'package:flutter_tdd/features/user/cart/data/models/cart_model/cart_model.dart';
 import 'package:flutter_tdd/features/user/cart/data/models/coupon_response_model/coupon_response_model.dart';
 import 'package:flutter_tdd/features/user/cart/data/models/order_summary_model/order_summary_model.dart';
+import 'package:flutter_tdd/features/user/cart/data/models/seller_shipping_model/seller_shipping_model.dart';
 import 'package:flutter_tdd/features/user/cart/data/models/shipping_model/shipping_model.dart';
 import 'package:flutter_tdd/features/user/cart/domain/entities/create_order_params.dart';
 import 'package:flutter_tdd/features/user/cart/domain/entities/delete_cart_item_params.dart';
@@ -25,10 +26,9 @@ class ImplCartDataSources extends CartDataSources {
   @override
   Future<Either<Failure, CartModel>> getCartItems(GetCartItemsParams params) async {
     HttpRequestModel model = HttpRequestModel(
-      url: ApiNames.cart,
+      url: params.toQuery(),
       requestMethod: RequestMethod.get,
       refresh: params.refresh,
-      requestBody: {"mac_address":params.macAddress},
       responseType: ResType.model,
       showLoader: true,
       toJsonFunc: (json) => CartModel.fromJson(json),
@@ -127,9 +127,9 @@ class ImplCartDataSources extends CartDataSources {
   @override
   Future<Either<Failure, CartModel>> updateCartItem(UpdateCartItemParams params)async {
     HttpRequestModel model = HttpRequestModel(
-      url: ApiNames.cart + params.toQuery(),
+      url: params.toQuery(),
       requestBody: params.toJson(),
-      requestMethod: RequestMethod.put,
+      requestMethod: RequestMethod.post,
       responseType: ResType.model,
       showLoader: true,
       toJsonFunc: (data) => CartModel.fromJson(data),
@@ -137,5 +137,24 @@ class ImplCartDataSources extends CartDataSources {
       errorFunc: (data)=> data["msg"],
     );
     return await GenericHttpImpl<CartModel>().call(model);
+  }
+
+  @override
+  Future<Either<Failure, List<SellerShippingModel>>> getShippingInfo(bool param)async {
+    HttpRequestModel model = HttpRequestModel(
+      url: ApiNames.cartShippingInfo,
+      requestMethod: RequestMethod.get,
+      refresh: param,
+      responseType: ResType.list,
+      showLoader: true,
+      toJsonFunc: (json) => List<SellerShippingModel>.from(
+        json.map(
+              (e) => SellerShippingModel.fromJson(e),
+        ),
+      ),
+      responseKey: (data) => data["data"],
+      errorFunc: (data) => data["msg"],
+    );
+    return await GenericHttpImpl<List<SellerShippingModel>>().call(model);
   }
 }

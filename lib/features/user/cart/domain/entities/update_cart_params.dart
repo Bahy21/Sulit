@@ -1,3 +1,4 @@
+
 class UpdateCartItemParams {
   String? macAddress;
   int id ;
@@ -9,9 +10,10 @@ class UpdateCartItemParams {
     required this.id
   });
 
-  Map<String, dynamic> toJson() => {
-        'mac_address': macAddress,
-        'quantity': qty,
-      };
-  String toQuery ()=> 'cart/$id/update';
+  Map<String, dynamic> toJson() {
+    return {
+      'quantity': qty,
+    };
+  }
+  String toQuery ()=> 'cart/$id/update?_method=put&mac_address=$macAddress';
 }

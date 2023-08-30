@@ -36,7 +36,7 @@ class LoginController {
   LoginParams _setLoginParams(){
     return LoginParams(
       email: email.text,
-      password: password.text
+      password: password.text,
     );
   }
 

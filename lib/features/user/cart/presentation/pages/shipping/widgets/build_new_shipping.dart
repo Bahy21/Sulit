@@ -6,7 +6,7 @@ class BuildNewShipping extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap:()=> AutoRouter.of(context).push(const AddNewAddressRoute()),
+      onTap:()=> AutoRouter.of(context).push( AddNewAddressRoute(addAddressFor: AddAddressFor.cart)),
       child: Container(
         margin: const EdgeInsets.all(Dimens.dp10),
         padding: const EdgeInsets.all(Dimens.dp15),

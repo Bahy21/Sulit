@@ -17,8 +17,14 @@ class ShippingController {
     );
   }
 
-  void onSelectAddress(
-      Address address, bool? val, BuildContext context, int index) {
+
+
+  void onSelectAddress(Address address, bool? val, BuildContext context, int index) {
+    var auth = context.read<DeviceCubit>().state.model.auth ;
+    if(!auth){
+      CustomToast.showAuthDialog(context);
+      return ;
+    }
     for (var e in addressesBloc.state.data) {
       e.selected = false;
     }
@@ -26,8 +32,7 @@ class ShippingController {
     addressesBloc.onUpdateData(addressesBloc.state.data);
   }
 
-  Future<void> cartAddAddress(
-      List<CartItem> cartItems, BuildContext context) async {
+  Future<void> cartAddAddress(List<CartItem> cartItems, BuildContext context) async {
     if (addressesBloc.state.data
         .where((element) => element.selected == true)
         .isNotEmpty) {
@@ -38,7 +43,7 @@ class ShippingController {
       if (data) {
         CustomToast.showSimpleToast(
             msg: "The address has been added successfully");
-        AutoRouter.of(context).push(DeliveryRoute(cartItems: cartItems));
+        AutoRouter.of(context).push(const DeliveryRoute());
       }
     } else {
       CustomToast.showSimpleToast(msg: "Please Select address");

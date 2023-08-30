@@ -27,12 +27,18 @@ class CartController {
   }
 
   Future<void> updateCartItem(int qty, int id) async {
-    // var params = await _updateCartItem(qty, id);
-    // var data = UpdateCartItem().call(params);
+
+    var params = await _updateCartItemParams(qty, id);
+    await UpdateCartItem().call(params).then(
+      (value) {
+        cartItemsBloc.onUpdateData(value!);
+      },
+    );
   }
 
+
   Future<void> deleteItemFromCart(int id, int index) async {
-    var params = _deleteItemFormCart(id);
+    var params = await _deleteItemFormCart(id);
     var data = await DeleteItemFormCart().call(params);
     if (data) {
       CustomToast.showSimpleToast(msg: 'Success delete item');
@@ -44,9 +50,7 @@ class CartController {
   void navigateToShipping(BuildContext context) {
     if (cartItemsBloc.state.data.items!.isNotEmpty) {
       AutoRouter.of(context).push(
-        ShippingRoute(
-          cartItems: cartItemsBloc.state.data.items!,
-        ),
+       const ShippingRoute(),
       );
     } else {
       CustomToast.showSimpleToast(msg: "Your cart is empty");
@@ -61,10 +65,10 @@ class CartController {
     );
   }
 
-  DeleteCartItemParams _deleteItemFormCart(
+  Future<DeleteCartItemParams> _deleteItemFormCart(
     int id,
-  ) {
-    return DeleteCartItemParams(id: id, deviceId: '');
+  ) async{
+    return DeleteCartItemParams(id: id, deviceId: await getIt<GetDeviceId>().deviceId);
   }
 
   Future<UpdateCartItemParams> _updateCartItemParams(int qty, int id) async {

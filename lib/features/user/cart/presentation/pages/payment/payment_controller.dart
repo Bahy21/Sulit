@@ -27,6 +27,15 @@ class PaymentController {
   }
 
   Future<void> createOrder(BuildContext context) async {
+    if ( shippingBloc.state.data!.paymentOption!
+        .where((element) => element.selected)
+        .isEmpty) {
+      CustomToast.showSimpleToast(
+        msg: 'You must choose payment method',
+        type: ToastType.success,
+      );
+      return;
+    }
     if (!conditionsCubit.state.data) {
       CustomToast.showSimpleToast(
         msg: "You must accept terms and conditions",

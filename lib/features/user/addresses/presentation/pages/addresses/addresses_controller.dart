@@ -30,11 +30,10 @@ class AddressesController {
     }
     address.selected = !val!;
     addressesBloc.onUpdateData(addressesBloc.state.data);
-    AutoRouter.of(context).pushAndPopUntil(
+    AutoRouter.of(context).push(
       ProfileRoute(
         address: addressesBloc.state.data.where((element) => element.selected == true).first,
       ),
-      predicate: (route) => false,
     );
   }
 }

@@ -59,15 +59,36 @@ class BuildShippingAddressItem extends StatelessWidget {
                 ),
                 BuildAddressItem(
                   title: "Country",
-                  desc: address.country?.name??"",
+                  desc: address.country?.name ?? "",
                 ),
                 BuildAddressItem(
                   title: "Phone",
-                  desc: address.phone??"",
+                  desc: address.phone ?? "",
                 )
               ],
             ),
           ),
+          Visibility(
+            visible: address.isActive != true,
+            child: InkWell(
+              onTap: () async {
+              var result =  await  AutoRouter.of(context).push(ActiveAccountRoute(phone: address.phone!));
+              if(result == true){
+                address.isActive = true ;
+                controller.addressesBloc.onUpdateData(controller.addressesBloc.state.data);
+              }
+              },
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 10.r, vertical: 5.r),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: context.colors.primary,
+                ),
+                child: Text('Verify Phone',
+                    style: AppTextStyle.s12_w300(color: context.colors.white)),
+              ),
+            ),
+          )
         ],
       ),
     );

@@ -2,8 +2,9 @@
 part of 'shipping_imports.dart';
 
 class Shipping extends StatefulWidget {
-  final List<CartItem> cartItems ;
-  const Shipping({Key? key, required this.cartItems}) : super(key: key);
+  const Shipping({
+    Key? key,
+  }) : super(key: key);
 
   @override
   _ShippingState createState() => _ShippingState();
@@ -16,7 +17,10 @@ class _ShippingState extends State<Shipping> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const BuildCustomAppBar(),
-      bottomNavigationBar:  BuildShippingButtons(cartItems: widget.cartItems, controller: controller,),
+      bottomNavigationBar: BuildShippingButtons(
+        cartItems: [],
+        controller: controller,
+      ),
       body: Column(
         children: [
           const BuildCartStepper(current: 2),
@@ -24,17 +28,22 @@ class _ShippingState extends State<Shipping> {
             bloc: controller.addressesBloc,
             builder: (context, state) {
               if (state is GenericUpdateState) {
-                return Column(
-                  children: [
-                    const BuildAddNewAddress(),
-                    Visibility(
-                      visible: state.data.isNotEmpty,
-                      replacement: const BuildAddressesEmptyView(),
-                      child: BuildShippingAddressView(
-                        controller: controller,
+                return Expanded(
+                  child: ListView(
+                    children: [
+                       BuildAddNewAddress(
+                        addAddressFor: AddAddressFor.cart,
+                        onRefresh: ()=> controller.getAddress(),
                       ),
-                    )
-                  ],
+                      Visibility(
+                        visible: state.data.isNotEmpty,
+                        replacement: const BuildAddressesEmptyView(),
+                        child: BuildShippingAddressView(
+                          controller: controller,
+                        ),
+                      )
+                    ],
+                  ),
                 );
               } else {
                 return const BuildAddressLoading();

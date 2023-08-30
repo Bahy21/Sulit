@@ -2,8 +2,10 @@ part of 'delivery_widgets_imports.dart';
 
 class BuildDeliveryType extends StatelessWidget {
   final DeliveryController deliveryController;
+  final SellerShipping shipping;
 
-  const BuildDeliveryType({super.key, required this.deliveryController});
+  const BuildDeliveryType(
+      {super.key, required this.deliveryController, required this.shipping});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +15,8 @@ class BuildDeliveryType extends StatelessWidget {
         Container(
           width: MediaQuery.of(context).size.width,
           padding: const EdgeInsets.all(Dimens.dp20),
-          margin: const EdgeInsets.symmetric(vertical: Dimens.dp10),
+          margin: const EdgeInsets.symmetric(
+              vertical: Dimens.dp10, horizontal: Dimens.dp10),
           decoration: BoxDecoration(
             borderRadius: Dimens.borderRadius10PX,
             color: context.colors.greyWhite.withOpacity(.1),
@@ -23,52 +26,88 @@ class BuildDeliveryType extends StatelessWidget {
             style: AppTextStyle.s15_w700(color: context.colors.black),
           ),
         ),
-        BlocBuilder<GenericBloc<int>, GenericState<int>>(
-          bloc: deliveryController.deliveryTypeCubit,
-          builder: (_, state) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: Dimens.dp20),
-              child: Column(
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: Dimens.dp20),
+          child: Column(
+            children: [
+              Row(
                 children: [
-                  Row(
+                  BuildDeliveryItem(
+                    title: "Home Delivery",
+                    value: 0,
+                    groupValue: shipping.deliveryType,
+                    onChanged: (val) {
+                      shipping.deliveryType = val!;
+                      deliveryController.sellerShippingBloc.onUpdateData(
+                          deliveryController.sellerShippingBloc.state.data);
+                    },
+                  ),
+                  Gaps.hGap10,
+                  BuildDeliveryItem(
+                      title: "Local Pickup",
+                      value: 1,
+                      groupValue: shipping.deliveryType,
+                      onChanged: (val) {
+                        shipping.deliveryType = val!;
+                        deliveryController.sellerShippingBloc.onUpdateData(
+                            deliveryController.sellerShippingBloc.state.data);
+                      }),
+                ],
+              ),
+              Visibility(
+                visible: shipping.deliveryType == 1,
+                replacement: Container(
+                  margin: EdgeInsets.symmetric(
+                    vertical: 10.r,
+                  ),
+                  padding: EdgeInsets.symmetric(
+                    vertical: 15.r,
+                    horizontal: 5.r,
+                  ),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: context.colors.greyWhite),
+                    borderRadius: Dimens.borderRadius5PX,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      BuildDeliveryItem(
-                        title: "Home Delivery",
-                        value: 0,
-                        groupValue: state.data,
-                        onChanged: (val) => deliveryController.deliveryTypeCubit.onUpdateData(val!),
+                      Text(
+                        shipping.delivery.transitIn!,
+                        style: AppTextStyle.s14_w400(
+                          color: context.colors.black,
+                        ),
                       ),
-                      Gaps.hGap10,
-                      BuildDeliveryItem(
-                        title: "Local Pickup",
-                        value: 1,
-                        groupValue: state.data,
-                        onChanged: (val) => deliveryController.deliveryTypeCubit.onUpdateData(val!),
+                      Text(
+                        shipping.delivery.shippingCost!,
+                        style: AppTextStyle.s14_w400(
+                          color: context.colors.black,
+                        ),
                       ),
                     ],
                   ),
-                  Visibility(
-                    visible: state.data == 1,
-                    child: DropdownTextField<DropDownModel>(
-                      title: "Select nearest pickup point",
-                      hint: "Select nearest pickup point",
-                      fillColor: context.colors.white,
-                      itemAsString: (u) => u.name,
-                      margin: const EdgeInsets.symmetric(vertical: Dimens.dp15),
-                      validate: (value) => validateDropDown(context),
-                      data: const [
-                        DropDownModel(id: 1, name: "test"),
-                        DropDownModel(id: 2, name: "test2"),
-                        DropDownModel(id: 3, name: "test3")
-                      ],
-                      onChange: (model) =>
-                          deliveryController.onSelectPoint(model),
+                ),
+                child: DropdownTextField<Pickup>(
+                  title: "Select nearest pickup point",
+                  hint: "Select nearest pickup point",
+                  fillColor: context.colors.white,
+                  itemAsString: (u) => u.address,
+                  margin: const EdgeInsets.symmetric(vertical: Dimens.dp15),
+                  validate: (value) => validateDropDown(context),
+                  data: [
+                    Pickup(
+                      postalCode: shipping.pickup.postalCode,
+                      lang: shipping.pickup.lang,
+                      lat: shipping.pickup.lat,
+                      phone: shipping.pickup.phone,
+                      address: shipping.pickup.address,
+                      id: shipping.pickup.id,
                     ),
-                  ),
-                ],
+                  ],
+                  onChange: (model) => deliveryController.onSelectPoint(model),
+                ),
               ),
-            );
-          },
+            ],
+          ),
         ),
         Gaps.vGap20,
       ],

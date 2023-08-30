@@ -1,0 +1,1 @@
+enum AddAddressFor {cart, addresses}

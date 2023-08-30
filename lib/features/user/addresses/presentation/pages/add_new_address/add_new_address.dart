@@ -1,9 +1,9 @@
 // ignore_for_file: library_private_types_in_public_api
-
 part of 'add_new_address_imports.dart';
 
 class AddNewAddress extends StatefulWidget {
-  const AddNewAddress({Key? key}) : super(key: key);
+  final AddAddressFor addAddressFor ;
+  const AddNewAddress({Key? key, required this.addAddressFor}) : super(key: key);
 
   @override
   _AddNewAddressState createState() => _AddNewAddressState();
@@ -31,7 +31,7 @@ class _AddNewAddressState extends State<AddNewAddress> {
             ),
             DefaultButton(
               title: "Save",
-              onTap: () => controller.addNewAddress(context),
+              onTap: () => controller.addNewAddress(context, widget.addAddressFor),
               margin: const EdgeInsets.all(20),
             )
           ],

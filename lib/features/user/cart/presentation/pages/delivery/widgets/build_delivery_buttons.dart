@@ -2,9 +2,8 @@ part of 'delivery_widgets_imports.dart';
 
 class BuildDeliveryButtons extends StatelessWidget {
   final DeliveryController controller ;
-  final List<CartItem> cartItems ;
 
-  const BuildDeliveryButtons({Key? key, required this.controller, required this.cartItems}) : super(key: key);
+  const BuildDeliveryButtons({Key? key, required this.controller,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +34,7 @@ class BuildDeliveryButtons extends StatelessWidget {
             child: DefaultButton(
               title: "Continue to Payment",
               color: context.colors.primary,
-              onTap: () => controller.setCartStoreShipping(cartItems,context),
+              onTap: ()=> controller.setCartStoreShipping(context),
             ),
           ),
         ],

@@ -77,6 +77,7 @@ class ApiNames{
   static const String applyCoupon = "cart/apply-coupon";
   static const String storeOrders = "orders/store";
   static const String storeProductToCart = "cart/store";
+  static const String cartShippingInfo = "cart/shipping-info";
 
   //tickets
   static const String createTicket = "tickets/store";
@@ -86,6 +87,7 @@ class ApiNames{
 
   //PurchaseHistory
   static const String getPurchaseHistory = "orders/purchase-history";
+  static String getTrackOrder (String code) => "orders/$code/track-your-order";
   static String getTrackOrder (int code) => "orders/$code/track-your-order";
   static String downloadInvoice (int id) => "orders/$id/download-invoice";
 

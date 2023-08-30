@@ -3,5 +3,5 @@ class GetCartItemsParams {
   bool refresh ;
   GetCartItemsParams({required this.macAddress, required this.refresh });
 
-  Map<String, dynamic> toJson ()=> {"mac_address": macAddress};
+  String toQuery ()=> 'cart?mac_address=$macAddress';
 }

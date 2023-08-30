@@ -8,6 +8,7 @@ class BuildMoreHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var user = context.watch<UserCubit>().state.model ;
     return Column(
       children: [
 
@@ -54,7 +55,7 @@ class BuildMoreHeader extends StatelessWidget {
                             height: 120.r,
                             width: 120.r,
                           ),
-                          url: "",
+                          url: user?.avatarOriginal??"",
                         ),
                       ));
                 },
@@ -84,7 +85,7 @@ class BuildMoreHeader extends StatelessWidget {
           ),
         ),
         Text(
-          "Tarek Fouda",
+          user?.name??"",
           style: AppTextStyle.s16_w400(color: context.colors.black),
         ),
         DefaultButton(

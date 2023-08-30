@@ -37,6 +37,7 @@ class BuildPinField extends StatelessWidget {
             activeFillColor: context.colors.white,
             disabledColor: context.colors.black,
         ),
+        cursorColor: context.colors.black,
         animationDuration: const Duration(milliseconds: 300),
         enableActiveFill: true,
         onCompleted: onComplete,

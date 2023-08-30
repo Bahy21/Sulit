@@ -1,23 +1,27 @@
 part of 'compare_widgets_imports.dart';
 
 class BuildResetButton extends StatelessWidget {
-  final bool isNotEmpty  ;
-  const BuildResetButton({Key? key, required this.isNotEmpty}) : super(key: key);
+  final CompareController controller ;
+  const BuildResetButton({Key? key, required this.controller, }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Visibility(
-      visible: isNotEmpty,
+      visible: controller.productsBloc.state.data.isNotEmpty,
       child: Align(
         alignment: AlignmentDirectional.centerEnd,
         child: DefaultButton(
-            title: "Reset Compare List",
-            width: 120.w,
-            height: 25.h,
-            fontSize: 10,
-            borderRadius: BorderRadius.circular(5).r,
-            margin: const EdgeInsets.only(bottom: 20).r,
-            onTap: () {}),
+          title: "Reset Compare List",
+          width: 120.w,
+          height: 25.h,
+          fontSize: 10,
+          borderRadius: BorderRadius.circular(5).r,
+          margin: const EdgeInsets.only(bottom: 20).r,
+          onTap: (){
+            getIt<ComparedProductsDb>().deleteEverything();
+            controller.productsBloc.onUpdateData([]);
+          }
+        ),
       ),
     );
   }

@@ -76,8 +76,10 @@ import 'package:flutter_tdd/features/seller/profile/presentation/pages/seller_pr
     as _i30;
 import 'package:flutter_tdd/features/seller/shop/presentation/pages/seller_shop_setting/seller_shop_setting_imports.dart'
     as _i31;
-import 'package:flutter_tdd/features/user/addresses/domain/models/address.dart'
+import 'package:flutter_tdd/features/user/addresses/data/enums/add_address_enum.dart'
     as _i70;
+import 'package:flutter_tdd/features/user/addresses/domain/models/address.dart'
+    as _i71;
 import 'package:flutter_tdd/features/user/addresses/presentation/pages/add_new_address/add_new_address_imports.dart'
     as _i32;
 import 'package:flutter_tdd/features/user/addresses/presentation/pages/addresses/addresses_imports.dart'
@@ -88,15 +90,13 @@ import 'package:flutter_tdd/features/user/base/presentation/pages/home/home_impo
     as _i37;
 import 'package:flutter_tdd/features/user/base/presentation/pages/more/more_imports.dart'
     as _i38;
-import 'package:flutter_tdd/features/user/blog/domain/models/blog.dart' as _i71;
+import 'package:flutter_tdd/features/user/blog/domain/models/blog.dart' as _i72;
 import 'package:flutter_tdd/features/user/blog/presentation/pages/blog_details/blog_details_imports.dart'
     as _i36;
 import 'package:flutter_tdd/features/user/blog/presentation/pages/blogs/blogs_imports.dart'
     as _i35;
 import 'package:flutter_tdd/features/user/cart/data/models/order_summary_model/order_summary_model.dart'
     as _i74;
-import 'package:flutter_tdd/features/user/cart/domain/models/cart_item.dart'
-    as _i72;
 import 'package:flutter_tdd/features/user/cart/domain/models/shipping.dart'
     as _i73;
 import 'package:flutter_tdd/features/user/cart/presentation/pages/cart/cart_imports.dart'
@@ -386,9 +386,13 @@ class AppRouter extends _i67.RootStackRouter {
       );
     },
     AddNewAddressRoute.name: (routeData) {
+      final args = routeData.argsAs<AddNewAddressRouteArgs>();
       return _i67.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i32.AddNewAddress(),
+        child: _i32.AddNewAddress(
+          key: args.key,
+          addAddressFor: args.addAddressFor,
+        ),
         opaque: true,
       );
     },
@@ -458,13 +462,9 @@ class AppRouter extends _i67.RootStackRouter {
       );
     },
     DeliveryRoute.name: (routeData) {
-      final args = routeData.argsAs<DeliveryRouteArgs>();
       return _i67.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: _i40.Delivery(
-          key: args.key,
-          cartItems: args.cartItems,
-        ),
+        child: const _i40.Delivery(),
         opaque: true,
       );
     },
@@ -480,13 +480,9 @@ class AppRouter extends _i67.RootStackRouter {
       );
     },
     ShippingRoute.name: (routeData) {
-      final args = routeData.argsAs<ShippingRouteArgs>();
       return _i67.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: _i42.Shipping(
-          key: args.key,
-          cartItems: args.cartItems,
-        ),
+        child: const _i42.Shipping(),
         opaque: true,
       );
     },
@@ -1398,14 +1394,36 @@ class SellerShopSettingRoute extends _i67.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i32.AddNewAddress]
-class AddNewAddressRoute extends _i67.PageRouteInfo<void> {
-  const AddNewAddressRoute()
-      : super(
+class AddNewAddressRoute extends _i67.PageRouteInfo<AddNewAddressRouteArgs> {
+  AddNewAddressRoute({
+    _i69.Key? key,
+    required _i70.AddAddressFor addAddressFor,
+  }) : super(
           AddNewAddressRoute.name,
           path: '/add-new-address',
+          args: AddNewAddressRouteArgs(
+            key: key,
+            addAddressFor: addAddressFor,
+          ),
         );
 
   static const String name = 'AddNewAddressRoute';
+}
+
+class AddNewAddressRouteArgs {
+  const AddNewAddressRouteArgs({
+    this.key,
+    required this.addAddressFor,
+  });
+
+  final _i69.Key? key;
+
+  final _i70.AddAddressFor addAddressFor;
+
+  @override
+  String toString() {
+    return 'AddNewAddressRouteArgs{key: $key, addAddressFor: $addAddressFor}';
+  }
 }
 
 /// generated route for
@@ -1425,7 +1443,7 @@ class AddressesRoute extends _i67.PageRouteInfo<void> {
 class EditAddressRoute extends _i67.PageRouteInfo<EditAddressRouteArgs> {
   EditAddressRoute({
     _i69.Key? key,
-    required _i70.Address address,
+    required _i71.Address address,
   }) : super(
           EditAddressRoute.name,
           path: '/edit-address',
@@ -1446,7 +1464,7 @@ class EditAddressRouteArgs {
 
   final _i69.Key? key;
 
-  final _i70.Address address;
+  final _i71.Address address;
 
   @override
   String toString() {
@@ -1471,7 +1489,7 @@ class BlogsRoute extends _i67.PageRouteInfo<void> {
 class BlogDetailsRoute extends _i67.PageRouteInfo<BlogDetailsRouteArgs> {
   BlogDetailsRoute({
     _i69.Key? key,
-    required _i71.Blog blog,
+    required _i72.Blog blog,
   }) : super(
           BlogDetailsRoute.name,
           path: '/blog-details',
@@ -1492,7 +1510,7 @@ class BlogDetailsRouteArgs {
 
   final _i69.Key? key;
 
-  final _i71.Blog blog;
+  final _i72.Blog blog;
 
   @override
   String toString() {
@@ -1582,36 +1600,14 @@ class CartRoute extends _i67.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i40.Delivery]
-class DeliveryRoute extends _i67.PageRouteInfo<DeliveryRouteArgs> {
-  DeliveryRoute({
-    _i69.Key? key,
-    required List<_i72.CartItem> cartItems,
-  }) : super(
+class DeliveryRoute extends _i67.PageRouteInfo<void> {
+  const DeliveryRoute()
+      : super(
           DeliveryRoute.name,
           path: '/Delivery',
-          args: DeliveryRouteArgs(
-            key: key,
-            cartItems: cartItems,
-          ),
         );
 
   static const String name = 'DeliveryRoute';
-}
-
-class DeliveryRouteArgs {
-  const DeliveryRouteArgs({
-    this.key,
-    required this.cartItems,
-  });
-
-  final _i69.Key? key;
-
-  final List<_i72.CartItem> cartItems;
-
-  @override
-  String toString() {
-    return 'DeliveryRouteArgs{key: $key, cartItems: $cartItems}';
-  }
 }
 
 /// generated route for
@@ -1650,36 +1646,14 @@ class PaymentRouteArgs {
 
 /// generated route for
 /// [_i42.Shipping]
-class ShippingRoute extends _i67.PageRouteInfo<ShippingRouteArgs> {
-  ShippingRoute({
-    _i69.Key? key,
-    required List<_i72.CartItem> cartItems,
-  }) : super(
+class ShippingRoute extends _i67.PageRouteInfo<void> {
+  const ShippingRoute()
+      : super(
           ShippingRoute.name,
           path: '/Shipping',
-          args: ShippingRouteArgs(
-            key: key,
-            cartItems: cartItems,
-          ),
         );
 
   static const String name = 'ShippingRoute';
-}
-
-class ShippingRouteArgs {
-  const ShippingRouteArgs({
-    this.key,
-    required this.cartItems,
-  });
-
-  final _i69.Key? key;
-
-  final List<_i72.CartItem> cartItems;
-
-  @override
-  String toString() {
-    return 'ShippingRouteArgs{key: $key, cartItems: $cartItems}';
-  }
 }
 
 /// generated route for
@@ -2038,7 +2012,7 @@ class WishlistRoute extends _i67.PageRouteInfo<void> {
 class ProfileRoute extends _i67.PageRouteInfo<ProfileRouteArgs> {
   ProfileRoute({
     _i69.Key? key,
-    _i70.Address? address,
+    _i71.Address? address,
   }) : super(
           ProfileRoute.name,
           path: '/Profile',
@@ -2059,7 +2033,7 @@ class ProfileRouteArgs {
 
   final _i69.Key? key;
 
-  final _i70.Address? address;
+  final _i71.Address? address;
 
   @override
   String toString() {

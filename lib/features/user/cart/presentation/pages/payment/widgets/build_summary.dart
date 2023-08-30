@@ -37,18 +37,27 @@ final Shipping shipping ;
           Gaps.line(context.colors.primary, 20),
           const BuildSummaryHeader(title: "Products", details: "Total"),
           ...List.generate(
-            shipping.summary.items.length,
-            (index) =>  BuildSummaryItem(title: "Subtotal", details: shipping.summary.items[index].total)),
-           BuildSummaryHeader(title: "Subtotal", details: shipping.summary.subTotal),
-           BuildSummaryHeader(title: "Tax", details: shipping.summary.tax),
-           BuildSummaryHeader(title: "Total Shipping", details: shipping.summary.shipping),
+              shipping.summary.items.length,
+              (index) => BuildSummaryItem(
+                  title: shipping.summary.items[index].name,
+                  details: shipping.summary.items[index].total)),
+          BuildSummaryHeader(
+              title: "Subtotal", details: shipping.summary.subTotal),
+          BuildSummaryHeader(
+            title: "Tax",
+            details: shipping.summary.tax,
+          ),
+          BuildSummaryHeader(
+            title: "Total Shipping",
+            details: shipping.summary.shipping,
+          ),
           Gaps.line(context.colors.primary, 20),
           BuildSummaryHeader(
             title: "Total",
             details: shipping.summary.total,
             // isTotal: true,
           ),
-         BuildCoupon(controller:controller),
+          BuildCoupon(controller: controller),
         ],
       ),
     );

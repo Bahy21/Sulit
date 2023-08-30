@@ -204,7 +204,8 @@ class _ConfirmationState extends State<Confirmation> {
                                   borderRadius: BorderRadius.circular(10).r),
                               children: [
                                 BuildProductPaddedText(
-                                    text: '${tableIndex + 1}'),
+                                  text: '${tableIndex + 1}',
+                                ),
                                 BuildProductPaddedText(
                                   text: widget.summary.sectionOrders[index]
                                       .orderDetails[tableIndex].product!.name,
@@ -230,6 +231,7 @@ class _ConfirmationState extends State<Confirmation> {
                           )
                         ],
                       ),
+                      Gaps.vGap10,
                       BuildSummaryItem(
                         title: 'Subtotal:',
                         value: widget.summary.sectionOrders[index].subtotal,

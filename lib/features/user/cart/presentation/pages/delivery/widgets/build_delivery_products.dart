@@ -12,7 +12,7 @@ class BuildDeliveryProducts extends StatelessWidget {
         Container(
           width: MediaQuery.of(context).size.width,
           padding: const EdgeInsets.all(Dimens.dp20),
-          margin: const EdgeInsets.symmetric(vertical: Dimens.dp5),
+          margin: const EdgeInsets.symmetric(vertical: Dimens.dp5, horizontal: 10),
           decoration: BoxDecoration(
             borderRadius: Dimens.borderRadius10PX,
             color: context.colors.greyWhite.withOpacity(.1),
