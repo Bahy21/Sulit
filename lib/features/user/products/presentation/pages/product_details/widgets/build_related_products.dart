@@ -50,6 +50,10 @@ final ProductDetailsController controller;
                           onFavRefresh: () => controller.onChangeFav(
                             relatedProducts[index],
                           ),
+                          onCompareRefresh: () {
+                            relatedProducts[index].isAddedTCompare = !relatedProducts[index].isAddedTCompare;
+                            controller.detailsCubit.onUpdateData(controller.detailsCubit.state.data);
+                          },
                         ),
                       ),
                     ),

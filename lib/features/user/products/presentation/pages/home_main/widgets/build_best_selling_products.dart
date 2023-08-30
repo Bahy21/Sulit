@@ -34,6 +34,11 @@ class BuildBestSellingProducts extends StatelessWidget {
                           onFavRefresh: () => controller.onChangeFav(
                             bestSellingProducts[index],
                           ),
+                          onCompareRefresh: () {
+                            bestSellingProducts[index].isAddedTCompare = bestSellingProducts[index].isAddedTCompare;
+                            controller.homeCubit
+                                .onUpdateData(controller.homeCubit.state.data);
+                          },
                         ),
                       );
                     },

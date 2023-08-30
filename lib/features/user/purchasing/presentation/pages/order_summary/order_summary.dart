@@ -30,9 +30,8 @@ class _OrderSummaryState extends State<OrderSummary> {
               GenericState<OrderDomianModel?>>(
             bloc: controller.orderBloc,
             builder: (context, state) {
-              return Visibility(
-                visible: state is GenericUpdateState,
-                child: Column(
+              if(state is GenericUpdateState){
+                return Column(
                   children: [
                     Text(
                       "Order Summary",
@@ -68,8 +67,8 @@ class _OrderSummaryState extends State<OrderSummary> {
                             subTitle: state.data!.customerEmail,
                           ),
                           BuildOrderSummaryItem(
-                            title: "Shipping address :",
-                            subTitle: state.data!.shippingAddress
+                              title: "Shipping address :",
+                              subTitle: state.data!.shippingAddress
                           ),
                           BuildOrderSummaryItem(
                             title: "Order Date :",
@@ -80,8 +79,8 @@ class _OrderSummaryState extends State<OrderSummary> {
                             subTitle: state.data!.orderDate,
                           ),
                           BuildOrderSummaryItem(
-                            title: "Shipping Method :",
-                            subTitle: state.data!.shippingMethod
+                              title: "Shipping Method :",
+                              subTitle: state.data!.shippingMethod
                           ),
                           BuildOrderSummaryItem(
                             title: "Payment Method :",
@@ -99,8 +98,10 @@ class _OrderSummaryState extends State<OrderSummary> {
                       ),
                     ),
                   ],
-                ),
-              );
+                );
+              }else {
+                return Container();
+              }
             },
           ),
         ],
