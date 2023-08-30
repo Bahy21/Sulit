@@ -8,6 +8,7 @@ class BrandDetailsController {
   //   // getBrandProducts(brandId);
   // }
 
+
   void getBrandProducts(BuildContext context, int brandId,
       {bool refresh = true}) async {
     var params = _brandDetailsParams(refresh, brandId);

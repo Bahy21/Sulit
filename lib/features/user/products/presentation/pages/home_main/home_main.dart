@@ -26,8 +26,7 @@ class _HomeMainState extends State<HomeMain> {
         child: Scaffold(
           backgroundColor: context.colors.customBackground,
           appBar: BuildSearchAppBar(homeController: widget.homeController),
-          body: BlocBuilder<GenericBloc<HomeDomainModel?>,
-              GenericState<HomeDomainModel?>>(
+          body: BlocBuilder<GenericBloc<HomeDomainModel?>, GenericState<HomeDomainModel?>>(
             bloc: controller.homeCubit,
             builder: (context, state) {
               if (state is GenericUpdateState) {

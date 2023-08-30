@@ -40,7 +40,9 @@ class _ProductDetailsState extends State<ProductDetails> {
                       controller: controller,
                       detailsModel: state.data!,
                     ),
-                    BuildProductButtons(controller: controller),
+                    BuildProductButtons(
+                      controller: controller,
+                    ),
                   ],
                 );
               } else {

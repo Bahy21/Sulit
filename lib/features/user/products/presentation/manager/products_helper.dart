@@ -36,13 +36,14 @@ class ProductsHelper {
   }
 
   Future<int> addProductToCompare(Product product, BuildContext context) async {
-    var isAdded = await _isAddedToCompared(product);
+    var isAdded = await isAddedToCompared(product);
     if (isAdded == true) {
       var data = getIt<ComparedProductsDb>().deleteItem(product.id);
       CustomToast.showSimpleToast(
         msg: "Item Deleted From Compare Successfully",
         type: ToastType.success,
       );
+      product.isAddedTCompare = false;
       return data;
     } else {
       return _addItemToCompare(product, context);
@@ -56,10 +57,11 @@ class ProductsHelper {
       msg: "Item Added To Compare Successfully",
       type: ToastType.success,
     );
+    product.isAddedTCompare = true;
     return data;
   }
 
-  Future<bool> _isAddedToCompared(Product product) async {
+  Future<bool> isAddedToCompared(Product product) async {
     var exitedItems = await getComparedProducts();
     if (exitedItems.isNotEmpty) {
       if (exitedItems
@@ -80,7 +82,7 @@ class ProductsHelper {
   }
 
   ProductsTableData _comparedParams(Product product, BuildContext context) {
-    var userId = context.read<UserCubit>().state.model!.id;
+    var userId = context.read<UserCubit>().state.model?.id??0;
     return ProductsTableData(
       userId: userId,
       productId: product.id,
@@ -92,7 +94,7 @@ class ProductsHelper {
     );
   }
 
-  void addToCartDialog(BuildContext context, Product product, ) {
+  void addToCartDialog(BuildContext context, Product product) {
     showDialog(
       context: context,
       builder: (context) => BuildAddToCartDialog(

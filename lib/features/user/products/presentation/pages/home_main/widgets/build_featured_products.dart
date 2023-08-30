@@ -34,6 +34,10 @@ class BuildFeaturedProducts extends StatelessWidget {
                           onFavRefresh: () => controller.onChangeFav(
                             featuredProducts[index],
                           ),
+                          onCompareRefresh: () {
+                            featuredProducts[index].isAddedTCompare = featuredProducts[index].isAddedTCompare;
+                            controller.homeCubit.onUpdateData(controller.homeCubit.state.data);
+                          },
                         ),
                       );
                     },

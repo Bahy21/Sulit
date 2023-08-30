@@ -18,7 +18,7 @@ class BuildIconItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var iconColor = checkValue == true
-        ? context.colors.primary
+        ? context.colors.white
         : context.colors.blackOpacity;
     return GestureDetector(
       onTap: onTap,

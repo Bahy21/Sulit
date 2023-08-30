@@ -44,6 +44,7 @@ class Product extends BaseDomainModel {
   final String? videoLink;
   final String categoryName;
   final String brandName;
+  bool isAddedTCompare = false;
 
   Product({
     required this.id,

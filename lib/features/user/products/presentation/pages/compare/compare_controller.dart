@@ -8,10 +8,8 @@ class CompareController {
   }
 
   Future<void> getComparedProducts(BuildContext context) async {
-    // var userId = context.read<UserCubit>().state.model!.id;
     return await getIt<ComparedProductsDb>().getItems().then(
-          (value) => productsBloc.onUpdateData(
-              value),
+          (value) => productsBloc.onUpdateData(value),
         );
   }
 

@@ -22,7 +22,7 @@ class ImplAuthDataSource extends AuthDataSource {
       responseType: ResType.model,
       requestMethod: RequestMethod.post,
       responseKey: (data) => data["data"]["user"],
-      requestBody: param.toJson(),
+      requestBody:await param.toJson(),
       showLoader: false,
       toJsonFunc: (json) => UserModel.fromJson(json),
     );

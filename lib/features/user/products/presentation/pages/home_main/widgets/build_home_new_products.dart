@@ -33,7 +33,10 @@ class BuildHomeNewProducts extends StatelessWidget {
                           productModel: newestProducts[index],
                           onFavRefresh: () => controller.onChangeFav(
                             newestProducts[index],
-                          ),
+                          ), onCompareRefresh: () {
+                            newestProducts[index].isAddedTCompare = !newestProducts[index].isAddedTCompare;
+                            controller.homeCubit.onUpdateData(controller.homeCubit.state.data);
+                        },
                         ),
                       );
                     },
