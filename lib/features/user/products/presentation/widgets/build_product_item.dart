@@ -12,6 +12,7 @@ import 'package:flutter_tdd/core/widgets/CachedImage.dart';
 import 'package:flutter_tdd/core/widgets/custom_decoration.dart';
 import 'package:flutter_tdd/features/user/category/presentation/pages/category_details/widgets/category_details_widgets_imports.dart';
 import 'package:flutter_tdd/features/user/products/domain/models/product.dart';
+import 'package:flutter_tdd/features/user/products/presentation/manager/add_to_cart_helper.dart';
 import 'package:flutter_tdd/features/user/products/presentation/manager/products_helper.dart';
 
 class BuildProductItem extends StatelessWidget {
@@ -116,8 +117,10 @@ class BuildProductItem extends StatelessWidget {
                       BuildIconItem(
                         iconData: Icons.shopping_cart,
                         onTap: () =>
-                            getIt<ProductsHelper>().addToCartDialog(
-                              context, productModel,),
+                            getIt<AddToCartHelper>().addToCartDialog(
+                          context,
+                          productModel,
+                        ),
                       ),
                     ],
                   ),

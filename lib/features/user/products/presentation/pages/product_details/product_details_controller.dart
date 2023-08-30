@@ -13,8 +13,7 @@ class ProductDetailsController {
   List<String> selectedVariants = [];
   List<String> basicImage = [];
 
-  ProductDetailsController(
-      BuildContext context, int productId, bool productResale) {
+  ProductDetailsController(BuildContext context, int productId, bool productResale) {
     getProductDetails(context, productId, refresh: false);
     getProductDetails(context, productId);
     isResale = productResale;
@@ -44,7 +43,6 @@ class ProductDetailsController {
         .map((e) => e.selectedAttribute)
         .toList();
     selectedVariants = selectedList.expand((element) => element).toList();
-    log("@@@@@@@@${selectedVariants}");
     if (selectedVariants.isNotEmpty) getVariantPrice(context);
   }
 
@@ -75,7 +73,6 @@ class ProductDetailsController {
     List<String> selected = [];
     var optionItem = model[index];
     var attributes = optionItem.selectedAttribute;
-
     if (optionItem.hasValue == true) {
       attributes.clear();
       attributes.add(optionItem.options[position]);

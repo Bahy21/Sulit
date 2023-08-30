@@ -1,14 +1,21 @@
-part of 'product_details_widgets_imports.dart';
 
-class BuildAttributeItems extends StatelessWidget {
-  final ProductDetailsController controller;
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_tdd/core/constants/dimens.dart';
+import 'package:flutter_tdd/core/helpers/di.dart';
+import 'package:flutter_tdd/core/theme/colors/colors_extension.dart';
+import 'package:flutter_tdd/core/theme/text/app_text_style.dart';
+import 'package:flutter_tdd/features/seller/products/presentation/pages/seller_add_product/seller_add_product_imports.dart';
+import 'package:flutter_tdd/features/user/products/domain/models/product_options.dart';
+import 'package:flutter_tdd/features/user/products/presentation/manager/add_to_cart_helper.dart';
+
+class BuildAddToCartAttributeItems extends StatelessWidget {
   final List<ProductOptions> optionModel;
   final int index;
   final int position;
 
-  const BuildAttributeItems({
+  const BuildAddToCartAttributeItems({
     super.key,
-    required this.controller,
     required this.optionModel,
     required this.index,
     required this.position,
@@ -20,8 +27,7 @@ class BuildAttributeItems extends StatelessWidget {
         .selectedAttribute
         .contains(optionModel[index].options[position]);
     return InkWell(
-      onTap: () =>
-          controller.onSelectAttributes(context, optionModel, index, position),
+      onTap: () => getIt<AddToCartHelper>().onSelectAttributes(context, optionModel, index, position),
       child: Container(
         width: 100.w,
         padding: Dimens.paddingAll8PX,

@@ -20,8 +20,7 @@ import 'package:injectable/injectable.dart';
 @injectable
 class ProductsHelper {
 
-  Future<void> toggleFavourite(
-      {required BuildContext context ,required int id, required Function() onRefresh, }) async {
+  Future<void> toggleFavourite({required BuildContext context ,required int id, required Function() onRefresh, }) async {
     bool auth = context.read<DeviceCubit>().state.model.auth;
     if(!auth){
       CustomToast.showAuthDialog(context);
@@ -31,6 +30,7 @@ class ProductsHelper {
     if (data) {
       CustomToast.showSimpleToast(
         msg: "Item has been added to wishlist",
+
         type: ToastType.success,
       );
     } else {
@@ -101,36 +101,9 @@ class ProductsHelper {
     );
   }
 
-  void addToCartDialog(BuildContext context, Product product) {
-    showDialog(
-      context: context,
-      builder: (context) => BuildAddToCartDialog(
-        product: product,
-      ),
-    );
-  }
 
-  Future<void> addProductToCart(int qty,int? variantId, BuildContext context) async {
-    var params = await _addToCartParams(variantId, qty);
-    if (params.variantId == null) {
-      CustomToast.showSimpleToast(msg: 'Variant not found. !');
-      return;
-    }
-    var data = await AddProductToCart().call(params);
-    if (data != '') {
-      CustomToast.showSimpleToast(msg: 'Product added to your cart.', type: ToastType.success);
-    }
-    AutoRouter.of(context).pop();
-  }
 
-  Future<AddProductToCartParams> _addToCartParams(
-    int? variantId,
-      int qty
-  ) async {
-    return AddProductToCartParams(
-      quantity: qty,
-      variantId: variantId,
-      macAddress: await getIt<GetDeviceId>().deviceId,
-    );
-  }
+
+
+
 }
