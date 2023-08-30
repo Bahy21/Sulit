@@ -1,14 +1,21 @@
 part of 'addresses_widgets_imports.dart';
 
 class BuildAddNewAddress extends StatelessWidget {
-  const BuildAddNewAddress({Key? key}) : super(key: key);
+  final AddAddressFor addAddressFor ;
+  final VoidCallback onRefresh ;
+  const BuildAddNewAddress({Key? key, required this.addAddressFor, required this.onRefresh, }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => AutoRouter.of(context).push(
-        const AddNewAddressRoute(),
-      ),
+      onTap: () async{
+       var result = await AutoRouter.of(context).push(
+          AddNewAddressRoute(addAddressFor: AddAddressFor.cart),
+        );
+       if(result == true){
+         onRefresh.call();
+       }
+      } ,
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal:Dimens.dp20, vertical: Dimens.dp10),
         padding: const EdgeInsets.all(Dimens.dp15),

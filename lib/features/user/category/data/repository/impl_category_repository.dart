@@ -9,7 +9,7 @@ import 'package:flutter_tdd/features/user/category/data/data_sources/category_da
 import 'package:flutter_tdd/features/user/category/domain/entities/brand_details_params.dart';
 import 'package:flutter_tdd/features/user/category/domain/entities/brands_params.dart';
 import 'package:flutter_tdd/features/user/category/domain/entities/search_products_params.dart';
-import 'package:flutter_tdd/features/user/category/domain/entities/sub_category_params.dart';
+import 'package:flutter_tdd/features/user/category/domain/entities/generic_params.dart';
 import 'package:flutter_tdd/features/user/category/domain/models/sub_category.dart';
 import 'package:flutter_tdd/features/user/category/domain/repository/category_repository.dart';
 import 'package:flutter_tdd/features/user/category/domain/models/category.dart';

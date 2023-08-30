@@ -1,30 +1,45 @@
-part of'tickets_details_imports.dart';
+part of 'tickets_details_imports.dart';
+
 class TicketsDetails extends StatefulWidget {
-  const TicketsDetails({Key? key}) : super(key: key);
+  final int id;
+
+  const TicketsDetails({Key? key, required this.id}) : super(key: key);
 
   @override
   State<TicketsDetails> createState() => _TicketsDetailsState();
 }
 
 class _TicketsDetailsState extends State<TicketsDetails> {
-  TicketsDetailsController controller = TicketsDetailsController();
+  late TicketsDetailsController controller;
+
+  @override
+  void initState() {
+    controller = TicketsDetailsController(widget.id);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: BuildAddReplayButton(ticketsDetailsController: controller,),
-        appBar: const DefaultAppBar(title: "Ticket Details", showBack: true),
-        body: Column(
-          children: [
-            const BuildTicketDetailsItem(),
-            Flexible(
-              child: ListView.builder(
-                padding: const EdgeInsets.symmetric( horizontal: 16).r,
-                itemBuilder: (context,index)=>const BuildReplayItem(),
-                itemCount: 7,
-              ),
-            ),
-          ],
-        )
+      backgroundColor: context.colors.customBackground,
+      floatingActionButton:
+          BuildAddReplayButton(controller: controller, id: widget.id),
+      appBar: const DefaultAppBar(title: "Ticket Details", showBack: true),
+      body: BlocBuilder<GenericBloc<Ticket?>, GenericState<Ticket?>>(
+        bloc: controller.ticketCubit,
+        builder: (context, state) {
+          if (state is GenericUpdateState) {
+            return Column(
+              children: [
+                BuildTicketDetailsItem(ticket: state.data!),
+                BuildTicketDetailsReplies(replies: state.data!.replies!),
+              ],
+            );
+          } else {
+            return const BuildTicketsDetailsLoading();
+          }
+        },
+      ),
     );
   }
 }

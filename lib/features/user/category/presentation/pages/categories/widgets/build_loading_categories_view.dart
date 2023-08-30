@@ -11,7 +11,7 @@ class BuildLoadingCategoriesView extends StatelessWidget {
       gridCrossCount: 2,
       type: ListViewType.grid,
       gridItemHeight: 150.spMin,
-      padding: Dimens.paddingAll15PX,
+      padding: Dimens.standardPadding,
       children: List.generate(
         8,
         (index) => const BuildLoadingCategoryItem(),

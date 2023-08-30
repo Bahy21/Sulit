@@ -1,46 +1,53 @@
 part of 'product_details_imports.dart';
 
 class ProductDetails extends StatefulWidget {
-  const ProductDetails({Key? key}) : super(key: key);
+  final int productId;
+  final bool isResale;
+
+  const ProductDetails(
+      {super.key, required this.productId, required this.isResale});
 
   @override
   State<ProductDetails> createState() => _ProductDetailsState();
 }
 
 class _ProductDetailsState extends State<ProductDetails> {
-  late ProductDetailsController controller ;
+  late ProductDetailsController controller;
 
   @override
-  void initState (){
-    controller = ProductDetailsController();
+  void initState() {
+    controller =
+        ProductDetailsController(context, widget.productId, widget.isResale);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 2,
-      child: Scaffold(
-        appBar: const BuildCustomAppBar(),
-        body: ListView(
-          children: [
-            const BuildProductDetailsSwiper(),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16).r,
-              child: Column(
-                children: [
-                  const BuildSellerInfo(),
-                  BuildProductInfo(productDetailsController: controller),
-                  const BuildProductButtons(),
-                  const BuildProductDescription(),
-                  const BuildTopSellingProducts(),
-                  const BuildRelatedProducts(),
-                  const BuildProductQueries(),
-                  BuildRelatedQuestions(productDetailsController: controller)
-                ],
-              ),
-            ),
-          ],
+    return SafeArea(
+      top: true,
+      child: GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        child: Scaffold(
+          backgroundColor: context.colors.customBackground,
+          body: BlocBuilder<GenericBloc<ProductDetailsDomainModel?>,
+              GenericState<ProductDetailsDomainModel?>>(
+            bloc: controller.detailsCubit,
+            builder: (context, state) {
+              if (state is GenericUpdateState) {
+                return Column(
+                  children: [
+                    BuildDetailsView(
+                      controller: controller,
+                      detailsModel: state.data!,
+                    ),
+                    BuildProductButtons(controller: controller),
+                  ],
+                );
+              } else {
+                return const BuildLoadingDetails();
+              }
+            },
+          ),
         ),
       ),
     );

@@ -15,11 +15,11 @@ class BuildAddNewAddressCardShimmer extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const BuildShimmerView(
+          const BuildShimmerItem(
             height: 7.5,
             width: 50,
           ),
-          BuildShimmerView(child: Icon(Icons.add_circle, color: context.colors.grey)),
+          BuildShimmerItem(child: Icon(Icons.add_circle, color: context.colors.grey)),
         ],
       ),
     );

@@ -19,7 +19,7 @@ class BuildSpecificationItem extends StatelessWidget {
         ? context.colors.primary
         : context.colors.black;
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 10),
+      margin: Dimens.paddingHorizontal10PX,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

@@ -2,7 +2,8 @@ part of 'active_account_widgets_imports.dart';
 
 class BuildActiveButton extends StatelessWidget {
   final ActiveAccountController controller;
-  const BuildActiveButton({Key? key, required this.controller}) : super(key: key);
+  final String phone ;
+  const BuildActiveButton({Key? key, required this.controller, required this.phone}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,10 +13,10 @@ class BuildActiveButton extends StatelessWidget {
         return AbsorbPointer(
           absorbing: !state.data,
           child: LoadingButton(
-              title: "Login",
-              onTap: () {},
-              color: !state.data? context.colors.greyWhite :context.colors.primary,
-              textColor: !state.data? context.colors.black:context.colors.white,
+              title: "Verify".toUpperCase(),
+              onTap: () => controller.setVerifyPhone(phone,context),
+              color: !state.data? context.colors.grey :context.colors.primary,
+              textColor: context.colors.white,
               btnKey: controller.btnKey,
               margin: const EdgeInsets.only(top: 40),
               fontSize: 16,

@@ -10,19 +10,22 @@ class PopularProducts extends StatefulWidget {
 }
 
 class _PopularProductsState extends State<PopularProducts> {
-  final PopularProductsController controller = PopularProductsController();
+  late PopularProductsController controller;
 
   @override
   void initState() {
-    controller.initPagination(widget.popularProductsModel.id);
+    controller = PopularProductsController(widget.popularProductsModel.id);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: context.colors.customBackground,
       appBar: DefaultAppBar(
-          title: widget.popularProductsModel.name, showBack: true),
+        title: widget.popularProductsModel.name,
+        showBack: true,
+      ),
       body: RefreshIndicator(
         onRefresh: () =>
             controller.getPopularProducts(widget.popularProductsModel.id, 1),
@@ -41,7 +44,7 @@ class _PopularProductsState extends State<PopularProducts> {
                 const BuildPopularProductsLoadingView(),
             itemBuilder: (_, item, index) => BuildProductItem(
               productModel: item,
-              onRefresh: () => controller.getPopularProducts(
+              onFavRefresh: () => controller.getPopularProducts(
                   widget.popularProductsModel.id, 1),
             ),
             noItemsFoundIndicatorBuilder: (cxt) => const BuildEmptyDataView(),

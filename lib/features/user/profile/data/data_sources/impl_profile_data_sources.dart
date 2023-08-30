@@ -25,4 +25,17 @@ class ImplProfileDataSources extends ProfileDataSources   {
     );
     return await GenericHttpImpl<UserModel>()(model);
   }
+
+  @override
+  Future<Either<Failure, bool>> updateProfileEmail(String param)async {
+    HttpRequestModel model = HttpRequestModel(
+      url: ApiNames.updateProfileEmail,
+      responseType: ResType.type,
+      requestMethod: RequestMethod.post,
+      responseKey: (data) => data["key"] == 'success',
+      requestBody: {"email":param},
+      showLoader: true,
+    );
+    return await GenericHttpImpl<bool>()(model);
+  }
 }

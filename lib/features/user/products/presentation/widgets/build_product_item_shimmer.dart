@@ -4,7 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_tdd/core/constants/dimens.dart';
 import 'package:flutter_tdd/core/constants/gaps.dart';
 import 'package:flutter_tdd/core/theme/colors/colors_extension.dart';
-import 'package:flutter_tdd/core/widgets/build_shemer.dart';
+import 'package:flutter_tdd/core/widgets/build_shimmer_item.dart';
+import 'package:flutter_tdd/core/widgets/custom_decoration.dart';
 import 'package:flutter_tdd/features/user/category/presentation/pages/category_details/widgets/category_details_widgets_imports.dart';
 
 class BuildProductItemShimmer extends StatelessWidget {
@@ -14,49 +15,36 @@ class BuildProductItemShimmer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 160.w,
-      decoration: BoxDecoration(
-        color: context.colors.white,
-        borderRadius: Dimens.borderRadius5PX,
-        boxShadow: [
-          BoxShadow(
-            color: context.colors.greyWhite,
-            blurRadius: 1,
-            spreadRadius: 1,
-          )
-        ],
-      ),
+      decoration: CustomDecoration(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
             child: Stack(
               children: [
-                BuildShimmerView(
+                BuildShimmerItem(
                   child: Container(color: context.colors.offWhite),
                 ),
                 PositionedDirectional(
                   end: 3,
                   child: Column(
                     children: [
-                      BuildShimmerView(
+                      BuildShimmerItem(
                         child: BuildIconItem(
-                          isWishList: true,
                           iconData: Icons.favorite_border,
                           onTap: () {},
                         ),
                       ),
-                      BuildShimmerView(
+                      BuildShimmerItem(
                         child: BuildIconItem(
                           iconData: Icons.compare_arrows,
                           onTap: () {},
-                          isWishList: false,
                         ),
                       ),
-                      BuildShimmerView(
+                      BuildShimmerItem(
                         child: BuildIconItem(
                           iconData: Icons.shopping_cart,
                           onTap: () {},
-                          isWishList: false,
                         ),
                       ),
                     ],
@@ -72,18 +60,18 @@ class BuildProductItemShimmer extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    const BuildShimmerView(
+                    const BuildShimmerItem(
                       height: 10,
                       width: 50,
                     ),
                     Gaps.hGap5,
-                    const BuildShimmerView(
+                    const BuildShimmerItem(
                       height: 10,
                       width: 50,
                     ),
                   ],
                 ),
-                BuildShimmerView(
+                BuildShimmerItem(
                   child: RatingBar.builder(
                     initialRating: 5,
                     ignoreGestures: true,
@@ -101,7 +89,7 @@ class BuildProductItemShimmer extends StatelessWidget {
                     onRatingUpdate: (rating) {},
                   ),
                 ),
-                const BuildShimmerView(
+                const BuildShimmerItem(
                   height: 10,
                   width: 50,
                 ),

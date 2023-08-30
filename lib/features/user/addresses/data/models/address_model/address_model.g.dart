@@ -11,7 +11,9 @@ _$_AddressModel _$$_AddressModelFromJson(Map<String, dynamic> json) =>
       id: json['id'] as int,
       userId: json['user_id'] as int,
       address: json['address'] as String,
-      country: CountryModel.fromJson(json['country'] as Map<String, dynamic>),
+      country: json['country'] == null
+          ? null
+          : CountryModel.fromJson(json['country'] as Map<String, dynamic>),
       state: json['state'] == null
           ? null
           : StateModel.fromJson(json['state'] as Map<String, dynamic>),
@@ -31,7 +33,7 @@ Map<String, dynamic> _$$_AddressModelToJson(_$_AddressModel instance) =>
       'id': instance.id,
       'user_id': instance.userId,
       'address': instance.address,
-      'country': instance.country.toJson(),
+      'country': instance.country?.toJson(),
       'state': instance.state?.toJson(),
       'city': instance.city?.toJson(),
       'postal_code': instance.postalCode,

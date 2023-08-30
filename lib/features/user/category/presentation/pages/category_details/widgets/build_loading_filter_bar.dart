@@ -6,7 +6,7 @@ class BuildLoadingFilterBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: Dimens.standardPadding,
+      margin: Dimens.paddingHorizontal15PX,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

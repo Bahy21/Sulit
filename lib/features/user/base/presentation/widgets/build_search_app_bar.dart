@@ -14,11 +14,15 @@ class BuildSearchAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      elevation: 0,
+      elevation: 0.2,
       backgroundColor: context.colors.white,
       toolbarHeight: 80,
       leading: Visibility(
         visible: isHome?? true,
+        replacement: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
         child: IconButton(
           onPressed: () => homeController?.scaffoldKey.currentState!.openDrawer(),
           icon: Icon(

@@ -16,35 +16,7 @@ class CategoryDetailsController {
   List<String> selectedColors = [];
   int currentCatId = 0;
 
-  SubCategoryParams _subCategoryParams(int id, bool refresh) {
-    return SubCategoryParams(id: id, refresh: refresh);
-  }
-
-  SearchProductsParams _productsParams(int page, bool refresh) {
-    var specifications = specificationsCubit.state.data;
-    var colors = specifications?.colors
-        .where((element) => element.selected)
-        .map((e) => e.code)
-        .toList();
-    var attributes = specifications?.attributes.map((e) => e.attributeValues
-        .where((val) => val.selected)
-        .map((element) => element.value)
-        .toList());
-    return SearchProductsParams(
-      catId: currentCatId,
-      brandId: brandId,
-      color: colors,
-      attributes: attributes?.expand((element) => element).toList(),
-      minPrice: rangeCubit.state.data?.value.start,
-      maxPrice: rangeCubit.state.data?.value.end,
-      refresh: refresh,
-      pageSize: pageSize,
-      currentPage: page,
-    );
-  }
-
-  void initData(BuildContext context, int catId) {
-    // getSubCategories(context, catId, 0, refresh: false);
+  CategoryDetailsController(BuildContext context, int catId) {
     getSubCategories(context, catId, 0).then((value) {
       getPopularProducts(1, refresh: false);
       pagingController.addPageRequestListener((pageKey) {
@@ -53,9 +25,9 @@ class CategoryDetailsController {
     });
   }
 
-  Future<void> getSubCategories(BuildContext context,  int id, int index,
+  Future<void> getSubCategories(BuildContext context, int id, int index,
       {bool refresh = true}) async {
-    currentCatId=id;
+    currentCatId = id;
     var params = _productsParams(1, refresh);
     var result = await GetSubCategories().call(params);
     _checkSubCategoriesList(result!, id, index);
@@ -70,20 +42,9 @@ class CategoryDetailsController {
   void _checkSubCategoriesList(SubCategory data, int id, int index) {
     final subCatsCubit = subCategoriesCubit.state.data;
     subCatsCubit.removeRange(index, subCatsCubit.length);
+    var insertedItem = _insertedItem(id);
     if (data.subCats.isNotEmpty) {
-      data.subCats.insert(
-        0,
-        Category(
-          id: 0,
-          banner: "",
-          name: "All",
-          parentId: id,
-          digital: 0,
-          icon: "",
-          orderLevel: 0,
-          slug: "",
-        ),
-      );
+      data.subCats.insert(0, insertedItem);
       subCatsCubit.add(SubCategory(
         subCats: data.subCats,
         selectedId: data.subCats.first.id,
@@ -134,6 +95,15 @@ class CategoryDetailsController {
     }
   }
 
+  void onFavChanged(Product model) {
+    model.isWishlist = !model.isWishlist;
+    int index = pagingController.itemList!.indexWhere((e) => e.id == model.id);
+    pagingController.itemList![index] = model;
+    var data = pagingController.itemList;
+    pagingController.itemList = [];
+    pagingController.itemList = data;
+  }
+
   void changePriceValue(RangeValues values, BuildContext context) {
     rangeCubit.state.data!.value = values;
     rangeCubit.onUpdateData(rangeCubit.state.data!);
@@ -176,5 +146,41 @@ class CategoryDetailsController {
     specifications!.colors[index].selected =
         !specifications.colors[index].selected;
     specificationsCubit.onUpdateData(specifications);
+  }
+
+  SearchProductsParams _productsParams(int page, bool refresh) {
+    var specifications = specificationsCubit.state.data;
+    var colors = specifications?.colors
+        .where((element) => element.selected)
+        .map((e) => e.code)
+        .toList();
+    var attributes = specifications?.attributes.map((e) => e.attributeValues
+        .where((val) => val.selected)
+        .map((element) => element.value)
+        .toList());
+    return SearchProductsParams(
+      catId: currentCatId,
+      brandId: brandId,
+      color: colors,
+      attributes: attributes?.expand((element) => element).toList(),
+      minPrice: rangeCubit.state.data?.value.start,
+      maxPrice: rangeCubit.state.data?.value.end,
+      refresh: refresh,
+      pageSize: pageSize,
+      currentPage: page,
+    );
+  }
+
+  Category _insertedItem(int parentId) {
+    return Category(
+      id: 0,
+      banner: "",
+      name: "All",
+      parentId: parentId,
+      digital: 0,
+      icon: "",
+      orderLevel: 0,
+      slug: "",
+    );
   }
 }

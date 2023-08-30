@@ -1,9 +1,18 @@
 part of 'cart_widgets_imports.dart';
 
 class BuildCartItem extends StatelessWidget {
-  final CartController cartController;
+  final CartItem cartItem;
 
-  const BuildCartItem({super.key, required this.cartController});
+  final CartController controller;
+
+  final int index;
+
+  const BuildCartItem({
+    super.key,
+    required this.cartItem,
+    required this.controller,
+    required this.index,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,16 +34,18 @@ class BuildCartItem extends StatelessWidget {
           Row(
             children: [
               CachedImage(
-                url:
-                    "https://i.ebayimg.com/images/g/2YAAAOSw-jVhULVS/s-l400.jpg",
+                url: cartItem.thumbnailImage,
                 height: 70.h,
                 width: 80.w,
                 fit: BoxFit.fill,
               ),
+              Gaps.hGap12,
               Expanded(
                 child: Text(
-                  "Empty String Empty String Empty String Empty String Empty String ",
-                  style: AppTextStyle.s14_w400(color: context.colors.black),
+                  cartItem.name,
+                  style: AppTextStyle.s14_w400(color: context.colors.black).copyWith(
+                    height: 1.5
+                  ),
                 ),
               ),
             ],
@@ -43,24 +54,46 @@ class BuildCartItem extends StatelessWidget {
             padding: const EdgeInsets.all(10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                BuildPriceItem(title: "Price", price: "100"),
-                BuildPriceItem(title: "Tax", price: "10"),
-                BuildPriceItem(title: "Total", price: "110"),
+              children:  [
+                BuildPriceItem(title: "Price", price: cartItem.price, currency: cartItem.currencySymbol,),
+                BuildPriceItem(title: "Tax", price: cartItem.tax, currency: cartItem.currencySymbol,),
+                BuildPriceItem(title: "Total", price: cartItem.total, currency: cartItem.currencySymbol,),
               ],
             ),
           ),
           Row(
             children: [
-              BuildCustomBounce(onTap: () {}, iconData: CupertinoIcons.add),
-              Text(
-                "1",
-                style: AppTextStyle.s16_w400(color: context.colors.black),
+              BuildCustomBounce(
+                onTap: () {
+                  cartItem.quantity++;
+                  controller.cartItemsBloc.onUpdateData(controller.cartItemsBloc.state.data);
+                  controller.updateCartItem(
+                    cartItem.quantity,
+                    cartItem.id,
+                  );
+                },
+                iconData: CupertinoIcons.add,
               ),
-              BuildCustomBounce(onTap: () {}, iconData: CupertinoIcons.minus),
+              Text(
+                cartItem.quantity.toString(),
+                style: AppTextStyle.s16_w400(
+                  color: context.colors.black,
+                ),
+              ),
+              BuildCustomBounce(
+                onTap: () {
+                  cartItem.quantity --;
+                  controller.cartItemsBloc.onUpdateData(controller.cartItemsBloc.state.data);
+                  controller.updateCartItem(cartItem.quantity, cartItem.id);
+                },
+                iconData: CupertinoIcons.minus,
+              ),
               const Spacer(),
               BuildCustomBounce(
-                onTap: () {},
+                onTap: () => controller.deleteItemFromCart(
+                  cartItem.id,
+                  index,
+                ),
                 iconData: CupertinoIcons.delete,
                 deleteIcon: true,
               ),

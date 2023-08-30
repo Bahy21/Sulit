@@ -1,7 +1,9 @@
 part of 'cart_widgets_imports.dart';
 
 class BuildTotalCost extends StatelessWidget {
-  const BuildTotalCost({Key? key}) : super(key: key);
+  final String price ;
+  final String currency ;
+  const BuildTotalCost({Key? key, required this.price, required this.currency}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,11 +13,11 @@ class BuildTotalCost extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            "Subtotal",
+            "Sub Total",
             style: AppTextStyle.s16_w800(color: context.colors.black),
           ),
           Text(
-            "${150} د.إ",
+            "$price $currency",
             style: AppTextStyle.s16_w800(color: context.colors.black),
           )
         ],

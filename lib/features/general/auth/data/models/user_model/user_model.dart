@@ -1,5 +1,6 @@
 import 'package:flutter_tdd/core/models/api_model/base_api_model.dart';
 import 'package:flutter_tdd/features/general/auth/domain/models/user_domain_model.dart';
+import 'package:flutter_tdd/features/user/addresses/data/models/address_model/address_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'user_model.freezed.dart';
@@ -22,6 +23,7 @@ class UserModel extends BaseApiModel<UserDomainModel> with _$UserModel {
     @JsonKey(name: "token") required String token,
     @JsonKey(name: "token_type") required String tokenType,
     @JsonKey(name: "phone_is_active") required bool isPhoneActive,
+    AddressModel? address
   }) = _UserModel;
 
   factory UserModel.fromJson(Map<String, dynamic> json) =>
@@ -39,6 +41,7 @@ class UserModel extends BaseApiModel<UserDomainModel> with _$UserModel {
       avatarOriginal: avatarOriginal,
       tokenType: tokenType,
       isPhoneActive: isPhoneActive,
+      address: address?.toDomainModel()
     );
   }
 }

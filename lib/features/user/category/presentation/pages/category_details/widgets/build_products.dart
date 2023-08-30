@@ -14,7 +14,7 @@ class BuildProducts extends StatelessWidget {
           padding: Dimens.standardPadding,
           pagingController: controller.pagingController,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisSpacing: 5.r,
+            crossAxisSpacing: 15.r,
             mainAxisSpacing: 15.r,
             crossAxisCount: 2,
             childAspectRatio: .9,
@@ -26,7 +26,7 @@ class BuildProducts extends StatelessWidget {
                 const BuildLoadingCatsProducts(),
             itemBuilder: (_, item, index) => BuildProductItem(
               productModel: item,
-              onRefresh: () => controller.getPopularProducts(1),
+              onFavRefresh: () => controller.onFavChanged(item),
             ),
             noItemsFoundIndicatorBuilder: (cxt) => const BuildEmptyDataView(),
           ),

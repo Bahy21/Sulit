@@ -9,20 +9,10 @@ class BuildBrandItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () => AutoRouter.of(context).push(
-         BrandDetailsRoute(brandId: brand.id),
+        BrandDetailsRoute(brandId: brand.id),
       ),
       child: Container(
-        decoration: BoxDecoration(
-          color: context.colors.white,
-          borderRadius: BorderRadius.circular(5),
-          boxShadow: [
-            BoxShadow(
-              color: context.colors.greyWhite,
-              blurRadius: 1,
-              spreadRadius: 1,
-            )
-          ],
-        ),
+        decoration: CustomDecoration(),
         child: CachedImage(
           fit: BoxFit.contain,
           haveRadius: true,

@@ -8,18 +8,45 @@ class SupportTickets extends StatefulWidget {
 }
 
 class _SupportTicketsState extends State<SupportTickets> {
-  SupportTicketsController controller = SupportTicketsController();
+  late SupportTicketsController controller;
+
+  @override
+  void initState() {
+    controller = SupportTicketsController();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const DefaultAppBar(title: "Support Tickets", showBack: true),
-      body: ListView(
-        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16).r,
+      backgroundColor: context.colors.customBackground,
+      floatingActionButton: BuildAddTicketBtn(controller: controller),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          BuildAddTicket(supportTicketsController: controller),
-          Gaps.vGap32,
-          BuildTicketsList(supportTicketsController: controller)
+          const BuildHeaderText(),
+          Flexible(
+            child: GenericListView(
+              type: ListViewType.api,
+              padding: Dimens.standardPadding,
+              onRefresh: controller.getTickets,
+              cubit: controller.ticketsBloc,
+              itemBuilder: (_, index, item) => BuildTicketItem(
+                ticketModel: item,
+                controller: controller,
+              ),
+              emptyWidget: Center(
+                child: Text(
+                  "You have no tickets. !",
+                  style: AppTextStyle.s12_w400(
+                    color: context.colors.grey,
+                  ),
+                ),
+              ),
+              loadingWidget: const BuildSupportTicketsLoading(),
+            ),
+          ),
         ],
       ),
     );

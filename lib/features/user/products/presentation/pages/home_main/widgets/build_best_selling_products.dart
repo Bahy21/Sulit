@@ -2,7 +2,7 @@ part of 'home_main_widgets_imports.dart';
 
 class BuildBestSellingProducts extends StatelessWidget {
   final List<Product> bestSellingProducts;
-  final HomeMainController controller ;
+  final HomeMainController controller;
 
   const BuildBestSellingProducts(
       {super.key, required this.bestSellingProducts, required this.controller});
@@ -10,11 +10,11 @@ class BuildBestSellingProducts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 230.spMin,
+      height: 250.spMin,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Gaps.vGap10,
+          Gaps.vGap5,
           const BuildHeaderTitle(title: "Just for you"),
           Flexible(
             child: SingleChildScrollView(
@@ -23,13 +23,18 @@ class BuildBestSellingProducts extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  Gaps.hGap16,
+                  Gaps.hGap10,
                   ...List.generate(
                     bestSellingProducts.length,
                     (index) {
-                      return BuildProductItem(
-                        productModel: bestSellingProducts[index],
-                        onRefresh: () => controller.getHome(context),
+                      return Padding(
+                        padding: Dimens.paddingHorizontal5PX,
+                        child: BuildProductItem(
+                          productModel: bestSellingProducts[index],
+                          onFavRefresh: () => controller.onChangeFav(
+                            bestSellingProducts[index],
+                          ),
+                        ),
                       );
                     },
                   )

@@ -1,7 +1,8 @@
 part of 'active_account_imports.dart';
 
 class ActiveAccount extends StatefulWidget {
-  const ActiveAccount({Key? key}) : super(key: key);
+  final String phone ;
+  const ActiveAccount({Key? key, required this.phone}) : super(key: key);
 
   @override
   _ActiveAccountState createState() => _ActiveAccountState();
@@ -10,10 +11,6 @@ class ActiveAccount extends StatefulWidget {
 class _ActiveAccountState extends State<ActiveAccount> {
   final ActiveAccountController controller = ActiveAccountController();
 
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +20,9 @@ class _ActiveAccountState extends State<ActiveAccount> {
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
         children: [
-          const BuildHeaderTitle(title: "Enter your security code"),
+          const BuildHeaderTitle(title: "Enter Verify Code"),
           BuildPinField(onComplete: controller.onComplete),
-          BuildActiveButton(controller: controller),
+          BuildActiveButton(controller: controller, phone: widget.phone,),
         ],
       ),
     );

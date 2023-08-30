@@ -1,22 +1,30 @@
-part of'compare_widgets_imports.dart';
+part of 'compare_widgets_imports.dart';
+
 class BuildPaddedText extends StatelessWidget {
   final String? text;
-  final TextAlign align ;
-  final Color color;
-  final bool? isImage;
-  const  BuildPaddedText( { this.text,  this.align= TextAlign.center,this.color= Colors.black,  this.isImage=false}) ;
+  final String? image;
+
+  const BuildPaddedText({super.key, this.text, this.image});
 
   @override
   Widget build(BuildContext context) {
-    return   Padding(
-      padding:const  EdgeInsets.symmetric(vertical: 5,horizontal: 5).r,
-      child: !isImage!?Text(
-      text??"",
-      textAlign: align,
-      style: AppTextStyle.s10_w400(
-    color: color,
-    ),
-
-    ):Image.asset(Res.suliitLogo,height: 40.r,width: 40.r,));
+    return Padding(
+      padding: Dimens.paddingAll5PX,
+      child: Visibility(
+        visible: image == null,
+        replacement: CachedImage(
+          height: 40.r,
+          width: 40.r,
+          url: image ?? "",
+        ),
+        child: Text(
+          text ?? "",
+          textAlign: TextAlign.center,
+          style: AppTextStyle.s10_w400(
+            color: context.colors.black,
+          ),
+        ),
+      ),
+    );
   }
 }

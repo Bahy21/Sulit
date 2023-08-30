@@ -13,18 +13,27 @@ class ApiNames{
   static const String activeAccount = "otp/verify";
   static const String resendCode = "ResendCode";
   static const String switchNotify = "SwitchNotify";
-  static const String forgetPassword = "cabaf46ee69d7b8445a5d791";
-  static const String resetPassword = "A2q4mG84Z9rE2B38In4HALSWTwt9eQ5Slzq56Cod";
+  static const String forgetPassword = "password/forgot";
+  static const String resetPassword = "password/reset";
   static const String resendPasswordCode = "password/forgot-resend-code";
   static const String logout = "logout";
+  static const String verifyPhone = "verification-phone/verify-phone";
 
   // profile urls
   static const String updateProfile = "profile/update?_method=put";
+  static const String updateProfileEmail = "new-email";
 
   //products urls
   static const String getHome = "home";
+  static const String getProductDetails = "products";
   static const String getPopularProducts = "mostpopulars";
   static String toggleWishlist (int id) => "products/$id/wishlist/toggle";
+  static const String sendQuery = "product-queries";
+  static const String getVariantPrice = "products";
+
+  //dashboard urls
+  static const String getDashboard = "dashboard";
+
 
   // categories urls
   static const String getCategories = "categories";
@@ -41,6 +50,7 @@ class ApiNames{
   static const String countries = "countries";
   static const String states = "states";
   static const String cities  = "cities";
+  static const String myWallet  = "my-wallet";
   static String setDefaultAddress (int id) => "user/addresses/$id/set-default?_method=put";
   static String deleteAddress (int id) => "user/addresses/$id/delete";
   static String editAddress (int id) => "user/addresses/$id/update?_method=put";
@@ -60,4 +70,22 @@ class ApiNames{
   // wishlist
   static const String wishlist = "wishlists";
 
+  //cart
+  static const String cart = "cart";
+  static const String addCartAddress = "cart/add-address";
+  static const String cartStoreShipping = "cart/store-shipping-info";
+  static const String applyCoupon = "cart/apply-coupon";
+  static const String storeOrders = "orders/store";
+  static const String storeProductToCart = "cart/store";
+  static const String cartShippingInfo = "cart/shipping-info";
+
+  //tickets
+  static const String createTicket = "tickets/store";
+  static const String tickets = "tickets";
+  static String ticketDetails (int id) =>  "tickets/$id/show";
+  static String addTicketReply (int id) =>  "tickets/$id/replies/store";
+
+  //PurchaseHistory
+  static const String getPurchaseHistory = "orders/purchase-history";
+  static String getTrackOrder (String code) => "orders/$code/track-your-order";
 }

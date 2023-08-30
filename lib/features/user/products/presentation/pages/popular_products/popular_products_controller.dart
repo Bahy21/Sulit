@@ -5,12 +5,7 @@ class PopularProductsController {
       PagingController(firstPageKey: 1);
   int pageSize = 12;
 
-  PopularProductsParams _popularProductsParams(int id, int page, bool refresh) {
-    return PopularProductsParams(
-        id: id, currentPage: page, pageSize: pageSize, refresh: refresh);
-  }
-
-  void initPagination(int id) {
+  PopularProductsController(int id) {
     pagingController.addPageRequestListener((pageKey) {
       getPopularProducts(id, pageKey, refresh: false);
       getPopularProducts(id, pageKey);
@@ -31,5 +26,10 @@ class PopularProductsController {
       final nextPageKey = currentPage + 1;
       pagingController.appendPage(data, nextPageKey);
     }
+  }
+
+  PopularProductsParams _popularProductsParams(int id, int page, bool refresh) {
+    return PopularProductsParams(
+        id: id, currentPage: page, pageSize: pageSize, refresh: refresh);
   }
 }

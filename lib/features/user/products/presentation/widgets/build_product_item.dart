@@ -4,6 +4,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_tdd/core/constants/dimens.dart';
 import 'package:flutter_tdd/core/constants/gaps.dart';
+import 'package:flutter_tdd/core/helpers/di.dart';
 import 'package:flutter_tdd/core/routes/router_imports.gr.dart';
 import 'package:flutter_tdd/core/theme/colors/colors_extension.dart';
 import 'package:flutter_tdd/core/theme/text/app_text_style.dart';
@@ -14,29 +15,33 @@ import 'package:flutter_tdd/features/user/products/presentation/manager/products
 
 class BuildProductItem extends StatelessWidget {
   final Product productModel;
-  final VoidCallback onRefresh ;
+  final VoidCallback onFavRefresh;
 
-  const BuildProductItem({super.key, required this.productModel, required this.onRefresh});
+  const BuildProductItem(
+      {super.key, required this.productModel, required this.onFavRefresh});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsetsDirectional.only(end: Dimens.dp10),
       width: 160.w,
       decoration: BoxDecoration(
         color: context.colors.white,
         borderRadius: Dimens.borderRadius5PX,
-        border: Border.all(color: context.colors.greyWhite),
         boxShadow: [
           BoxShadow(
             color: context.colors.greyWhite,
             blurRadius: 1,
-            spreadRadius: 1,
+            spreadRadius: .5,
           )
         ],
       ),
       child: InkWell(
-        onTap: () => AutoRouter.of(context).push(const ProductDetailsRoute()),
+        onTap: () => AutoRouter.of(context).push(
+          ProductDetailsRoute(
+            productId: productModel.id,
+            isResale: productModel.isResale,
+          ),
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -78,7 +83,7 @@ class BuildProductItem extends StatelessWidget {
                               ),
                             ),
                             Container(
-                              padding: const EdgeInsets.all(6).r,
+                              padding: Dimens.paddingAll5PX,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 color: context.colors.primary,
@@ -100,18 +105,21 @@ class BuildProductItem extends StatelessWidget {
                     child: Column(
                       children: [
                         BuildIconItem(
-                          iconData: productModel.isWishlist ? Icons.favorite : Icons.favorite_border ,
-                          onTap: () => ProductsHelper().toggleFavourite(productModel.id, onRefresh??(){}),
-                          isWishList: productModel.isWishlist,
+                          iconData: productModel.isWishlist
+                              ? Icons.favorite
+                              : Icons.favorite_border,
+                          onTap: () => ProductsHelper().toggleFavourite(
+                              id: productModel.id, onRefresh: onFavRefresh),
+                          checkValue: productModel.isWishlist,
                         ),
                         BuildIconItem(
                           iconData: Icons.compare_arrows,
-                          onTap: () {},
-
+                          onTap: () => getIt<ProductsHelper>()
+                              .addProductToCompare(productModel, context),
                         ),
                         BuildIconItem(
                           iconData: Icons.shopping_cart,
-                          onTap: () {},
+                          onTap: () => getIt<ProductsHelper>().addToCartDialog(context, productModel,  ),
                         ),
                       ],
                     ),
@@ -124,27 +132,23 @@ class BuildProductItem extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    children: [
-                      Text(
-                        productModel.mainPrice ?? "",
-                        style: AppTextStyle.s11_bold(
-                          color: context.colors.primary,
-                        ),
+                  Text(
+                    productModel.priceHighLowDiscount,
+                    style: AppTextStyle.s11_bold(
+                      color: context.colors.primary,
+                    ),
+                  ),
+                  Gaps.vGap3,
+                  Visibility(
+                    visible: productModel.hasDiscount,
+                    child: Text(
+                      productModel.priceHighLow,
+                      style: AppTextStyle.s11_bold(
+                        color: context.colors.black,
+                      ).copyWith(
+                        decoration: TextDecoration.lineThrough,
                       ),
-                      Gaps.hGap5,
-                      Visibility(
-                        visible: productModel.hasDiscount,
-                        child: Text(
-                          productModel.strokedPrice ?? "",
-                          style: AppTextStyle.s11_bold(
-                            color: context.colors.black,
-                          ).copyWith(
-                            decoration: TextDecoration.lineThrough,
-                          ),
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
                   RatingBar.builder(
                     initialRating: productModel.rating.toDouble(),

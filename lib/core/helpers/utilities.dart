@@ -1,9 +1,11 @@
 import 'dart:io';
+
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:geocode/geocode.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:injectable/injectable.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -13,10 +15,14 @@ import 'custom_toast.dart';
 @lazySingleton
 class Utilities {
   void copyToClipBoard(String text) {
-    Clipboard.setData(ClipboardData(text: text)).then((value) {
-      CustomToast.showSnakeBar("Copied successfully", type: ToastType.success);
-    });
+    Clipboard.setData(ClipboardData(text: text)).then(
+      (value) {
+        CustomToast.showSnakeBar("Copied successfully",
+            type: ToastType.success);
+      },
+    );
   }
+
 
   Future<PermissionStatus> getContactsPermission() async {
     await Permission.contacts.request();
@@ -28,6 +34,18 @@ class Utilities {
       return permissionStatus[Permission.contacts] ?? PermissionStatus.granted;
     } else {
       return permission;
+    }
+  }
+
+  Future<List<File>> getImages(BuildContext context) async {
+    FocusScope.of(context).requestFocus(FocusNode());
+    final ImagePicker picker = ImagePicker();
+    final List<XFile> photos = await picker.pickMultiImage();
+    if (photos.isNotEmpty) {
+      List<File> imagesFile = photos.map((e) => File(e.path)).toList();
+      return imagesFile;
+    }else {
+      return [];
     }
   }
 

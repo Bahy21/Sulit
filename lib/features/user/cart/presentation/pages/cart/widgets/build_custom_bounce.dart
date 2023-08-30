@@ -20,12 +20,19 @@ class BuildCustomBounce extends StatelessWidget {
         margin: const EdgeInsets.symmetric(horizontal: Dimens.dp10),
         padding: const EdgeInsets.all(Dimens.dp8),
         decoration: BoxDecoration(
-          color:deleteIcon? context.colors.primary:context.colors.greyWhite,
+          boxShadow: [
+            BoxShadow(
+                color: context.colors.offWhite,
+                blurRadius: 1,
+                spreadRadius: 1)
+          ],
+          color:
+              deleteIcon ? context.colors.primary : context.colors.greyWhite,
           shape: BoxShape.circle,
         ),
         child: Icon(
           iconData,
-          color: deleteIcon?context.colors.white:context.colors.black,
+          color: deleteIcon ? context.colors.white : context.colors.black,
           size: 17,
         ),
       ),

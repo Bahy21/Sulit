@@ -1,11 +1,13 @@
 part of 'delivery_widgets_imports.dart';
 
 class BuildDeliveryProductItem extends StatelessWidget {
-  const BuildDeliveryProductItem({Key? key}) : super(key: key);
+  final CartItem cartItem ;
+  const BuildDeliveryProductItem({Key? key, required this.cartItem}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.symmetric(horizontal: 10.r, vertical: 10.r),
       margin: const EdgeInsets.symmetric(
           vertical: Dimens.dp5, horizontal: Dimens.dp20),
       decoration: BoxDecoration(
@@ -17,14 +19,16 @@ class BuildDeliveryProductItem extends StatelessWidget {
       child: Row(
         children: [
           CachedImage(
-            url: "https://i.ebayimg.com/images/g/2YAAAOSw-jVhULVS/s-l400.jpg",
+            borderRadius: BorderRadius.circular(15.r),
+            url: cartItem.thumbnailImage,
             height: 70.h,
             width: 80.w,
           ),
+          Gaps.hGap12,
           Expanded(
             child: Text(
-              "Empty String Empty String Empty String Empty String Empty String ",
-              style: AppTextStyle.s14_w400(color: context.colors.black),
+              cartItem.name,
+              style: AppTextStyle.s14_w400(color: context.colors.black).copyWith(height: 1.5),
             ),
           ),
         ],

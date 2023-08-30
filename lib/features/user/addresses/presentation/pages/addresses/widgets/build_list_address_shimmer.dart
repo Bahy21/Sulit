@@ -26,7 +26,7 @@ class BuildListAddressShimmer extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              BuildShimmerView(
+              BuildShimmerItem(
                 child: Radio<bool>(
                   onChanged: (value) {},
                   value: false,
@@ -42,12 +42,12 @@ class BuildListAddressShimmer extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(vertical: Dimens.dp5),
                         child: Row(
                           children:  [
-                            BuildShimmerView(
+                            BuildShimmerItem(
                               height: 5,
                               width: index.isEven ? 100 : 70,
                             ),
-                            BuildShimmerView(child: Text("   :  ", style: AppTextStyle.s18_w700(color: context.colors.black),)),
-                            BuildShimmerView(
+                            BuildShimmerItem(child: Text("   :  ", style: AppTextStyle.s18_w700(color: context.colors.black),)),
+                            BuildShimmerItem(
                               height: 5,
                               width: index.isEven ? 100 : 70,
                             ),

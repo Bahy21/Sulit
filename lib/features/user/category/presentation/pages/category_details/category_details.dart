@@ -10,29 +10,26 @@ class CategoryDetails extends StatefulWidget {
 }
 
 class _CategoryDetailsState extends State<CategoryDetails> {
-  final CategoryDetailsController categoryDetailsController =
-      CategoryDetailsController();
+  late CategoryDetailsController controller;
 
   @override
   void initState() {
-    categoryDetailsController.initData(context,widget.categoryModel.id);
+    controller = CategoryDetailsController(context, widget.categoryModel.id);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBody: true,
-      key: categoryDetailsController.scaffold,
+      backgroundColor: context.colors.customBackground,
+      key: controller.scaffold,
       appBar: DefaultAppBar(title: widget.categoryModel.name),
-      drawer: BuildFilterDrawer(
-          categoryDetailsController: categoryDetailsController),
+      drawer: BuildFilterDrawer(categoryDetailsController: controller),
       body: Column(
         children: [
-          BuildAllCategoriesView(
-              categoryDetailsController: categoryDetailsController),
-          BuildFilterBar(categoryDetailsController: categoryDetailsController),
-          BuildProducts(controller: categoryDetailsController),
+          BuildAllCategoriesView(categoryDetailsController: controller),
+          BuildFilterBar(categoryDetailsController: controller),
+          BuildProducts(controller: controller),
         ],
       ),
     );

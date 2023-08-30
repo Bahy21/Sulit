@@ -24,30 +24,24 @@ class _AddressesState extends State<Addresses> {
       appBar: const DefaultAppBar(
         title: "Addresses",
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(
-          vertical: Dimens.dp10,
-        ),
-        child: BlocBuilder<GenericBloc<List<Address>>,
-            GenericState<List<Address>>>(
-          bloc: controller.addressesBloc,
-          builder: (context, state) {
-            if (state is GenericUpdateState) {
-              return Column(
-                children: [
-                  const BuildAddNewAddress(),
-                  Visibility(
+      body: BlocBuilder<GenericBloc<List<Address>>, GenericState<List<Address>>>(
+        bloc: controller.addressesBloc,
+        builder: (context, state) {
+          if (state is GenericUpdateState) {
+            return Column(
+              children: [
+                BuildAddNewAddress(addAddressFor: AddAddressFor.addresses, onRefresh: () => controller.getAddress(),),
+                Visibility(
                     visible: state.data.isNotEmpty,
                     replacement: const BuildAddressesEmptyView(),
                     child: BuildAddressesView(controller: controller,)
-                  )
-                ],
-              );
-            } else {
-              return const BuildAddressLoading();
-            }
-          },
-        ),
+                )
+              ],
+            );
+          } else {
+            return const BuildAddressLoading();
+          }
+        },
       ),
     );
   }

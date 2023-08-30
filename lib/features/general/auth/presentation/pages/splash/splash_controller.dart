@@ -3,6 +3,7 @@
 part of 'splash_imports.dart';
 
 class SplashController {
+
   void manipulateSaveData(BuildContext context) async {
     updateLang(context);
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -15,7 +16,6 @@ class SplashController {
       AutoRouter.of(context).push(HomeRoute(index: 0));
     } else {
       context.read<DeviceCubit>().updateUserAuth(false);
-      await Future.delayed(const Duration(seconds: 2), () {});
       AutoRouter.of(context).push(HomeRoute(index: 0));
     }
   }

@@ -24,6 +24,7 @@ class _HomeMainState extends State<HomeMain> {
       child: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
         child: Scaffold(
+          backgroundColor: context.colors.customBackground,
           appBar: BuildSearchAppBar(homeController: widget.homeController),
           body: BlocBuilder<GenericBloc<HomeDomainModel?>,
               GenericState<HomeDomainModel?>>(

@@ -14,19 +14,18 @@ class BuildTopCategoriesItem extends StatelessWidget {
         height: 60.h,
         width: MediaQuery.of(context).size.width,
         margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 16).r,
-        padding: const EdgeInsetsDirectional.only(
-          start: 5,
-          end: 15,
-        ),
+        padding: Dimens.paddingHorizontal10PX,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5).r,
-            color: context.colors.white,
-            boxShadow: [
-              BoxShadow(
-                  color: context.colors.greyWhite,
-                  blurRadius: 1,
-                  spreadRadius: 1)
-            ]),
+          borderRadius: BorderRadius.circular(5).r,
+          color: context.colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: context.colors.greyWhite,
+              blurRadius: 1,
+              spreadRadius: .5,
+            )
+          ],
+        ),
         child: Row(
           children: [
             CachedImage(
@@ -46,7 +45,7 @@ class BuildTopCategoriesItem extends StatelessWidget {
             Icon(
               Icons.arrow_forward_ios,
               color: context.colors.blackOpacity,
-              size: 10.sp,
+              size: 15.sp,
             )
           ],
         ),

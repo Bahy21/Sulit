@@ -50,6 +50,7 @@ abstract class AppColors {
   Color get darkPurple;
 
   Color get background;
+  Color get customBackground;
 
   Color get disableGray;
 

@@ -2,30 +2,21 @@ part of 'home_main_widgets_imports.dart';
 
 class BuildHomeView extends StatelessWidget {
   final HomeDomainModel homeDomainModel;
-  final HomeMainController controller ;
+  final HomeMainController controller;
 
-  const BuildHomeView({super.key, required this.homeDomainModel, required this.controller});
+  const BuildHomeView(
+      {super.key, required this.homeDomainModel, required this.controller});
 
   @override
   Widget build(BuildContext context) {
     return ListView(
       padding: Dimens.paddingVertical10PX,
       children: [
-        BuildHomeSwiper(
-          slider: homeDomainModel.sliders,
-        ),
-        BuildBanners(
-          banners: homeDomainModel.bannersOne,
-        ),
-        BuildDeals(
-          flashSales: homeDomainModel.flashSales,
-        ),
-        BuildBanners(
-          banners: homeDomainModel.bannersTwo,
-        ),
-        BuildPopularProducts(
-          mostPopularProducts: homeDomainModel.mostPopular,
-        ),
+        BuildHomeSwiper(slider: homeDomainModel.sliders),
+        BuildBanners(banners: homeDomainModel.bannersOne),
+        BuildDeals(flashSales: homeDomainModel.flashSales),
+        BuildBanners(banners: homeDomainModel.bannersTwo),
+        BuildPopularProducts(mostPopularProducts: homeDomainModel.mostPopular),
         BuildBestSellingProducts(
           bestSellingProducts: homeDomainModel.bestSellingProducts,
           controller: controller,
@@ -38,12 +29,8 @@ class BuildHomeView extends StatelessWidget {
           featuredProducts: homeDomainModel.featuredProducts,
           controller: controller,
         ),
-        BuildTopCategories(
-          topCategories: homeDomainModel.topCategories,
-        ),
-        BuildTopBrands(
-          brandList: homeDomainModel.topBrands,
-        )
+        BuildTopCategories(topCategories: homeDomainModel.topCategories),
+        BuildTopBrands(brandList: homeDomainModel.topBrands)
       ],
     );
   }

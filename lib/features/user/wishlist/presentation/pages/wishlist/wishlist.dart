@@ -19,34 +19,23 @@ class _WishlistState extends State<Wishlist> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const DefaultAppBar(
-        title: "WishList",
-        showBack: true,
-      ),
-      body:
-          BlocBuilder<GenericBloc<List<Product>>, GenericState<List<Product>>>(
-        bloc: controller.wishlistBloc,
-        builder: (context, state) {
-          return GridView(
-            padding: const EdgeInsets.symmetric(
-              vertical: 20,
-              horizontal: 16,
-            ).r,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 8.r,
-              mainAxisSpacing: 8.r,
-              childAspectRatio: 8 / 10,
-            ),
-            children: List.generate(
-              state.data.length,
-              (index) => BuildProductItem(
-                productModel: state.data[index],
-                onRefresh: () => controller.getWishlist(),
-              ),
-            ),
-          );
-        },
+      backgroundColor: context.colors.customBackground,
+      appBar: const DefaultAppBar(title: "WishList", showBack: true),
+      body: GenericListView(
+        type: ListViewType.gridApi,
+        onRefresh: controller.getWishlist,
+        cubit: controller.wishlistBloc,
+        runSpacing: 15.r,
+        spacing: 15.r,
+        gridCrossCount: 2,
+        gridItemHeight: 200.spMin,
+        padding: Dimens.paddingAll15PX,
+        itemBuilder: (_, index, item) => BuildProductItem(
+          productModel: item,
+          onFavRefresh: () => controller.onChangeFav(item),
+        ),
+        loadingWidget: const BuildLoadingProductsGridView(),
+        emptyWidget: const BuildEmptyDataView(),
       ),
     );
   }

@@ -1,7 +1,11 @@
 part of 'cart_widgets_imports.dart';
 
 class BuildCartButtons extends StatelessWidget {
-  const BuildCartButtons({Key? key}) : super(key: key);
+  final String price ;
+  final String currency ;
+  final List<CartItem> cartItems ;
+  final CartController controller ;
+  const BuildCartButtons({Key? key, required this.price, required this.currency, required this.cartItems, required this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +24,7 @@ class BuildCartButtons extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const BuildTotalCost(),
+          BuildTotalCost(price: price, currency: currency,),
           Row(
             children: [
               Expanded(
@@ -36,8 +40,7 @@ class BuildCartButtons extends StatelessWidget {
                 child: DefaultButton(
                   title: "Continue to shipping",
                   color: context.colors.primary,
-                  onTap: () =>
-                      AutoRouter.of(context).push(const ShippingRoute()),
+                  onTap: () => controller.navigateToShipping(context)
                 ),
               ),
             ],

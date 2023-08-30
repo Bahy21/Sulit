@@ -1,25 +1,21 @@
 part of 'tickets_details_widgets_imports.dart';
 
 class BuildAddReplayButton extends StatelessWidget {
-  final TicketsDetailsController ticketsDetailsController;
+  final TicketsDetailsController controller;
+  final int id;
 
-  const BuildAddReplayButton({Key? key, required this.ticketsDetailsController})
+  const BuildAddReplayButton(
+      {Key? key, required this.controller, required this.id})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(12.0).r,
+      padding: Dimens.paddingAll10PX,
       child: FloatingActionButton(
-
-        onPressed: () {
-          showDialog(context: context,
-              builder: (context) =>
-                  BuildTicketDetailsDialog(
-                    ticketsDetailsController: ticketsDetailsController,));
-        },
+        onPressed: ()=>controller.showAddReplyDialog(context, id),
         backgroundColor: context.colors.primary,
-        child: Icon(Icons.add, color: context.colors.white,),
+        child: Icon(Icons.add, color: context.colors.white, size: 30.sp),
       ),
     );
   }

@@ -9,19 +9,13 @@ class LoginController {
   final TextEditingController password = TextEditingController();
   final GenericBloc<bool> passwordCubit = GenericBloc(false);
 
-  LoginParams _loginParams() {
-    return LoginParams(email: email.text, password: password.text);
-  }
 
   void onSubmit(BuildContext context) async {
     if (formKey.currentState!.validate()) {
       btnKey.currentState?.animateForward();
       var params = _setLoginParams();
       var result = await SetLogin().call(params);
-      if (result != null) {
-        _cashAndRoute(context, result);
-      }
-
+      _cashAndRoute(context, result?? UserDomainModel());
     }
   }
 
@@ -42,7 +36,7 @@ class LoginController {
   LoginParams _setLoginParams(){
     return LoginParams(
       email: email.text,
-      password: password.text
+      password: password.text,
     );
   }
 

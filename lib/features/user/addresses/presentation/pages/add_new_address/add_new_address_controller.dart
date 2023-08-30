@@ -52,16 +52,14 @@ class AddNewAddressController {
     return data ;
   }
 
-  Future<void> addNewAddress(BuildContext context) async {
-    if(formKey.currentState!.validate()){
+  Future<void> addNewAddress(
+      BuildContext context, AddAddressFor addAddressFor) async {
+    if (formKey.currentState!.validate()) {
       var params = _addressParams();
       var result = await SetAddNewAddress().call(params);
       if (result) {
         CustomToast.showSimpleToast(msg: "Address info added successfully");
-        AutoRouter.of(context).pushAndPopUntil(
-          const AddressesRoute(),
-          predicate: (route) => false,
-        );
+        AutoRouter.of(context).pop(true);
       }
     }
   }

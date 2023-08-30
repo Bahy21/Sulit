@@ -19,13 +19,14 @@ class _BrandsState extends State<Brands> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: context.colors.customBackground,
       appBar: const DefaultAppBar(title: "All Brands", showBack: true),
       body: PagedGridView<int, BrandDomainModel>(
-        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16).r,
+        padding: Dimens.paddingAll15PX,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          crossAxisSpacing: 20.r,
-          mainAxisSpacing: 20.r,
+          crossAxisSpacing: 15.r,
+          mainAxisSpacing: 15.r,
           childAspectRatio: 9 / 8,
         ),
         showNewPageProgressIndicatorAsGridChild: false,

@@ -17,9 +17,12 @@ class ImplBaseDataSources extends BaseDataSources {
       requestMethod: RequestMethod.post,
       responseType: ResType.type,
       showLoader: true,
-      responseKey: (data) => data["success"],
+      responseKey: (data) => data["key"] == 'success',
       errorFunc: (data) => data["msg"],
     );
     return await GenericHttpImpl<bool>().call(model);
   }
+
+
+
 }

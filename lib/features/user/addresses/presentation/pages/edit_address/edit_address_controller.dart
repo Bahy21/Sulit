@@ -13,10 +13,9 @@ class EditAddressController {
   final LocationCubit locationCubit = LocationCubit();
 
   EditAddressController(Address address){
-    addressController.text = address.address ;
-    postalCodeController.text = address.postalCode ;
-    phoneController.text = address.phone;
-
+    addressController.text = address.address??"" ;
+    postalCodeController.text = address.postalCode??"" ;
+    phoneController.text = address.phone??"";
   }
 
   Country? countryModel;
@@ -60,9 +59,9 @@ class EditAddressController {
     return data;
   }
 
-  Future<void> editAddress(BuildContext context, int id) async {
+  Future<void> editAddress(BuildContext context,  Address address) async {
     if (formKey.currentState!.validate()) {
-      var params = _addressParams(id);
+      var params = _addressParams(address);
       var result = await SetEditAddress().call(params);
       if (result) {
         _showToastAndPop(context);
@@ -81,14 +80,14 @@ class EditAddressController {
     );
   }
 
-  EditAddressParams _addressParams(int id) {
+  EditAddressParams _addressParams( Address address) {
     return EditAddressParams(
-      id: id,
+      id: address.id??0,
       address: addressController.text,
       postalCode: postalCodeController.text,
-      countryId: countryModel!.id,
-      stateId: stateModel!.id,
-      cityId: cityModel!.id,
+      countryId: countryModel?.id?? address.country!.id,
+      stateId: stateModel?.id ?? address.state!.id,
+      cityId: cityModel?.id?? address.city!.id,
       phone: phoneController.text,
       lat: locationCubit.state.model!.lat,
       long: locationCubit.state.model!.lng,

@@ -25,6 +25,10 @@ class ProductOptionsModel extends BaseApiModel<ProductOptions>
   @override
   ProductOptions toDomainModel() {
     return ProductOptions(
-        attributeId: attributeId, title: title, options: options);
+      attributeId: attributeId,
+      title: title,
+      options: options,
+      selectedAttribute: [],
+    );
   }
 }

@@ -12,8 +12,8 @@ class BuildCustomSuggestItem extends StatelessWidget {
         ...List.generate(
           3,
           (index) => GestureDetector(
-            onTap: () =>
-                AutoRouter.of(context).push(const ProductDetailsRoute()),
+            // onTap: () =>
+            //     AutoRouter.of(context).push(const ProductDetailsRoute()),
             child: Row(
               children: [
                 CachedImage(

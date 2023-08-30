@@ -16,11 +16,10 @@ class BuildDealsItem extends StatelessWidget {
         decoration: BoxDecoration(
           color: context.colors.white,
           borderRadius: Dimens.borderRadius20PX,
-          border: Border.all(color: context.colors.greyWhite),
           boxShadow: [
             BoxShadow(
               color: context.colors.greyWhite,
-              blurRadius: .5,
+              blurRadius: 1,
               spreadRadius: .5,
             )
           ],

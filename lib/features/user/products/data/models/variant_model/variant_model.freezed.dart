@@ -23,13 +23,13 @@ mixin _$VariantModel {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   @JsonKey(name: "stroked_price")
-  double get strokedPrice => throw _privateConstructorUsedError;
+  String get strokedPrice => throw _privateConstructorUsedError;
   @JsonKey(name: "calculable_price")
-  double get calculablePrice => throw _privateConstructorUsedError;
+  String get calculablePrice => throw _privateConstructorUsedError;
   @JsonKey(name: "main_price")
   String get mainPrice => throw _privateConstructorUsedError;
   @JsonKey(name: "current_stock")
-  double get currentStock => throw _privateConstructorUsedError;
+  int get currentStock => throw _privateConstructorUsedError;
   @JsonKey(name: "currency_symbol")
   String get currencySymbol => throw _privateConstructorUsedError;
   String get image => throw _privateConstructorUsedError;
@@ -50,10 +50,10 @@ abstract class $VariantModelCopyWith<$Res> {
   $Res call(
       {int id,
       String name,
-      @JsonKey(name: "stroked_price") double strokedPrice,
-      @JsonKey(name: "calculable_price") double calculablePrice,
+      @JsonKey(name: "stroked_price") String strokedPrice,
+      @JsonKey(name: "calculable_price") String calculablePrice,
       @JsonKey(name: "main_price") String mainPrice,
-      @JsonKey(name: "current_stock") double currentStock,
+      @JsonKey(name: "current_stock") int currentStock,
       @JsonKey(name: "currency_symbol") String currencySymbol,
       String image,
       String options});
@@ -94,11 +94,11 @@ class _$VariantModelCopyWithImpl<$Res, $Val extends VariantModel>
       strokedPrice: null == strokedPrice
           ? _value.strokedPrice
           : strokedPrice // ignore: cast_nullable_to_non_nullable
-              as double,
+              as String,
       calculablePrice: null == calculablePrice
           ? _value.calculablePrice
           : calculablePrice // ignore: cast_nullable_to_non_nullable
-              as double,
+              as String,
       mainPrice: null == mainPrice
           ? _value.mainPrice
           : mainPrice // ignore: cast_nullable_to_non_nullable
@@ -106,7 +106,7 @@ class _$VariantModelCopyWithImpl<$Res, $Val extends VariantModel>
       currentStock: null == currentStock
           ? _value.currentStock
           : currentStock // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       currencySymbol: null == currencySymbol
           ? _value.currencySymbol
           : currencySymbol // ignore: cast_nullable_to_non_nullable
@@ -134,10 +134,10 @@ abstract class _$$_VariantModelCopyWith<$Res>
   $Res call(
       {int id,
       String name,
-      @JsonKey(name: "stroked_price") double strokedPrice,
-      @JsonKey(name: "calculable_price") double calculablePrice,
+      @JsonKey(name: "stroked_price") String strokedPrice,
+      @JsonKey(name: "calculable_price") String calculablePrice,
       @JsonKey(name: "main_price") String mainPrice,
-      @JsonKey(name: "current_stock") double currentStock,
+      @JsonKey(name: "current_stock") int currentStock,
       @JsonKey(name: "currency_symbol") String currencySymbol,
       String image,
       String options});
@@ -176,11 +176,11 @@ class __$$_VariantModelCopyWithImpl<$Res>
       strokedPrice: null == strokedPrice
           ? _value.strokedPrice
           : strokedPrice // ignore: cast_nullable_to_non_nullable
-              as double,
+              as String,
       calculablePrice: null == calculablePrice
           ? _value.calculablePrice
           : calculablePrice // ignore: cast_nullable_to_non_nullable
-              as double,
+              as String,
       mainPrice: null == mainPrice
           ? _value.mainPrice
           : mainPrice // ignore: cast_nullable_to_non_nullable
@@ -188,7 +188,7 @@ class __$$_VariantModelCopyWithImpl<$Res>
       currentStock: null == currentStock
           ? _value.currentStock
           : currentStock // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       currencySymbol: null == currencySymbol
           ? _value.currencySymbol
           : currencySymbol // ignore: cast_nullable_to_non_nullable
@@ -230,16 +230,16 @@ class _$_VariantModel extends _VariantModel {
   final String name;
   @override
   @JsonKey(name: "stroked_price")
-  final double strokedPrice;
+  final String strokedPrice;
   @override
   @JsonKey(name: "calculable_price")
-  final double calculablePrice;
+  final String calculablePrice;
   @override
   @JsonKey(name: "main_price")
   final String mainPrice;
   @override
   @JsonKey(name: "current_stock")
-  final double currentStock;
+  final int currentStock;
   @override
   @JsonKey(name: "currency_symbol")
   final String currencySymbol;
@@ -297,10 +297,10 @@ abstract class _VariantModel extends VariantModel {
   const factory _VariantModel(
       {required final int id,
       required final String name,
-      @JsonKey(name: "stroked_price") required final double strokedPrice,
-      @JsonKey(name: "calculable_price") required final double calculablePrice,
+      @JsonKey(name: "stroked_price") required final String strokedPrice,
+      @JsonKey(name: "calculable_price") required final String calculablePrice,
       @JsonKey(name: "main_price") required final String mainPrice,
-      @JsonKey(name: "current_stock") required final double currentStock,
+      @JsonKey(name: "current_stock") required final int currentStock,
       @JsonKey(name: "currency_symbol") required final String currencySymbol,
       required final String image,
       required final String options}) = _$_VariantModel;
@@ -315,16 +315,16 @@ abstract class _VariantModel extends VariantModel {
   String get name;
   @override
   @JsonKey(name: "stroked_price")
-  double get strokedPrice;
+  String get strokedPrice;
   @override
   @JsonKey(name: "calculable_price")
-  double get calculablePrice;
+  String get calculablePrice;
   @override
   @JsonKey(name: "main_price")
   String get mainPrice;
   @override
   @JsonKey(name: "current_stock")
-  double get currentStock;
+  int get currentStock;
   @override
   @JsonKey(name: "currency_symbol")
   String get currencySymbol;
