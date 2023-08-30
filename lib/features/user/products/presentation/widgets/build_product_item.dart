@@ -9,6 +9,7 @@ import 'package:flutter_tdd/core/routes/router_imports.gr.dart';
 import 'package:flutter_tdd/core/theme/colors/colors_extension.dart';
 import 'package:flutter_tdd/core/theme/text/app_text_style.dart';
 import 'package:flutter_tdd/core/widgets/CachedImage.dart';
+import 'package:flutter_tdd/core/widgets/custom_decoration.dart';
 import 'package:flutter_tdd/features/user/category/presentation/pages/category_details/widgets/category_details_widgets_imports.dart';
 import 'package:flutter_tdd/features/user/products/domain/models/product.dart';
 import 'package:flutter_tdd/features/user/products/presentation/manager/products_helper.dart';
@@ -26,17 +27,7 @@ class BuildProductItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 160.w,
-      decoration: BoxDecoration(
-        color: context.colors.white,
-        borderRadius: Dimens.borderRadius5PX,
-        boxShadow: [
-          BoxShadow(
-            color: context.colors.greyWhite,
-            blurRadius: 1,
-            spreadRadius: .5,
-          )
-        ],
-      ),
+      decoration: CustomDecoration(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -44,7 +35,7 @@ class BuildProductItem extends StatelessWidget {
             child: Stack(
               children: [
                 CachedImage(
-                  fit: BoxFit.contain,
+                  fit: BoxFit.fill,
                   haveRadius: true,
                   borderRadius: Dimens.borderRadius5PX,
                   url: productModel.thumbnailImage,
