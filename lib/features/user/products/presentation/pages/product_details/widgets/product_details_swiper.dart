@@ -42,6 +42,7 @@ class BuildProductDetailsSwiper extends StatelessWidget {
               productModel.isWishlist ? Icons.favorite : Icons.favorite_border,
           checkValue: productModel.isWishlist,
           onTap: () => getIt<ProductsHelper>().toggleFavourite(
+            context: context,
             id: productModel.id,
             onRefresh: () => controller.onChangeFav(productModel),
           ),
